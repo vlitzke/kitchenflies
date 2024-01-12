@@ -17,3 +17,9 @@ How you print everything
 Squeue –-me
 
 Dos2unix for text files anytime we’re transferring a file to unix 
+
+I followed this: https://protocols.hostmicrobe.org/conda
+Downloaded miniconda to my computer
+
+But also on the cluster, I’m going to install conda 
+https://help.cropdiversity.ac.uk/guest-accounts.html

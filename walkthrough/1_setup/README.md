@@ -34,6 +34,25 @@ As well as a file called MD5.txt which is not super useful for us, but is a "mes
 
 This will prove useful if you want to run your samples on the cluster and want to loop through all of them. 
 
+| Sample ID |
+| --- |
+| F1_23 |
+| --- |
+| F1_22 |
+| --- |
+| F2_22 |
+| --- |
+| F2_23 |
+| --- |
+| M1_22 |
+| --- |
+| M1_23 |
+| --- |
+| M2_23 |
+| --- |
+| M3_22 |
+| --- |
+
 # Downloading the reference genome 
 
 Download reference genome from here: <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/>

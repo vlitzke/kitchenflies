@@ -39,3 +39,7 @@ This will prove useful if you want to run your samples on the cluster and want t
 Download reference genome from here: <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/>
 
 To unzip: `gunzip -f dmel-all-chromosome-r6.54.fasta.gz`
+
+Note: Leeban says I can map the RNA-seq data  to the reference genome to get Fst values 
+I mapped it to cDNA (no introns) 
+Mapping to the DNA reference means you need an aligner aware of splice junctions, such as Tophat or STAR

@@ -36,8 +36,8 @@ This will prove useful if you want to run your samples on the cluster and want t
 
 | Sample ID |
 | --- |
-| F1_23 |
-| F1_22 |
+| F1_23
+F1_22 |
 | --- |
 | F2_22 |
 | F2_23 |

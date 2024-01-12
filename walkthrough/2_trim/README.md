@@ -2,6 +2,8 @@
 
 Raw FASTQ reads will be trimmed for a minimum BQ >18 and a minimum length (fragments greater than 75 base pairs) using cutadapt[^1].
 
+Note: both Compressed in- and output files are supported (.gz). 
+
 ```
 cutadapt \
 -q 18 \
@@ -15,6 +17,12 @@ cutadapt \
 ./kitchenflies/DNA/1_Raw/2023/2023_Raw/01.RawData/F1_22/F1_22_EKDN230045336-1A_HVMCLDSX7_L4_1.fq.gz \
 ./kitchenflies/DNA/1_Raw/2023/2023_Raw/01.RawData/F1_22/F1_22_EKDN230045336-1A_HVMCLDSX7_L4_2.fq.gz
 ```
+
+| Command      | Description |
+| ----------- | ----------- |
+| -q     | Title       |
+| --minimum length   | Text        |
+
 
 Saved as trimmed files in the 1_cutadapt_trimmed folder
 

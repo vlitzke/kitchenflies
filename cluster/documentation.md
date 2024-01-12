@@ -23,3 +23,17 @@ Downloaded miniconda to my computer
 
 But also on the cluster, I’m going to install conda 
 https://help.cropdiversity.ac.uk/guest-accounts.html
+
+within cluster: 
+install-bioconda
+
+test that it works: conda –version
+and then I also downloaded all the packages to the conda on the cluster! 
+Soooo..
+
+
+
+Created a bunch of small envrionments
+Keep the base environment relatively clear, rather than downloading packages to the base environment 
+
+Type in conda activate ‘program name’ 

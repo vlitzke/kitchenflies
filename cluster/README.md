@@ -1,10 +1,14 @@
-as soon as I log in , write:
-srun --pty bash 
+# Set Up
+As processing this data is extensive and intensive, you are likely going to run your jobs on an external cluster instead of on your personal computer. 
 
-or this:
-srsh -p short --mem=4G
+Since I am a part of a consortium that includes the University of St Andrews, I following this documentation to create an account to use on the cluster, which is quite helpful: <https://help.cropdiversity.ac.uk/guest-accounts.html>
 
-should activate a node to run stuff on 
+Then, you're going to want to install conda if it isn't already there.  I’m going to install conda 
+
+# Daily Use
+
+Once you log into the cluster, you will want to allocate your local jobs some memory on a node: 
+`srsh -p short --mem=4G` or `srun --pty bash` 
 
 and then to use conda and activate my specific environment (where all my packages are downloaded)
 conda activate rnaseq 
@@ -21,8 +25,7 @@ Dos2unix for text files anytime we’re transferring a file to unix
 I followed this: https://protocols.hostmicrobe.org/conda
 Downloaded miniconda to my computer
 
-But also on the cluster, I’m going to install conda 
-https://help.cropdiversity.ac.uk/guest-accounts.html
+
 
 within cluster: 
 install-bioconda

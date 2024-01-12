@@ -2,7 +2,8 @@
 
 Once you have sent off your DNA samples to the sequencer, you will likely want to download your data from their website to somewhere with enough storage (probably not your personal computer!) 
 
-For example, Novogene has a tab on top that says: > Click on Export Link
+For example, Novogene has a tab on top that says: 
+> Click on Export Link
 
 Then you'll download an excel table, that has a few links. 
 

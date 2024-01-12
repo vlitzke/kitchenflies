@@ -13,9 +13,7 @@ Once you log into the cluster, you will want to allocate your local jobs some me
 and then to use conda and activate my specific environment (where all my packages are downloaded)
 conda activate rnaseq 
 
-If you can’t even install packages: $ srun --partition=short --cpus-per-task=8 --mem=16G --pty bash
-
-Run something like this ^ to increase the memory 
+If you can’t even install packages, increase your memory like such: $ srun --partition=short --cpus-per-task=8 --mem=16G --pty bash
 
 How you print everything 
 Squeue –-me

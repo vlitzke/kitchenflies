@@ -8,7 +8,11 @@ Then you'll download an excel table, that has a few links.
 
 get an excel table full of the result files:
 
-In linux, use the command `Wget link Unzip: unzip filename.zip` 
+In linux, use the command 
+`Wget [insert link here]`
+
+To Unzip: 
+`unzip filename.zip` 
 
 The folder where the company provides you with
 1. Raw Data
@@ -29,4 +33,6 @@ This will prove useful if you want to run your samples on the cluster and want t
 
 # Downloading the reference genome 
 
-Download reference genome: https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/ unzip gunzip -f dmel-all-chromosome-r6.54.fasta.gz
+Download reference genome from [here]<https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/>
+
+To unzip: `gunzip -f dmel-all-chromosome-r6.54.fasta.gz`

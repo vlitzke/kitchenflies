@@ -17,3 +17,7 @@ sed 's/>/>sim_/g' $DATA_DIR/8_DSim_Cont/dsim-all-chromosome-r2.02.fasta.gz | gzi
 zcat $DATA_DIR/8_DSim_Cont/dsim-all-chromosome-r2.02_prefix.fa.gz | cat $DATA_DIR/2_bam_libraries/dmel-all-chromosome-r6.54.fasta.gz - | gzip -c > $DATA_DIR/8_DSim_Cont/combined.fa.gz
 
 
+for the sam to bam crap F1_22: 101393 reads could not be matched to a mate and were not exported
+
+
+

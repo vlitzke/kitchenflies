@@ -20,14 +20,14 @@ cutadapt \
 
 | Command      | Description |
 | ----------- | ----------- |
-| -q     | trims low-quality ends from reads, with a specified single cutoff value which trims from the 3' end[^2] |
-| --minimum length   | Discard processed reads that are shorter than 75 bp |
-| -o | output file name |
-| -p | output file name for second read in the pair |
-| -b | detects and trims adaptor sequence on forward read |
-| -B | detects and trims adaptor sequence on reverse read |
-| -O | sets the minimum overlap parameters for adapters listed via the -b option |
-| -n | looks to trim a minimum of 3 adaptor sequences from one read |
+| `-q`     | trims low-quality ends from reads, with a specified single cutoff value which trims from the 3' end[^2] |
+| `--minimum length`   | Discard processed reads that are shorter than 75 bp |
+| `-o` | output file name |
+| `-p` | output file name for second read in the pair |
+| `-b` | detects and trims adaptor sequence on forward read |
+| `-B` | detects and trims adaptor sequence on reverse read |
+| `-O` | sets the minimum overlap parameters for adapters listed via the -b option |
+| `-n` | looks to trim a minimum of 3 adaptor sequences from one read |
 | - | input file 1.fq.gz |
 | - | input file 2.fq.gz |
 

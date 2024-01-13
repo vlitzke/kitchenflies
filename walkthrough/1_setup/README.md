@@ -44,18 +44,17 @@ Line 4 encodes the quality data for the sequence in Line 2, and must contain the
 Illumina Sequence Identifier details:
 
 | A00184 | Unique instrument name |
-
 | --- |
-| 509|Run ID | 
-| H3253DSXY|Flowcell ID |
-| 4|Flowcell lane |
-| 1101|Tile number within the flowcell lane |
-| 2067|'x'-coordinate of the cluster within the tile |
-| 1000|'y'-coordinate of the cluster within the tile |
-| 2|Member of a pair, 1 or 2 (paired-end or mate-pair reads only) |
-| N|Y if the read fails filter (read is bad), N otherwise |
-| 0|0 when none of the control bits are on, otherwise it is an even number |
-|ATCCTTGG+TAGCCACT|Index sequence |
+| 509 | Run ID | 
+| H3253DSXY | Flowcell ID |
+| 4 | Flowcell lane |
+| 1101 | Tile number within the flowcell lane |
+| 2067 | 'x'-coordinate of the cluster within the tile |
+| 1000 | 'y'-coordinate of the cluster within the tile |
+| 2 | Member of a pair, 1 or 2 (paired-end or mate-pair reads only) |
+| N | Y if the read fails filter (read is bad), N otherwise |
+| 0 | 0 when none of the control bits are on, otherwise it is an even number |
+|ATCCTTGG+TAGCCACT | Index sequence |
 
 The quality values of the raw sequence read are the ASCII value from the each character in the fourth row minus the 33.
 The quality score of each base is calculated by the ASCII value of its corresponding char minus the constant value 33.

@@ -1,0 +1,385 @@
+/home/vlitzke/scratch
+n19-32-192-blackpanther.hpc.hutton.ac.uk
+/home/vlitzke/scratch
+n19-32-192-blackpanther.hpc.hutton.ac.uk
+Sat 13 Jan 17:55:14 GMT 2024
+Starting job on n19-32-192-blackpanther
+/home/vlitzke/scratch
+[2024-01-13 17:55:14]
+Sat 13 Jan 17:55:14 GMT 2024
+Starting job on n19-32-192-blackpanther
+n19-32-192-crossbones.hpc.hutton.ac.uk
+[2024-01-13 17:55:14]
+n19-32-192-crossbones.hpc.hutton.ac.uk
+/home/vlitzke/scratch
+Sat 13 Jan 17:55:14 GMT 2024
+Sat 13 Jan 17:55:14 GMT 2024
+Starting job on n19-32-192-crossbones
+Starting job on n19-32-192-crossbones
+n19-32-192-crossbones.hpc.hutton.ac.uk
+/home/vlitzke/scratch
+[2024-01-13 17:55:14]
+Sat 13 Jan 17:55:14 GMT 2024
+Starting job on n19-32-192-crossbones
+n19-32-192-blackpanther.hpc.hutton.ac.uk
+[2024-01-13 17:55:14]
+/home/vlitzke/scratch
+Sat 13 Jan 17:55:14 GMT 2024
+Starting job on n19-32-192-blackpanther
+n19-32-192-crossbones.hpc.hutton.ac.uk
+[2024-01-13 17:55:14]
+Sat 13 Jan 17:55:14 GMT 2024
+Starting job on n19-32-192-crossbones
+/home/vlitzke/scratch
+[2024-01-13 17:55:14]
+n19-32-192-abomination.hpc.hutton.ac.uk
+Sat 13 Jan 17:55:14 GMT 2024
+Starting job on n19-32-192-abomination
+[2024-01-13 17:55:14]
+INFO  17:55:33,922 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:33,931 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.8-1-0-gf15c1c3ef, Compiled 2018/02/19 05:43:50 
+INFO  17:55:33,932 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:55:33,932 HelpFormatter - For support and documentation go to https://software.broadinstitute.org/gatk 
+INFO  17:55:33,932 HelpFormatter - [Sat Jan 13 17:55:33 GMT 2024] Executing on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64 
+INFO  17:55:33,933 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_382-b05 
+INFO  17:55:33,939 HelpFormatter - Program Args: -T IndelRealigner -R /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/dmel-all-chromosome-r6.54.fasta -I /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/5_readgroups/M1_22_library-dedup_rg.bam -targetIntervals /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/M1_22_library-dedup_rg.list -o /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/7_realignInDels/M1_22_library-dedup_rg_InDel.bam 
+INFO  17:55:33,980 HelpFormatter - Executing as vlitzke@n19-32-192-abomination.hpc.hutton.ac.uk on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_382-b05. 
+INFO  17:55:33,981 HelpFormatter - Date/Time: 2024/01/13 17:55:33 
+INFO  17:55:33,981 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:33,982 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,182 NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/opt/gatk-3.8/GenomeAnalysisTK.jar!/com/intel/gkl/native/libgkl_compression.so 
+INFO  17:55:34,258 GenomeAnalysisEngine - Deflater: IntelDeflater 
+INFO  17:55:34,259 GenomeAnalysisEngine - Inflater: IntelInflater 
+INFO  17:55:34,263 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:55:34,457 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,456 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,466 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+f15c1c3ef, Compiled 2018/02/19 05:43:50 
+INFO  17:55:34,466 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.8-1-0-gf15c1c3ef, Compiled 2018/02/19 05:43:50 
+INFO  17:55:34,467 HelpFormatter - For support and documentation go to https://software.broadinstitute.org/gatk 
+INFO  17:55:34,458 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,467 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+inux 4.18.0-477.21.1.el8_8.x86_64 amd64 
+INFO  17:55:34,468 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_382-b05 
+s://software.broadinstitute.org/gatk 
+INFO  17:55:34,468 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.8-1-0-gf15c1c3ef, Compiled 2018/02/19 05:43:50 
+INFO  17:55:34,468 HelpFormatter - For support and documentation go to https://software.broadinstitute.org/gatk 
+INFO  17:55:34,468 HelpFormatter - [Sat Jan 13 17:55:34 GMT 2024] Executing on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64 
+INFO  17:55:34,469 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:55:34,469 HelpFormatter - [Sat Jan 13 17:55:34 GMT 2024] Executing on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64 
+INFO  17:55:34,470 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_382-b05 
+INFO  17:55:34,470 HelpFormatter - For support and documentation go to https://software.broadinstitute.org/gatk 
+INFO  17:55:34,470 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_382-b05 
+INFO  17:55:34,471 HelpFormatter - [Sat Jan 13 17:55:34 GMT 2024] Executing on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64 
+INFO  17:55:34,472 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_382-b05 
+INFO  17:55:34,476 HelpFormatter - Program Args: -T IndelRealigner -R /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/dmel-all-chromosome-r6.54.fasta -I /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/5_readgroups/M2_23_library-dedup_rg.bam -targetIntervals /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/M2_23_library-dedup_rg.list -o /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/7_realignInDels/M2_23_library-dedup_rg_InDel.bam 
+INFO  17:55:34,476 HelpFormatter - Program Args: -T IndelRealigner -R /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/dmel-all-chromosome-r6.54.fasta -I /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/5_readgroups/F1_22_library-dedup_rg.bam -targetIntervals /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/F1_22_library-dedup_rg.list -o /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/7_realignInDels/F1_22_library-dedup_rg_InDel.bam 
+INFO  17:55:34,477 HelpFormatter - Program Args: -T IndelRealigner -R /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/dmel-all-chromosome-r6.54.fasta -I /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/5_readgroups/M1_23_library-dedup_rg.bam -targetIntervals /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/M1_23_library-dedup_rg.list -o /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/7_realignInDels/M1_23_library-dedup_rg_InDel.bam 
+INFO  17:55:34,475 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,488 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.8-1-0-gf15c1c3ef, Compiled 2018/02/19 05:43:50 
+INFO  17:55:34,488 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:55:34,489 HelpFormatter - For support and documentation go to https://software.broadinstitute.org/gatk 
+INFO  17:55:34,489 HelpFormatter - [Sat Jan 13 17:55:34 GMT 2024] Executing on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64 
+INFO  17:55:34,490 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_382-b05 
+INFO  17:55:34,497 HelpFormatter - Program Args: -T IndelRealigner -R /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/dmel-all-chromosome-r6.54.fasta -I /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/5_readgroups/F1_23_library-dedup_rg.bam -targetIntervals /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/F1_23_library-dedup_rg.list -o /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/7_realignInDels/F1_23_library-dedup_rg_InDel.bam 
+INFO  17:55:34,510 HelpFormatter - Executing as vlitzke@n19-32-192-crossbones.hpc.hutton.ac.uk on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_382-b05. 
+INFO  17:55:34,511 HelpFormatter - Date/Time: 2024/01/13 17:55:34 
+INFO  17:55:34,511 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,512 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,520 HelpFormatter - Executing as vlitzke@n19-32-192-blackpanther.hpc.hutton.ac.uk on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_382-b05. 
+INFO  17:55:34,520 HelpFormatter - Executing as vlitzke@n19-32-192-blackpanther.hpc.hutton.ac.uk on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_382-b05. 
+INFO  17:55:34,521 HelpFormatter - Date/Time: 2024/01/13 17:55:34 
+INFO  17:55:34,521 HelpFormatter - Executing as vlitzke@n19-32-192-blackpanther.hpc.hutton.ac.uk on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_382-b05. 
+INFO  17:55:34,522 HelpFormatter - Date/Time: 2024/01/13 17:55:34 
+INFO  17:55:34,522 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,523 HelpFormatter - Date/Time: 2024/01/13 17:55:34 
+INFO  17:55:34,523 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,523 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,524 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,524 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,525 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,531 HelpFormatter - Executing as vlitzke@n19-32-192-crossbones.hpc.hutton.ac.uk on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_382-b05. 
+INFO  17:55:34,532 HelpFormatter - Date/Time: 2024/01/13 17:55:34 
+INFO  17:55:34,532 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,533 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,558 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,559 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,571 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.8-1-0-gf15c1c3ef, Compiled 2018/02/19 05:43:50 
+INFO  17:55:34,571 HelpFormatter - The Genome Analysis Toolkit (GATK) v3.8-1-0-gf15c1c3ef, Compiled 2018/02/19 05:43:50 
+INFO  17:55:34,572 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:55:34,571 HelpFormatter - Copyright (c) 2010-2016 The Broad Institute 
+INFO  17:55:34,573 HelpFormatter - For support and documentation go to https://software.broadinstitute.org/gatk 
+INFO  17:55:34,573 HelpFormatter - For support and documentation go to https://software.broadinstitute.org/gatk 
+INFO  17:55:34,573 HelpFormatter - [Sat Jan 13 17:55:34 GMT 2024] Executing on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64 
+INFO  17:55:34,574 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_382-b05 
+INFO  17:55:34,574 HelpFormatter - [Sat Jan 13 17:55:34 GMT 2024] Executing on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64 
+INFO  17:55:34,575 HelpFormatter - OpenJDK 64-Bit Server VM 1.8.0_382-b05 
+INFO  17:55:34,580 HelpFormatter - Program Args: -T IndelRealigner -R /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/dmel-all-chromosome-r6.54.fasta -I /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/5_readgroups/F2_22_library-dedup_rg.bam -targetIntervals /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/F2_22_library-dedup_rg.list -o /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/7_realignInDels/F2_22_library-dedup_rg_InDel.bam 
+INFO  17:55:34,582 HelpFormatter - Program Args: -T IndelRealigner -R /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/dmel-all-chromosome-r6.54.fasta -I /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/5_readgroups/F2_23_library-dedup_rg.bam -targetIntervals /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/6_targetInDels/F2_23_library-dedup_rg.list -o /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/7_realignInDels/F2_23_library-dedup_rg_InDel.bam 
+INFO  17:55:34,616 HelpFormatter - Executing as vlitzke@n19-32-192-crossbones.hpc.hutton.ac.uk on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_382-b05. 
+INFO  17:55:34,617 HelpFormatter - Date/Time: 2024/01/13 17:55:34 
+INFO  17:55:34,618 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,618 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,619 HelpFormatter - Executing as vlitzke@n19-32-192-crossbones.hpc.hutton.ac.uk on Linux 4.18.0-477.21.1.el8_8.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_382-b05. 
+INFO  17:55:34,619 HelpFormatter - Date/Time: 2024/01/13 17:55:34 
+INFO  17:55:34,620 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,621 HelpFormatter - ------------------------------------------------------------------------------------ 
+INFO  17:55:34,657 NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/opt/gatk-3.8/GenomeAnalysisTK.jar!/com/intel/gkl/native/libgkl_compression.so 
+INFO  17:55:34,688 NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/opt/gatk-3.8/GenomeAnalysisTK.jar!/com/intel/gkl/native/libgkl_compression.so 
+INFO  17:55:34,721 NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/opt/gatk-3.8/GenomeAnalysisTK.jar!/com/intel/gkl/native/libgkl_compression.so 
+INFO  17:55:34,722 GenomeAnalysisEngine - Inflater: IntelInflater 
+INFO  17:55:34,723 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:55:34,736 NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/opt/gatk-3.8/GenomeAnalysisTK.jar!/com/intel/gkl/native/libgkl_compression.so 
+INFO  17:55:34,747 NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/opt/gatk-3.8/GenomeAnalysisTK.jar!/com/intel/gkl/native/libgkl_compression.so 
+INFO  17:55:34,756 GenomeAnalysisEngine - Deflater: IntelDeflater 
+INFO  17:55:34,757 GenomeAnalysisEngine - Inflater: IntelInflater 
+INFO  17:55:34,760 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:55:34,787 GenomeAnalysisEngine - Deflater: IntelDeflater 
+INFO  17:55:34,788 GenomeAnalysisEngine - Inflater: IntelInflater 
+INFO  17:55:34,790 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:55:34,805 GenomeAnalysisEngine - Deflater: IntelDeflater 
+INFO  17:55:34,805 GenomeAnalysisEngine - Inflater: IntelInflater 
+INFO  17:55:34,807 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:55:34,807 NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/opt/gatk-3.8/GenomeAnalysisTK.jar!/com/intel/gkl/native/libgkl_compression.so 
+INFO  17:55:34,820 GenomeAnalysisEngine - Deflater: IntelDeflater 
+INFO  17:55:34,821 GenomeAnalysisEngine - Inflater: IntelInflater 
+INFO  17:55:34,822 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:55:34,842 NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/opt/gatk-3.8/GenomeAnalysisTK.jar!/com/intel/gkl/native/libgkl_compression.so 
+INFO  17:55:34,886 GenomeAnalysisEngine - Deflater: IntelDeflater 
+INFO  17:55:34,887 GenomeAnalysisEngine - Inflater: IntelInflater 
+INFO  17:55:34,889 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:55:34,908 GenomeAnalysisEngine - Deflater: IntelDeflater 
+INFO  17:55:34,908 GenomeAnalysisEngine - Inflater: IntelInflater 
+INFO  17:55:34,910 GenomeAnalysisEngine - Strictness is SILENT 
+INFO  17:55:35,108 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+INFO  17:55:35,130 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:55:35,402 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.27 
+INFO  17:55:35,533 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+INFO  17:55:35,550 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:55:35,582 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+INFO  17:55:35,588 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+INFO  17:55:35,599 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:55:35,604 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:55:35,636 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+INFO  17:55:35,650 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+INFO  17:55:35,653 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:55:35,658 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+INFO  17:55:35,671 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:55:35,677 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:55:35,685 GenomeAnalysisEngine - Downsampling Settings: No downsampling 
+INFO  17:55:35,705 SAMDataSource$SAMReaders - Initializing SAMRecords in serial 
+INFO  17:55:35,759 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.21 
+INFO  17:55:35,870 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.27 
+INFO  17:55:35,908 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.20 
+INFO  17:55:35,933 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.33 
+INFO  17:55:35,934 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.28 
+INFO  17:55:35,950 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.27 
+INFO  17:55:36,019 SAMDataSource$SAMReaders - Done initializing BAM readers: total time 0.34 
+INFO  17:55:36,296 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:55:36,306 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:55:36,308 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:55:36,309 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:55:36,310 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+INFO  17:55:36,535 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:55:36,545 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:55:36,546 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:55:36,547 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:55:36,548 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+INFO  17:55:36,720 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:55:36,729 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:55:36,730 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:55:36,730 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:55:36,731 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+INFO  17:55:36,854 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:55:36,863 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:55:36,863 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:55:36,864 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:55:36,865 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+INFO  17:55:36,868 ReadShardBalancer$1 - Loading BAM index data 
+INFO  17:55:36,871 ReadShardBalancer$1 - Done loading BAM index data 
+INFO  17:55:36,877 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:55:36,885 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:55:36,886 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:55:36,887 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:55:36,887 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+INFO  17:55:36,913 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:55:36,921 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:55:36,922 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:55:36,923 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:55:36,923 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+INFO  17:55:36,931 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:55:36,939 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:55:36,940 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:55:36,940 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:55:36,941 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+INFO  17:55:36,969 GenomeAnalysisEngine - Preparing for traversal over 1 BAM files 
+INFO  17:55:36,979 GenomeAnalysisEngine - Done preparing for traversal 
+INFO  17:55:36,980 ProgressMeter - [INITIALIZATION COMPLETE; STARTING PROCESSING] 
+INFO  17:55:36,982 ProgressMeter -                 | processed |    time |    per 1M |           |   total | remaining 
+INFO  17:55:36,983 ProgressMeter -        Location |     reads | elapsed |     reads | completed | runtime |   runtime 
+INFO  17:55:37,063 ReadShardBalancer$1 - Loading BAM index data 
+INFO  17:55:37,066 ReadShardBalancer$1 - Done loading BAM index data 
+INFO  17:55:37,281 ReadShardBalancer$1 - Loading BAM index data 
+INFO  17:55:37,284 ReadShardBalancer$1 - Done loading BAM index data 
+INFO  17:55:37,368 ReadShardBalancer$1 - Loading BAM index data 
+INFO  17:55:37,371 ReadShardBalancer$1 - Done loading BAM index data 
+INFO  17:55:37,468 ReadShardBalancer$1 - Loading BAM index data 
+INFO  17:55:37,473 ReadShardBalancer$1 - Done loading BAM index data 
+INFO  17:55:37,477 ReadShardBalancer$1 - Loading BAM index data 
+INFO  17:55:37,481 ReadShardBalancer$1 - Done loading BAM index data 
+INFO  17:55:37,503 ReadShardBalancer$1 - Loading BAM index data 
+INFO  17:55:37,506 ReadShardBalancer$1 - Done loading BAM index data 
+INFO  17:55:37,520 ReadShardBalancer$1 - Loading BAM index data 
+INFO  17:55:37,523 ReadShardBalancer$1 - Done loading BAM index data 
+INFO  17:56:06,317 ProgressMeter -       2L:841706    200002.0    30.0 s       2.5 m        0.6%    85.4 m      84.9 m 
+INFO  17:56:06,705 ProgressMeter -       2L:699417    200002.0    30.0 s       2.5 m        0.5%   102.7 m     102.2 m 
+INFO  17:56:06,757 ProgressMeter -       2L:632871    200002.0    30.0 s       2.5 m        0.4%   113.6 m     113.1 m 
+INFO  17:56:06,890 ProgressMeter -       2L:909715    200004.0    30.0 s       2.5 m        0.6%    79.0 m      78.5 m 
+INFO  17:56:06,892 ProgressMeter -       2L:701170    200002.0    30.0 s       2.5 m        0.5%   102.5 m     102.0 m 
+INFO  17:56:06,932 ProgressMeter -       2L:935482    200003.0    30.0 s       2.5 m        0.7%    76.8 m      76.3 m 
+INFO  17:56:06,960 ProgressMeter -       2L:723225    200003.0    30.0 s       2.5 m        0.5%    99.4 m      98.9 m 
+INFO  17:56:06,988 ProgressMeter -      2L:1031563    200003.0    30.0 s       2.5 m        0.7%    69.7 m      69.2 m 
+INFO  17:56:36,711 ProgressMeter -      2L:1150966    300003.0    60.0 s       3.3 m        0.8%     2.1 h       2.1 h 
+INFO  17:56:36,783 ProgressMeter -       2L:972409    300003.0    60.0 s       3.3 m        0.7%     2.5 h       2.4 h 
+INFO  17:56:36,897 ProgressMeter -      2L:1534413    300005.0    60.0 s       3.3 m        1.1%    93.7 m      92.7 m 
+INFO  17:56:36,901 ProgressMeter -      2L:1077004    300003.0    60.0 s       3.3 m        0.7%     2.2 h       2.2 h 
+INFO  17:56:36,942 ProgressMeter -      2L:1579863    300005.0    60.0 s       3.3 m        1.1%    91.0 m      90.0 m 
+INFO  17:56:36,995 ProgressMeter -      2L:1810973    300005.0    60.0 s       3.3 m        1.3%    79.4 m      78.4 m 
+INFO  17:56:37,233 ProgressMeter -      2L:1140281    300004.0    60.0 s       3.3 m        0.8%     2.1 h       2.1 h 
+INFO  17:56:38,358 ProgressMeter -      2L:1443814    300004.0    62.0 s       3.4 m        1.0%   102.9 m     101.8 m 
+INFO  17:57:06,785 ProgressMeter -      2L:1324686    400005.0    90.0 s       3.8 m        0.9%     2.7 h       2.7 h 
+INFO  17:57:06,898 ProgressMeter -      2L:2051849    500007.0    90.0 s       3.0 m        1.4%   105.1 m     103.6 m 
+INFO  17:57:06,902 ProgressMeter -      2L:1556629    500005.0    90.0 s       3.0 m        1.1%     2.3 h       2.3 h 
+INFO  17:57:06,943 ProgressMeter -      2L:2044175    500007.0    90.0 s       3.0 m        1.4%   105.5 m     104.0 m 
+INFO  17:57:06,996 ProgressMeter -      2L:2811532    500008.0    90.0 s       3.0 m        2.0%    76.7 m      75.2 m 
+INFO  17:57:07,235 ProgressMeter -      2L:1619030    500009.0    90.0 s       3.0 m        1.1%     2.2 h       2.2 h 
+INFO  17:57:08,329 ProgressMeter -      2L:1622728    500005.0    91.0 s       3.1 m        1.1%     2.2 h       2.2 h 
+INFO  17:57:08,370 ProgressMeter -      2L:1917220    400005.0    92.0 s       3.8 m        1.3%   114.9 m     113.4 m 
+INFO  17:57:36,787 ProgressMeter -      2L:1661588    600008.0   120.0 s       3.3 m        1.2%     2.9 h       2.8 h 
+INFO  17:57:36,905 ProgressMeter -      2L:1858495    600006.0   120.0 s       3.3 m        1.3%     2.6 h       2.5 h 
+INFO  17:57:36,945 ProgressMeter -      2L:2749091    600008.0   120.0 s       3.3 m        1.9%   104.6 m     102.6 m 
+INFO  17:57:37,271 ProgressMeter -      2L:2728099    600008.0   120.0 s       3.3 m        1.9%   105.4 m     103.4 m 
+INFO  17:57:38,108 ProgressMeter -      2L:1907887    600010.0     2.0 m       3.4 m        1.3%     2.5 h       2.5 h 
+INFO  17:57:38,372 ProgressMeter -      2L:2645763    600007.0     2.0 m       3.4 m        1.8%   110.5 m     108.4 m 
+INFO  17:57:38,414 ProgressMeter -      2L:1989912    600007.0     2.0 m       3.4 m        1.4%     2.4 h       2.4 h 
+INFO  17:57:39,151 ProgressMeter -      2L:3711986    700010.0     2.0 m       2.9 m        2.6%    78.7 m      76.7 m 
+INFO  17:58:06,940 ProgressMeter -      2L:1980913    700009.0     2.5 m       3.6 m        1.4%     3.0 h       3.0 h 
+INFO  17:58:06,947 ProgressMeter -      2L:3347620    800011.0     2.5 m       3.1 m        2.3%   107.3 m     104.8 m 
+INFO  17:58:07,032 ProgressMeter -      2L:2299610    700007.0     2.5 m       3.6 m        1.6%     2.6 h       2.6 h 
+INFO  17:58:07,272 ProgressMeter -      2L:3395172    800010.0     2.5 m       3.1 m        2.4%   105.8 m     103.3 m 
+INFO  17:58:08,263 ProgressMeter -      2L:2374408    700011.0     2.5 m       3.6 m        1.7%     2.5 h       2.5 h 
+INFO  17:58:08,374 ProgressMeter -      2L:3223728    800009.0     2.5 m       3.2 m        2.2%   112.9 m     110.4 m 
+INFO  17:58:09,152 ProgressMeter -      2L:4219392    800011.0     2.5 m       3.2 m        2.9%    86.3 m      83.8 m 
+INFO  17:58:09,501 ProgressMeter -      2L:2546316    800009.0     2.5 m       3.2 m        1.8%     2.4 h       2.3 h 
+INFO  17:58:36,941 ProgressMeter -      2L:2391870    800010.0     3.0 m       3.8 m        1.7%     3.0 h       3.0 h 
+INFO  17:58:36,959 ProgressMeter -      2L:3827154    900012.0     3.0 m       3.3 m        2.7%   112.7 m     109.7 m 
+INFO  17:58:37,274 ProgressMeter -      2L:3781280    900011.0     3.0 m       3.3 m        2.6%   114.0 m     111.0 m 
+INFO  17:58:37,443 ProgressMeter -      2L:2740895    900010.0     3.0 m       3.3 m        1.9%     2.6 h       2.6 h 
+INFO  17:58:38,265 ProgressMeter -      2L:2806000    900014.0     3.0 m       3.4 m        2.0%     2.6 h       2.5 h 
+INFO  17:58:38,376 ProgressMeter -      2L:3776328    900011.0     3.0 m       3.4 m        2.6%   115.4 m     112.4 m 
+INFO  17:58:39,154 ProgressMeter -      2L:5149763   1000013.0     3.0 m       3.0 m        3.6%    84.7 m      81.6 m 
+INFO  17:58:39,502 ProgressMeter -      2L:2926410    900010.0     3.0 m       3.4 m        2.0%     2.5 h       2.4 h 
+INFO  17:59:06,946 ProgressMeter -      2L:2713571    900011.0     3.5 m       3.9 m        1.9%     3.1 h       3.0 h 
+INFO  17:59:06,960 ProgressMeter -      2L:4223223   1000013.0     3.5 m       3.5 m        2.9%   119.1 m     115.6 m 
+INFO  17:59:07,283 ProgressMeter -      2L:4129747   1000012.0     3.5 m       3.5 m        2.9%     2.0 h     118.3 m 
+INFO  17:59:07,444 ProgressMeter -      2L:3174520   1000011.0     3.5 m       3.5 m        2.2%     2.6 h       2.6 h 
+INFO  17:59:08,266 ProgressMeter -      2L:3261794   1000015.0     3.5 m       3.5 m        2.3%     2.6 h       2.5 h 
+INFO  17:59:08,377 ProgressMeter -      2L:4154427   1000012.0     3.5 m       3.5 m        2.9%     2.0 h     118.7 m 
+INFO  17:59:09,155 ProgressMeter -      2L:5929751   1200015.0     3.5 m       2.9 m        4.1%    85.6 m      82.1 m 
+INFO  17:59:09,503 ProgressMeter -      2L:3379344   1000011.0     3.5 m       3.5 m        2.4%     2.5 h       2.4 h 
+INFO  17:59:36,947 ProgressMeter -      2L:3104523   1100013.0     4.0 m       3.6 m        2.2%     3.1 h       3.0 h 
+INFO  17:59:37,284 ProgressMeter -      2L:4802637   1200014.0     4.0 m       3.3 m        3.3%   119.7 m     115.7 m 
+INFO  17:59:37,445 ProgressMeter -      2L:3559080   1200017.0     4.0 m       3.3 m        2.5%     2.7 h       2.6 h 
+INFO  17:59:37,521 ProgressMeter -      2L:4875403   1200016.0     4.0 m       3.3 m        3.4%   117.9 m     113.9 m 
+INFO  17:59:38,378 ProgressMeter -      2L:4857445   1200014.0     4.0 m       3.4 m        3.4%   119.3 m     115.3 m 
+INFO  17:59:39,156 ProgressMeter -      2L:6888220   1300016.0     4.0 m       3.1 m        4.8%    84.2 m      80.1 m 
+INFO  17:59:39,504 ProgressMeter -      2L:3738948   1100012.0     4.0 m       3.7 m        2.6%     2.6 h       2.5 h 
+INFO  17:59:40,035 ProgressMeter -      2L:3638808   1100016.0     4.1 m       3.7 m        2.5%     2.7 h       2.6 h 
+INFO  18:00:06,948 ProgressMeter -      2L:3442619   1200015.0     4.5 m       3.8 m        2.4%     3.1 h       3.1 h 
+INFO  18:00:07,286 ProgressMeter -      2L:5443340   1300015.0     4.5 m       3.5 m        3.8%   118.8 m     114.3 m 
+INFO  18:00:07,446 ProgressMeter -      2L:3852233   1300018.0     4.5 m       3.5 m        2.7%     2.8 h       2.7 h 
+INFO  18:00:07,522 ProgressMeter -      2L:5508169   1300017.0     4.5 m       3.5 m        3.8%   117.4 m     112.9 m 
+INFO  18:00:08,379 ProgressMeter -      2L:5463221   1400016.0     4.5 m       3.2 m        3.8%   119.3 m     114.7 m 
+INFO  18:00:09,157 ProgressMeter -      2L:7525992   1500019.0     4.5 m       3.0 m        5.2%    86.6 m      82.0 m 
+INFO  18:00:09,516 ProgressMeter -      2L:4037096   1200013.0     4.5 m       3.8 m        2.8%     2.7 h       2.6 h 
+INFO  18:00:10,036 ProgressMeter -      2L:3921890   1200018.0     4.6 m       3.8 m        2.7%     2.8 h       2.7 h 
+INFO  18:00:36,950 ProgressMeter -      2L:3717046   1300016.0     5.0 m       3.8 m        2.6%     3.2 h       3.1 h 
+INFO  18:00:37,287 ProgressMeter -      2L:5975679   1500018.0     5.0 m       3.3 m        4.2%     2.0 h     115.3 m 
+INFO  18:00:37,524 ProgressMeter -      2L:6109246   1500019.0     5.0 m       3.3 m        4.3%   117.6 m     112.6 m 
+INFO  18:00:38,051 ProgressMeter -      2L:4065874   1300018.0     5.0 m       3.9 m        2.8%     3.0 h       2.9 h 
+INFO  18:00:38,381 ProgressMeter -      2L:6075036   1500017.0     5.0 m       3.4 m        4.2%   119.1 m     114.0 m 
+INFO  18:00:39,158 ProgressMeter -      2L:8362115   1600020.0     5.0 m       3.1 m        5.8%    86.5 m      81.5 m 
+INFO  18:00:39,518 ProgressMeter -      2L:4312512   1300014.0     5.0 m       3.9 m        3.0%     2.8 h       2.7 h 
+INFO  18:00:40,439 ProgressMeter -      2L:4137943   1300019.0     5.1 m       3.9 m        2.9%     2.9 h       2.8 h 
+INFO  18:01:06,951 ProgressMeter -      2L:3953308   1400017.0     5.5 m       3.9 m        2.8%     3.3 h       3.2 h 
+INFO  18:01:07,525 ProgressMeter -      2L:6747459   1600020.0     5.5 m       3.4 m        4.7%   117.2 m     111.7 m 
+INFO  18:01:08,052 ProgressMeter -      2L:4359273   1400019.0     5.5 m       3.9 m        3.0%     3.0 h       2.9 h 
+INFO  18:01:08,382 ProgressMeter -      2L:6616999   1700020.0     5.5 m       3.3 m        4.6%     2.0 h     114.7 m 
+INFO  18:01:09,159 ProgressMeter -      2L:9110509   1800022.0     5.5 m       3.1 m        6.3%    87.3 m      81.8 m 
+INFO  18:01:09,324 ProgressMeter -      2L:6590543   1600019.0     5.5 m       3.5 m        4.6%     2.0 h     115.1 m 
+INFO  18:01:09,519 ProgressMeter -      2L:4799132   1500016.0     5.5 m       3.7 m        3.3%     2.8 h       2.7 h 
+INFO  18:01:12,445 ProgressMeter -      2L:4581691   1400021.0     5.6 m       4.0 m        3.2%     2.9 h       2.8 h 
+INFO  18:01:37,285 ProgressMeter -      2L:4119170   1500018.0     6.0 m       4.0 m        2.9%     3.5 h       3.4 h 
+INFO  18:01:37,526 ProgressMeter -      2L:7235615   1800023.0     6.0 m       3.3 m        5.0%   119.2 m     113.2 m 
+INFO  18:01:38,053 ProgressMeter -      2L:4866276   1600022.0     6.0 m       3.8 m        3.4%     3.0 h       2.9 h 
+INFO  18:01:38,383 ProgressMeter -      2L:7197350   1800021.0     6.0 m       3.4 m        5.0%     2.0 h     114.4 m 
+INFO  18:01:39,161 ProgressMeter -      2L:9594344   1900023.0     6.0 m       3.2 m        6.7%    90.4 m      84.3 m 
+INFO  18:01:39,325 ProgressMeter -      2L:7214856   1800021.0     6.0 m       3.4 m        5.0%     2.0 h     114.2 m 
+INFO  18:01:39,520 ProgressMeter -      2L:5238341   1600017.0     6.0 m       3.8 m        3.6%     2.8 h       2.7 h 
+INFO  18:01:42,782 ProgressMeter -      2L:5079859   1600024.0     6.1 m       3.8 m        3.5%     2.9 h       2.8 h 
+INFO  18:02:07,286 ProgressMeter -      2L:4429738   1600019.0     6.5 m       4.1 m        3.1%     3.5 h       3.4 h 
+INFO  18:02:07,527 ProgressMeter -      2L:7835791   1900024.0     6.5 m       3.4 m        5.5%   119.2 m     112.7 m 
+INFO  18:02:08,385 ProgressMeter -      2L:7594547   1900022.0     6.5 m       3.4 m        5.3%     2.1 h     117.1 m 
+INFO  18:02:08,669 ProgressMeter -      2L:5312128   1800024.0     6.5 m       3.6 m        3.7%     2.9 h       2.8 h 
+INFO  18:02:09,162 ProgressMeter -     2L:10144261   2000024.0     6.5 m       3.3 m        7.1%    92.6 m      86.0 m 
+INFO  18:02:09,326 ProgressMeter -      2L:7684207   1900022.0     6.5 m       3.4 m        5.3%     2.0 h     115.7 m 
+INFO  18:02:11,435 ProgressMeter -      2L:5637776   1700018.0     6.6 m       3.9 m        3.9%     2.8 h       2.7 h 
+INFO  18:02:12,783 ProgressMeter -      2L:5464911   1700025.0     6.6 m       3.9 m        3.8%     2.9 h       2.8 h 
+INFO  18:02:37,386 ProgressMeter -      2L:4869825   1700020.0     7.0 m       4.1 m        3.4%     3.4 h       3.3 h 
+INFO  18:02:37,528 ProgressMeter -      2L:8336780   2100026.0     7.0 m       3.3 m        5.8%     2.0 h     113.7 m 
+INFO  18:02:38,386 ProgressMeter -      2L:8233645   2100024.0     7.0 m       3.3 m        5.7%     2.0 h     115.7 m 
+INFO  18:02:38,670 ProgressMeter -      2L:5727329   1900025.0     7.0 m       3.7 m        4.0%     2.9 h       2.8 h 
+INFO  18:02:39,315 ProgressMeter -     2L:10946577   2200026.0     7.0 m       3.2 m        7.6%    92.3 m      85.3 m 
+INFO  18:02:39,548 ProgressMeter -      2L:8290678   2100024.0     7.0 m       3.4 m        5.8%     2.0 h     114.9 m 
+INFO  18:02:42,613 ProgressMeter -      2L:6101963   1900020.0     7.1 m       3.7 m        4.2%     2.8 h       2.7 h 
+INFO  18:02:42,784 ProgressMeter -      2L:5881221   1900027.0     7.1 m       3.7 m        4.1%     2.9 h       2.8 h 
+INFO  18:03:07,388 ProgressMeter -      2L:5271607   1900022.0     7.5 m       4.0 m        3.7%     3.4 h       3.3 h 
+INFO  18:03:07,529 ProgressMeter -      2L:8937710   2200027.0     7.5 m       3.4 m        6.2%     2.0 h     113.1 m 
+INFO  18:03:08,387 ProgressMeter -      2L:8818353   2200025.0     7.5 m       3.4 m        6.1%     2.0 h     115.2 m 
+INFO  18:03:08,671 ProgressMeter -      2L:6119461   2100027.0     7.5 m       3.6 m        4.3%     2.9 h       2.8 h 
+INFO  18:03:10,011 ProgressMeter -     2L:11826994   2400028.0     7.6 m       3.1 m        8.2%    91.8 m      84.2 m 
+INFO  18:03:10,646 ProgressMeter -      2L:8846805   2200026.0     7.6 m       3.4 m        6.2%     2.0 h     115.1 m 
+INFO  18:03:12,614 ProgressMeter -      2L:6583320   2000021.0     7.6 m       3.8 m        4.6%     2.8 h       2.6 h 
+INFO  18:03:12,785 ProgressMeter -      2L:6307462   2000029.0     7.6 m       3.8 m        4.4%     2.9 h       2.8 h 
+INFO  18:03:37,591 ProgressMeter -      2L:5569747   2000023.0     8.0 m       4.0 m        3.9%     3.4 h       3.3 h 
+INFO  18:03:37,681 ProgressMeter -      2L:9313626   2300028.0     8.0 m       3.5 m        6.5%     2.1 h     115.5 m 
+INFO  18:03:38,507 ProgressMeter -      2L:9295698   2400027.0     8.0 m       3.3 m        6.5%     2.1 h     116.2 m 
+INFO  18:03:38,893 ProgressMeter -      2L:6572228   2200028.0     8.0 m       3.7 m        4.6%     2.9 h       2.8 h 
+INFO  18:03:40,139 ProgressMeter -     2L:12482417   2500029.0     8.1 m       3.2 m        8.7%    92.7 m      84.6 m 
+INFO  18:03:41,515 ProgressMeter -      2L:9204270   2300027.0     8.1 m       3.5 m        6.4%     2.1 h     117.9 m 
+INFO  18:03:42,759 ProgressMeter -      2L:7043807   2200023.0     8.1 m       3.7 m        4.9%     2.8 h       2.6 h 
+INFO  18:03:42,944 ProgressMeter -      2L:6784771   2200031.0     8.1 m       3.7 m        4.7%     2.9 h       2.7 h 
+INFO  18:04:07,734 ProgressMeter -      2L:5921736   2100024.0     8.5 m       4.1 m        4.1%     3.4 h       3.3 h 
+INFO  18:04:08,510 ProgressMeter -      2L:9727207   2500028.0     8.5 m       3.4 m        6.8%     2.1 h     117.6 m 
+INFO  18:04:08,896 ProgressMeter -      2L:7007715   2400030.0     8.5 m       3.6 m        4.9%     2.9 h       2.8 h 
+INFO  18:04:09,579 ProgressMeter -      2L:9689381   2400029.0     8.5 m       3.6 m        6.7%     2.1 h     118.0 m 
+INFO  18:04:11,076 ProgressMeter -     2L:13335472   2600030.0     8.6 m       3.3 m        9.3%    92.3 m      83.8 m 
+INFO  18:04:11,518 ProgressMeter -      2L:9672388   2400028.0     8.6 m       3.6 m        6.7%     2.1 h     118.7 m 
+INFO  18:04:12,763 ProgressMeter -      2L:7325970   2300024.0     8.6 m       3.7 m        5.1%     2.8 h       2.7 h 
+INFO  18:04:12,947 ProgressMeter -      2L:7165540   2300032.0     8.6 m       3.7 m        5.0%     2.9 h       2.7 h 
+INFO  18:04:37,736 ProgressMeter -      2L:6226969   2200025.0     9.0 m       4.1 m        4.3%     3.5 h       3.3 h 
+INFO  18:04:38,898 ProgressMeter -      2L:7288006   2500032.0     9.0 m       3.6 m        5.1%     3.0 h       2.8 h 
+INFO  18:04:40,073 ProgressMeter -     2L:10143360   2500030.0     9.1 m       3.6 m        7.1%     2.1 h     119.2 m 
+INFO  18:04:40,670 ProgressMeter -     2L:10148473   2600031.0     9.1 m       3.5 m        7.1%     2.1 h     119.3 m 
+INFO  18:04:41,362 ProgressMeter -     2L:14309335   2800033.0     9.1 m       3.2 m       10.0%    91.1 m      82.0 m 
+INFO  18:04:41,519 ProgressMeter -     2L:10077054   2500029.0     9.1 m       3.6 m        7.0%     2.2 h       2.0 h 
+INFO  18:04:42,764 ProgressMeter -      2L:7743004   2400026.0     9.1 m       3.8 m        5.4%     2.8 h       2.7 h 
+INFO  18:04:42,949 ProgressMeter -      2L:7491468   2400035.0     9.1 m       3.8 m        5.2%     2.9 h       2.8 h 
+INFO  18:05:07,737 ProgressMeter -      2L:6552635   2400028.0     9.5 m       4.0 m        4.6%     3.5 h       3.3 h 
+INFO  18:05:08,900 ProgressMeter -      2L:7607804   2600033.0     9.5 m       3.7 m        5.3%     3.0 h       2.8 h 
+INFO  18:05:10,075 ProgressMeter -     2L:10792180   2700033.0     9.6 m       3.5 m        7.5%     2.1 h     117.6 m 
+INFO  18:05:10,671 ProgressMeter -     2L:10830232   2800033.0     9.6 m       3.4 m        7.5%     2.1 h     117.4 m 
+INFO  18:05:11,521 ProgressMeter -     2L:10638355   2700033.0     9.6 m       3.5 m        7.4%     2.2 h     119.7 m 
+INFO  18:05:12,475 ProgressMeter -     2L:15327636   3000035.0     9.6 m       3.2 m       10.7%    89.9 m      80.3 m 
+INFO  18:05:12,765 ProgressMeter -      2L:8164527   2500027.0     9.6 m       3.8 m        5.7%     2.8 h       2.7 h 
+INFO  18:05:13,981 ProgressMeter -      2L:7914927   2500036.0     9.6 m       3.8 m        5.5%     2.9 h       2.8 h 

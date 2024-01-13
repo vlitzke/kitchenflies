@@ -44,7 +44,7 @@ Line 4 encodes the quality data for the sequence in Line 2, and must contain the
 Illumina Sequence Identifier details:
 
 | A00184 | Unique instrument name |
-| ---- |
+| ---- |:--------- |
 | 509 | Run ID | 
 | H3253DSXY | Flowcell ID |
 | 4 | Flowcell lane |

@@ -20,12 +20,21 @@ cutadapt \
 
 | Command      | Description |
 | ----------- | ----------- |
-| -q     | Title       |
-| --minimum length   | Text        |
+| -q     | trims low-quality ends from reads, with a specified single cutoff value which trims from the 3' end[^2] |
+| --minimum length   | Discard processed reads that are shorter than 75 bp |
+| -o | output file name |
+| -p | output file name for second read in the pair |
+| -b | detects and trims adaptor sequence on forward read |
+| -B | detects and trims adaptor sequence on reverse read |
+| -O | sets the minimum overlap parameters for adapters listed via the -b option |
+| -n | looks to trim a minimum of 3 adaptor sequences from one read |
+| - | input file 1.fq.gz |
+| - | input file 2.fq.gz |
 
-
-Saved as trimmed files in the 1_cutadapt_trimmed folder
+To keep things neat, I keep the output in the same folder ("1_cutadapt_trimmed folder") 
 
 For more information about this tool, see <https://cutadapt.readthedocs.io/en/stable/>
+
 [^1]: Martin, M. (2011). Cutadapt removes adapter sequences from high-throughput sequencing reads. EMBnet. journal, 17(1), 10-12.
+[^2]: For Illumina reads, this is sufficient as their quality is high at the beginning, but degrades towards the 3’ end. 
 

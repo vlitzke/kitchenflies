@@ -20,4 +20,36 @@ zcat $DATA_DIR/8_DSim_Cont/dsim-all-chromosome-r2.02_prefix.fa.gz | cat $DATA_DI
 for the sam to bam crap F1_22: 101393 reads could not be matched to a mate and were not exported
 
 
-
+Output will be in /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/F1_23_1 and /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/F1_23_2
+This looks like paired data from lane 841.
+Output will be in /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/M1_23_1 and /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/M1_23_2
+This looks like paired data from lane 841.
+Output will be in /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/M3_22_1 and /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/M3_22_2
+This looks like paired data from lane 778.
+Output will be in /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/M2_23_1 and /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/M2_23_2
+This looks like paired data from lane 841.
+Output will be in /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/F1_22_1 and /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/F1_22_2
+This looks like paired data from lane 778.
+Output will be in /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/F2_22_1 and /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/F2_22_2
+This looks like paired data from lane 778.
+Output will be in /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/F2_23_1 and /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/F2_23_2
+This looks like paired data from lane 778.
+Output will be in /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/M1_22_1 and /mnt/shared/scratch/vlitzke//kitchenflies/DNA/2_Process/8B_sam2fastq/M1_22_2
+26384633 sequences in the BAM file
+26384633 sequences exported
+WARNING: 235017 reads could not be matched to a mate and were not exported
+Job finished
+31149268 sequences in the BAM file
+31149268 sequences exported
+WARNING: 387616 reads could not be matched to a mate and were not exported
+Job finished
+31680066 sequences in the BAM file
+31680066 sequences exported
+WARNING: 363710 reads could not be matched to a mate and were not exported
+Job finished
+32722027 sequences in the BAM file
+32722027 sequences exported
+WARNING: 246009 reads could not be matched to a mate and were not exported
+Job finished
+38285093 sequences in the BAM file
+38285093 sequences exported

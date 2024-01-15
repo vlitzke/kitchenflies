@@ -38,7 +38,11 @@ bwa mem \
 
 Plotting?
 
-gnuplot package 
+`conda install conda-forge::gnuplot`
+
+samtools stats sortedbamfilename.bam > sortedbamfilename.stats
+plot-bamstats -p my_output sortedbamfilename.stats
+I also had to install Libjpeg Turbo (conda install -c conda-forge libjpeg-turbo) to make this work.
 
 # Sorting
 Using Picard [^3], the SAM file is going to be sorted by coodinate (SortOrder is found in the SAM file header), here read alignments are sorted into subgroups by the reference sequence name (RNAME) field using the reference sequence dictionary (@SQ tag), then secondarily sorted using the left-most mapping position of the read (POS). Doing this by coordinate makes SAM files smaller, visualizing more efficient, and helps when marking duplicates (for paired reads, this is done by looking at 5' mapping positions of both reads) because this guarantees that the reads physically closer inside the SAM file are also close in the genome.

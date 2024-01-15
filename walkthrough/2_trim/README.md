@@ -10,7 +10,7 @@ To find optimal overlap alignment, alignment scores would assign a positive valu
 
 Optimization criteria is to consider the alignment optimal that maximizes the overlap between the two sequences, as long as the allowed error rate is not exceeded.
 
-Method: 
+## Method: 
 
 1. Consider all possible overlaps between the two sequences and compute an alignment for each, minimizing the total number of errors in each one. (different adapter types are taken into account: Only those overlaps that are actually allowed by the adapter type are actually considered.)
 2. Keep alignments that do not exceed the specified maximum error rate.

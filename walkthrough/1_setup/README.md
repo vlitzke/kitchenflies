@@ -84,10 +84,15 @@ M3_22 |
 
 # Quality Control of Raw Reads 
 
-Next, you might want to run some basic quality control of your FASTQ files. This is often done using a popular tool called FastQC[^2]. This can either be done through a GUI which the institute developed, or over the comand line: `fastqc file1.fq.gz file2.fq.gz .. filen.fq.gz -o ./PATH/TO/QC`
+Next, you might want to run some basic quality control of your FASTQ files. This is often done using a popular tool called FastQC[^2]. This can either be done through a GUI which the institute developed, or over the comand line: `fastqc file1.fq.gz file2.fq.gz .. filen.fq.gz -o ./PATH/TO/QC` . This can take in a sequence of *.fq.gz files. 
 
- Either way, the main output of FastQC is an HTML file reporting key summary statistics about the overall quality of the raw sequencing reads from a given sample. Inspecting tens of FastQC reports one by one is tedious and it complicates the comparison across samples. Therefore, you may want to use MultiQC, which aggregates the HTML reports from FastQC (as well as from other tools used downstream, e.g. adapter trimming, alignment) into a single report.
+| Command      | Description |
+| ----------- | ----------- |
+| - | input file 1.fq.gz |
+| - | input file 2.fq.gz |
+| `-o` | output file directory |
 
+This outputs an HTML file which contains summary statistics for each individual read. To combine all HTML reports, we use MultiQC[^3] to generate a single large report (which apparently may also use information from other downstream tools, e.g. adapter trimming, alignment).
 
 
 
@@ -99,9 +104,10 @@ Download reference genome from here: <https://ftp.flybase.net/genomes/Drosophila
 
 To unzip: `gunzip -f dmel-all-chromosome-r6.54.fasta.gz`
 
-Note: Leeban says I can map the RNA-seq data  to the reference genome to get Fst values 
+Note: Leeban says I can map the RNA-seq data to the reference genome to get Fst values 
 I mapped it to cDNA (no introns) 
 Mapping to the DNA reference means you need an aligner aware of splice junctions, such as Tophat or STAR
 
 [^1]: Taken from the Novogene README file. 
 [^2]: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+[^3]: https://multiqc.info/

@@ -1,5 +1,7 @@
 6. 
 
+A common downstream analysis for DNA-seq data is variant calling, that is, the identification of positions in the genome that vary relative to the genome reference and between individuals. A popular analysis framework for this application is GATK for single nucleotide polymorphism (SNP) or small insertions/deletions (indels) 
+
 Difference between .index and .fai:
 
 index fai : used by the tool to list the chromosome and quickly fetch a sequence from the fasta sequence

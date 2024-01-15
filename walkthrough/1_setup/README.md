@@ -84,7 +84,12 @@ M3_22 |
 
 # Quality Control of Raw Reads 
 
-Next, you might want to run some basic quality control of your FASTQ files. This is often done using a popular tool called FastQC[^2]. This can either be done through a GUI which the institute developed, or over the comand line: `fastqc file1.fq.gz file2.fq.gz .. filen.fq.gz -o ./PATH/TO/QC` . This can take in a sequence of *.fq.gz files. 
+Next, you might want to run some basic quality control of your FASTQ files. This is often done using a popular tool called FastQC[^2]. This can either be done through a GUI which the institute developed, or over the comand line: 
+
+```
+conda install bioconda::fastqc
+fastqc file1.fq.gz file2.fq.gz .. filen.fq.gz -o ./PATH/TO/QC
+```
 
 | Command      | Description |
 | ----------- | ----------- |
@@ -92,7 +97,9 @@ Next, you might want to run some basic quality control of your FASTQ files. This
 | - | input file 2.fq.gz |
 | `-o` | output file directory |
 
-This outputs an HTML file which contains summary statistics for each individual read. To combine all HTML reports, we use MultiQC[^3] using to generate a single large report (which apparently may also use information from other downstream tools, e.g. adapter trimming, alignment).
+This can take in a sequence of *.fq.gz files. 
+
+It outputs an HTML file which contains summary statistics for each individual read. To combine all HTML reports, we use MultiQC[^3] using to generate a single large report (which apparently may also use information from other downstream tools, e.g. adapter trimming, alignment).
 
 ```
 conda install bioconda::multiqc

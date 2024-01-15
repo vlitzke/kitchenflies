@@ -6,9 +6,7 @@ Raw FASTQ reads will be trimmed for a minimum BQ >18 and a minimum length (fragm
 
 The prefix ELE and the suffix ASTIC do not have a counterpart in the respective other row, but this is not counted as an error. The overlap *FANT* has a length of four characters.
 
-To find optimal overlap alignment, alignment scores would assign a positive value to matches, and negative values to mismatches, insertions and deletions, resulting in a total score, but this isn't that intuitive.  Marcel's algorithm instead counts mismatches, insertions and deletions as one error (renamed "unit costs"). This returns a single parameter, the maximum error rate, which helps us decide how many errors are acceptable.
-
-Optimization criteria is to consider the alignment optimal that maximizes the overlap between the two sequences, as long as the allowed error rate is not exceeded.
+To find optimal overlap alignment, alignment scores would assign a positive value to matches, and negative values to mismatches, insertions and deletions, resulting in a total score, but this isn't that intuitive.  Marcel's algorithm instead counts mismatches, insertions and deletions as one error (renamed "unit costs"). This returns a single parameter, the maximum error rate, which helps us decide the number of acceptable errors. Optimization criteria is to consider the alignment optimal that maximizes the overlap between the two sequences, as long as the allowed error rate is not exceeded.
 
 ## Method: 
 

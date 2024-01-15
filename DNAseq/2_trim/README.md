@@ -54,7 +54,8 @@ To keep things neat, I keep the output in the same folder ("1_cutadapt_trimmed f
 
 Can also run multiqc on these results (in base pairs):
 
-Sample Name |Total Reads Processed|Pairs too short|Pairs passing filters |Total base pairs processed|Total Quality Trimmed|Total filtered|Read|With adaptor|Base pairs processed|Quality Trimmed|filtered
+|Sample Name |Total Reads Processed|Pairs too short|Pairs passing filters |Total base pairs processed|Total Quality Trimmed|Total filtered|Read|With adaptor|Base pairs processed|Quality Trimmed|filtered|
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 F1_22| 34,567,085|32,986 (0.1%)|34,534,099 (99.9 %)|10,370,125,000|12,742,357  (0.1%)|10,350,938,250  (99.8%)|Read 1|33 (0.0%)|5,185,062,750|4,713,193|5,176,283,874
 ||||||||Read 2|24(0.0 %)|5,185,062,750|8,029,164|5,174,654,376
 F1_23|33,821,722|34,024 (0.1%) |33,787,698 (99.9%)|10,146,516,600 |13,500,307  (0.1%)|10,126,353,863  (99.8%)|Read 1|51 (0.0%)|5,073,258,300 |4,602,604 |5,064,446,548 

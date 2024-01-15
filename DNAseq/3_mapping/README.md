@@ -8,7 +8,7 @@ The output of the ‘aln’ command is binary and designed for BWA use only. BWA
 
 Then we will pipe them into Samtools[^2], filtering with MQ (mapped quality score) > 20. Using `samtools view` views and converts SAM/BAM/CRAM files. 
 
-:exclamation: *This takes a very long time* :exclamation:
+:exclamation: *Computationally and time consuming* :exclamation:
 
 ```
 bwa mem \

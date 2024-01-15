@@ -93,5 +93,3 @@ I mapped it to cDNA (no introns)
 Mapping to the DNA reference means you need an aligner aware of splice junctions, such as Tophat or STAR
 
 [^1]: Taken from the Novogene README file. 
-[^2]: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
-[^3]: https://multiqc.info/

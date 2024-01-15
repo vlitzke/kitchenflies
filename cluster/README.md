@@ -7,6 +7,7 @@ Then, you're going to want to install conda if it isn't already there:
 `install-bioconda`
 
 You will also want to create several different environments in which to run your projects. This helps you download tools + packages unique to that environment. 
+`conda create --name <env_name>`
 
 # Daily Use
 

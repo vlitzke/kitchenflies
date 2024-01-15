@@ -4,30 +4,26 @@ Raw FASTQ reads will be trimmed for a minimum BQ >18 and a minimum length (fragm
 
 ![image](alg_text_eg.png)
 
-The prefix ELE and the suffix ASTIC do not have a counterpart in the respective other row, but this is not counted as an error. The overlap FANT has a length of four characters.
+The prefix ELE and the suffix ASTIC do not have a counterpart in the respective other row, but this is not counted as an error. The overlap *FANT* has a length of four characters.
 
-Traditionally, alignment scores are used to find an optimal overlap aligment: This means that the scoring function assigns a positive value to matches, while mismatches, insertions and deletions get negative values. The optimal alignment is then the one that has the maximal total score. Usage of scores has the disadvantage that they are not at all intuitive: What does a total score of x mean? Is that good or bad? How should a threshold be chosen in order to avoid finding alignments with too many errors?
+To find optimal overlap alignment, alignment scores would assign a positive value to matches, and negetaive values to mismatches, insertions and deletions, resulting in a total score, but this isn't that intuitive. So Marcel's aligorithm uses "unit costs" which count mismatches, insertions and deletions as one error. This returns a single parameter, the maximum error rate, which helps us decide how many errors are acceptable.
 
-For Cutadapt, the adapter alignment algorithm primarily uses unit costs instead. This means that mismatches, insertions and deletions are counted as one error, which is easier to understand and allows to specify a single parameter for the algorithm (the maximum error rate) in order to describe how many errors are acceptable.
-
-There is a problem with this: When using costs instead of scores, we would like to minimize the total costs in order to find an optimal alignment. But then the best alignment would always be the one in which the two sequences do not overlap at all! This would be correct, but meaningless for the purpose of finding an adapter sequence.
 
 The optimization criteria are therefore a bit different. The basic idea is to consider the alignment optimal that maximizes the overlap between the two sequences, as long as the allowed error rate is not exceeded.
 
 Conceptually, the procedure is as follows:
 
-Consider all possible overlaps between the two sequences and compute an alignment for each, minimizing the total number of errors in each one.
-
-Keep only those alignments that do not exceed the specified maximum error rate.
-
-Then, keep only those alignments that have a maximal number of matches (that is, there is no alignment with more matches). (Note: This has been changed, see the section below for an update.)
+1. Consider all possible overlaps between the two sequences and compute an alignment for each, minimizing the total number of errors in each one.
+2. Keep only those alignments that do not exceed the specified maximum error rate.
+3. Keep only those alignments that have a maximal number of matches (that is, there is no alignment with more matches). (Note: This has been changed, see the section below for an update.)
 
 If there are multiple alignments with the same number of matches, then keep only those that have the smallest error rate.
 
 If there are still multiple candidates left, choose the alignment that starts at the leftmost position within the read.
 
 In Step 1, the different adapter types are taken into account: Only those overlaps that are actually allowed by the adapter type are actually considered.
-Note: both Compressed in- and output files are supported (.gz). 
+
+:memo: **Note**: both Compressed in- and output files are supported (.gz). 
 
 ```
 cutadapt \

@@ -34,5 +34,28 @@ bwa mem \
 | `-F` | Do not output alignments with bits set in FLAG present in the FLAG field |
 | `0x100` |	SECONDARY	secondary alignment, specified by hex|
 
+Plotting?
+
+gnuplot package 
+
+# Sorting
+Using Picard [^3], the SAM file is going to be sorted by coodinate (SortOrder is found in the SAM file header), here read alignments are sorted into subgroups by the reference sequence name (RNAME) field using the reference sequence dictionary (@SQ tag), then secondarily sorted using the left-most mapping position of the read (POS). Doing this by coordinate makes SAM files smaller, visualizing more efficient, and helps when marking duplicates (for paired reads, this is done by looking at 5' mapping positions of both reads) because this guarantees that the reads physically closer inside the SAM file are also close in the genome.
+ 
+```
+picard SortSam \
+I=./PATH/TO/2_bam_libraries/samplename_library.bam \
+O=./PATH/TO/3_sortbam_libraries/samplename_library-sort.bam \
+SO=coordinate 
+```
+
+| Command      | Description |
+| ----------- | ----------- |
+| `-I` | input library .bam |
+| `-O` | output sorted library .bam |
+| `SO` | Sort order of output file. |
+
+
+
 [^1]: Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform. Bioinformatics, 25:1754-60. [PMID: 19451168] <https://github.com/lh3/bwa>
 [^2]: Danecek, P., Bonfield, J. K., Liddle, J., Marshall, J., Ohan, V., Pollard, M. O., ... & Li, H. (2021). Twelve years of SAMtools and BCFtools. Gigascience, 10(2), giab008. <https://doi.org/10.1093/gigascience/giab008> <https://www.htslib.org/>
+[^3]: <http://broadinstitute.github.io/picard>

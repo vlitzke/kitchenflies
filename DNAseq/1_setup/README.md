@@ -108,6 +108,7 @@ multiqc . #where "." indicates the directory in which to find the html reports
 
 This information allows us to flag any samples that might have poor quality and should be discarded, although any sort of consensus is subjective. If our samples were processed in a similar way, they should have similar metrics. If some of the criteria turn out to be poor, depending on how poor this is, it might be good to proceed with downstream analyses while keeping this information in mind. 
 
+:memo: Threw an error: "No module named typing_extensions". Run `pip install typing-extensions`
 
 # Downloading the reference genome 
 

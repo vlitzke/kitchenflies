@@ -92,10 +92,14 @@ Next, you might want to run some basic quality control of your FASTQ files. This
 | - | input file 2.fq.gz |
 | `-o` | output file directory |
 
-This outputs an HTML file which contains summary statistics for each individual read. To combine all HTML reports, we use MultiQC[^3] to generate a single large report (which apparently may also use information from other downstream tools, e.g. adapter trimming, alignment).
+This outputs an HTML file which contains summary statistics for each individual read. To combine all HTML reports, we use MultiQC[^3] using to generate a single large report (which apparently may also use information from other downstream tools, e.g. adapter trimming, alignment).
 
+```
+conda install bioconda::multiqc
+multiqc . #where "." indicates the directory in which to find the html reports
+```
 
-
+This information allows us to flag any samples that might have poor quality and should be discarded, although any sort of consensus is subjective. If our samples were processed in a similar way, they should have similar metrics. If some of the criteria turn out to be poor, depending on how poor this is, it might be good to proceed with downstream analyses while keeping this information in mind. 
 
 
 # Downloading the reference genome 

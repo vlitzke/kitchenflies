@@ -4,8 +4,6 @@ Next, we're going to map our trimmed reads to the reference genome. This is the 
 
 The BWA-MEM algorithm performs local alignment. It may produce multiple primary alignments for different part of a query sequence. This is a crucial feature for long sequences. However, some tools such as Picard’s markDuplicates does not work with split alignments. One may consider to use option -M to flag shorter split hits as secondary.
 
-The output of the ‘aln’ command is binary and designed for BWA use only. BWA outputs the final alignment in the SAM (Sequence Alignment/Map) format.
-
 Then we will pipe them into Samtools[^2], filtering with MQ (mapped quality score) > 20. Using `samtools view` views and converts SAM/BAM/CRAM files. 
 
 :exclamation: *Computationally and time consuming* :exclamation:

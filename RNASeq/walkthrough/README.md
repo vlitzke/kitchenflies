@@ -1,3 +1,5 @@
+On the other side, as RNA transcribed from DNA is further processed into mRNA (i.e. introns removed), many RNA-seq reads will fail to align to a genome reference sequence. Instead, we need to either align them to transcriptome reference sequences 
+
 Quality Control
 1, Each of the samples has two .fastq files in them which means that L1 – is the lane but the last number is always 1 or 2 (F or R). 
 2. Can merge the ones that have multiple files (for example, those that end in _1) – will give us higher coverage and won’t impact the data, even those these were samples that were run twice 

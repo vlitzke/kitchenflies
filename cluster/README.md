@@ -3,7 +3,10 @@ As processing this data is extensive and intensive, you are likely going to run 
 
 Since I am a part of a consortium that includes the University of St Andrews, I following this documentation to create an account to use on the cluster, which is quite helpful: <https://help.cropdiversity.ac.uk/guest-accounts.html>
 
-Then, you're going to want to install conda if it isn't already there.  I’m going to install conda 
+Then, you're going to want to install conda if it isn't already there:
+`install-bioconda`
+
+You will also want to create several different environments in which to run your projects. This helps you download tools + packages unique to that environment. 
 
 # Daily Use
 
@@ -15,6 +18,13 @@ conda activate rnaseq
 
 If you can’t even install packages, increase your memory like such: $ srun --partition=short --cpus-per-task=8 --mem=16G --pty bash
 
+
+
+## Cluster commands 
+sbatch
+srun
+squeue 
+
 How you print everything 
 Squeue –-me
 
@@ -25,15 +35,14 @@ Downloaded miniconda to my computer
 
 
 
-within cluster: 
-install-bioconda
+
 
 test that it works: conda –version
 and then I also downloaded all the packages to the conda on the cluster! 
 Soooo..
 
 
-
+## Screens 
 Run this on a screen 
 Screen -r (if there are any screens that are running)
 Type in screen 

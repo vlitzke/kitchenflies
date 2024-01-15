@@ -1,6 +1,6 @@
 # Quality Control of Raw Reads 
 
-Next, you might want to run some basic quality control of your FASTQ files. This is often done using a popular tool called FastQC[^2]. This can either be done through a GUI which the institute developed, or over the comand line: 
+Next, you might want to run some basic quality control of your FASTQ files. This is often done using a popular tool called FastQC[^1]. This can either be done through a GUI which the institute developed, or over the comand line: 
 
 ```
 conda install bioconda::fastqc
@@ -15,7 +15,7 @@ fastqc file1.fq.gz file2.fq.gz .. filen.fq.gz -o ./PATH/TO/QC
 
 This can take in a sequence of *.fq.gz files. 
 
-It outputs an HTML file which contains summary statistics for each individual read. To combine all HTML reports, we use MultiQC[^3] using to generate a single large report (which apparently may also use information from other downstream tools, e.g. adapter trimming, alignment).
+It outputs an HTML file which contains summary statistics for each individual read. To combine all HTML reports, we use MultiQC[^2] using to generate a single large report (which apparently may also use information from other downstream tools, e.g. adapter trimming, alignment).
 
 ```
 conda install bioconda::multiqc
@@ -44,3 +44,6 @@ This information allows us to flag any samples that might have poor quality and 
 |M2_23_EKDN230045349-1A_HVLM3DSX7_L1_2|20.3%|41%|150 bp|150 bp|0%|22.8|
 |M3_22_EKDN230045342-1A_HVMCLDSX7_L4_1|30.6%|41%|150 bp|150 bp|9%|37.2|
 |M3_22_EKDN230045342-1A_HVMCLDSX7_L4_2|30.3%|41%|150 bp|150 bp|0%|37.2|
+
+[^1]: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+[^2]: https://multiqc.info/

@@ -11,6 +11,8 @@ Then we will pipe them into Samtools[^2], filtering with MQ (mapped quality scor
 :exclamation: *Computationally and time consuming* :exclamation:
 
 ```
+conda install bioconda::bwa
+
 bwa mem \
 -M \
 ./PATH/TO/2_bam_libraries/reference_genome.fa  \
@@ -42,6 +44,8 @@ gnuplot package
 Using Picard [^3], the SAM file is going to be sorted by coodinate (SortOrder is found in the SAM file header), here read alignments are sorted into subgroups by the reference sequence name (RNAME) field using the reference sequence dictionary (@SQ tag), then secondarily sorted using the left-most mapping position of the read (POS). Doing this by coordinate makes SAM files smaller, visualizing more efficient, and helps when marking duplicates (for paired reads, this is done by looking at 5' mapping positions of both reads) because this guarantees that the reads physically closer inside the SAM file are also close in the genome.
  
 ```
+conda install bioconda::picard
+
 picard SortSam \
 I=./PATH/TO/2_bam_libraries/samplename_library.bam \
 O=./PATH/TO/3_sortbam_libraries/samplename_library-sort.bam \

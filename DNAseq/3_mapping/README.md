@@ -13,12 +13,12 @@ Then we will pipe them into Samtools[^2], filtering with MQ (mapped quality scor
 ```
 bwa mem \
 -M \
-./PATH/TO/reference_genome.fa  \
-./PATH/TO/read_1.fq.gz  \
-./PATH/TO/read_2.fq.gz \
+./PATH/TO/2_bam_libraries/reference_genome.fa  \
+./PATH/TO/1_cutadapt_trimmed/trimmed_read_1.fq.gz  \
+./PATH/TO/1_cutadapt_trimmed/trimmed_read_2.fq.gz \
 
 | samtools view \
--Sbh -q 20 -F 0x100 - > ./kitchenflies/DNA/2_Process/2_bam_libraries/F1_22_library.bam \
+-Sbh -q 20 -F 0x100 - > ./PATH/TO/2_bam_libraries/samplename_library.bam \
 ```
 
 | Command      | Description |

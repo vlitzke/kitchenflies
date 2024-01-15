@@ -24,18 +24,19 @@ Optimization criteria is to consider the alignment optimal that maximizes the ov
 
 :memo: **Note**: both Compressed in- and output files are supported (.gz). 
 
+## Code 
 ```
 cutadapt \
 -q 18 \
 --minimum-length 75 \
--o ./kitchenflies/DNA/2_Process/1_cutadapt_trimmed/F1_22_trimmed-read1.fq.gz \
--p ./kitchenflies/DNA/2_Process/1_cutadapt_trimmed/F1_22_trimmed-read2.fq.gz \
+-o ./PATH/TO/1_cutadapt_trimmed/filename_trimmed-read1.fq.gz \
+-p ./PATH/TO/1_cutadapt_trimmed/filename_trimmed-read2.fq.gz \
 -b ACACTCTTTCCCTACACGACGCTCTTCCGATC \
 -B CAAGCAGAAGACGGCATACGAGAT \
 -O 15 \
 -n 3 \
-./kitchenflies/DNA/1_Raw/2023/2023_Raw/01.RawData/F1_22/F1_22_EKDN230045336-1A_HVMCLDSX7_L4_1.fq.gz \
-./kitchenflies/DNA/1_Raw/2023/2023_Raw/01.RawData/F1_22/F1_22_EKDN230045336-1A_HVMCLDSX7_L4_2.fq.gz
+./PATH/TO/Raw_Data/filename_1.fq.gz \
+./PATH/TO/Raw_Data/filename_2.fq.gz
 ```
 
 | Command      | Description |

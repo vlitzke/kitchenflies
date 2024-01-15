@@ -52,7 +52,7 @@ cutadapt \
 
 To keep things neat, I keep the output in the same folder ("1_cutadapt_trimmed folder").
 
-Summary statistics (in base pairs unless otherwise stated):
+## Summary statistic output (in base pairs unless otherwise stated):
 
 |Sample Name |Total Reads Processed|Pairs too short|Pairs passing filters |Total base pairs processed|Total Quality Trimmed|Total filtered|Read|With adaptor|Base pairs processed|Quality Trimmed|filtered|
 |-----|-----|-----|-----|-----|-----|-----|---------|-----|-----|-----|-----|
@@ -73,7 +73,7 @@ M2_23|22,841,343|32,422 (0.1%)|22,808,921 (99.9%)|6,852,402,900 |13,475,734  (0.
 M3_22|37,151,417|41,722 (0.1%)|37,109,695 (99.9%)|11,145,425,100 |18,489,981  (0.2%)|11,118,727,214  (99.8%)|Read 1|68 (0.0%)|5,572,712,550 |6,537,255 |5,561,008,944 
 ||||||||Read 2|76 (0.0%)|5,572,712,550 |11,952,726 |5,557,718,270 
 
-Afterwards, its wise to rerun fastqc on these results (in base pairs):
+## Quality Control
 
 
 For more information about this tool, see <https://cutadapt.readthedocs.io/en/stable/>

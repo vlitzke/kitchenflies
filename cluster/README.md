@@ -9,6 +9,14 @@ Then, you're going to want to install conda if it isn't already there:
 You will also want to create several different environments in which to run your projects. This helps you download tools + packages unique to that environment. 
 `conda create --name <env_name>`
 
+and then to move into that envivonment 
+
+`conda activate <env_name>`
+
+you can then start installing certain tools:
+
+`conda install anaconda::wget`
+
 # Daily Use
 
 Once you log into the cluster, you will want to allocate your local jobs some memory on a node: 

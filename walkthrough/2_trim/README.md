@@ -16,8 +16,8 @@ Method:
 2. Keep alignments that do not exceed the specified maximum error rate.
 3. Keep alignments that have a maximal number of matches (that is, there is no alignment with more matches) and uses both edit distance and score.
 4. If there are multiple alignments with the same number of matches, then keep only those that have the smallest error rate.
-   
-6. If there are still multiple candidates left, choose the alignment that starts at the leftmost position within the read.
+   ![image](alg_text_eg2.png)
+5. If there are still multiple candidates left, choose the alignment that starts at the leftmost position within the read.
 
 :memo: **Note**: both Compressed in- and output files are supported (.gz). 
 

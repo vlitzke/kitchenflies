@@ -1,4 +1,6 @@
-2. map trimmed reads with bwa and filter for propper read pairs with MQ > 20 using samtools – but this didn’t work, so I am doing this separately "bwa mem" is preferable to "bwa aln",  especially for longer reads. Moreover "bwa mem" produces directly the SAM files 
+# Alignment 
+
+Next, we're going to map our trimmed reads using BWA and filter using SamTools with MQ > 20 using samtools – but this didn’t work, so I am doing this separately "bwa mem" is preferable to "bwa aln",  especially for longer reads. Moreover "bwa mem" produces directly the SAM files 
 
  
 #bwa mem \

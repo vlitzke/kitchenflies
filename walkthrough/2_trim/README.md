@@ -8,20 +8,16 @@ The prefix ELE and the suffix ASTIC do not have a counterpart in the respective 
 
 To find optimal overlap alignment, alignment scores would assign a positive value to matches, and negetaive values to mismatches, insertions and deletions, resulting in a total score, but this isn't that intuitive. So Marcel's aligorithm uses "unit costs" which count mismatches, insertions and deletions as one error. This returns a single parameter, the maximum error rate, which helps us decide how many errors are acceptable.
 
+Optimization criteria is to consider the alignment optimal that maximizes the overlap between the two sequences, as long as the allowed error rate is not exceeded.
 
-The optimization criteria are therefore a bit different. The basic idea is to consider the alignment optimal that maximizes the overlap between the two sequences, as long as the allowed error rate is not exceeded.
+Method: 
 
-Conceptually, the procedure is as follows:
-
-1. Consider all possible overlaps between the two sequences and compute an alignment for each, minimizing the total number of errors in each one.
-2. Keep only those alignments that do not exceed the specified maximum error rate.
-3. Keep only those alignments that have a maximal number of matches (that is, there is no alignment with more matches). (Note: This has been changed, see the section below for an update.)
-
-If there are multiple alignments with the same number of matches, then keep only those that have the smallest error rate.
-
-If there are still multiple candidates left, choose the alignment that starts at the leftmost position within the read.
-
-In Step 1, the different adapter types are taken into account: Only those overlaps that are actually allowed by the adapter type are actually considered.
+1. Consider all possible overlaps between the two sequences and compute an alignment for each, minimizing the total number of errors in each one. (different adapter types are taken into account: Only those overlaps that are actually allowed by the adapter type are actually considered.)
+2. Keep alignments that do not exceed the specified maximum error rate.
+3. Keep alignments that have a maximal number of matches (that is, there is no alignment with more matches) and uses both edit distance and score.
+4. If there are multiple alignments with the same number of matches, then keep only those that have the smallest error rate.
+   
+6. If there are still multiple candidates left, choose the alignment that starts at the leftmost position within the read.
 
 :memo: **Note**: both Compressed in- and output files are supported (.gz). 
 

@@ -1,6 +1,6 @@
 # Step 2: Trimming
 
-Raw FASTQ reads will be trimmed for a minimum BQ >18 and a minimum length (fragments greater than 75 base pairs) using cutadapt[^1]. It uses a semiglobal alignment algorithm (free-shift, ends-free or overlap alignment). The following is taken from Marcel's documentation: In a regular (global) alignment, the two sequences are compared from end to end and all differences occuring over that length are counted. In semiglobal alignment, the sequences are allowed to freely shift relative to each other and differences are only penalized in the overlapping region between them:
+To help remove adaptor sequences and low-quality reads, raw FASTQ reads will be trimmed for a minimum BQ >18 and a minimum length (fragments greater than 75 base pairs) using cutadapt[^1]. It uses a semiglobal alignment algorithm (free-shift, ends-free or overlap alignment). The following is taken from Marcel's documentation: In a regular (global) alignment, the two sequences are compared from end to end and all differences occuring over that length are counted. In semiglobal alignment, the sequences are allowed to freely shift relative to each other and differences are only penalized in the overlapping region between them:
 
 ![image](alg_text_eg.png)
 
@@ -52,7 +52,7 @@ cutadapt \
 
 To keep things neat, I keep the output in the same folder ("1_cutadapt_trimmed folder").
 
-Can also run multiqc on these results (in base pairs):
+Summary statistics (in base pairs unless otherwise stated):
 
 |Sample Name |Total Reads Processed|Pairs too short|Pairs passing filters |Total base pairs processed|Total Quality Trimmed|Total filtered|Read|With adaptor|Base pairs processed|Quality Trimmed|filtered|
 |-----|-----|-----|-----|-----|-----|-----|---------|-----|-----|-----|-----|
@@ -73,6 +73,7 @@ M2_23|22,841,343|32,422 (0.1%)|22,808,921 (99.9%)|6,852,402,900 |13,475,734  (0.
 M3_22|37,151,417|41,722 (0.1%)|37,109,695 (99.9%)|11,145,425,100 |18,489,981  (0.2%)|11,118,727,214  (99.8%)|Read 1|68 (0.0%)|5,572,712,550 |6,537,255 |5,561,008,944 
 ||||||||Read 2|76 (0.0%)|5,572,712,550 |11,952,726 |5,557,718,270 
 
+Afterwards, its wise to rerun fastqc on these results (in base pairs):
 
 
 For more information about this tool, see <https://cutadapt.readthedocs.io/en/stable/>

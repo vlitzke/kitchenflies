@@ -25,11 +25,11 @@ The folder where the company provides you with
 
 The original image data by high throughput sequencers are transformed to raw data (Raw reads) by CASAVA base calling. The raw data are recorded in a FASTQ (FQ for short) file, which contains sequence information (reads) and corresponding quality information.
 
-The RawData folder contains the raw data of each sample, which is in a *.fq.gz (compressed FASTQ file) and will include two runs on it, since we have paired data. For example: 
+The RawData folder contains the raw data of each sample, which is in a *.fq.gz (compressed FASTQ file, typically large files ~ 2000-4000 MB) and will include two runs on it, since we have paired data. For example: 
 F1_22_EKDN230045336-1A_HVMCLDSX7_L4_1.fq.gz
 F1_22_EKDN230045336-1A_HVMCLDSX7_L4_1.fq.gz
    
-Each sequence read in FASTQ format is stored in four lines as follows:
+Each sequence read is stored in four lines as follows:
 
 > @A00184:509:H3253DSXY:4:1101:2067:1000 2:N:0:ATCCTTGG+TAGCCACT
 TTTTACTCCCTCCGTCCCATAATATAAGGGATTTTAGAGGGATATGACACATCCTAGGACAACGAATCTAGTCAGGAGCTTGTCTAGATTCGTTGTCCTACGATGTGTCACCTCCCTCCAAAATCCCTTATATTATGGGATGGAGGGAGT
@@ -42,6 +42,8 @@ Line 1 begins with an '@' character and is followed by the Illumina Sequence Ide
 Line 2 is the raw sequence read. 
 Line 3 begins with a '+' character and is optionally followed by the same sequence identifier and description (optional). 
 Line 4 encodes the quality data for the sequence in Line 2, and must contain the same number of characters as there are bases in the sequence. 
+
+Most importantly, FASTQ files contain the nucleotide sequence and the per-base calling quality for millions of reads.
 
 Illumina Sequence Identifier details:
 
@@ -67,7 +69,7 @@ As well as a file called MD5.txt which is not super useful for us, but is a "mes
 
 # Creating a sample file 
 
-This will prove useful if you want to run your samples on the cluster and want to loop through all of them. 
+This will prove useful if you want to run your samples on the cluster and want to loop through all of them (by using an array). 
 
 | Sample ID |
 | --- |
@@ -80,6 +82,17 @@ M1_23
 M2_23
 M3_22 |
 
+# Quality Control of Raw Reads 
+
+Next, you might want to run some basic quality control of your FASTQ files. This is often done using a popular tool called FastQC[^2]. This can either be done through a GUI which the institute developed, or over the comand line: `fastqc file1.fq.gz file2.fq.gz .. filen.fq.gz -o ./PATH/TO/QC`
+
+ Either way, the main output of FastQC is an HTML file reporting key summary statistics about the overall quality of the raw sequencing reads from a given sample. Inspecting tens of FastQC reports one by one is tedious and it complicates the comparison across samples. Therefore, you may want to use MultiQC, which aggregates the HTML reports from FastQC (as well as from other tools used downstream, e.g. adapter trimming, alignment) into a single report.
+
+
+
+
+
+
 # Downloading the reference genome 
 
 Download reference genome from here: <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/>
@@ -91,3 +104,4 @@ I mapped it to cDNA (no introns)
 Mapping to the DNA reference means you need an aligner aware of splice junctions, such as Tophat or STAR
 
 [^1]: Taken from the Novogene README file. 
+[^2]: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/

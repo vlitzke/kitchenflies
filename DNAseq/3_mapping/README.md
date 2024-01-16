@@ -54,10 +54,13 @@ SO=coordinate
 
 # Output Statistics 
 
-`conda install conda-forge::gnuplot`
+```
+conda install conda-forge::gnuplot
+samtools stats ./PATH/TO/samplename_library-sort.bam > ./PATH/TO/samplename_library-sort.stats 
+```
 
-samtools stats sortedbamfilename.bam > sortedbamfilename.stats
-plot-bamstats -p my_output sortedbamfilename.stats
+The following throws a bunch of errors: 
+plot-bamstats -p ./PATH/TO/samplename_bamStatOutput ./PATH/TO/samplename_library-sort.stats 
 
 I also had to install Libjpeg Turbo (conda install -c conda-forge libjpeg-turbo) to make this work.
 

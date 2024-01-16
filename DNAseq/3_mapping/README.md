@@ -88,6 +88,7 @@ ggplot(coverage, aes(x=locus, y=depth)) +
 geom_point(colour="red", size=1, shape=20, alpha=1/3) +
 scale_y_continuous(trans = scales::log10_trans(), breaks = scales::trans_breaks("log10", function(x) 10^x))
 
+Leeban says: only care about relationship between mapped things and those properly paired , and mapping rate 
 
 [^1]: Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform. Bioinformatics, 25:1754-60. [PMID: 19451168] <https://github.com/lh3/bwa>
 [^2]: Danecek, P., Bonfield, J. K., Liddle, J., Marshall, J., Ohan, V., Pollard, M. O., ... & Li, H. (2021). Twelve years of SAMtools and BCFtools. Gigascience, 10(2), giab008. <https://doi.org/10.1093/gigascience/giab008> <https://www.htslib.org/>

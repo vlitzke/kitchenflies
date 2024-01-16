@@ -107,25 +107,22 @@ Provides the average quality for each position along the read (aiming for > 30),
 Similar information to help us see if a subset of sequences have universally low quality values but represented as the average quality across all of reads. Would hope to see high quality sequences and not a bi-modal distribution (might see a bump at lower measures).
 
 ### Per tile sequence quality 
-
 Provides the physical structure of each cluster subdivided into tiles in the flowcell. Helps us see which bit in the flow cell produced low quality reads (should expect blue dots all over), where you might see patches of warmer colors (phasing issues or other problems). In the worst case, there could be a bubble on the slide, which means you should go back and tell the sequencing facility (on them)! That’s on them.
 
 ### Per base sequence and GC content 
-
 In each position of read, we should know which base is called, therefore the chances of getting ATCG should not change throughout the course of the run (though you might get noise  at the start). Squiggles in these plots could indicate adaptor contamination or a bias towards a certain base. 
 
 ### Per sequence GC content
-
 We expect to see GC content curve normally distributed around the GC content specific to this organism, as they are randomly selected from the genome. If there are spikes in the plot or the distribution does not fit within the expected distribution (like a hump on one side of the GC content), there might be possibilities of contamination/you have another organism in your sample (like bacteria, parasites).
 
 ### Per sequence N content
-(N’s are what we say when we can’t read a base- unread) this should be consistent throughout the read , accidents happen and we get ns. If we constantly get N’s at one position in the read, there is some bias/contamination. good data -no Ns or low consistent N content, bad data- peaks of Ns per base position
+Good data should show no N's or consistently low N's (N is what is assigned when a base cannot be read). There might be some bias/contamination if there are peaks of Ns in a specific base position. 
 
-### Sequence duplication levels. 
-In a normal run ,genome, sampling all over the genome from a piece of genomic DNA, took random samples from genomic DNA, we would very rarely find two reads that are exactly the same as each other. Can find duplications, but this is often an artefact from the library prep or some bias in pcr amplification (might be enriched for some sequence more than others), but THIS has to be taken with a piece of salt With RNA – duplicated sequences are expected! Means you have a really highly expressed gene that gets read time and time again. good data - low number of duplicaets, bad data- high number of duplicates, indicates some kind of enrichment bias
+### Sequence duplication levels
+We would rarely find that if we took two random samples from genomic DNA, that two reads would be exactly the same, so we expect a low number of duplicates. Duplications are often an artefact from the library prep or some bias in PCR amplification (enrichment bias), but THIS has to be taken with a piece of salt With RNA – duplicated sequences are expected! Means you have a really highly expressed gene that gets read time and time again.
 
 ### Overrepresented sequences
-if we counted a particular sequence (this is the read) – how many times do we get bits of a read. If we get particular bits of sequences over and over again but they get no hit (in RNA seq) then its ok. 
+The amount of times we get particular sequences. If we get particular bits of sequences over and over again but they get no hits (in RNA seq) then its ok. 
 
 # MultiQC
 To combine all HTML reports, we use MultiQC[^3] using to generate a single large report (which apparently may also use information from other downstream tools, e.g. adapter trimming, alignment).

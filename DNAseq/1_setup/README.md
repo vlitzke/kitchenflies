@@ -112,11 +112,11 @@ Provides the physical structure of each cluster subdivided into tiles in the flo
 
 ### Per base sequence and GC content 
 
-In each position of read, which base was called (its cDNA) The chances of getting ATCG should not change throughout the course of the run- there should not be a bias. If there are some squiggles, could be adaptor contamination or a bias towards a certain base. Should not expect that. But you should expect that at the start of the read, you get wiggles (if you look at the scale of the graph though, its individual bases, and then it gets groups)- at the start you expect noise, the way in which you break reads down in a library prep (break RNA down into fragments) it will have a bias (Restriction enymzes have tendency to join at certain base, physical fragmentation can break some bonds better than others) so this is normal in the beginning. good data= smooth over the read, bad data - sequences position bias and adapter contamination 
+In each position of read, we should know which base is called, therefore the chances of getting ATCG should not change throughout the course of the run (though you might get noise  at the start). Squiggles in these plots could indicate adaptor contamination or a bias towards a certain base. 
 
-### Per sequence GC content- 
+### Per sequence GC content
 
-this tells us something about contamination. If we sequence and organism we do not expect it to have a GC content the same as every other organism, but the reads should be normally distributed around the expected GC content because they’re randomly selected from the genome. If we find spikes, that’s a problem. good dat = normal distribution it fits with the expected, organism dependent, bad data= distribution doesnt fit with the expected, possibilities of contaminaiton  If you find another hump.on the side of the GC content, that could represent that you have another organism in your sample (like bacteria, parasite). Want a smooth, normally distributed curve.
+We expect to see GC content curve normally distributed around the GC content specific to this organism, as they are randomly selected from the genome. If there are spikes in the plot or the distribution does not fit within the expected distribution (like a hump on one side of the GC content), there might be possibilities of contamination/you have another organism in your sample (like bacteria, parasites).
 
 ### Per sequence N content
 (N’s are what we say when we can’t read a base- unread) this should be consistent throughout the read , accidents happen and we get ns. If we constantly get N’s at one position in the read, there is some bias/contamination. good data -no Ns or low consistent N content, bad data- peaks of Ns per base position

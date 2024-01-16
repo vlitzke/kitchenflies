@@ -64,6 +64,9 @@ plot-bamstats -p ./PATH/TO/samplename_bamStatOutput ./PATH/TO/samplename_library
 
 I also had to install Libjpeg Turbo (conda install -c conda-forge libjpeg-turbo) to make this work.
 
+https://ucdavis-bioinformatics-training.github.io/2019-March-Bioinformatics-Prerequisites/wednesday/Data_in_R/data_in_R.html
+
+
 There's also : 
 Step #1. Calculate the depth along the genomic locus by Samtools.
 

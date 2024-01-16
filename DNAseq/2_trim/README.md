@@ -50,7 +50,7 @@ cutadapt \
 | - | input file 1.fq.gz |
 | - | input file 2.fq.gz |
 
-To keep things neat, I keep the output in the same folder ("1_cutadapt_trimmed folder").
+To keep things neat, I keep the output in the same folder ("1_cutadapt_trimmed folder"). For more information about this tool, see <https://cutadapt.readthedocs.io/en/stable/>
 
 ## Summary statistic output (in base pairs unless otherwise stated):
 
@@ -76,27 +76,24 @@ M3_22|37,151,417|41,722 (0.1%)|37,109,695 (99.9%)|11,145,425,100 |18,489,981  (0
 ## Quality Control
 |Sample Name|% Dups|% GC|Average Read Length|Median Read Length|% Failed|M Seqs|
 |-----|----|----|-----|------|------|------|
-|F1_22_trimmed-read1|26.457089499239373|41.0	149.844770063351	150	9.090909090909092	34534099.0
-|F1_22_trimmed-read2|26.799024044401108|41.0	149.7892002336589	150	0.0	34534099.0
-|F1_23_trimmed-read1|28.292575724267294|41.0	149.84643831018022	150	9.090909090909092	33787698.0
-|F1_23_trimmed-read2|28.115091789234697|41.0	149.7549523498168	150	0.0	33787698.0
-|F2_22_trimmed-read1|18.908854218620647|41.0	149.76445983201955	150	0.0	22544885.0
-|F2_22_trimmed-read2|19.51826285089777|41.0	149.7981215694824	150	0.0	22544885.0
-|F2_23_trimmed-read1|16.800603458426494|41.0	149.7475842102894	150	0.0	17660995.0
-|F2_23_trimmed-read2|17.166973413826057|41.0	149.76311663074475	150	0.0	17660995.0
-|M1_22_trimmed-read1|20.13368404178179|41.0	149.72015308930438	150	0.0	22267003.0
-|M1_22_trimmed-read2|20.781516608161894|41.0	149.7338726724921	150	0.0	22267003.0
-|M1_23_trimmed-read1|28.775518457669577|41.0	149.82037362973657	150	9.090909090909092	31807479.0
-|M1_23_trimmed-read2|28.39243545492627|41.0	149.70756645001637	150	0.0	31807479.0
-|M2_23_trimmed-read1|19.778365558556132|40.0	149.72029242417912	150	0.0	22808921.0
-|M2_23_trimmed-read2|20.26414235006014|40.0	149.71478589451908	150	0.0	22808921.0
-|M3_22_trimmed-read1|30.62089347421255|41.0	149.80602513709692	150	9.090909090909092	37109695.0
-|M3_22_trimmed-read2|30.247083130258318|41.0	149.70206481082639	150	0.0	37109695.0
+|F1_22_trimmed-read1|26.5%|41.0|150 bp|150 bp|9%|34.6|
+|F1_22_trimmed-read2|26.8%|41.0|150 bp|150 bp|0%|34.6|
+|F1_23_trimmed-read1|28.3%|41.0|150 bp|150 bp|9%|33.8|
+|F1_23_trimmed-read2|28.1%|41.0|150 bp|150 bp|0%|33.8|
+|F2_22_trimmed-read1|18.9%|41.0|150 bp|150 bp|0%|22.6|
+|F2_22_trimmed-read2|19.5%|41.0|150 bp|150 bp|0%|22.6|
+|F2_23_trimmed-read1|16.8%|41.0|150 bp|150 bp|0%|17.7|
+|F2_23_trimmed-read2|17.2%|41.0|150 bp|150 bp|0%|17.7|
+|M1_22_trimmed-read1|20.1%|41.0|150 bp|150 bp|0%|22.3|
+|M1_22_trimmed-read2|20.8%|41.0|150 bp|150 bp|0%|22.3|
+|M1_23_trimmed-read1|28.8%|41.0|150 bp|150 bp|9%|31.8|
+|M1_23_trimmed-read2|28.4%|41.0|150 bp|150 bp|0%|31.8|
+|M2_23_trimmed-read1|19.8%|40.0|150 bp|150 bp|0%|22.8|
+|M2_23_trimmed-read2|20.3%|40.0|150 bp|150 bp|0%|22.8|
+|M3_22_trimmed-read1|30.6%|41.0|150 bp|150 bp|9%|37.1|
+|M3_22_trimmed-read2|30.2%|41.0|150 bp|150 bp|0%|37.1|
 
-
-
-
-For more information about this tool, see <https://cutadapt.readthedocs.io/en/stable/>
+Trimming actually didn't seem to improve the quality of our sequences.
 
 [^1]: Martin, M. (2011). Cutadapt removes adapter sequences from high-throughput sequencing reads. EMBnet. journal, 17(1), 10-12.
 [^2]: For Illumina reads, this is sufficient as their quality is high at the beginning, but degrades towards the 3’ end. 

@@ -100,28 +100,19 @@ fastqc file1.fq.gz file2.fq.gz .. filen.fq.gz -o ./PATH/TO/QC
 
 This can take in a sequence of *.fq.gz files. It outputs an HTML file which contains summary statistics for each individual read.
 
-Quality Control (QC) 
--	Determines how well our analysis is going to work down the line. 
--	Fastx toolkit, NGS QC toolkit, fastqc – the most preferred one
--	Babraham institute has good and bad quality examples! 
--	Filtering and trimming to clean up the data. Mostly a biological intuitional (pragmatic) don’t want to lose too much but…
+### Per base sequence quality
+Provides the average quality for each position along the read (aiming for > 30), and should expect consistently high quality along the read. However, there are phasing errors, in which you might see a decline in quality towards the end of the reads. 
 
-### Per base sequence quality- good data, consistent high quality along the read – gives average quality for each position along the read (anything above 30 is good quality data)
-
-There are phasing errors-  decline in quality towards end of the reads. The read gets muddled
 ### Per sequence quality scores
-
-same information but represented in terms of the average quality across all of the reads. For bad reads- can see a bump at lower measures. You’ve got a subsection of your data which is lower data. We could probably filter it out. this allows us to see if a subset of sequences have universally low quality values, good data = most reads are high quality seq and bad data = distribution with bi-modalities 
+Similar information to help us see if a subset of sequences have universally low quality values but represented as the average quality across all of reads. Would hope to see high quality sequences and not a bi-modal distribution (might see a bump at lower measures).
 
 ### Per tile sequence quality 
 
-Structure of tiles in flowcell – each cluster is subdivided in the machines mine called a tile. We can look at a per tile sequence quality- which bit in the flow cell produced low quality – likely you will get some red around, within the physical areas in the flow cell (could pick up phasing issues or some other problem) in the worst cases, there could be a bubble on the slide, and if we find this bubble (red blob) and you filter out bad quality data, might want to go back to the per tile sequence quality where there is a bubble- go back to the technologists and the seqeucnieing facility and tell them!!!!  That’s on them. Good data = blue dots all over, bad data = presence of hot colors 
+Provides the physical structure of each cluster subdivided into tiles in the flowcell. Helps us see which bit in the flow cell produced low quality reads (should expect blue dots all over), where you might see patches of warmer colors (phasing issues or other problems). In the worst case, there could be a bubble on the slide, which means you should go back and tell the sequencing facility (on them)! That’s on them.
 
-### Per base sequence content 
+### Per base sequence and GC content 
 
 In each position of read, which base was called (its cDNA) The chances of getting ATCG should not change throughout the course of the run- there should not be a bias. If there are some squiggles, could be adaptor contamination or a bias towards a certain base. Should not expect that. But you should expect that at the start of the read, you get wiggles (if you look at the scale of the graph though, its individual bases, and then it gets groups)- at the start you expect noise, the way in which you break reads down in a library prep (break RNA down into fragments) it will have a bias (Restriction enymzes have tendency to join at certain base, physical fragmentation can break some bonds better than others) so this is normal in the beginning. good data= smooth over the read, bad data - sequences position bias and adapter contamination 
-
-### Per base GC content, expect the same 
 
 ### Per sequence GC content- 
 

@@ -16,3 +16,5 @@ dict: list the chromosomes but also provides informations about the MD5 Sum of t
 351562 reads were filtered out during the traversal out of approximately 38614402 total reads (0.91%) for failing BadMateFilter
 358622 reads were filtered out during the traversal out of approximately 45029919 total reads (0.80%) 
 458838 reads were filtered out during the traversal out of approximately 44924189 total reads (1.02%) 
+
+F2_22: 144020 reads were filtered out during the traversal out of approximately 33006790 total reads (0.44%)

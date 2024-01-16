@@ -54,15 +54,21 @@ SO=coordinate
 
 # Output Statistics 
 
-```
-conda install conda-forge::gnuplot
-samtools stats ./PATH/TO/samplename_library-sort.bam > ./PATH/TO/samplename_library-sort.stats 
-```
+I saved the stats output in this third folder, then created a new folder for the plot-bamstats output ("bamstats").
 
-The following throws a bunch of errors, which might be due to its dependency with gnuplot (the internet suggests v5.2.7): 
-plot-bamstats -p ./PATH/TO/samplename_bamStatOutput ./PATH/TO/samplename_library-sort.stats 
+`samtools stats ./PATH/TO/samplename_library-sort.bam > ./PATH/TO/samplename_library-sort.stats`
 
-I also had to install Libjpeg Turbo (conda install -c conda-forge libjpeg-turbo) to make this work.
+```
+conda install conda-forge::libjpeg-turbo
+conda install conda-forge::gnuplot=5.2.7
+# Reinstall samtools
+conda install bioconda::samtools
+
+plot-bamstats -p ./PATH/TO/samplename_bamStatOutput ./PATH/TO/bamstat/samplename_library-sort.stats 
+```
+:memo: plot-bamstats has a dependency with gnuplot (the internet suggests v5.2.7) 
+
+You actually end up with a bunch of plots and an html file that only works if all of the figures are there. There must be another way to manipulate these kinds of plots, so I found:
 
 https://ucdavis-bioinformatics-training.github.io/2019-March-Bioinformatics-Prerequisites/wednesday/Data_in_R/data_in_R.html
 

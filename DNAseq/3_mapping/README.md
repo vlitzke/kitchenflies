@@ -34,14 +34,6 @@ bwa mem \
 | `-F` | Do not output alignments with bits set in FLAG present in the FLAG field |
 | `0x100` |	SECONDARY	secondary alignment, specified by hex|
 
-Plotting?
-
-`conda install conda-forge::gnuplot`
-
-samtools stats sortedbamfilename.bam > sortedbamfilename.stats
-plot-bamstats -p my_output sortedbamfilename.stats
-I also had to install Libjpeg Turbo (conda install -c conda-forge libjpeg-turbo) to make this work.
-
 # Sorting
 Using Picard [^3], the SAM file is going to be sorted by coodinate (SortOrder is found in the SAM file header), here read alignments are sorted into subgroups by the reference sequence name (RNAME) field using the reference sequence dictionary (@SQ tag), then secondarily sorted using the left-most mapping position of the read (POS). Doing this by coordinate makes SAM files smaller, visualizing more efficient, and helps when marking duplicates (for paired reads, this is done by looking at 5' mapping positions of both reads) because this guarantees that the reads physically closer inside the SAM file are also close in the genome.
  
@@ -60,6 +52,29 @@ SO=coordinate
 | `-O` | output sorted library .bam |
 | `SO` | Sort order of output file. |
 
+# Output Statistics 
+
+`conda install conda-forge::gnuplot`
+
+samtools stats sortedbamfilename.bam > sortedbamfilename.stats
+plot-bamstats -p my_output sortedbamfilename.stats
+
+I also had to install Libjpeg Turbo (conda install -c conda-forge libjpeg-turbo) to make this work.
+
+There's also : 
+Step #1. Calculate the depth along the genomic locus by Samtools.
+
+samtools depth reads.sort.bam > reads.sort.coverage
+Step #2. Plot the coverage by ggplot function in R. (The demo data only includes one chromosome)
+
+setwd("D://R")  # working path
+coverage=read.table("reads.sort.coverage", sep="\t", header=F)
+install.packages('reshape')
+library(reshape)
+coverage=rename(coverage,c(V1="Chr", V2="locus", V3="depth")) # renames the header
+ggplot(coverage, aes(x=locus, y=depth)) +
+geom_point(colour="red", size=1, shape=20, alpha=1/3) +
+scale_y_continuous(trans = scales::log10_trans(), breaks = scales::trans_breaks("log10", function(x) 10^x))
 
 
 [^1]: Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform. Bioinformatics, 25:1754-60. [PMID: 19451168] <https://github.com/lh3/bwa>

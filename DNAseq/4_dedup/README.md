@@ -1,11 +1,11 @@
-4. Remove duplicates 
+# Remove PCR duplicates 
 
-java \
--Xmx20g \
--Dsnappy.disable=true \
--jar scripts/picard-tools-1.109/MarkDuplicates.jar \
-REMOVE_DUPLICATES=true \
-I=library-sort.bam \
-O=library-dedup.bam \
-M=library-dedup.txt \
-VALIDATION_STRINGENCY=SILENT
+
+```
+picard MarkDuplicates
+REMOVE_DUPLICATES=true 
+I=./PATH/TO/3_sortbam_libraries/sampleName_library-sort.bam 
+O=./PATH/TO/4_dedup/sampleName_library-dedup.bam 
+M=./PATH/TO/4_dedup/sampleName_library-dedup.txt 
+```
+

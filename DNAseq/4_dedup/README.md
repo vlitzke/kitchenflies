@@ -1,5 +1,6 @@
 # Remove PCR duplicates 
 
+Next....use picard[^1].
 
 ```
 picard MarkDuplicates

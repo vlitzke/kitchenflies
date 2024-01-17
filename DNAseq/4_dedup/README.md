@@ -12,9 +12,9 @@ It compares seuqneces in the 5' positions, then an algorithm differentates prima
 ```
 picard MarkDuplicates\
 REMOVE_DUPLICATES=true \ 
-I=./PATH/TO/3_sortbam_libraries/filename_library-sort.bam \
-O=./PATH/TO/4_dedup/filename_library-dedup.bam \
-M=./PATH/TO/4_dedup/filename_library-dedup.txt 
+I=./PATH/TO/3_sortbam_libraries/sampleName_library-sort.bam \
+O=./PATH/TO/4_dedup/sampleName_library-dedup.bam \
+M=./PATH/TO/4_dedup/sampleName_library-dedup.txt 
 ```
 
 | Command      | Description |

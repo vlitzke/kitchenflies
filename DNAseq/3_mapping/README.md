@@ -14,11 +14,11 @@ conda install bioconda::bwa
 bwa mem \
 -M \
 ./PATH/TO/2_bam_libraries/reference_genome.fa  \
-./PATH/TO/1_cutadapt_trimmed/trimmed_read_1.fq.gz  \
-./PATH/TO/1_cutadapt_trimmed/trimmed_read_2.fq.gz \
+./PATH/TO/1_cutadapt_trimmed/sampleName_trimmed_read_1.fq.gz  \
+./PATH/TO/1_cutadapt_trimmed/sampleName_trimmed_read_2.fq.gz \
 
 | samtools view \
--Sbh -q 20 -F 0x100 - > ./PATH/TO/2_bam_libraries/samplename_library.bam \
+-Sbh -q 20 -F 0x100 - > ./PATH/TO/2_bam_libraries/sampleName_library.bam \
 ```
 
 | Command      | Description |

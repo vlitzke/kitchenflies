@@ -1,12 +1,12 @@
 # Add Read Group Tags
 
-picard add read group tags – unsure of what information is used as input for some of the arguments.. 
+We used Picards AddorReplaceReadGroups to assign all the reads in a file with a tag to a single new read-group[^1]. Some other functions in Picard and GATK require the presence of at least one RG tag. This tool is kind of picky and for some of the fields you can actually just make some stuff up (otherwise the tool won't run).
 
-Assigns all the reads in a file to a single new read-group.
-Summary
-Many tools (Picard and GATK for example) require or assume the presence of at least one RG tag, defining a "read-group" to which each read can be assigned (as specified in the RG tag in the SAM record). This tool enables the user to assign all the reads in the #INPUT to a single new read-group. For more information about read-groups, see the GATK Dictionary entry.
-This tool accepts as INPUT BAM and SAM files or URLs from the Global Alliance for Genomics and Health (GA4GH).
-Usage example:
+After an extensive internet search it seems there is no consensus for a formal definition of what a 'read group' is, but Caetano-Anolles[^2] states that it refers to a set of reads generated from a single run from a sequencing instrument (a single library prep from one sample run on a single flow cell lane - all reads from this lane belong to the same read group, a separate read group would be if a subset of reads from a different library run on that lane).
+
+Read groups are identified in the SAM/BAM file by a number of tags which help differentiate samples and several technical features that are associated with artifacts. Using this information, we can mitigate the effects of those artifacts during the duplicate marking and base recalibration steps.
+
+To see read group information for a BAM file, use the following command: `samtools view -H sample.bam | grep '^@RG'`
 
 ```
 picard AddOrReplaceReadGroups \
@@ -35,6 +35,5 @@ VALIDATION_STRINGENCY=SILENT
 | `CREATE_INDEX=` | Creates a BAM index |
 | `VALIDATION_STRINGENCY=` | Set to SILENT, should improve performance when processing a BAM file where variable-length data (read, qualities, tags) do not need to be decoded |
 
-
-To see the read group information for a BAM file, use the following command.
-`samtools view -H sample.bam | grep '^@RG'`
+[^1]: <https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard->
+[^2]: <https://gatk.broadinstitute.org/hc/en-us/articles/360035890671-Read-groups>

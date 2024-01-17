@@ -1,6 +1,6 @@
-# Add Read Group Tags
+# Step 5: Add Read Group Tags
 
-We used Picards AddorReplaceReadGroups to assign all the reads in a file with tags to a single new read-group[^1]. Some other functions in Picard and GATK require the presence of at least one RG tag, and it seems that our BAM files do not come with associated tags. This tool is kind of picky and for some of the fields you can actually just make some stuff up - otherwise the tool won't run!
+We used Picards AddorReplaceReadGroups to assign all the reads in a file with tags to a single new read group[^1]. Some other functions in Picard and GATK require the presence of at least one RG tag, and it seems that our BAM files do not come with associated tags. This tool is kind of picky and for some of the fields you can actually just make some stuff up - otherwise the tool won't run!
 
 After an extensive internet search it seems there is no consensus for a formal definition of what a 'read group' is, but Caetano-Anolles[^2] states that it refers to a set of reads generated from a single run from a sequencing instrument (a single library prep from one sample run on a single flow cell lane - all reads from this lane belong to the same read group, a separate read group would be if a subset of reads from a different library run on that lane).
 

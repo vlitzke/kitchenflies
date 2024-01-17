@@ -1,3 +1,9 @@
+
+
+
+
+
+
 samtools mpileup -B \
 -f reference.fa \
 -b BAMlist.txt \

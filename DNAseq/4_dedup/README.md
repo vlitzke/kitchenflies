@@ -7,7 +7,7 @@ Already used Picard in the last step, this time we are using the function `MarkD
 
 It compares seuqneces in the 5' positions, then an algorithm differentates primary and duplicate reads by ranking the sums of read base-quality scores. Here duplicates were removed by indicated `REMOVE_DUPLICATES=TRUE`. If falst, it would output a new BAM/SAM file with duplicates marked by a flag (0x0400), instead we have just removed them and it also provides us with a metrics file which states the number of duplicates for the paired-end reads. 
  
-:memo: Bear in mind that the syntax of these lines have changed in newer versions (I think from `I=` to `-I`).
+🐻: Bear in mind that the syntax of these lines have changed in newer versions (I think from `I=` to `-I`).
 
 ```
 picard MarkDuplicates

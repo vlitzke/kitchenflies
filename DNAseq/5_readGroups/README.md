@@ -24,16 +24,16 @@ VALIDATION_STRINGENCY=SILENT
 
 | Command      | Description |
 | ----------- | ----------- |
-| `Input=` | input library-sort.bam file, must be coordinate sorted |
-| `Output=` | output library-dedup.bam file |
-| `SORT_ORDER=` | File to write duplication metrics to |
-| `RGID=` | File to write duplication metrics to |
-| `RGLB=` | File to write duplication metrics to |
-| `RGPL=` | File to write duplication metrics to |
-| `RGSM=` | File to write duplication metrics to |
-| `RGPU=` | File to write duplication metrics to |
-| `CREATE_INDEX=` | File to write duplication metrics to |
-| `VALIDATION_STRINGENCY=` | File to write duplication metrics to |
+| `Input=` | input library-dedup.bam file |
+| `Output=` | output library-dedup_rg.bam file |
+| `SORT_ORDER=` | Optional sort order to output in, though its redundant here because our input file is already coordinate sorted (it will output the order the input file was |
+| `RGID=` | Read-Group ID (I think possibly unnecessary) |
+| `RGLB=` | Read-Group Library |
+| `RGPL=` | Read-Group Platform (likely Illumina sequencing)|
+| `RGSM=` | Read-Group Sample Name |
+| `RGPU=` | Read-Group Platform Unit (I think this is unnecessary) |
+| `CREATE_INDEX=` | Creates a BAM index |
+| `VALIDATION_STRINGENCY=` | Set to SILENT, should improve performance when processing a BAM file where variable-length data (read, qualities, tags) do not need to be decoded |
 
 
 To see the read group information for a BAM file, use the following command.

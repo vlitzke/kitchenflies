@@ -28,3 +28,6 @@ gatk3 \
 -targetIntervals $DATA_DIR/6_targetInDels/${myArray[$SLURM_ARRAY_TASK_ID]}_library-dedup_rg.list \
 -o $DATA_DIR/7_realignInDels/${myArray[$SLURM_ARRAY_TASK_ID]}_library-dedup_rg_InDel.bam
 echo "Job finished"
+
+
+Write all file names to a text file: `ls *.bam > BAMlist.txt` and check `less BAMlist.txt`.

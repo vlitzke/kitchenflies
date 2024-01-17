@@ -73,3 +73,7 @@ Keep the base environment relatively clear, rather than downloading packages to 
 Type in conda activate ‘program name’ 
 
  View text files in Terminal on Mac - `less <file_name>` 
+
+To copy a file from your local computer to your scratch folder on the cluster, open your local terminal and type in `scp /PATH/TO/filename.sh userID@cropdiversity.ac.uk:scratch/`, it will prompt your for your key passphrase. 
+
+scp ./file.txt cecicluster:destination/path/

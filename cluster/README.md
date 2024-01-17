@@ -68,3 +68,5 @@ Created a bunch of small envrionments
 Keep the base environment relatively clear, rather than downloading packages to the base environment 
 
 Type in conda activate ‘program name’ 
+
+ View text files in Terminal on Mac - `less <file_name>` 

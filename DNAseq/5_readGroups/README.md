@@ -2,6 +2,11 @@
 
 picard add read group tags – unsure of what information is used as input for some of the arguments.. 
 
+Assigns all the reads in a file to a single new read-group.
+Summary
+Many tools (Picard and GATK for example) require or assume the presence of at least one RG tag, defining a "read-group" to which each read can be assigned (as specified in the RG tag in the SAM record). This tool enables the user to assign all the reads in the #INPUT to a single new read-group. For more information about read-groups, see the GATK Dictionary entry.
+This tool accepts as INPUT BAM and SAM files or URLs from the Global Alliance for Genomics and Health (GA4GH).
+Usage example:
 
 ```
 picard AddOrReplaceReadGroups \

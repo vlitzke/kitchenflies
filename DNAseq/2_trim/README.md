@@ -27,8 +27,8 @@ To find optimal overlap alignment, alignment scores would assign a positive valu
 cutadapt \
 -q 18 \
 --minimum-length 75 \
--o ./PATH/TO/1_cutadapt_trimmed/filename_trimmed-read1.fq.gz \
--p ./PATH/TO/1_cutadapt_trimmed/filename_trimmed-read2.fq.gz \
+-o ./PATH/TO/1_cutadapt_trimmed/sampleName_trimmed-read1.fq.gz \
+-p ./PATH/TO/1_cutadapt_trimmed/sampleName_trimmed-read2.fq.gz \
 -b ACACTCTTTCCCTACACGACGCTCTTCCGATC \
 -B CAAGCAGAAGACGGCATACGAGAT \
 -O 15 \

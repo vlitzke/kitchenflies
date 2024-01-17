@@ -19,7 +19,7 @@ M=./PATH/TO/4_dedup/sampleName_library-dedup.txt
 
 | Command      | Description |
 | ----------- | ----------- |
-| `I=` | input library-sort.bam file |
+| `I=` | input library-sort.bam file, must be coordinate sorted |
 | `O=` | output library-dedup.bam file |
 | `M=` | File to write duplication metrics to |
 

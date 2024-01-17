@@ -1,4 +1,4 @@
-# Alignment 
+# Step 3: Alignment 
 
 Next, we're going to map our trimmed reads to the reference genome. This is the point in which we determine the position in the genome based on the read sequence. For this, we will use BWA[^1]. `bwa mem` is preferable for longer Illumina reads  > 70 bp and < 1Mbp. It also directly produces SAM files. 
 

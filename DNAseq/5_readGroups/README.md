@@ -10,8 +10,8 @@ Usage example:
 
 ```
 picard AddOrReplaceReadGroups \
-INPUT=$DATA_DIR/4_dedup/${myArray[$SLURM_ARRAY_TASK_ID]}_library-dedup.bam \
-OUTPUT=$DATA_DIR/5_readgroups/${myArray[$SLURM_ARRAY_TASK_ID]}_library-dedup_rg.bam \
+INPUT=./PATH/TO/4_dedup/${myArray[$SLURM_ARRAY_TASK_ID]}_library-dedup.bam \
+OUTPUT=./PATH/TO/5_readgroups/${myArray[$SLURM_ARRAY_TASK_ID]}_library-dedup_rg.bam \ 
 SORT_ORDER=coordinate \
 RGID=${myArray[$SLURM_ARRAY_TASK_ID]} \
 RGLB=${myArray[$SLURM_ARRAY_TASK_ID]} \
@@ -21,6 +21,20 @@ RGPU=${myArray[$SLURM_ARRAY_TASK_ID]} \
 CREATE_INDEX=true \
 VALIDATION_STRINGENCY=SILENT
 ```
+
+| Command      | Description |
+| ----------- | ----------- |
+| `Input=` | input library-sort.bam file, must be coordinate sorted |
+| `Output=` | output library-dedup.bam file |
+| `SORT_ORDER=` | File to write duplication metrics to |
+| `RGID=` | File to write duplication metrics to |
+| `RGLB=` | File to write duplication metrics to |
+| `RGPL=` | File to write duplication metrics to |
+| `RGSM=` | File to write duplication metrics to |
+| `RGPU=` | File to write duplication metrics to |
+| `CREATE_INDEX=` | File to write duplication metrics to |
+| `VALIDATION_STRINGENCY=` | File to write duplication metrics to |
+
 
 To see the read group information for a BAM file, use the following command.
 `samtools view -H sample.bam | grep '^@RG'`

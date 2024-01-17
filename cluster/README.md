@@ -50,6 +50,7 @@ test that it works: conda –version
 and then I also downloaded all the packages to the conda on the cluster! 
 Soooo..
 
+Create new .sh file in terminal in cluster with `touch 9_mpileup.sh`
 
 ## Screens 
 Run this on a screen 

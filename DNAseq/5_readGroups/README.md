@@ -6,8 +6,6 @@ After an extensive internet search it seems there is no consensus for a formal d
 
 Read groups are identified in the SAM/BAM file by a number of tags which help differentiate samples and several technical features that are associated with artifacts. Using this information, we can mitigate the effects of those artifacts during the duplicate marking and base recalibration steps.
 
-To see read group information for a BAM file, use the following command: `samtools view -H sample.bam | grep '^@RG'`
-
 ```
 picard AddOrReplaceReadGroups \
 INPUT=./PATH/TO/4_dedup/sampleName_library-dedup.bam \
@@ -34,6 +32,8 @@ VALIDATION_STRINGENCY=SILENT
 | `RGPU=` | Read-Group Platform Unit (I think this is unnecessary) |
 | `CREATE_INDEX=` | Creates a BAM index |
 | `VALIDATION_STRINGENCY=` | Set to SILENT, should improve performance when processing a BAM file where variable-length data (read, qualities, tags) do not need to be decoded |
+
+This results in a bunch of RG tags (possibly useful, possibly not, this step is just necessary for downstream processing) that we assigned to each BAM file. To see RG information after the step above is completed, use the following command: `samtools view -H sampleName_library-dedup_rg.bam | grep '^@RG'`.
 
 [^1]: <https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard->
 [^2]: <https://gatk.broadinstitute.org/hc/en-us/articles/360035890671-Read-groups>

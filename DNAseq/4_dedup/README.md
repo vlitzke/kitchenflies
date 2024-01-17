@@ -10,10 +10,10 @@ It compares seuqneces in the 5' positions, then an algorithm differentates prima
 🐻: Bear in mind that the syntax of these lines have changed in newer versions (I think from `I=` to `-I`).
 
 ```
-picard MarkDuplicates
-REMOVE_DUPLICATES=true 
-I=./PATH/TO/3_sortbam_libraries/sampleName_library-sort.bam 
-O=./PATH/TO/4_dedup/sampleName_library-dedup.bam 
+picard MarkDuplicates\
+REMOVE_DUPLICATES=true \ 
+I=./PATH/TO/3_sortbam_libraries/sampleName_library-sort.bam \
+O=./PATH/TO/4_dedup/sampleName_library-dedup.bam \
 M=./PATH/TO/4_dedup/sampleName_library-dedup.txt 
 ```
 

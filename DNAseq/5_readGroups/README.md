@@ -10,14 +10,14 @@ Usage example:
 
 ```
 picard AddOrReplaceReadGroups \
-INPUT=./PATH/TO/4_dedup/${myArray[$SLURM_ARRAY_TASK_ID]}_library-dedup.bam \
-OUTPUT=./PATH/TO/5_readgroups/${myArray[$SLURM_ARRAY_TASK_ID]}_library-dedup_rg.bam \ 
+INPUT=./PATH/TO/4_dedup/sampleName_library-dedup.bam \
+OUTPUT=./PATH/TO/5_readgroups/sampleName_library-dedup_rg.bam \ 
 SORT_ORDER=coordinate \
-RGID=${myArray[$SLURM_ARRAY_TASK_ID]} \
-RGLB=${myArray[$SLURM_ARRAY_TASK_ID]} \
+RGID=sampleName \
+RGLB=sampleName \
 RGPL=illumina \
-RGSM=${myArray[$SLURM_ARRAY_TASK_ID]} \
-RGPU=${myArray[$SLURM_ARRAY_TASK_ID]} \
+RGSM=sampleName \
+RGPU=sampleName \
 CREATE_INDEX=true \
 VALIDATION_STRINGENCY=SILENT
 ```

@@ -1,4 +1,4 @@
-# Mark and Remove Duplicates 
+# Step 4: Mark and Remove Duplicates 
 
 Already used Picard in the last step, this time we are using the function `MarkDuplicates`[^1]. This helps identify any duplicate reads from a BAM or SAM file that might have occurred during sample preparation:
 

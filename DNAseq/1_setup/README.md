@@ -94,8 +94,7 @@ fastqc file1.fq.gz file2.fq.gz .. filen.fq.gz -o ./PATH/TO/QC
 
 | Command      | Description |
 | ----------- | ----------- |
-| - | input file 1.fq.gz |
-| - | input file 2.fq.gz |
+| - | input file(s).fq.gz, just list them |
 | `-o` | output file directory |
 
 This can take in a sequence of *.fq.gz files. It outputs an HTML file which contains summary statistics for each individual read.

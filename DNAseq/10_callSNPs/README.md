@@ -50,4 +50,11 @@ bcftools: error while loading shared libraries: libgsl.so.25: cannot open shared
 
 tried downloading older version to no avail - think you need mamba 
 
+
+---
+
+
+https://www.biostars.org/p/135035/
+
+
 [^1]: <https://github.com/capoony/PoolSNP/blob/master/README.md>

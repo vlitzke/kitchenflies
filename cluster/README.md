@@ -1,4 +1,4 @@
-# Set Up
+![image](https://github.com/vlitzke/kitchenflies/assets/45816606/ff2e62b2-7b27-435b-983b-5f23dd30bfd1)# Set Up
 As processing this data is extensive and intensive, you are likely going to run your jobs on an external cluster instead of on your personal computer. 
 
 Since I am a part of a consortium that includes the University of St Andrews, I following this documentation to create an account to use on the cluster, which is quite helpful: <https://help.cropdiversity.ac.uk/guest-accounts.html>
@@ -42,7 +42,7 @@ Dos2unix for text files anytime we’re transferring a file to unix
 I followed this: https://protocols.hostmicrobe.org/conda
 Downloaded miniconda to my computer
 
-
+scancel <jobid>
 
 
 

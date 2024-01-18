@@ -2,6 +2,7 @@
 
 Again, having to use Paul's environment... `conda activate /mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/`
 
+Even though this goes extinct in gatk4, I think we're still using this because we're not following that entire workflow (i.e. not using haplotypecaller or Mutect...
 
 ```
 gatk3 \

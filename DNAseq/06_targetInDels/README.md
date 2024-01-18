@@ -19,14 +19,16 @@ gatk3 \
 -o $DATA_DIR/6_targetInDels/${myArray[$SLURM_ARRAY_TASK_ID]}_library-dedup_rg.list
 ```
 
-Output 
-134710 reads were filtered out during the traversal out of approximately 26613240 total reads (0.51%) 
-236734 reads were filtered out during the traversal out of approximately 31952878 total reads (0.74%) 
-306211 reads were filtered out during the traversal out of approximately 31417942 total reads (0.97%) 
-144020 reads were filtered out during the traversal out of approximately 33006790 total reads (0.44%) 
-374018 reads were filtered out during the traversal out of approximately 42495798 total reads (0.88%) 
-351562 reads were filtered out during the traversal out of approximately 38614402 total reads (0.91%) for failing BadMateFilter
-358622 reads were filtered out during the traversal out of approximately 45029919 total reads (0.80%) 
-458838 reads were filtered out during the traversal out of approximately 44924189 total reads (1.02%) 
+Reads filtered out for failing BadMateFilter
 
-F2_22: 144020 reads were filtered out during the traversal out of approximately 33006790 total reads (0.44%)
+| Sample | Filtered Reads | Total Reads | % | 
+|-----|------|------|-----|
+| F1_23 | 134710 | 26613240 | 0.51% |
+| F1_22 | 236734 | 31952878 | 0.74% |
+| F2_22 | 144020 | 33006790 | 0.44% |
+| F2_23 | 306211 | 31417942 | 0.97% |
+| M1_22 | 374018 | 42495798 | 0.88% |
+| M1_23 | 351562 | 38614402 | 0.91% |
+| M2_23 | 358622 | 45029919 | 0.80% |
+| M3_22 | 458838 | 44924189 | 1.02% |
+

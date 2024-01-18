@@ -46,5 +46,15 @@ jobs=24 \
 BS=1 \
 output=SNPs
 
+-----
+though you can also do it like
+conda install bioconda::bcftools
+https://speciationgenomics.github.io/variant_calling/
+
+but I have a problem with bcftools
+bcftools: error while loading shared libraries: libgsl.so.25: cannot open shared object file: No such file or directory
+
+tried downloading older version to no avail 
+
 
 [^1]: <https://github.com/capoony/PoolSNP/blob/master/README.md>

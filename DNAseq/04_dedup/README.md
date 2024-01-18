@@ -2,8 +2,8 @@
 
 Already used Picard in the last step, this time we are using the function `MarkDuplicates`[^1]. This helps identify any duplicate reads from a BAM or SAM file that might have occurred during sample preparation:
 
-- library construction using PCR
-- optical duplcates: an artefact from one amplified cluster on the sequencing machine, which could have been detected as multiple clusters
+- Library construction using PCR
+- Optical duplicates: an artefact from one amplified cluster on the sequencing machine, which could have been detected as multiple clusters
 
 It compares seuqneces in the 5' positions, then an algorithm differentates primary and duplicate reads by ranking the sums of read base-quality scores. Here duplicates were removed by indicated `REMOVE_DUPLICATES=TRUE`. If falst, it would output a new BAM/SAM file with duplicates marked by a flag (0x0400), instead we have just removed them and it also provides us with a metrics file which states the number of duplicates for the paired-end reads. 
  

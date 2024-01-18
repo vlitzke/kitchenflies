@@ -4,6 +4,7 @@ Following the DrosEU pipeline, to call SNPs we are going to use Kapun's PoolSNP[
 
 `conda install conda-forge::parallel`
 
+The script he wrote laos only works with a BASH shell.
 
 PoolSNP is a heuristic SNP caller, which uses an MPILEUP file and a reference genome in FASTA format as inputs. NOTE, that the FASTA headers may NOT contain any special characters, such as "/|,:", or else they will be ignored. Heuristic parameters to be passed to the shell script are:
 
@@ -29,9 +30,8 @@ Optionally a Bad-sites file (by setting the parameter BS=1), which contains a li
 PoolSNP is a shell script using GNU parallel to utilize multiple threads. Parameters need to be passed to the shell script and all necessary steps will be processed serially (or in parallel, whenever possible). Note, that in order to work properly, the folder /scripts needs to be placed in the same directory as the shell script. The three python scripts being part of the PoolSNP pipeline require python3 and can also be used as standalone scripts. To obtain additional information, please see the documentation within each of these scripts by typing:
 
 python3 script.py -h
-PoolSNP has been tested on Mac OSX (10.11) and Linux Ubuntu (16.10). The shell script only works with a BASH shell and requires Python 3 and GNU parallel to be in PATH.
+PoolSNP has been tested on Mac OSX (10.11) and Linux Ubuntu (16.10). The  and requires Python 3 and GNU parallel to be in PATH.
 
-To get more help on the different parameters, execute the shell script without parameters
 
 bash scripts/PoolSNP/PoolSNP.sh \
 mpileup=DrosEU.mpileup.gz \
@@ -46,7 +46,6 @@ jobs=24 \
 BS=1 \
 output=SNPs
 
-##A typcial command line looks like this:
 
 sh ~/PoolSNP.sh \
   mpileup=~/input.mpileup \       ## The input mpileup
@@ -54,7 +53,7 @@ output=~/output \               ## The output prefix
 reference=~/reference.fa \      ## The reference FASTA file
 names=sample1,sample2,sample3 \ ## A comma separated list of samples names according to the order in the mpileup file
 min-cov=10 \                    ## sample-wise minimum coverage
-max-cov=0.95 \                    ## Either the maximum coverage percentile to be computed or an input file
+max-cov=0.95 \                   ## Either the maximum coverage percentile to be computed or an input file
 min-count=20 \                  ## minimum alternative allele count across all populations pooled
 min-freq=0.001 \                ## minimum alternative allele frequency across all populations pooled
 miss-frac=0.1 \                 ## maximum allowed fraction of samples not fullfilling all parameters

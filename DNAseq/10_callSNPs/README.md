@@ -53,8 +53,51 @@ tried downloading older version to no avail - think you need mamba
 
 ---
 
+3) identify sites in proximity of InDels with a minimum count of 20 across all samples pooled and mask sites 5bp up- and downstream of InDel.
+python scripts/DetectIndels.py \
+--mpileup DrosEU.mpileup.gz \
+--minimum-count 20 \
+--mask 5 \
+| gzip > InDel-positions_20.txt.gz
 
+
+4) use Repeatmasker to generate a GFF with location of known TE's
+obtain TE libraries
+curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-transposon-r6.10.fasta.gz
+curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-chromosome-r6.10.fasta.gz
+
+only keep contig name in headers (no spaces)
+python2.7  scripts/adjust-id.py \
+dmel-all-transposon-r6.10.fasta \
+> dmel-all-transposon-r6.10_fixed-id.fasta
 https://www.biostars.org/p/135035/
+
+
+
+repeat mask D. melanogaster genome using Repeatmasker
+scripts/RepeatMasker \
+-pa 20 \
+--lib dmel-all-transposon-r6.10_fixed-id.fasta \
+--gff \
+--qq \
+--no_is \
+--nolow \
+dmel-all-chromosome-r6.10.fasta
+
+5) filter SNPs around InDels and in TE's from the original VCF produced with PoolSNP
+python2.7 scripts/FilterPosFromVCF.py \
+--indel InDel-positions_20.txt.gz \
+--te dmel-all-chromosome-r6.10.fasta.out.gff \
+--vcf SNPs.vcf.gz \
+| gzip > SNPs_clean.vcf.gz
+
+6) annotate SNPs with snpEff
+java -Xmx4g -jar scripts/snpEff-4.2/snpEff.jar \
+-ud 2000 \
+BDGP6.82 \
+-stats  SNPs_clean.html \
+SNPs_clean.vcf.gz \
+| gzip > SNPs_clean-ann.vcf.gz
 
 
 [^1]: <https://github.com/capoony/PoolSNP/blob/master/README.md>

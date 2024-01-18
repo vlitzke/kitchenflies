@@ -43,7 +43,7 @@ Comma-separated 1-based positions within the alignments, in 5' to 3' orientation
 Additional read tag field columns, as selected via --output-extra. These columns are formatted as determined by --output-sep and --output-empty (comma-separated by default), and appear in the same order as the tags are given in --output-extra.
 Any output column that would be empty, such as a tag which is not present or the filtered sequence depth is zero, is reported as "*". This ensures a consistent number of columns across all reported positions.
 
-Works best if they're all written to the same folder and then move the pileup file over later. 
+Works best if they're all in and written to the same folder (previous indels) and then move the pileup file over to the new folder (mpileup) later. 
 
 samtools mpileup -B -f dmel-all-chromosome-r6.54.fasta -b BAMlist.txt -q 20 -Q 20 | gzip > DrosEU.mpileup.gz
 

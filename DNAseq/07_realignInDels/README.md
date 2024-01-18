@@ -19,3 +19,4 @@ https://github.com/broadinstitute/gatk-docs/blob/master/gatk3-tutorials/(howto)_
 
 https://github.com/broadinstitute/gatk-docs/blob/master/blog-2012-to-2019/2016-06-21-Changing_workflows_around_calling_SNPs_and_indels.md?id=7847
 https://github.com/lczech/popoolation2
+https://speciationgenomics.github.io/variant_calling/

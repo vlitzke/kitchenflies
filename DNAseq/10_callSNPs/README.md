@@ -100,4 +100,4 @@ SNPs_clean.vcf.gz \
 | gzip > SNPs_clean-ann.vcf.gz
 
 
-[^1]: <https://github.com/capoony/PoolSNP/blob/master/README.md>
+[^1]: <https://github.com/capoony/PoolSNP>

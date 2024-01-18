@@ -46,6 +46,21 @@ jobs=24 \
 BS=1 \
 output=SNPs
 
+##A typcial command line looks like this:
+
+sh ~/PoolSNP.sh \
+  mpileup=~/input.mpileup \       ## The input mpileup
+output=~/output \               ## The output prefix
+reference=~/reference.fa \      ## The reference FASTA file
+names=sample1,sample2,sample3 \ ## A comma separated list of samples names according to the order in the mpileup file
+min-cov=10 \                    ## sample-wise minimum coverage
+max-cov=0.95 \                    ## Either the maximum coverage percentile to be computed or an input file
+min-count=20 \                  ## minimum alternative allele count across all populations pooled
+min-freq=0.001 \                ## minimum alternative allele frequency across all populations pooled
+miss-frac=0.1 \                 ## maximum allowed fraction of samples not fullfilling all parameters
+base-quality 15 \               ## minimum base quality for every nucleotide
+jobs=10                         ## number of parallel jobs/cores used for the SNP calling
+
 -----
 though you can also do it like
 conda install bioconda::bcftools

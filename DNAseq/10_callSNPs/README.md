@@ -62,6 +62,8 @@ base-quality 15 \               ## minimum base quality for every nucleotide
 jobs=10                         ## number of parallel jobs/cores used for the SNP calling
 
 you need to make sure all of the scripts are in the same folder when you're calling the command! 
+His poolsnp.sh provides more information about the commands. :) 
+
 -----
 though you can also do it like
 conda install bioconda::bcftools

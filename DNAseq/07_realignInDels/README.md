@@ -27,6 +27,7 @@ Here is an example: 194 alignment records (blue) realign for ~89 sites (red) for
 
 ![image](figures/7_img3.png)
 
+### Code 
 
 As input, IndelRealigner takes a coordinate-sorted and indexed BAM and a target list/intervals file (from the previous step). Then performs local realignment on reads with the target intervals from indels present in the original alignment. Output is a coordinate-sorted and indexed BAM with changes to realigned records and their mates.
 

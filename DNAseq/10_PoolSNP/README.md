@@ -88,9 +88,11 @@ https://www.biostars.org/p/135035/
 
 
 ## Use Repeatmasker on the D. melanogaster genome
+RepeatMasker is a program that screens DNA sequences for interspersed repeats and low complexity DNA sequences. The output of the program is a detailed annotation of the repeats that are present in the query sequence as well as a modified version of the query sequence in which all the annotated repeats have been masked (default: replaced by Ns).
 
 ```
 conda install bioconda::repeatmasker
+
 scripts/RepeatMasker \
 -pa 20 \
 --lib dmel-all-transposon-r6.10_fixed-id.fasta \
@@ -100,6 +102,18 @@ scripts/RepeatMasker \
 --nolow \
 dmel-all-chromosome-r6.10.fasta
 ```
+
+| Command      | Description |
+| ----------- | ----------- |
+| `-pa` |  The number of processors to use in parallel (only works for batch files or sequences over 50 kb) |
+| `--lib` | minimum count of an indel across all samples pooled |
+| `--gff` | number of basepairs masked at an InDel in either direction (up- and downstreams) |
+| `--qq` | minimum count of an indel across all samples pooled |
+| `--no_is` | minimum count of an indel across all samples pooled |
+| `--nolow` | minimum count of an indel across all samples pooled |
+| - | input .fasta file |
+
+       
 
 
 ##  filter SNPs around InDels and in TE's from the original VCF produced with PoolSNP

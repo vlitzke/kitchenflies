@@ -1,8 +1,11 @@
 # Step 9: Pileup Output
 
-merge BAM files (in the order of the file paths in BAMlist.txt) in a MPILEUP file only retaining nucleotides with BQ >20 and reads with MQ > 20
+Take the BAMList.txt file you created in the last step and create an MPILEUP file 
 
-Generate text pileup output for one or multiple BAM files. Each input file produces a separate group of pileup columns in the output.
+
+only retaining nucleotides with BQ >20 and reads with MQ > 20
+
+ Each input file produces a separate group of pileup columns in the output.
 
 Note that there are two orthogonal ways to specify locations in the input file; via -r region and -l file. The former uses (and requires) an index to do random access while the latter streams through the file contents filtering out the specified regions, requiring no index. The two may be used in conjunction. For example a BED file containing locations of genes in chromosome 20 could be specified using -r 20 -l chr20.bed, meaning that the index is used to find chromosome 20 and then it is filtered for the regions listed in the bed file.
 
@@ -13,18 +16,19 @@ Pileup format consists of TAB-separated lines, with each line representing the p
 Several columns contain numeric quality values encoded as individual ASCII characters. Each character can range from “!” to “~” and is decoded by taking its ASCII value and subtracting 33; e.g., “A” encodes the numeric value 32.
 
 The first three columns give the position and reference:
+- Chromosome name.
+- 1-based position on the chromosome.
+- Reference base at this position (this will be “N” on all lines if -f/--fasta-ref has not been used).
 
-Chromosome name.
-1-based position on the chromosome.
-Reference base at this position (this will be “N” on all lines if -f/--fasta-ref has not been used).
 The remaining columns show the pileup data, and are repeated for each input BAM file specified:
 
-Number of reads covering this position.
-Read bases. This encodes information on matches, mismatches, indels, strand, mapping quality, and starts and ends of reads.
+- Number of reads covering this position.
+- Read bases. This encodes information on matches, mismatches, indels, strand, mapping quality, and starts and ends of reads.
+  
 For each read covering the position, this column contains:
 
-If this is the first position covered by the read, a “^” character followed by the alignment's mapping quality encoded as an ASCII character.
-A single character indicating the read base and the strand to which the read has been mapped:
+- If this is the first position covered by the read, a “^” character followed by the alignment's mapping quality encoded as an ASCII character.
+- A single character indicating the read base and the strand to which the read has been mapped:
 Forward	Reverse	Meaning
 . dot	, comma	Base matches the reference base
 ACGTN	acgtn	Base is a mismatch to the reference base
@@ -43,14 +47,14 @@ Comma-separated 1-based positions within the alignments, in 5' to 3' orientation
 Additional read tag field columns, as selected via --output-extra. These columns are formatted as determined by --output-sep and --output-empty (comma-separated by default), and appear in the same order as the tags are given in --output-extra.
 Any output column that would be empty, such as a tag which is not present or the filtered sequence depth is zero, is reported as "*". This ensures a consistent number of columns across all reported positions.
 
-Works best if they're all in and written to the same folder (previous indels) and then move the pileup file over to the new folder (mpileup) later. 
 
-samtools mpileup -B -f dmel-all-chromosome-r6.54.fasta -b BAMlist.txt -q 20 -Q 20 | gzip > DrosEU.mpileup.gz
-
-
+```
 samtools mpileup -B \
 -f ./PATH/TO/2_bam_libraries/reference_genome.fa  \
--b ./PATH/TO/7_realignInDels/BAMlist.txt \
+-b ./PATH/TO/BAMlist.txt \
 -q 20 \
 -Q 20 \
-| bgzip > ./PATH/TO/9_mpileup/DrosEU.mpileup.gz (or just gzip?)
+| gzip > ./PATH/TO/9_mpileup/DrosEU.mpileup.gz
+```
+
+:memo: Works best if they're all in and written to the same folder (previous indels) and then move the pileup file over to the new folder (mpileup) later. 

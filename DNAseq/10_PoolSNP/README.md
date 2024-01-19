@@ -82,10 +82,7 @@ dmel-all-transposon-r6.10.fasta \
 
 but I do not see it in any of his script folders, so another way to acommplish this is by using 
 
-`sed -i '' 's/ /_/g' foo.fa` which edits it in place, or you can save it as a new file by removing the -i 
-sed 's, ,_,g' -i FASTA_file
-sed 's/[()\[]//g;s/\]//g
-or using BBtools : reformat.sh in=reads.fasta out=fixed.fasta addunderscore
+sed 's, ,_,g' -i FASTA_file which edits it in place, or you can save it as a new file by removing the -i 
 
 This will be used to generate a GFF file (General Feature Format) which is a tab-delimited text file and describes the locations and the attributes of gene and transcript features on the genome (chromosome or scaffolds/contigs) - in particular we want the known locations of transposable elements. 
 
@@ -94,13 +91,21 @@ conda install bioconda::repeatmasker
 
 scripts/RepeatMasker \
 -pa 20 \
---lib dmel-all-transposon-r6.10_fixed-id.fasta \
+--lib dmel-all-transposon-r6.54_fixed-id.fasta \
 --gff \
 --qq \
 --no_is \
 --nolow \
-dmel-all-chromosome-r6.10.fasta
+dmel-all-chromosome-r6.54.fasta
 ```
+
+RepeatMasker \
+-pa 20 \
+--lib dmel-all-transposon-r6.54_fixed-id.fasta \
+--gff \
+--qq \
+--no_is \
+dmel-all-chromosome-r6.54.fasta
 
 | Command      | Description |
 | ----------- | ----------- |

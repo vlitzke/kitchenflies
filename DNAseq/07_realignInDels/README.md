@@ -58,5 +58,8 @@ Possibly interesting information:
 
 For the next step, you will need a file list. You could either just loop through the list of files or write them out to a text file: `ls *.bam > BAMlist.txt` and check `less BAMlist.txt` to make sure it looks alright.
 
+https://www.nature.com/articles/ng.806
+^ check this???
+
 [^1]: <https://github.com/broadinstitute/gatk-docs/blob/master/gatk3-tutorials/(howto)_Perform_local_realignment_around_indels.md>
 [^2]: <https://github.com/broadinstitute/gatk-docs/blob/master/blog-2012-to-2019/2016-06-21-Changing_workflows_around_calling_SNPs_and_indels.md?id=7847>

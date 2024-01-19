@@ -11,6 +11,8 @@ You will also need the following steps-
 2. Create a dictionary: `picard CreateSequenceDictionary R=./PATH/TO/dmel-all-chromosome-r6.54.fasta O=./PATH/TO/dmel-all-chromosome-r6.54.dict`
 3. Create an index: `samtools faidx ./PATH/TO/dmel-all-chromosome-r6.54.fasta`
 
+It takes a coordinate-sorted and indexed BAM and outputs a list of the regions where there are sites of extant and potential indels.
+
 ```
 gatk3 \
 -T RealignerTargetCreator \

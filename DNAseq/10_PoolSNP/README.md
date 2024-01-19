@@ -62,7 +62,7 @@ python scripts/DetectIndels.py \
 
 ## Creating a GFF File 
 
-Generate a GFF file (General Feature Format) which describes the locations and the attributes of gene and transcript features on the genome (chromosome or scaffolds/contigs) - in particular we want the known locations of transposable elements. First download the transposon and the chromosome libraries. You can either do this manually by going to the flybase website[^3] and choosing the version you would like or you can use the `curl` command:
+Generate a GFF file (General Feature Format) which is a tab-delimited text file and describes the locations and the attributes of gene and transcript features on the genome (chromosome or scaffolds/contigs) - in particular we want the known locations of transposable elements. First download the transposon and the chromosome libraries. You can either do this manually by going to the flybase website[^3] and choosing the version you would like or you can use the `curl` command:
 
 ``` 
 curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-transposon-r6.10.fasta.gz

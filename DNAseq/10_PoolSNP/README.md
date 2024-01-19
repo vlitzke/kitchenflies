@@ -1,4 +1,4 @@
-# Step 10: PoolSNP
+# Step 10: PoolSNP/Repeatmasker/snpeff
 
 ## Call SNPs 
 Following the DrosEU pipeline, to call SNPs we are going to use Kapun's PoolSNP[^1]. It is a heuristic SNP caller for pooled sequencing data and requires Python3 (which usually comes with the conda environment, I think?) and GNU parallel (`conda install conda-forge::parallel`). As input, it takes an MPILEUP file and a reference genome in FASTA format. It creates the following output files:

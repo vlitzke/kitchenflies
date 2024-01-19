@@ -1,5 +1,6 @@
-# Step 10: Call SNPs 
+# Step 10: PoolSNP
 
+## Call SNPs 
 Following the DrosEU pipeline, to call SNPs we are going to use Kapun's PoolSNP[^1]. It is a heuristic SNP caller for pooled sequencing data and requires Python3 (which usually comes with the conda environment, I think?) and GNU parallel (`conda install conda-forge::parallel`). As input, it takes an MPILEUP file and a reference genome in FASTA format. It creates the following output files:
 
 - gzipped VCF file containing allele counts and frequencies for every position and library
@@ -51,9 +52,7 @@ bcftools: error while loading shared libraries: libgsl.so.25: cannot open shared
 tried downloading older version to no avail - think you need mamba 
 
 
----
-
-3) identify sites in proximity of InDels with a minimum count of 20 across all samples pooled and mask sites 5bp up- and downstream of InDel.
+## Identify sites in proximity of InDels with a minimum count of 20 across all samples pooled and mask sites 5bp up- and downstream of InDel.
 python scripts/DetectIndels.py \
 --mpileup DrosEU.mpileup.gz \
 --minimum-count 20 \
@@ -61,11 +60,18 @@ python scripts/DetectIndels.py \
 | gzip > InDel-positions_20.txt.gz
 
 
-4) use Repeatmasker to generate a GFF with location of known TE's
+##  use Repeatmasker to generate a GFF with location of known TE's
+ 
 obtain TE libraries
 curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-transposon-r6.10.fasta.gz
 curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-chromosome-r6.10.fasta.gz
 
+https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/
+download the transposon and the chromosome file 
+
+either manually 
+
+dow
 only keep contig name in headers (no spaces)
 python2.7  scripts/adjust-id.py \
 dmel-all-transposon-r6.10.fasta \
@@ -74,7 +80,10 @@ https://www.biostars.org/p/135035/
 
 
 
-repeat mask D. melanogaster genome using Repeatmasker
+
+## repeat mask D. melanogaster genome using Repeatmasker
+
+conda install bioconda::repeatmasker
 scripts/RepeatMasker \
 -pa 20 \
 --lib dmel-all-transposon-r6.10_fixed-id.fasta \
@@ -84,14 +93,17 @@ scripts/RepeatMasker \
 --nolow \
 dmel-all-chromosome-r6.10.fasta
 
-5) filter SNPs around InDels and in TE's from the original VCF produced with PoolSNP
+##  filter SNPs around InDels and in TE's from the original VCF produced with PoolSNP
 python2.7 scripts/FilterPosFromVCF.py \
 --indel InDel-positions_20.txt.gz \
 --te dmel-all-chromosome-r6.10.fasta.out.gff \
 --vcf SNPs.vcf.gz \
 | gzip > SNPs_clean.vcf.gz
 
-6) annotate SNPs with snpEff
+##  annotate SNPs with snpEff
+
+
+conda install snpeff
 java -Xmx4g -jar scripts/snpEff-4.2/snpEff.jar \
 -ud 2000 \
 BDGP6.82 \

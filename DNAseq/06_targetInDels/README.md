@@ -14,10 +14,18 @@ so I actually had to use the bioinformaticians environment, because he has the o
 ```
 gatk3 \
 -T RealignerTargetCreator \
--R $DATA_DIR/6_targetInDels/dmel-all-chromosome-r6.54.fasta \
--I $DATA_DIR/5_readgroups/${myArray[$SLURM_ARRAY_TASK_ID]}_library-dedup_rg.bam \
--o $DATA_DIR/6_targetInDels/${myArray[$SLURM_ARRAY_TASK_ID]}_library-dedup_rg.list
+-R ./PATH/TO/dmel-all-chromosome-r6.54.fasta \
+-I ./PATH/TO/sampleName_library-dedup_rg.bam \
+-o ./PATH/TO/sampleName_library-dedup_rg.list
 ```
+
+| Command      | Description |
+| ----------- | ----------- |
+| `-T` | tool from gatk3 |
+| `-R` | reference .fasta file |
+| `-I` | input .bam file |
+| `-o` | output .list file of indels |
+
 
 Reads filtered out for failing BadMateFilter
 

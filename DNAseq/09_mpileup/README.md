@@ -32,6 +32,15 @@ samtools mpileup -B \
 | gzip > ./PATH/TO/dros.mpileup.gz
 ```
 
+| Command      | Description |
+| ----------- | ----------- |
+| `-f` | reference .fasta file |
+| `-b` | input BAMlist.txt file |
+| `-q` | minimum mapping quality for an alignment to be used |
+| `-Q` | minimum base quality for a base to be considered |
+
+-> pipes out to a compressed mpileup file. 
+
 :memo: Works best if they're all in and written to the same folder (previous indels) and then move the pileup file over to the new folder (mpileup) later. 
 
 [^1]: https://www.htslib.org/doc/samtools-mpileup.html

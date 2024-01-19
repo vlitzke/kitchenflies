@@ -1,6 +1,6 @@
 # Step 6: Target Insertions/Deletions
 
-A common downstream analysis for DNA-seq data is variant calling, that is, the identification of positions in the genome that vary relative to the genome reference and between individuals. To do so, we will need to figure out where small insertions/deletions (indels) are. We will do this using gatk3[^1].
+A common downstream analysis for DNA-seq data is variant calling, that is, the identification of positions in the genome that vary relative to the genome reference and between individuals. To do so, we will need to figure out where small insertions/deletions (indels) are. This helps identifies regions where alignments may potentially be improved. We will do this using gatk3[^1].
 
 I am not using gatk4 for the DrosEU pipeline because it relies on the tool RealignerTargetCreator, which is not a part of gatk4. However, I was not able to download gatk3 to my conda (it is now considered obsolete, and there are arguments about the necessity of running this tool/it might now be combined in other tools, like haplotypecaller or Mutect). So I used our bioinformaticians environment, because he has the older version working:
 

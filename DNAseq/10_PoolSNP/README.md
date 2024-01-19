@@ -136,6 +136,9 @@ SNPs_clean.vcf.gz \
 | gzip > SNPs_clean-ann.vcf.gz
 ```
 
+An alternative would be using Popoolation[^3].
+
 [^1]: <https://github.com/capoony/PoolSNP>
 [^2]: <https://samtools.github.io/bcftools/bcftools.html>
+[^3]: <https://github.com/lczech/popoolation2>
 [^3]: <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/>

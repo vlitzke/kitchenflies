@@ -7,7 +7,7 @@ Genome aligners can only consider each read independently, and the scoring strat
 As input, IndelRealigner takes a coordinate-sorted and indexed BAM and a target list/intervals file (from the previous step). Then performs local realignment on reads with the target intervals from indels present in the original alignment. Output is a coordinate-sorted and indexed BAM with changes to realigned records and their mates.
 
 Possibly interesting information:
-- By default IndelRealigner applies the USE_READS consensus model (constructs alternative alignments from all reads (ref sequence and indels spanning the site) spanning a given position in the alignment context together)
+- By default it uses the USE_READS consensus model (constructs alternative alignments from all reads (ref sequence and indels spanning the site) over a given position in the alignment)
 - No downsampling
 - Uses two read filters: BadCigarFilter and MalformedReadFilter
 - Processes reads flagged as duplicate (we already removed duplicates) 

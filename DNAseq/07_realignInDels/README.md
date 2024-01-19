@@ -1,8 +1,8 @@
 # Step 7: Realign Insertions/Deletions
 
-Again, having to use Paul's environment... `conda activate /mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/`
+Again, I still have to use Paul's environment: `conda activate /mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/`
 
-Even though this goes extinct in gatk4, I think we're still using this because we're not following that entire workflow (i.e. not using haplotypecaller or Mutect...
+Even though this goes extinct in gatk4, I think we're still using this because we're not following that entire workflow 
 
 ```
 gatk3 \
@@ -12,6 +12,13 @@ gatk3 \
 -targetIntervals ./PATH/TO/sampleName_library-dedup_rg.list \
 -o ./PATH/TO/sampleName_library-dedup_rg_InDel.bam
 ```
+| Command      | Description |
+| ----------- | ----------- |
+| `-T` | tool from gatk3 |
+| `-R` | reference .fasta file |
+| `-I` | input .bam file |
+| `-targetIntervals` | input .list file of where the indels are |
+| `-o` | output .bam file of indels |
 
 For the next step, you could either just loop through the list of files or write them out to a text file: `ls *.bam > BAMlist.txt` and check `less BAMlist.txt` to make sure it looks alright.
 

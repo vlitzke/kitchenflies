@@ -20,14 +20,14 @@ Possibly interesting information:
 ## Changes to alignment records
 Here is an example: 194 alignment records (blue) realign for ~89 sites (red) for both the realigned read and for its mate.
 
-### Changes to the example realigned record:
+### Example realigned record:
 
 - MAPQ increases from 60 to 70. The tool increases each realigned record's MAPQ by ten
 - CIGAR string, now 72M20I55M4S, reflects the realignment containing a 20bp insertion
 - OC tag retains the original CIGAR string (OC:Z:110M2I22M1D13M4S, could be used to pull out realigned reads) and replaces the MD tag that stored the string for mismatching positions
 - NM tag counts the realigned record's mismatches, and changes from 8 to 24
 
-### Changes to the realigned read's mate record:
+### Realigned read's mate record:
 
 - MC tag updates the mate CIGAR string (to MC:Z:72M20I55M4S)
 - MQ tag updates to the new mapping quality of the mate (to MQ:i:70)

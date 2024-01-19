@@ -13,25 +13,23 @@ Possibly interesting information:
 - Processes reads flagged as duplicate (we already removed duplicates) 
 
 ![image](figures/7_img1.png)
+
 ![image](figures/7_img2.png)
 
 
-Changes to alignment records
-For our example data,194 alignment records realign for ~89 sites. These records now have the OC tag to mark the original CIGAR string. We can use the OC tag to pull out realigned reads and instructions for this are in section 4. The following screenshot shows an example pair of records before and after indel realignment. We note seven changes with asterisks, blue for before and red for after, for both the realigned read and for its mate.
+## Changes to alignment records
+Here is an example: 194 alignment records (blue) realign for ~89 sites (red) for both the realigned read and for its mate.
 
+### Changes to the example realigned record:
+- MAPQ increases from 60 to 70. The tool increases each realigned record's MAPQ by ten
+- CIGAR string, now 72M20I55M4S, reflects the realignment containing a 20bp insertion
+- OC tag retains the original CIGAR string (OC:Z:110M2I22M1D13M4S, could be used to pull out realigned reads) and replaces the MD tag that stored the string for mismatching positions
+- NM tag counts the realigned record's mismatches, and changes from 8 to 24
 
-
-Changes to the example realigned record:
-
-MAPQ increases from 60 to 70. The tool increases each realigned record's MAPQ by ten.
-The CIGAR string, now 72M20I55M4S, reflects the realignment containing a 20bp insertion.
-The OC tag retains the original CIGAR string (OC:Z:110M2I22M1D13M4S) and replaces the MD tag that stored the string for mismatching positions.
-The NM tag counts the realigned record's mismatches, and changes from 8 to 24.
-Changes to the realigned read's mate record:
-
-The MC tag updates the mate CIGAR string (to MC:Z:72M20I55M4S).
-The MQ tag updates to the new mapping quality of the mate (to MQ:i:70).
-The UQ tag updates to reflect the new Phred likelihood of the segment, from UQ:i:100 to UQ:i:68.
+### Changes to the realigned read's mate record:
+- MC tag updates the mate CIGAR string (to MC:Z:72M20I55M4S)
+- MQ tag updates to the new mapping quality of the mate (to MQ:i:70)
+- UQ tag updates to reflect the new Phred likelihood of the segment, from UQ:i:100 to UQ:i:68
 
 ![image](figures/7_img3.png)
 
@@ -45,6 +43,7 @@ gatk3 \
 -targetIntervals ./PATH/TO/sampleName_library-dedup_rg.list \
 -o ./PATH/TO/sampleName_library-dedup_rg_InDel.bam
 ```
+
 | Command      | Description |
 | ----------- | ----------- |
 | `-T` | tool from gatk3 |

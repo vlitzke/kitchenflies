@@ -40,32 +40,29 @@ output=SNPs
 
 His PoolSNP.sh provides more information about the parameters. 
 
------
+However, you may also choose to use bcftools but I kept getting thrown this error: ` error while loading shared libraries: libgsl.so.25: cannot open shared object file: No such file or directory`. Internet consensus is that it only works well on mamba; I have tried downloading older versions, nothing seems to fix this problem. If you choose to use this tool, this pipe line looks good: <https://speciationgenomics.github.io/variant_calling/> 
 
-though you can also do it like
-conda install bioconda::bcftools
-https://speciationgenomics.github.io/variant_calling/
+## Identify sites in proximity of InDels 
 
-but I have a problem with bcftools
-bcftools: error while loading shared libraries: libgsl.so.25: cannot open shared object file: No such file or directory
+with a minimum count of 20 across all samples pooled and mask sites 5bp up- and downstream of InDel.
 
-tried downloading older version to no avail - think you need mamba 
-
-
-## Identify sites in proximity of InDels with a minimum count of 20 across all samples pooled and mask sites 5bp up- and downstream of InDel.
+```
 python scripts/DetectIndels.py \
 --mpileup DrosEU.mpileup.gz \
 --minimum-count 20 \
 --mask 5 \
 | gzip > InDel-positions_20.txt.gz
+```
 
+##  use Repeatmasker 
 
-##  use Repeatmasker to generate a GFF with location of known TE's
- 
+generate a GFF with location of known TE's
+
 obtain TE libraries
+``` 
 curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-transposon-r6.10.fasta.gz
 curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-chromosome-r6.10.fasta.gz
-
+```
 https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/
 download the transposon and the chromosome file 
 

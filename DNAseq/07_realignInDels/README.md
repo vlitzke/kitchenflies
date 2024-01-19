@@ -24,7 +24,7 @@ Here is an example: 194 alignment records (blue) realign for ~89 sites (red) for
 
 - MAPQ increases from 60 to 70. The tool increases each realigned record's MAPQ by ten
 - CIGAR string, now 72M20I55M4S, reflects the realignment containing a 20bp insertion
-- OC tag retains the original CIGAR string (OC:Z:110M2I22M1D13M4S, could be used to pull out realigned reads) and replaces the MD tag that stored the string for mismatching positions
+- OC tag has been added and retains the original CIGAR string (OC:Z:110M2I22M1D13M4S, could be used to pull out realigned reads) and replaces the MD tag that stored the string for mismatching positions
 - NM tag counts the realigned record's mismatches, and changes from 8 to 24
 
 ### Realigned read's mate record:

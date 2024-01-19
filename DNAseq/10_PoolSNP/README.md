@@ -58,21 +58,28 @@ python scripts/DetectIndels.py \
 
 generate a GFF with location of known TE's
 
-obtain TE libraries
+First you have to download the transposon and the chromosome libraries. You can either do this manually by going to <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/> and choosing the version you woud like or you can use the `curl` command:
+
 ``` 
 curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-transposon-r6.10.fasta.gz
 curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-chromosome-r6.10.fasta.gz
 ```
-https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/
-download the transposon and the chromosome file 
 
-either manually 
+Then, you will want to only keep contig name in headers - get rid of all the spaces. Kapun's script is as follows:
 
-dow
-only keep contig name in headers (no spaces)
+```
 python2.7  scripts/adjust-id.py \
 dmel-all-transposon-r6.10.fasta \
 > dmel-all-transposon-r6.10_fixed-id.fasta
+```
+
+but I do not see it in any of his script folders, so another way to acommplish this is by using `sed -i '' 's/ /_/g' foo.fa` which edits it in place, or you can save it as a new file by removing the -i 
+
+sed 's, ,_,g' -i FASTA_file
+sed 's/[()\[]//g;s/\]//g
+or using BBtools : reformat.sh in=reads.fasta out=fixed.fasta addunderscore
+
+
 https://www.biostars.org/p/135035/
 
 

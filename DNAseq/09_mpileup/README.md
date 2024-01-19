@@ -24,7 +24,8 @@ Note:
 - Unmapped reads, secondary alignments, QC failures and duplicate reads, those with low quality bases and some reads in high depth regions are omitted (some of these options can be changed).
 
 ```
-samtools mpileup -B \
+samtools mpileup \
+-B \
 -f ./PATH/TO/reference_genome.fa  \
 -b ./PATH/TO/BAMlist.txt \
 -q 20 \
@@ -34,6 +35,7 @@ samtools mpileup -B \
 
 | Command      | Description |
 | ----------- | ----------- |
+| `-B` | disables base alignment quality (BAQ) computation, for more information see [^1] |
 | `-f` | reference .fasta file |
 | `-b` | input BAMlist.txt file |
 | `-q` | minimum mapping quality for an alignment to be used |

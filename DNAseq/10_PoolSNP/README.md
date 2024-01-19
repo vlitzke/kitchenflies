@@ -79,6 +79,7 @@ dmel-all-transposon-r6.10.fasta \
 > dmel-all-transposon-r6.10_fixed-id.fasta
 ```
 
+
 but I do not see it in any of his script folders, so another way to acommplish this is by using 
 
 `sed -i '' 's/ /_/g' foo.fa` which edits it in place, or you can save it as a new file by removing the -i 

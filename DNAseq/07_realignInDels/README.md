@@ -12,8 +12,8 @@ Possibly interesting information:
 - Uses two read filters: BadCigarFilter and MalformedReadFilter
 - Processes reads flagged as duplicate (we already removed duplicates) 
 
-![image](/figures/7_img1.png)
-![image](/figures/7_img2.png)
+![image](figures/7_img1.png)
+![image](figures/7_img2.png)
 
 
 Changes to alignment records
@@ -33,7 +33,7 @@ The MC tag updates the mate CIGAR string (to MC:Z:72M20I55M4S).
 The MQ tag updates to the new mapping quality of the mate (to MQ:i:70).
 The UQ tag updates to reflect the new Phred likelihood of the segment, from UQ:i:100 to UQ:i:68.
 
-![image](/figures/7_img3.png)
+![image](figures/7_img3.png)
 
 Since I am continuing the use of gatk3[^1], I still have to use Paul's environment: `conda activate /mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/`
 

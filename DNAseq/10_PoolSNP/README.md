@@ -54,11 +54,9 @@ python scripts/DetectIndels.py \
 | gzip > InDel-positions_20.txt.gz
 ```
 
-##  use Repeatmasker 
+## Creating a GFF File 
 
-generate a GFF with location of known TE's
-
-First you have to download the transposon and the chromosome libraries. You can either do this manually by going to <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/> and choosing the version you woud like or you can use the `curl` command:
+Generate a GFF file (General Feature Format) which describes the locations and the attributes of gene and transcript features on the genome (chromosome or scaffolds/contigs) - in particular we want the known locations of transposable elements. First download the transposon and the chromosome libraries. You can either do this manually by going to <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/> and choosing the version you woud like or you can use the `curl` command:
 
 ``` 
 curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-transposon-r6.10.fasta.gz
@@ -83,10 +81,9 @@ or using BBtools : reformat.sh in=reads.fasta out=fixed.fasta addunderscore
 https://www.biostars.org/p/135035/
 
 
+## Use Repeatmasker on the D. melanogaster genome
 
-
-## repeat mask D. melanogaster genome using Repeatmasker
-
+```
 conda install bioconda::repeatmasker
 scripts/RepeatMasker \
 -pa 20 \
@@ -96,6 +93,8 @@ scripts/RepeatMasker \
 --no_is \
 --nolow \
 dmel-all-chromosome-r6.10.fasta
+```
+
 
 ##  filter SNPs around InDels and in TE's from the original VCF produced with PoolSNP
 python2.7 scripts/FilterPosFromVCF.py \

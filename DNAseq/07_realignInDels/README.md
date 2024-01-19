@@ -4,7 +4,7 @@ Information taken from here[^1] but see [^2]. Now we perform local realignment t
 
 Genome aligners can only consider each read independently, and the scoring strategies they use to align reads relative to the reference limit their ability to align reads well in the presence of indels. Depending on the variant event and its relative location within a read, the aligner may favor alignments with mismatches or soft-clips instead of opening a gap in either the read or the reference sequence. In addition, the aligner's scoring scheme may use arbitrary tie-breaking, leading to different, non-parsimonious representations of the event in different reads.In contrast, local realignment considers all reads spanning a given position. This makes it possible to achieve a high-scoring consensus that supports the presence of an indel event. It also produces a more parsimonious representation of the data in the region.
 
-<img src="[https://your-image-url.type](https://github.com/vlitzke/kitchenflies/edit/main/DNAseq/07_realignInDels/figures/7_img1.png)" width="60" height="30">
+<img src="[https://github.com/vlitzke/kitchenflies/edit/main/DNAseq/07_realignInDels/figures/7_img1.png]" width="60" height="30">
 
 
 ![image](figures/7_img2.png)

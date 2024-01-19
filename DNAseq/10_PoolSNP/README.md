@@ -60,9 +60,11 @@ python scripts/DetectIndels.py \
 | `--minimum-count` | minimum count of an indel across all samples pooled |
 | `--mask` | number of basepairs masked at an InDel in either direction (up- and downstreams) |
 
-## Creating a GFF File 
+## Repeatmasker
 
-Generate a GFF file (General Feature Format) which is a tab-delimited text file and describes the locations and the attributes of gene and transcript features on the genome (chromosome or scaffolds/contigs) - in particular we want the known locations of transposable elements. First download the transposon and the chromosome libraries. You can either do this manually by going to the flybase website[^3] and choosing the version you would like or you can use the `curl` command:
+RepeatMasker is a program that screens DNA sequences for interspersed repeats and low complexity DNA sequences. The output of the program is a detailed annotation of the repeats that are present in the query sequence as well as a modified version of the query sequence in which all the annotated repeats have been masked (default: replaced by Ns).
+
+First, you will need the transposon and the chromosome libraries to create a GFF file (see below). You can either do this manually by going to the flybase website[^3] and choosing the version you would like or you can use the `curl` command:
 
 ``` 
 curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-transposon-r6.10.fasta.gz
@@ -77,18 +79,14 @@ dmel-all-transposon-r6.10.fasta \
 > dmel-all-transposon-r6.10_fixed-id.fasta
 ```
 
-but I do not see it in any of his script folders, so another way to acommplish this is by using `sed -i '' 's/ /_/g' foo.fa` which edits it in place, or you can save it as a new file by removing the -i 
+but I do not see it in any of his script folders, so another way to acommplish this is by using 
 
+`sed -i '' 's/ /_/g' foo.fa` which edits it in place, or you can save it as a new file by removing the -i 
 sed 's, ,_,g' -i FASTA_file
 sed 's/[()\[]//g;s/\]//g
 or using BBtools : reformat.sh in=reads.fasta out=fixed.fasta addunderscore
 
-
-https://www.biostars.org/p/135035/
-
-
-## Use Repeatmasker on the D. melanogaster genome
-RepeatMasker is a program that screens DNA sequences for interspersed repeats and low complexity DNA sequences. The output of the program is a detailed annotation of the repeats that are present in the query sequence as well as a modified version of the query sequence in which all the annotated repeats have been masked (default: replaced by Ns).
+This will be used to generate a GFF file (General Feature Format) which is a tab-delimited text file and describes the locations and the attributes of gene and transcript features on the genome (chromosome or scaffolds/contigs) - in particular we want the known locations of transposable elements. 
 
 ```
 conda install bioconda::repeatmasker
@@ -106,26 +104,28 @@ dmel-all-chromosome-r6.10.fasta
 | Command      | Description |
 | ----------- | ----------- |
 | `-pa` |  The number of processors to use in parallel (only works for batch files or sequences over 50 kb) |
-| `--lib` | minimum count of an indel across all samples pooled |
-| `--gff` | number of basepairs masked at an InDel in either direction (up- and downstreams) |
-| `--qq` | minimum count of an indel across all samples pooled |
-| `--no_is` | minimum count of an indel across all samples pooled |
-| `--nolow` | minimum count of an indel across all samples pooled |
-| - | input .fasta file |
-
-       
+| `--lib` |  Allows use of a custom library (e.g. here the transposon file) |
+| `--gff` | creates an additional Gene Feature Finding format output |
+| `--qq` | -qq Rush job; about 10% less sensitive, 4->10 times faster than default repeat options |
+| `--no_is` | Skips bacterial insertion element check |
+| `--nolow` | Does not mask low_complexity DNA or simple repeats |
+| `-` | input chromosome .fasta file |
 
 
 ##  filter SNPs around InDels and in TE's from the original VCF produced with PoolSNP
+
+```
 python2.7 scripts/FilterPosFromVCF.py \
 --indel InDel-positions_20.txt.gz \
 --te dmel-all-chromosome-r6.10.fasta.out.gff \
 --vcf SNPs.vcf.gz \
 | gzip > SNPs_clean.vcf.gz
+```
+
 
 ##  annotate SNPs with snpEff
 
-
+```
 conda install snpeff
 java -Xmx4g -jar scripts/snpEff-4.2/snpEff.jar \
 -ud 2000 \
@@ -133,7 +133,7 @@ BDGP6.82 \
 -stats  SNPs_clean.html \
 SNPs_clean.vcf.gz \
 | gzip > SNPs_clean-ann.vcf.gz
-
+```
 
 [^1]: <https://github.com/capoony/PoolSNP>
 [^2]: <https://samtools.github.io/bcftools/bcftools.html>

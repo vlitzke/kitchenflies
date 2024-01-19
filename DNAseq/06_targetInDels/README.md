@@ -1,15 +1,15 @@
 # Step 6: Target Insertions/Deletions
 
-A common downstream analysis for DNA-seq data is variant calling, that is, the identification of positions in the genome that vary relative to the genome reference and between individuals. A popular analysis framework for this application is GATK for single nucleotide polymorphism (SNP) or small insertions/deletions (indels) 
+A common downstream analysis for DNA-seq data is variant calling, that is, the identification of positions in the genome that vary relative to the genome reference and between individuals. To do so, we will need to figure out where small insertions/deletions (indels) are.
 
-Can't download gatk3 anymore, Paul: won't be able to use gatk4 for droseu pipeline without modifications because it relies on RealignerTargetCreator, which isn't part of gatk4.
+I am not using gatk4 for the DrosEU pipeline because it relies on the tool RealignerTargetCreator, which is not a part of gatk4. However, I was not able to download gatk3 to my conda (it is now considered obsolete, and there are arguments about the necessity of running this tool/it might now be combined in other tools). So I used our bioinformaticians environment, because he has the older version working:
 
-so I actually had to use the bioinformaticians environment, because he has the older version working:
 `conda activate /mnt/shared/scratch/pjohnsto/apps/conda/envs/gatk3/`
 
+You will also need the following steps-
 1. Unzip your reference genome: `zcat ./PATH/TO/dmel-all-chromosome-r6.54.fasta.gz > ./PATH/TO//dmel-all-chromosome-r6.54.fasta`
 2. Create a dictionary: `picard CreateSequenceDictionary R=./PATH/TO/dmel-all-chromosome-r6.54.fasta O=./PATH/TO/dmel-all-chromosome-r6.54.dict`
-3. Create an index: `#amtools faidx ./PATH/TO/dmel-all-chromosome-r6.54.fasta`
+3. Create an index: `samtools faidx ./PATH/TO/dmel-all-chromosome-r6.54.fasta`
 
 ```
 gatk3 \

@@ -40,7 +40,7 @@ output=SNPs
 
 His PoolSNP.sh provides more information about the parameters. 
 
-However, you may also choose to use bcftools but I kept getting thrown this error: ` error while loading shared libraries: libgsl.so.25: cannot open shared object file: No such file or directory`. Internet consensus is that it only works well on mamba; I have tried downloading older versions, nothing seems to fix this problem. If you choose to use this tool, this pipe line looks good: <https://speciationgenomics.github.io/variant_calling/> 
+However, you may also choose to use bcftools[^2] but I kept getting thrown this error: ` error while loading shared libraries: libgsl.so.25: cannot open shared object file: No such file or directory`. Internet consensus is that it only works well on mamba; I have tried downloading older versions, nothing seems to fix this problem. If you choose to use this tool, this pipeline looks good: <https://speciationgenomics.github.io/variant_calling/> 
 
 ## Identify sites in proximity of InDels 
 
@@ -56,7 +56,7 @@ python scripts/DetectIndels.py \
 
 ## Creating a GFF File 
 
-Generate a GFF file (General Feature Format) which describes the locations and the attributes of gene and transcript features on the genome (chromosome or scaffolds/contigs) - in particular we want the known locations of transposable elements. First download the transposon and the chromosome libraries. You can either do this manually by going to <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/> and choosing the version you woud like or you can use the `curl` command:
+Generate a GFF file (General Feature Format) which describes the locations and the attributes of gene and transcript features on the genome (chromosome or scaffolds/contigs) - in particular we want the known locations of transposable elements. First download the transposon and the chromosome libraries. You can either do this manually by going to the flybase website[^3] and choosing the version you would like or you can use the `curl` command:
 
 ``` 
 curl -O ftp://ftp.flybase.net/genomes/Drosophila_melanogaster//dmel_r6.10_FB2016_02/fasta/dmel-all-transposon-r6.10.fasta.gz
@@ -116,3 +116,5 @@ SNPs_clean.vcf.gz \
 
 
 [^1]: <https://github.com/capoony/PoolSNP>
+[^2]: <https://samtools.github.io/bcftools/bcftools.html>
+[^3]: <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/>

@@ -44,7 +44,7 @@ However, you may also choose to use bcftools[^2] but I kept getting thrown this 
 
 ## Identify sites in proximity of InDels 
 
-with a minimum count of 20 across all samples pooled and mask sites 5bp up- and downstream of InDel.
+Identify sites that are located close to InDels with a minimum count of 20 across all samples pooled and print them if they are within a predefined distance 5 bp up- and downstream to an InDel.
 
 ```
 python scripts/DetectIndels.py \
@@ -53,6 +53,12 @@ python scripts/DetectIndels.py \
 --mask 5 \
 | gzip > InDel-positions_20.txt.gz
 ```
+
+| Command      | Description |
+| ----------- | ----------- |
+| `--mpileup` | input .mpileup or .mpileup.gz file |
+| `--minimum-count` | minimum count of an indel across all samples pooled |
+| `--mask` | number of basepairs masked at an InDel in either direction (up- and downstreams) |
 
 ## Creating a GFF File 
 

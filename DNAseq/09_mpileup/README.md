@@ -1,4 +1,4 @@
-# Step 9: Pileup 
+# Step 9: mpileup 
 
 Create an mpileup file using Samtools[^1]. It takes in the BAMList.txt file you created in the last step and creates an mpileup file, which retains nucleotides with BQ >20 and reads with MQ > 20. Pileup format consists of TAB-separated lines, with each line representing the pileup of reads at a single genomic position.
   

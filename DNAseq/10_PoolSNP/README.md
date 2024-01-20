@@ -188,7 +188,7 @@ Do I need the database?
 Ensembl genome annotation version BDGP6.82 
 
 
-
+https://pcingola.github.io/SnpEff/snpeff/commandline/
 ```
 DATA_DIR=kitchenflies/DNA/2_Process/10_vcf
 java -Xmx4g -jar snpEff/scripts/snpEff-4.2/snpEff.jar \

@@ -8,6 +8,9 @@ Flies were removed from the 95% ethanol, pat dry and transferred into 1.5 mL RNA
 
 ## DNA Extraction
 After the samples were removed from the incubator, DNA was extracted using the QIAwave DNA Blood and Tissue Kit (QIAGEN). They were vortexed for 15 seconds and centrifuged at 12000 rpm for 5 minutes. After the supernatant was transferred into a new tube, 200 µl of Buffer AL was added. They were then vortexed, 200 µl of 95% ethanol was added and samples were vortexed again. The mixture was placed into a spin column with a waste tube, centrifuged at 8000 rpm for 1 minute, and the flow-through was discarded. 500 µl of Buffer AW1 was added and centrifuged at 8000 rpm for 1 minute. The flow-through was again discarded, then 500 µl of Buffer AW2 was added. The sample was centrifuged for 3 minutes at 13,300 rpm and the final flow-through was discarded. Each membrane was dried by being centrifuged for another minute. To elute the DNA, 100 µl of Buffer AE was added to the spin column, incubated for 1 minute at room temperature and centrifuged at 8000 rpm for 1 minute. Finally, two samples (containing 20 individuals in each) from the same batch were combined to create a pool of DNA in groups of 40 individuals and stored at -20°C. 
+
 Plant and Animal Whole Genome Sequencing (WBI) was carried out by Novogene (Cambridge). Standard DNA qualities were assessed and libraries were prepped using the plant and animal whole genome library preparation protocol (350 bp). Samples were sequenced on two lanes using NovaSeq X Plus PE150. Total raw data output (G bases) was calculated as:
+
 180 mb (total drosophila genome)*40x coverage = 7200 mb=~8 Gb/sample
+
 resulting in a set of paired-end reads for each sample with an average of 150 bp. For other quality control measures, see Supplementary Table S1. 

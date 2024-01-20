@@ -140,9 +140,58 @@ python2.7 scripts/FilterPosFromVCF.py \
 
 ##  annotate SNPs with snpEff
 
+SnpEFF[^4]
+Genetic variant annotation, and functional effect prediction toolbox. It annotates and predicts the effects of genetic variants on genes and proteins (such as amino acid changes).
+
+
+A typical SnpEff use case would be:
+
+Input: The inputs are predicted variants (SNPs, insertions, deletions and MNPs). The input file is usually obtained as a result of a sequencing experiment, and it is usually in variant call format (VCF).
+Output: SnpEff analyzes the input variants. It annotates the variants and calculates the effects they produce on known genes (e.g. amino acid changes). A list of effects and annotations that SnpEff can calculate can be found here.
+Variants
+
+By genetic variant we mean difference between a genome and a "reference" genome. As an example, imagine we are sequencing a "sample". Here "sample" can mean anything that you are interested in studying, from a cell culture, to a mouse or a cancer patient.
+
+It is a standard procedure to compare your sample sequences against the corresponding "reference genome". For instance you may compare the cancer patient genome against the "reference genome".
+
+In a typical sequencing experiment, you will find many places in the genome where your sample differs from the reference genome. These are called "genomic variants" or just "variants".
+
+Typically, variants are categorized as follows:
+
+
+ype	What is means	Example
+SNP	Single-Nucleotide Polymorphism	Reference = 'A', Sample = 'C'
+Ins	Insertion	Reference = 'A', Sample = 'AGT'
+Del	Deletion	Reference = 'AC', Sample = 'C'
+MNP	Multiple-nucleotide polymorphism	Reference = 'ATA', Sample = 'GTC'
+MIXED	Multiple-nucleotide and an InDel	Reference = 'ATA', Sample = 'GTCAGT'
+This is not a comprehensive list, it is just to give you an idea.
+
+Annotations
+
+So, you have a huge file describing all the differences between your sample and the reference genome. But you want to know more about these variants than just their genetic coordinates. E.g.: Are they in a gene? In an exon? Do they change protein coding? Do they cause premature stop codons?
+
+SnpEff can help you answer all these questions. The process of adding this information about the variants is called "Annotation".
+
+SnpEff provides several degrees of annotations, from simple (e.g. which gene is each variant affecting) to extremely complex annotations (e.g. will this non-coding variant affect the expression of a gene?). It should be noted that the more complex the annotations, the more it relies in computational predictions. Such computational predictions can be incorrect, so results from SnpEff (or any prediction algorithm) cannot be trusted blindly, they must be analyzed and independently validated by corresponding wet-lab experiments.
+
+
+
+# Download latest version
+wget https://snpeff.blob.core.windows.net/versions/snpEff_latest_core.zip
+
+# Unzip file
+unzip snpEff_latest_core.zip
+
+Do I need the database? 
+[https://snpeff.blob.core.windows.net/databases/v5_2/snpEff_v5_2_Drosophila_melanogaster.zip
+Ensembl genome annotation version BDGP6.82 
+
+
+
 ```
-conda install snpeff
-java -Xmx4g -jar scripts/snpEff-4.2/snpEff.jar \
+DATA_DIR=kitchenflies/DNA/2_Process/10_vcf
+java -Xmx4g -jar snpEff/scripts/snpEff-4.2/snpEff.jar \
 -ud 2000 \
 BDGP6.82 \
 -stats  SNPs_clean.html \
@@ -150,9 +199,12 @@ SNPs_clean.vcf.gz \
 | gzip > SNPs_clean-ann.vcf.gz
 ```
 
-An alternative would be using Popoolation[^3].
+-ud , -upDownStreamLen <int> : Set upstream downstream interval length (in bases)
+
+An alternative would be using Popoolation[^5].
 
 [^1]: <https://github.com/capoony/PoolSNP>
 [^2]: <https://samtools.github.io/bcftools/bcftools.html>
-[^3]: <https://github.com/lczech/popoolation2>
 [^3]: <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/>
+[^4]: "A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3.", Cingolani P, Platts A, Wang le L, Coon M, Nguyen T, Wang L, Land SJ, Lu X, Ruden DM. Fly (Austin). 2012 Apr-Jun;6(2):80-92. PMID: 22728672
+[^5]: <https://github.com/lczech/popoolation2>

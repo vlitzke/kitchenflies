@@ -43,6 +43,6 @@ samtools mpileup \
 
 -> pipes out to a compressed mpileup file. 
 
-:memo: Works best if they're all in and written to the same folder (previous indels) and then move the pileup file over to the new folder (mpileup) later. 
+:memo: Works best if all input files (including .bam files) are in and written to the same folder (previous indels) and then move the pileup file over to the new folder (mpileup) later. 
 
 [^1]: https://www.htslib.org/doc/samtools-mpileup.html

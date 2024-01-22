@@ -6,6 +6,7 @@ The BWA-MEM algorithm performs local alignment. It may produce multiple primary 
 
 Then we will pipe them into Samtools[^2], filtering with MQ (mapped quality score) > 20. Using `samtools view` views and converts SAM/BAM/CRAM files. 
 
+In Kapun's supplementary material he maps his samples to a compound reference (D. melanogaster AND commensals + pathogens,
 :exclamation: *Computationally and time consuming* :exclamation:
 
 ```

@@ -12,7 +12,7 @@ python scripts/VCF2sync.py \
 
 Resamples the allele counts in a sync file to a target coverage if the counts are above a minimum-coverage threshold (--min-cov). Note, sites with less coverage than the target will be sampled with replacement, whereas sites with larger coverage will be sampled with replacement.
 
-:memo: The X chromsome will be sampled by half since this script is intended for Pools based on males only.
+:memo: The X chromosome will be sampled by half since this script is intended for pools of only male individuals. 
 
 ```
 python scripts/SubsampleSync.py \

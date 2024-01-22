@@ -1,4 +1,4 @@
-# Step 10: PoolSNP/Repeatmasker/snpeff
+# Step 10: Calling, Cleaning and Annotating SNP Variants
 
 ## Call SNPs 
 

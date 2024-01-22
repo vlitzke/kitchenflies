@@ -24,7 +24,7 @@ author = u'Vivienne Litzke'
 show_authors = False
 #copyright =  author
 
-copyright = u'GenPipes (GSoD 2019-24)'
+#copyright = u'VL'
 
 # The full version, including alpha/beta/rc tags
 
@@ -150,14 +150,14 @@ user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25
 
 # -- Options for LaTeX output ------------------------------------------------
 
-#latex_logo = 'img/genpipe_logo.png'
-#latex_additional_files = ['gp_pdf.txt']
-#latex_toplevel_sectioning = 'section'
-#latex_engine = 'xelatex'
-#latex_use_xindy = False
-#latex_appendices = []
-#latex_show_urls = 'no'
-#latex_show_pagerefs = True
+latex_logo = 'img/genpipe_logo.png'
+latex_additional_files = ['gp_pdf.txt']
+latex_toplevel_sectioning = 'section'
+latex_engine = 'xelatex'
+latex_use_xindy = False
+latex_appendices = []
+latex_show_urls = 'no'
+latex_show_pagerefs = True
 
 #latex_elements = {
         # -- The paper size ('letterpaper' or 'a4paper').  ---------------------
@@ -165,28 +165,28 @@ user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:25.0) Gecko/20100101 Firefox/25
 
         #'fncychap': r'',
         #'fncychap': r'\usepackage[Lenny]{fncychap}',
-        #'fncychap': r'\usepackage[Bjornstrup]{fncychap}',
+        'fncychap': r'\usepackage[Bjornstrup]{fncychap}',
         #'fncychap': r'\usepackage[Rejne]{fncychap}',
 
-       # 'printindex': r'\footnotesize\raggedright\printindex',
-       # 'extraclassoptions': 'openany',
+        'printindex': r'\footnotesize\raggedright\printindex',
+        'extraclassoptions': 'openany',
 
         # -- The font size ('10pt', '11pt' or '12pt'). -------------------------
-        #'pointsize': '11pt',
+        'pointsize': '11pt',
 
         #'pxunit': '0.6bp',
 
 
-        # -- Additional stuff for the LaTeX preamble. --------------------------
-     #   'preamble': r'''
-      #                  \makeatletter
-      #                  \input{gp_pdf.txt}
-      #                  \makeatother
-          #          ''',
+         -- Additional stuff for the LaTeX preamble. --------------------------
+        'preamble': r'''
+                        \makeatletter
+                        \input{gp_pdf.txt}
+                       \makeatother
+                    ''',
 
         # -- Latex figure (float) alignment ------------------------------------
         #'figure_align': 'htbp',
-     #   'figure_align': 'H',
+        'figure_align': 'H',
 
        'sphinxsetup': \
                       'InnerLinkColor={rgb}{0.2,0.51,0.96}, \

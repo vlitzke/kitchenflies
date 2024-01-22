@@ -1,6 +1,8 @@
 # Calculation of unbiased population genetics estimators Tajima's pi, Watterson's Theta and Tajima's D
 
-## Convert the VCF to SYNC file format - Kapun says see Kofler et al. 2011, but they do an mpileup file to sync file format. 
+## Convert VCF to SYNC
+
+Kapun says see Kofler et al. 2011, but they do an mpileup file to sync file format. 
 
 ```
 python scripts/VCF2sync.py \
@@ -8,9 +10,9 @@ python scripts/VCF2sync.py \
 | gzip > SNPs.sync.gz
 ```
 
-## Resample SNPS to a 40x coverage
+## Resample SNPS 
 
-Resamples the allele counts in a sync file to a target coverage if the counts are above a minimum-coverage threshold (--min-cov). Note, sites with less coverage than the target will be sampled with replacement, whereas sites with larger coverage will be sampled with replacement.
+Resamples the allele counts in a sync file to a target coverage (40x, we have 40 individuals in each pool) if the counts are above a minimum-coverage threshold (--min-cov). Note, sites with less coverage than the target will be sampled with replacement, whereas sites with larger coverage will be sampled with replacement.
 
 :memo: The X chromosome will be sampled by half since this script is intended for pools of only male individuals. 
 

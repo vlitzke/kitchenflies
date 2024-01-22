@@ -160,7 +160,7 @@ Since we now have a file of cleaned up SNPs, we can use SnpEFF[^4] to annotate t
 3. Download your reference genome annotation from their database (SnpEff has quite a few, you can look at the list): https://snpeff.blob.core.windows.net/databases/v5_2/snpEff_v5_2_Drosophila_melanogaster.zip
 Ensembl genome annotation version BDGP6.82 
 
-Input is a VCF (variant call format) file with predicted variants (SNPs, insertions, deletions and MNPs). Output consists of annoitated variants and calculates the effects they produce on known genes (e.g. amino acid changes). 
+Input is a VCF (variant call format) file with predicted variants (SNPs, insertions, deletions and MNPs). Output consists of annotated variants and calculates the effects they produce on known genes (e.g. amino acid changes) as well as an output summary report[^6]. 
 
 ```
 java -Xmx4g -jar snpEff/scripts/snpEff-4.2/snpEff.jar \
@@ -184,11 +184,12 @@ Their documentation[^5] is very helpful.
 
 ----
 
-An alternative to using PoolSNP would be Popoolation[^6].
+An alternative to using PoolSNP would be Popoolation[^7].
 
 [^1]: <https://github.com/capoony/PoolSNP>
 [^2]: <https://samtools.github.io/bcftools/bcftools.html>
 [^3]: <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/>
 [^4]: "A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3.", Cingolani P, Platts A, Wang le L, Coon M, Nguyen T, Wang L, Land SJ, Lu X, Ruden DM. Fly (Austin). 2012 Apr-Jun;6(2):80-92. PMID: 22728672
 [^5]: <https://pcingola.github.io/SnpEff/snpeff/commandline/>
-[^6]: <https://github.com/lczech/popoolation2>
+[^6]: <https://pcingola.github.io/SnpEff/snpeff/outputsummary/>
+[^7]: <https://github.com/lczech/popoolation2>

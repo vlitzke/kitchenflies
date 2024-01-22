@@ -1,6 +1,6 @@
 # Calculation of unbiased population genetics estimators Tajima's pi, Watterson's Theta and Tajima's D
 
-Convert the VCF to SYNC file format - Kapun says see Kofler et al. 2011, but they do an mpileup file to sync file format. 
+## Convert the VCF to SYNC file format - Kapun says see Kofler et al. 2011, but they do an mpileup file to sync file format. 
 
 ```
 python scripts/VCF2sync.py \
@@ -8,13 +8,11 @@ python scripts/VCF2sync.py \
 | gzip > SNPs.sync.gz
 ```
 
-Resample SNPS to a 40x coverage
+## Resample SNPS to a 40x coverage
 
-This script converts resamples the allele counts in a sync file (--input) to a target coverage (--target-cov) if the counts are above a minimum-coverage threshold (--min-cov).
-Note, sites with less coverage than the target will be sampled with replacement, whereas sites with larger coverage will be sampled with replacement.
-The X chromsome will be sampled by half since this script is intended for Pools based on males only
+Resamples the allele counts in a sync file to a target coverage if the counts are above a minimum-coverage threshold (--min-cov). Note, sites with less coverage than the target will be sampled with replacement, whereas sites with larger coverage will be sampled with replacement.
 
-
+:memo: The X chromsome will be sampled by half since this script is intended for Pools based on males only.
 
 ```
 python scripts/SubsampleSync.py \
@@ -24,8 +22,17 @@ python scripts/SubsampleSync.py \
 | gzip > SNPs-40x.sync.gz
 ```
 
+| Command      | Description |
+| ----------- | ----------- |
+| `--sync` | input .sync file |
+| `--target-cov ` | target coverage |
+| `--min-cov` | minimum-coverage threshold |
 
-Calculate "true" window-sizes (e.g. for non-overlapping 200kb windows) based on the number of sites that passed the coverage criteria (as calculated from PoolSNP) are not located within TE's and that are not located close to InDels; See Material and Methods in Kapun et al. (2020)
+--> pipes out to a compressed sync file. 
+
+## Calculate "true" window-sizes 
+
+(e.g. for non-overlapping 200kb windows) based on the number of sites that passed the coverage criteria (as calculated from PoolSNP) are not located within TE's and that are not located close to InDels; See Material and Methods in Kapun et al. (2020)
 ```
 python scripts/TrueWindows.py \
 --badcov SNP_BS.txt.gz \
@@ -36,7 +43,9 @@ python scripts/TrueWindows.py \
 --output truewindows
 ```
 
-Calculate window-wise Population Genetics parameters Tajima's pi, Watterson's Theta and Tajima's D using Pool-Seq corrections following Kofler et al. (2011)
+## Calculate window-wise Population Genetics parameters 
+
+Tajima's pi, Watterson's Theta and Tajima's D using Pool-Seq corrections following Kofler et al. (2011)
 ```
 python scripts/PoolGen_var.py \
 --input SNPs-40x.sync.gz \

@@ -1,6 +1,17 @@
 # Step 10: PoolSNP/Repeatmasker/snpeff
 
 ## Call SNPs 
+
+When sequencing samples, you will find places many places in the genome where your sample differs from the reference genome ("variants"). Therefore, we will compare our sample sequences against the reference genome. For example:
+
+| Type     | What it means | Example |
+| ----------- | ----------- |----------- |
+| SNP | Single-Nucleotide Polymorphism |Reference = 'A', Sample = 'C'|
+| Ins |	Insertion |	Reference = 'A', Sample = 'AGT'|
+| Del |	Deletion |	Reference = 'AC', Sample = 'C'|
+| MNP |	Multiple-nucleotide polymorphism |	Reference = 'ATA', Sample = 'GTC'|
+| MIXED |	Multiple-nucleotide and an InDel |	Reference = 'ATA', Sample = 'GTCAGT'|
+
 Following the DrosEU pipeline, to call SNPs we are going to use Kapun's PoolSNP[^1]. It is a heuristic SNP caller for pooled sequencing data and requires Python3 (which usually comes with the conda environment, I think?) and GNU parallel (`conda install conda-forge::parallel`). As input, it takes an MPILEUP file and a reference genome in FASTA format. It creates the following output files:
 
 - gzipped VCF file containing allele counts and frequencies for every position and library
@@ -138,40 +149,17 @@ python2.7 scripts/FilterPosFromVCF.py \
 
 --> pipes out to a compressed folder of "clean" SNPs
 
-##  annotate SNPs with snpEff
+##  Annotate SNPs
 
-SnpEFF[^4]
+Since we now have a file of cleaned up SNPs, we can use SnpEFF[^4] to annotate them; we would like to know more about these variants than just their genetic coordinates, such as if they are in a gene, an exon, or even more complex annotations, like do they change protein coding? SnpEff provides several degrees of annotations, from simple (e.g. which gene is each variant affecting) to extremely complex annotations (e.g. will this non-coding variant affect the expression of a gene?), but the more complex the annotation, the more it relies on computational predictions. 
 
-In a typical sequencing experiment, you will find many places in the genome where your sample differs from the reference genome. These are called "genomic variants" or just "variants". It is a standard procedure to compare your sample sequences against the corresponding "reference genome". Input is a VCF (variant call format) file with predicted variants (SNPs, insertions, deletions and MNPs).Output is an analysis of the input variants, it annotates the variants and calculates the effects they produce on known genes (e.g. amino acid changes). A list of effects and annotations that SnpEff can calculate can be found here.
-
-Typical variants:
-
-| Type     | What it means | Example |
-| ----------- | ----------- |----------- |
-| SNP | Single-Nucleotide Polymorphism |Reference = 'A', Sample = 'C'|
-| Ins |	Insertion |	Reference = 'A', Sample = 'AGT'|
-| Del |	Deletion |	Reference = 'AC', Sample = 'C'|
-| MNP |	Multiple-nucleotide polymorphism |	Reference = 'ATA', Sample = 'GTC'|
-| MIXED |	Multiple-nucleotide and an InDel |	Reference = 'ATA', Sample = 'GTCAGT'|
-
-This is not a comprehensive list.
-
-Annotations
-
-So, you have a huge file describing all the differences between your sample and the reference genome. But you want to know more about these variants than just their genetic coordinates. E.g.: Are they in a gene? In an exon? Do they change protein coding? Do they cause premature stop codons?
-
-SnpEff can help you answer all these questions. The process of adding this information about the variants is called "Annotation".
-
-SnpEff provides several degrees of annotations, from simple (e.g. which gene is each variant affecting) to extremely complex annotations (e.g. will this non-coding variant affect the expression of a gene?). It should be noted that the more complex the annotations, the more it relies in computational predictions. Such computational predictions can be incorrect, so results from SnpEff (or any prediction algorithm) cannot be trusted blindly, they must be analyzed and independently validated by corresponding wet-lab experiments.
-
-First, download latest version (`wget https://snpeff.blob.core.windows.net/versions/snpEff_latest_core.zip`) and unzip the file (`unzip snpEff_latest_core.zip`). Then, download your reference genome annotation - SnpEff has quite a few, you can look at the list. 
-
-
-Do I need the database? 
-[https://snpeff.blob.core.windows.net/databases/v5_2/snpEff_v5_2_Drosophila_melanogaster.zip
+1. Download latest version: `wget https://snpeff.blob.core.windows.net/versions/snpEff_latest_core.zip`
+2. Unzip the file: `unzip snpEff_latest_core.zip`
+3. Download your reference genome annotation from their database (SnpEff has quite a few, you can look at the list): https://snpeff.blob.core.windows.net/databases/v5_2/snpEff_v5_2_Drosophila_melanogaster.zip
 Ensembl genome annotation version BDGP6.82 
 
-https://pcingola.github.io/SnpEff/snpeff/commandline/
+Input is a VCF (variant call format) file with predicted variants (SNPs, insertions, deletions and MNPs).Output is an analysis of the input variants, it annotates the variants and calculates the effects they produce on known genes (e.g. amino acid changes). 
+
 ```
 java -Xmx4g -jar snpEff/scripts/snpEff-4.2/snpEff.jar \
 -ud 2000 \
@@ -190,12 +178,15 @@ SNPs_clean.vcf.gz \
 
 -> pipes out to an annotated VCPF file.
 
+Their documentation is very helpful.
+
 ----
 
-An alternative to using PoolSNP would be Popoolation[^5].
+An alternative to using PoolSNP would be Popoolation[^6].
 
 [^1]: <https://github.com/capoony/PoolSNP>
 [^2]: <https://samtools.github.io/bcftools/bcftools.html>
 [^3]: <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/>
 [^4]: "A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3.", Cingolani P, Platts A, Wang le L, Coon M, Nguyen T, Wang L, Land SJ, Lu X, Ruden DM. Fly (Austin). 2012 Apr-Jun;6(2):80-92. PMID: 22728672
-[^5]: <https://github.com/lczech/popoolation2>
+[^5]: <https://pcingola.github.io/SnpEff/snpeff/commandline/>
+[^6]: <https://github.com/lczech/popoolation2>

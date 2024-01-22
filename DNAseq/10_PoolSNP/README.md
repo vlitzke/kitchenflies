@@ -141,31 +141,20 @@ python2.7 scripts/FilterPosFromVCF.py \
 ##  annotate SNPs with snpEff
 
 SnpEFF[^4]
-Genetic variant annotation, and functional effect prediction toolbox. It annotates and predicts the effects of genetic variants on genes and proteins (such as amino acid changes).
 
+In a typical sequencing experiment, you will find many places in the genome where your sample differs from the reference genome. These are called "genomic variants" or just "variants". It is a standard procedure to compare your sample sequences against the corresponding "reference genome". Input is a VCF (variant call format) file with predicted variants (SNPs, insertions, deletions and MNPs).Output is an analysis of the input variants, it annotates the variants and calculates the effects they produce on known genes (e.g. amino acid changes). A list of effects and annotations that SnpEff can calculate can be found here.
 
-A typical SnpEff use case would be:
+Typical variants:
 
-Input: The inputs are predicted variants (SNPs, insertions, deletions and MNPs). The input file is usually obtained as a result of a sequencing experiment, and it is usually in variant call format (VCF).
-Output: SnpEff analyzes the input variants. It annotates the variants and calculates the effects they produce on known genes (e.g. amino acid changes). A list of effects and annotations that SnpEff can calculate can be found here.
-Variants
+| Type     | What it means | Example |
+| ----------- | ----------- |----------- |
+| SNP | Single-Nucleotide Polymorphism |Reference = 'A', Sample = 'C'|
+| Ins |	Insertion |	Reference = 'A', Sample = 'AGT'|
+| Del |	Deletion |	Reference = 'AC', Sample = 'C'|
+| MNP |	Multiple-nucleotide polymorphism |	Reference = 'ATA', Sample = 'GTC'|
+| MIXED |	Multiple-nucleotide and an InDel |	Reference = 'ATA', Sample = 'GTCAGT'|
 
-By genetic variant we mean difference between a genome and a "reference" genome. As an example, imagine we are sequencing a "sample". Here "sample" can mean anything that you are interested in studying, from a cell culture, to a mouse or a cancer patient.
-
-It is a standard procedure to compare your sample sequences against the corresponding "reference genome". For instance you may compare the cancer patient genome against the "reference genome".
-
-In a typical sequencing experiment, you will find many places in the genome where your sample differs from the reference genome. These are called "genomic variants" or just "variants".
-
-Typically, variants are categorized as follows:
-
-
-ype	What is means	Example
-SNP	Single-Nucleotide Polymorphism	Reference = 'A', Sample = 'C'
-Ins	Insertion	Reference = 'A', Sample = 'AGT'
-Del	Deletion	Reference = 'AC', Sample = 'C'
-MNP	Multiple-nucleotide polymorphism	Reference = 'ATA', Sample = 'GTC'
-MIXED	Multiple-nucleotide and an InDel	Reference = 'ATA', Sample = 'GTCAGT'
-This is not a comprehensive list, it is just to give you an idea.
+This is not a comprehensive list.
 
 Annotations
 
@@ -175,22 +164,15 @@ SnpEff can help you answer all these questions. The process of adding this infor
 
 SnpEff provides several degrees of annotations, from simple (e.g. which gene is each variant affecting) to extremely complex annotations (e.g. will this non-coding variant affect the expression of a gene?). It should be noted that the more complex the annotations, the more it relies in computational predictions. Such computational predictions can be incorrect, so results from SnpEff (or any prediction algorithm) cannot be trusted blindly, they must be analyzed and independently validated by corresponding wet-lab experiments.
 
+First, download latest version (`wget https://snpeff.blob.core.windows.net/versions/snpEff_latest_core.zip`) and unzip the file (`unzip snpEff_latest_core.zip`). Then, download your reference genome annotation - SnpEff has quite a few, you can look at the list. 
 
-
-# Download latest version
-wget https://snpeff.blob.core.windows.net/versions/snpEff_latest_core.zip
-
-# Unzip file
-unzip snpEff_latest_core.zip
 
 Do I need the database? 
 [https://snpeff.blob.core.windows.net/databases/v5_2/snpEff_v5_2_Drosophila_melanogaster.zip
 Ensembl genome annotation version BDGP6.82 
 
-
 https://pcingola.github.io/SnpEff/snpeff/commandline/
 ```
-DATA_DIR=kitchenflies/DNA/2_Process/10_vcf
 java -Xmx4g -jar snpEff/scripts/snpEff-4.2/snpEff.jar \
 -ud 2000 \
 BDGP6.82 \
@@ -199,9 +181,18 @@ SNPs_clean.vcf.gz \
 | gzip > SNPs_clean-ann.vcf.gz
 ```
 
--ud , -upDownStreamLen <int> : Set upstream downstream interval length (in bases)
+| Command      | Description |
+| ----------- | ----------- |
+| `-ud` |  set upstream/downstream interval length (in bases) (i.e. reports any upstream or downstream effect |
+| `-` |  input reference genome |
+| `-stats` | output stats file |
+| `-` | output vsf file |
 
-An alternative would be using Popoolation[^5].
+-> pipes out to an annotated VCPF file.
+
+----
+
+An alternative to using PoolSNP would be Popoolation[^5].
 
 [^1]: <https://github.com/capoony/PoolSNP>
 [^2]: <https://samtools.github.io/bcftools/bcftools.html>

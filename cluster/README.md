@@ -77,3 +77,5 @@ Type in conda activate ‘program name’
 To copy a file from your local computer to your scratch folder on the cluster, open your local terminal and type in `scp /PATH/TO/filename.sh userID@cropdiversity.ac.uk:scratch/`, it will prompt your for your key passphrase. This takes a few seconds. (rsync works as well?) 
 
 scp ./file.txt cecicluster:destination/path/
+
+For longer jobs, you might want to increase the number of threads /jobs to 16 from 1, and allocate more memory (60 gb instead of 8) 

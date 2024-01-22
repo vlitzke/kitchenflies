@@ -158,7 +158,7 @@ Since we now have a file of cleaned up SNPs, we can use SnpEFF[^4] to annotate t
 3. Download your reference genome annotation from their database (SnpEff has quite a few, you can look at the list): https://snpeff.blob.core.windows.net/databases/v5_2/snpEff_v5_2_Drosophila_melanogaster.zip
 Ensembl genome annotation version BDGP6.82 
 
-Input is a VCF (variant call format) file with predicted variants (SNPs, insertions, deletions and MNPs).Output is an analysis of the input variants, it annotates the variants and calculates the effects they produce on known genes (e.g. amino acid changes). 
+Input is a VCF (variant call format) file with predicted variants (SNPs, insertions, deletions and MNPs). Output consists of annoitated variants and calculates the effects they produce on known genes (e.g. amino acid changes). 
 
 ```
 java -Xmx4g -jar snpEff/scripts/snpEff-4.2/snpEff.jar \
@@ -178,7 +178,7 @@ SNPs_clean.vcf.gz \
 
 -> pipes out to an annotated VCPF file.
 
-Their documentation is very helpful.
+Their documentation[^5] is very helpful.
 
 ----
 

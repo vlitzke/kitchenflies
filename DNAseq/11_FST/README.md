@@ -35,6 +35,14 @@ python scripts/SubsampleSync.py \
 ## Calculate "true" window-sizes 
 
 (e.g. for non-overlapping 200kb windows) based on the number of sites that passed the coverage criteria (as calculated from PoolSNP) are not located within TE's and that are not located close to InDels; See Material and Methods in Kapun et al. (2020)
+
+This script generates an output (--out) which contains the number of sites that passed the quality criteria during SNP calling (--badcov), are not located within TE's (--te) and that are not located close to InDels (--indel) in sliding windows with a given window and step-size. 
+
+This file can be used as on input for the calculation of population genetics parameters with PopGen-var.py.
+You will need to pass the length of the chromosomes that should be considered in the output (--chromosomes )
+Note: this script is quite memory hungry. Thus, I would run the script for the different chromsomal arms separately unless you have >64 GB of RAM memory
+
+
 ```
 python scripts/TrueWindows.py \
 --badcov SNP_BS.txt.gz \
@@ -44,6 +52,19 @@ python scripts/TrueWindows.py \
 --step 200000 \
 --output truewindows
 ```
+
+| Command      | Description |
+| ----------- | ----------- |
+| `--badcov` | input bad coverage file with the extension BS from SNP calling |
+| `--indel ` | input indel positions file |
+| `--te` | te database in gff fileformat from flybase or from Repeatmasker |
+| `--window` | window-size |
+| `--step` | step-size |
+| `--output` | output file |
+
+parser.add_option("--chromosomes", dest="chrom", help="the name and length of chromosomes to be considered, Name and length Need to be saparated by a colon and different chromosomes need to be separated by a comma, e.g. 2L:23513712,2R:25286936")
+
+
 
 ## Calculate window-wise Population Genetics parameters 
 

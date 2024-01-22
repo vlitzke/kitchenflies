@@ -1,8 +1,6 @@
 # Step 10: Calling, Cleaning and Annotating SNP Variants
 
-## Call SNPs 
-
-When sequencing samples, you will find places many places in the genome where your sample differs from the reference genome ("variants"). Therefore, we will compare our sample sequences against the reference genome. For example:
+When sequencing samples, you will find many places in the genome where your sample differs from the reference genome ("variants"). These could be alterations such as:
 
 | Type  | Example |
 | ----------- | ----------- |
@@ -11,6 +9,10 @@ When sequencing samples, you will find places many places in the genome where yo
 | Del (Deletion) | 'AC' ->  'C'|
 | MNP (Multiple-nucleotide polymorphism) |'ATA'->  'GTC'|
 | MIXED (Multiple-nucleotide and an InDel) | 'ATA' -> 'GTCAGT'|
+
+First we have to call our SNPs, compare our sample sequences against the reference genome (figure out what happened) and then find out where they are! 
+
+## Call SNPs 
 
 Following the DrosEU pipeline, to call SNPs we are going to use Kapun's PoolSNP[^1]. It is a heuristic SNP caller for pooled sequencing data and requires Python3 (which usually comes with the conda environment, I think?) and GNU parallel (`conda install conda-forge::parallel`). As input, it takes an MPILEUP file and a reference genome in FASTA format. It creates the following output files:
 

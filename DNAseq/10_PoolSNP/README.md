@@ -4,13 +4,13 @@
 
 When sequencing samples, you will find places many places in the genome where your sample differs from the reference genome ("variants"). Therefore, we will compare our sample sequences against the reference genome. For example:
 
-| Type     | What it means | Example |
-| ----------- | ----------- |----------- |
-| SNP | Single-Nucleotide Polymorphism |Reference = 'A', Sample = 'C'|
-| Ins |	Insertion |	Reference = 'A', Sample = 'AGT'|
-| Del |	Deletion |	Reference = 'AC', Sample = 'C'|
-| MNP |	Multiple-nucleotide polymorphism |	Reference = 'ATA', Sample = 'GTC'|
-| MIXED |	Multiple-nucleotide and an InDel |	Reference = 'ATA', Sample = 'GTCAGT'|
+| Type  | Example |
+| ----------- | ----------- |
+| SNP (Single-Nucleotide Polymorphism) |'A' -> 'C'|
+| Ins (Insertion) | 'A' ->  'AGT'|
+| Del (Deletion) | 'AC' ->  'C'|
+| MNP (Multiple-nucleotide polymorphism) |'ATA'->  'GTC'|
+| MIXED (Multiple-nucleotide and an InDel) | 'ATA' -> 'GTCAGT'|
 
 Following the DrosEU pipeline, to call SNPs we are going to use Kapun's PoolSNP[^1]. It is a heuristic SNP caller for pooled sequencing data and requires Python3 (which usually comes with the conda environment, I think?) and GNU parallel (`conda install conda-forge::parallel`). As input, it takes an MPILEUP file and a reference genome in FASTA format. It creates the following output files:
 

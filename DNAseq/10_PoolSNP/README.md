@@ -131,14 +131,14 @@ dmel-all-chromosome-r6.54.fasta
 | `-` | input chromosome .fasta file |
 
 
-##  filter SNPs around InDels and in TE's from the original VCF produced with PoolSNP
+##  Filter SNPs 
 
-Removes sites that are located in InDels or transposable elements from VCF input file
+Removes sites that are located in InDels or transposable elements from VCF input file.
 
 ```
 python2.7 scripts/FilterPosFromVCF.py \
 --indel InDel-positions_20.txt.gz \
---te dmel-all-chromosome-r6.10.fasta.out.gff \
+--te dmel-all-chromosome-r6.54.fasta.out.gff \
 --vcf SNPs.vcf.gz \
 | gzip > SNPs_clean.vcf.gz
 ```

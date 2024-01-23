@@ -163,22 +163,25 @@ Ensembl genome annotation version BDGP6.82
 Input is a VCF (variant call format) file with predicted variants (SNPs, insertions, deletions and MNPs). Output consists of annotated variants and calculates the effects they produce on known genes (e.g. amino acid changes) as well as an output summary report[^6]. 
 
 ```
-java -Xmx4g -jar snpEff/scripts/snpEff-4.2/snpEff.jar \
+snpEff \
 -ud 2000 \
-BDGP6.82 \
--stats  SNPs_clean.html \
-SNPs_clean.vcf.gz \
-| gzip > SNPs_clean-ann.vcf.gz
+BDGP6.32.105 \
+-c kitchenflies/DNA/2_Process/10_vcf/snpEff/snpEff.config \
+-stats ~/SNPs_clean_6.32.html
+kitchenflies/DNA/2_Process/10_vcf/SNPs_clean.vcf.gz
+| gzip > ~/SNPs_clean-ann_6.32.vcf.gz
 ```
 
 | Command      | Description |
 | ----------- | ----------- |
 | `-ud` |  set upstream/downstream interval length (in bases) (i.e. reports any upstream or downstream effect |
-| `-` |  input reference genome |
+| `-` |  input reference genome (I used both the newer 6.32 and the older 6.28 versions |
+| `-c` | input snpEff config file (already in the folder) |
 | `-stats` | output stats file |
-| `-` | output vsf file |
+| `-` | input cleaned up SNP vcf file |
+| `-` | output annotated vcf file |
 
--> pipes out to an annotated VCPF file.
+-> pipes out to a compressed annotated VCPF file.
 
 Their documentation[^5] is very helpful.
 

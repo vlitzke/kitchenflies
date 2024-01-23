@@ -92,6 +92,9 @@ scale_y_continuous(trans = scales::log10_trans(), breaks = scales::trans_breaks(
 
 Leeban says: only care about relationship between mapped things and those properly paired , and mapping rate 
 
+Also..
+There are two frequently used coverage measures: coverage depth is the number of reads covering a specific base position and “coverage %” is the proportion of a targeted region covered by reads (i.e. basically the proportion of a region with non-zero coverage depth). Of course, there are countless other possibilities for “measuring” coverage: you can count the reads aligned to a specific region, you can calculate mean or median coverage depth, you can calculate coverage in sliding windows throughout the whole genome. It all depends on what you’re interested in
+
 [^1]: Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform. Bioinformatics, 25:1754-60. [PMID: 19451168] <https://github.com/lh3/bwa>
 [^2]: Danecek, P., Bonfield, J. K., Liddle, J., Marshall, J., Ohan, V., Pollard, M. O., ... & Li, H. (2021). Twelve years of SAMtools and BCFtools. Gigascience, 10(2), giab008. <https://doi.org/10.1093/gigascience/giab008> <https://www.htslib.org/>
 [^3]: <http://broadinstitute.github.io/picard>

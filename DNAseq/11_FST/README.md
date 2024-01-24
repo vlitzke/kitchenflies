@@ -1,14 +1,43 @@
 # Calculation of unbiased population genetics estimators Tajima's pi, Watterson's Theta and Tajima's D
 
-## Convert VCF to SYNC
 
-Kapun says see Kofler et al. 2011, but they do an mpileup file to sync file format. Anyway, now that we've called our SNPs, cleaned, and annotated them (using two different versions of the D mel annotations), now convert them to a sync file. 
 
-```
-python scripts/VCF2sync.py \
---vcf SNPs_clean-ann.vcf.gz \
-| gzip > SNPs.sync.gz
-```
+## 
+
+Now we are heading over to popoolation2. 
+
+Several population genetic estimators are sensitive to sequencing errors. For example a very low
+Tajima’s D, usually indicative of a selective sweep, may be, as an artifact, frequently be found in
+highly covered regions because these regions have just more sequencing errors. To avoid these
+kinds of biases we recommend to subsample to an uniform coverage.
+1 perl ˜/programs/popoolation/basic-pipeline/subsample-pileup.pl --
+min-qual 20 --method withoutreplace --max-coverage 50 --
+fastq-type sanger --target-coverage 10 --input pe.idf.
+mpileup --output pe.ss10.idf.mpileup
+I –min-qual minimum base quality
+I –method method for subsampling, we recommend without replacement
+I –target-coverage which coverage should the resulting mpileup file have
+I –max-coverage the maximum allowed coverage, regions having higher coverages will be
+ignored (they may be copy number variations and lead to wrong SNPs)
+I –fastq-type (sanger means offset 33)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Resample SNPS 
 

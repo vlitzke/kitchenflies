@@ -23,7 +23,29 @@ I –fastq-type (sanger means offset 33)
 
 
 
+FST
 
+
+CALCULATING TAJIMA’S π
+1 perl ˜/programs/popoolation/Variance-sliding.pl --fastq-type
+sanger --measure pi --input pe.ss10.idf.mpileup --min-count
+2 --min-coverage 4 --max-coverage 10 --min-covered-fraction
+0.5 --pool-size 500 --window-size 1000 --step-size 1000 --
+region 2R:7800000-8300000 --output cyp6gi.pi --snp-output
+cyp6gi.snps
+I –min-coverage –max-coverage: for subsampled files not important; should contain target
+coverage, i.e.: 10
+I –min-covered-fraction minimum percentage of sites having sufficient coverage in the
+given window
+I –min-count minimum occurrence of allele for calling a SNP
+I –measure which population genetics measure should be computed (pi/theta/D)
+I –pool-size number of chromosomes (thus number of diploids times two)
+I –region compute the measure only for a small region; default is the whole genome
+I –output a file containing the measure (π) for the windows
+I –snp-output a file containing for every window the SNPs that have been used for
+computing the measure (e.g. π)
+I –window-size –step-size control behavior of sliding window; if step size is smaller than
+window size than the windows will be overlapping.
 
 
 

@@ -170,7 +170,7 @@ Since we now have a file of cleaned up SNPs, we can use SnpEFF[^4] to annotate t
 1. Download latest version: `wget https://snpeff.blob.core.windows.net/versions/snpEff_latest_core.zip`
 2. Unzip the file: `unzip snpEff_latest_core.zip`
 3. Download your reference genome annotation from their database (SnpEff has quite a few, you can look at the list): https://snpeff.blob.core.windows.net/databases/v5_2/snpEff_v5_2_Drosophila_melanogaster.zip
-Ensembl genome annotation version BDGP6.82 
+Ensembl genome annotation version BDGP6.82 and we did 6.32. 
 
 Input is a VCF (variant call format) file with predicted variants (SNPs, insertions, deletions and MNPs). Output consists of annotated variants and calculates the effects they produce on known genes (e.g. amino acid changes) as well as an output summary report[^6]. 
 
@@ -193,13 +193,22 @@ kitchenflies/DNA/2_Process/10_vcf/SNPs_clean.vcf.gz
 | `-` | input cleaned up SNP vcf file |
 | `-` | output annotated vcf file |
 
--> pipes out to a compressed annotated VCPF file.
+-> pipes out to a compressed annotated VCF file.
 
 Their documentation[^5] is very helpful.
 
 ----
 
-An alternative to using PoolSNP would be Popoolation[^7].
+## Convert VCF to SYNC
+
+Kapun says see Kofler et al. 2011, but they do an mpileup file to sync file format. Anyway, now that we've called our SNPs, cleaned, and annotated them (using two different versions of the D mel annotations), now convert them to a sync file. 
+
+```
+python scripts/VCF2sync.py \
+--vcf SNPs_clean-ann.vcf.gz \
+| gzip > SNPs.sync.gz
+```
+
 
 [^1]: <https://github.com/capoony/PoolSNP>
 [^2]: <https://samtools.github.io/bcftools/bcftools.html>
@@ -207,4 +216,3 @@ An alternative to using PoolSNP would be Popoolation[^7].
 [^4]: "A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3.", Cingolani P, Platts A, Wang le L, Coon M, Nguyen T, Wang L, Land SJ, Lu X, Ruden DM. Fly (Austin). 2012 Apr-Jun;6(2):80-92. PMID: 22728672
 [^5]: <https://pcingola.github.io/SnpEff/snpeff/commandline/>
 [^6]: <https://pcingola.github.io/SnpEff/snpeff/outputsummary/>
-[^7]: <https://github.com/lczech/popoolation2>

@@ -1,4 +1,4 @@
-# Step 10: Calling, Cleaning and Annotating SNP Variants
+# Step 10: Calling, Cleaning and Annotating SNPs
 
 When sequencing samples, you will find many places in the genome where your sample differs from the reference genome ("variants"). These could be alterations such as:
 

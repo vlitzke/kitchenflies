@@ -2,7 +2,7 @@
 
 ## Convert VCF to SYNC
 
-Kapun says see Kofler et al. 2011, but they do an mpileup file to sync file format. 
+Kapun says see Kofler et al. 2011, but they do an mpileup file to sync file format. Anyway, now that we've called our SNPs, cleaned, and annotated them (using two different versions of the D mel annotations), now convert them to a sync file. 
 
 ```
 python scripts/VCF2sync.py \

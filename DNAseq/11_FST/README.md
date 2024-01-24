@@ -4,7 +4,7 @@
 
 ## 
 
-Now we are heading over to popoolation2. 
+Now we are heading over to popoolation2. An alternative to using PoolSNP would be Popoolation[^7].
 
 Several population genetic estimators are sensitive to sequencing errors. For example a very low
 Tajima’s D, usually indicative of a selective sweep, may be, as an artifact, frequently be found in

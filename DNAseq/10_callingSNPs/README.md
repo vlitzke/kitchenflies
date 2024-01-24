@@ -210,6 +210,25 @@ python scripts/VCF2sync.py \
 ```
 
 
+THE SYNC-FILE
+1 2R 26 T 0:14:0:0:0:0 0:14:0:0:0:0
+2 2R 27 G 0:0:0:14:0:0 0:0:0:14:0:0
+3 2R 28 A 14:0:0:0:0:0 14:0:0:0:0:0
+4 2R 29 G 0:0:0:14:0:0 0:0:0:14:0:0
+I col 1: reference chromosome
+I col 2: position
+I col 3: reference character
+I col 4: allele counts for first population
+I col 5: allele counts for second population
+I col n: allele counts for n-3 population
+⇒ Allele counts are in the form ”A:T:C:G:N:del”
+⇒ the sync-file provides a convenient summary of the allele counts of several populations (there
+is no upper threshold of the population number).
+
+
+
+
+
 [^1]: <https://github.com/capoony/PoolSNP>
 [^2]: <https://samtools.github.io/bcftools/bcftools.html>
 [^3]: <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/>

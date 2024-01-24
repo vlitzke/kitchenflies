@@ -38,6 +38,8 @@ I –fastq-type (sanger means offset 33)
 
 
 
+----
+Extra
 
 ## Resample SNPS 
 

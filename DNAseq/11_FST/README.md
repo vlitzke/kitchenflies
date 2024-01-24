@@ -1,10 +1,13 @@
-# Calculation of unbiased population genetics estimators Tajima's pi, Watterson's Theta and Tajima's D
+# Calculation of unbiased population genetics estimators 
+Moving over from Kapun's pipeline, now I am going to start using Popoolation2[^1].
 
 
+## Subsampling
+This script reduces the coverage in a synchronized file for every population to the targeted coverage by random sampling of bases.
 
-## 
+As genomic reads are randomly distributed in the genome the coverage of mapped reads shows marked fluctuations along chromosomes. There are also well known biases like the GC bias, in this case regions having a high GC content also have elevated coverages. Statistical test's, like the Fisher's exact test or the CMH-test, more readily identify allele frequency differences between populations in regions having high coverages. This may result in artefactual results as for example a higher density of significant allele frequency differences in regions having a high GC content. This script allows to subsample bases to a uniform coverage, which should thus eliminate artefactual results that are caused by coverage fluctuations.
 
-Now we are heading over to popoolation2. An alternative to using PoolSNP would be Popoolation[^7].
+However, several methods for subsampling have been implemented (with replacement, without replacement, exact fraction).
 
 Several population genetic estimators are sensitive to sequencing errors. For example a very low
 Tajima’s D, usually indicative of a selective sweep, may be, as an artifact, frequently be found in
@@ -133,3 +136,4 @@ python scripts/PoolGen_var.py \
 --min-sites-frac 0.75 \
 --output Popgen
 ```
+[^1]: https://sourceforge.net/p/popoolation2/

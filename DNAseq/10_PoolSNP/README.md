@@ -55,6 +55,12 @@ His PoolSNP.sh provides more information about the parameters.
 
 However, you may also choose to use bcftools[^2] but I kept getting thrown this error: ` error while loading shared libraries: libgsl.so.25: cannot open shared object file: No such file or directory`. Internet consensus is that it only works well on mamba; I have tried downloading older versions, nothing seems to fix this problem. If you choose to use this tool, this pipeline looks good: <https://speciationgenomics.github.io/variant_calling/> 
 
+
+Stats - using RTG 
+
+HERE!!!!!
+
+
 ## Identify sites in proximity of InDels 
 
 Identify sites that are located close to InDels with a minimum count of 20 across all samples pooled and print them if they are within a predefined distance 5 bp up- and downstream to an InDel.
@@ -150,6 +156,12 @@ python2.7 scripts/FilterPosFromVCF.py \
 | `--vcf` | input VCF file |
 
 --> pipes out to a compressed folder of "clean" SNPs
+
+STATS RTG 
+
+HERE!!!!!!
+
+
 
 ##  Annotate SNPs
 

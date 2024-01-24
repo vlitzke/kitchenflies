@@ -1,0 +1,195 @@
+Location                     : 10_vcf/SNPs.vcf.gz
+Failed Filters               : 0
+Passed Filters               : 2192012
+
+Sample Name: F1_23
+SNPs                         : 2044056
+MNPs                         : 0
+Insertions                   : 0
+Deletions                    : 0
+Indels                       : 0
+Same as reference            : 141355
+Missing Genotype             : 6601
+Total Polyploid              : 22951
+Polyploid SNPs               : 22951
+Polyploid MNPs               : 0
+Polyploid Insertions         : 0
+Polyploid Deletions          : 0
+Polyploid Indels             : 0
+SNP Transitions/Transversions: 1.05 (1064681/1009878)
+Total Het/Hom ratio          : 319.15 (2014792/6313)
+SNP Het/Hom ratio            : 319.15 (2014792/6313)
+MNP Het/Hom ratio            : - (0/0)
+Insertion Het/Hom ratio      : - (0/0)
+Deletion Het/Hom ratio       : - (0/0)
+Indel Het/Hom ratio          : - (0/0)
+Insertion/Deletion ratio     : - (0/0)
+Indel/SNP+MNP ratio          : 0.00 (0/2044056)
+
+Sample Name: F1_22
+SNPs                         : 2027940
+MNPs                         : 0
+Insertions                   : 0
+Deletions                    : 0
+Indels                       : 0
+Same as reference            : 157217
+Missing Genotype             : 6855
+Total Polyploid              : 22606
+Polyploid SNPs               : 22606
+Polyploid MNPs               : 0
+Polyploid Insertions         : 0
+Polyploid Deletions          : 0
+Polyploid Indels             : 0
+SNP Transitions/Transversions: 1.06 (1056726/1001612)
+Total Het/Hom ratio          : 302.24 (1998721/6613)
+SNP Het/Hom ratio            : 302.24 (1998721/6613)
+MNP Het/Hom ratio            : - (0/0)
+Insertion Het/Hom ratio      : - (0/0)
+Deletion Het/Hom ratio       : - (0/0)
+Indel Het/Hom ratio          : - (0/0)
+Insertion/Deletion ratio     : - (0/0)
+Indel/SNP+MNP ratio          : 0.00 (0/2027940)
+
+Sample Name: F2_22
+SNPs                         : 1968490
+MNPs                         : 0
+Insertions                   : 0
+Deletions                    : 0
+Indels                       : 0
+Same as reference            : 214160
+Missing Genotype             : 9362
+Total Polyploid              : 20768
+Polyploid SNPs               : 20768
+Polyploid MNPs               : 0
+Polyploid Insertions         : 0
+Polyploid Deletions          : 0
+Polyploid Indels             : 0
+SNP Transitions/Transversions: 1.06 (1028544/971491)
+Total Het/Hom ratio          : 202.25 (1938139/9583)
+SNP Het/Hom ratio            : 202.25 (1938139/9583)
+MNP Het/Hom ratio            : - (0/0)
+Insertion Het/Hom ratio      : - (0/0)
+Deletion Het/Hom ratio       : - (0/0)
+Indel Het/Hom ratio          : - (0/0)
+Insertion/Deletion ratio     : - (0/0)
+Indel/SNP+MNP ratio          : 0.00 (0/1968490)
+
+Sample Name: F2_23
+SNPs                         : 1886845
+MNPs                         : 0
+Insertions                   : 0
+Deletions                    : 0
+Indels                       : 0
+Same as reference            : 290707
+Missing Genotype             : 14460
+Total Polyploid              : 18866
+Polyploid SNPs               : 18866
+Polyploid MNPs               : 0
+Polyploid Insertions         : 0
+Polyploid Deletions          : 0
+Polyploid Indels             : 0
+SNP Transitions/Transversions: 1.06 (989024/931991)
+Total Het/Hom ratio          : 131.98 (1853932/14047)
+SNP Het/Hom ratio            : 131.98 (1853932/14047)
+MNP Het/Hom ratio            : - (0/0)
+Insertion Het/Hom ratio      : - (0/0)
+Deletion Het/Hom ratio       : - (0/0)
+Indel Het/Hom ratio          : - (0/0)
+Insertion/Deletion ratio     : - (0/0)
+Indel/SNP+MNP ratio          : 0.00 (0/1886845)
+
+Sample Name: M1_22
+SNPs                         : 1956420
+MNPs                         : 0
+Insertions                   : 0
+Deletions                    : 0
+Indels                       : 0
+Same as reference            : 219426
+Missing Genotype             : 16166
+Total Polyploid              : 21458
+Polyploid SNPs               : 21458
+Polyploid MNPs               : 0
+Polyploid Insertions         : 0
+Polyploid Deletions          : 0
+Polyploid Indels             : 0
+SNP Transitions/Transversions: 1.06 (1023752/967346)
+Total Het/Hom ratio          : 165.95 (1923372/11590)
+SNP Het/Hom ratio            : 165.95 (1923372/11590)
+MNP Het/Hom ratio            : - (0/0)
+Insertion Het/Hom ratio      : - (0/0)
+Deletion Het/Hom ratio       : - (0/0)
+Indel Het/Hom ratio          : - (0/0)
+Insertion/Deletion ratio     : - (0/0)
+Indel/SNP+MNP ratio          : 0.00 (0/1956420)
+
+Sample Name: M1_23
+SNPs                         : 2001797
+MNPs                         : 0
+Insertions                   : 0
+Deletions                    : 0
+Indels                       : 0
+Same as reference            : 181226
+Missing Genotype             : 8989
+Total Polyploid              : 22535
+Polyploid SNPs               : 22535
+Polyploid MNPs               : 0
+Polyploid Insertions         : 0
+Polyploid Deletions          : 0
+Polyploid Indels             : 0
+SNP Transitions/Transversions: 1.06 (1044911/990026)
+Total Het/Hom ratio          : 217.90 (1970220/9042)
+SNP Het/Hom ratio            : 217.90 (1970220/9042)
+MNP Het/Hom ratio            : - (0/0)
+Insertion Het/Hom ratio      : - (0/0)
+Deletion Het/Hom ratio       : - (0/0)
+Indel Het/Hom ratio          : - (0/0)
+Insertion/Deletion ratio     : - (0/0)
+Indel/SNP+MNP ratio          : 0.00 (0/2001797)
+
+Sample Name: M2_23
+SNPs                         : 1920541
+MNPs                         : 0
+Insertions                   : 0
+Deletions                    : 0
+Indels                       : 0
+Same as reference            : 255210
+Missing Genotype             : 16261
+Total Polyploid              : 20591
+Polyploid SNPs               : 20591
+Polyploid MNPs               : 0
+Polyploid Insertions         : 0
+Polyploid Deletions          : 0
+Polyploid Indels             : 0
+SNP Transitions/Transversions: 1.06 (1005479/950028)
+Total Het/Hom ratio          : 148.14 (1887211/12739)
+SNP Het/Hom ratio            : 148.14 (1887211/12739)
+MNP Het/Hom ratio            : - (0/0)
+Insertion Het/Hom ratio      : - (0/0)
+Deletion Het/Hom ratio       : - (0/0)
+Indel Het/Hom ratio          : - (0/0)
+Insertion/Deletion ratio     : - (0/0)
+Indel/SNP+MNP ratio          : 0.00 (0/1920541)
+
+Sample Name: M3_22min-cov=10
+SNPs                         : 2042705
+MNPs                         : 0
+Insertions                   : 0
+Deletions                    : 0
+Indels                       : 0
+Same as reference            : 141287
+Missing Genotype             : 8020
+Total Polyploid              : 23575
+Polyploid SNPs               : 23575
+Polyploid MNPs               : 0
+Polyploid Insertions         : 0
+Polyploid Deletions          : 0
+Polyploid Indels             : 0
+SNP Transitions/Transversions: 1.05 (1064418/1009874)
+Total Het/Hom ratio          : 311.37 (2012666/6464)
+SNP Het/Hom ratio            : 311.37 (2012666/6464)
+MNP Het/Hom ratio            : - (0/0)
+Insertion Het/Hom ratio      : - (0/0)
+Deletion Het/Hom ratio       : - (0/0)
+Indel Het/Hom ratio          : - (0/0)
+Insertion/Deletion ratio     : - (0/0)
+Indel/SNP+MNP ratio          : 0.00 (0/2042705)

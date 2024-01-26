@@ -58,7 +58,7 @@ However, you may also choose to use bcftools[^2] but I kept getting thrown this 
 
 Stats - using RTG 
 
-HERE!!!!!
+rtg vcfstats evol1.freebayes.vcf.gz
 
 
 ## Identify sites in proximity of InDels 
@@ -157,7 +157,9 @@ python2.7 scripts/FilterPosFromVCF.py \
 
 --> pipes out to a compressed folder of "clean" SNPs
 
-STATS RTG 
+They were also filtered using RTF - it seems the stats from the cleaned up version only using the poolsnp pipeline is not based on quality so:
+
+rtg vcffilter -q 30 -i variants/evol1.freebayes.vcf.gz -o variants/evol1.freebayes.q30.vcf.gz
 
 HERE!!!!!!
 

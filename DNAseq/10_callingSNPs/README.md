@@ -161,6 +161,8 @@ They were also filtered using RTF - it seems the stats from the cleaned up versi
 
 rtg vcffilter -q 30 -i variants/evol1.freebayes.vcf.gz -o variants/evol1.freebayes.q30.vcf.gz
 
+https://docs.hpc.ufs.ac.za/training/genomics_tutorial/genomics_tutorial_8/
+
 HERE!!!!!!
 
 

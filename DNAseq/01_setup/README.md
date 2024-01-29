@@ -21,6 +21,8 @@ The folder where the company provides you with
 1. Raw Data
 2. Quality (QC) report
 
+The raw data is usually in a .tar format, so : `tar -xvf fileName.tar`
+
 ## Raw Data[^1]
 
 The original image data by high throughput sequencers are transformed to raw data (Raw reads) by CASAVA base calling. The raw data are recorded in a FASTQ (FQ for short) file, which contains sequence information (reads) and corresponding quality information.

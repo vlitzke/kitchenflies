@@ -98,3 +98,23 @@ There are two frequently used coverage measures: coverage depth is the number of
 [^1]: Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform. Bioinformatics, 25:1754-60. [PMID: 19451168] <https://github.com/lh3/bwa>
 [^2]: Danecek, P., Bonfield, J. K., Liddle, J., Marshall, J., Ohan, V., Pollard, M. O., ... & Li, H. (2021). Twelve years of SAMtools and BCFtools. Gigascience, 10(2), giab008. <https://doi.org/10.1093/gigascience/giab008> <https://www.htslib.org/>
 [^3]: <http://broadinstitute.github.io/picard>
+
+## Other options: BWA-MEM2
+
+BWA-mem2 is an faster implementation of bwa-mem method that complishes alignment at least 2x faster than bwa-mem. An example of workflow is below:
+
+### Indexing the reference genome
+
+```sh
+bwa-mem2 index <reference_genome>
+```
+
+This step is memeory-consuming. An estimated memory requirement for a 2G genome is 256GB.
+
+### Mapping reads; BAM format conversion; BAM sorting
+
+```sh
+bwa-mem2 mem -R "@RG\tID:<sample>\tPL:illumina\tPU:illumina\tLB:<sample>\tSM:<sample>" -t 32 <reference_genome> <fastq1> <fastq2> | samtools sort -@ 8 -o <sample_bam>;samtools index <sample_bam>
+```
+
+Note that `-R` option for adding the headers to the resulted bam file is important, as subsequent tools like GATK look for the header to decide the sample name in variant calling files.

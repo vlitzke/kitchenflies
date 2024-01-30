@@ -28,3 +28,12 @@ https://grunwaldlab.github.io/poppr/reference/poppr-package.html
 https://github.com/millanek/Dsuite:
 ./Build/Dsuite
 
+
+https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13557
+https://bernatgel.github.io/karyoploter_tutorial//Examples/GeneExpression/GeneExpression.html
+https://cran.r-project.org/web/packages/chromoMap/vignettes/chromoMap.html
+https://rich-iannone.github.io/DiagrammeR/
+https://tskit.dev/msprime/docs/stable/demography.html#admixture
+https://pubmed.ncbi.nlm.nih.gov/34837462/
+https://github.com/millanek/Dsuite
+

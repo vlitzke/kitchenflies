@@ -24,3 +24,7 @@ https://esnielsen.github.io/post/pool-seq-analyses-poolfstat-baypass/
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3567740/
 https://grunwaldlab.github.io/poppr/reference/poppr-package.html
 
+
+https://github.com/millanek/Dsuite:
+./Build/Dsuite
+

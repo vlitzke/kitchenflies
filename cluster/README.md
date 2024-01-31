@@ -17,6 +17,7 @@ you can then start installing certain tools:
 
 `conda install anaconda::wget`
 
+can export environment (see the one I have in DNAseq folder) - `conda env export > envrionment.yml`
 # Daily Use
 
 Once you log into the cluster, you will want to allocate your local jobs some memory on a node: 

@@ -7,6 +7,7 @@
 #SBATCH --array=0-9
 #SBATCH --output=03_map.log   # Standard output and error log
 
+
 pwd; hostname; date
 
 echo "Starting job on $HOSTNAME"
@@ -16,6 +17,10 @@ eval "$(conda shell.bash hook)"
 conda activate dnaseq 
 
 cd ./PATH/TO/
+
+mkdir 03_mapping
+
+# make sure you have a reference file in the mapping folder
 
 mapfile -t myArray < samples.txt
 

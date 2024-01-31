@@ -14,7 +14,7 @@ echo [`date +"%Y-%m-%d %H:%M:%S"`]
 eval "$(conda shell.bash hook)"
 conda activate dnaseq
 
-cd ./PATH/TO/RawData
+cd ./PATH/TO/01_RawData
 
 fastqc *.fq.gz
 

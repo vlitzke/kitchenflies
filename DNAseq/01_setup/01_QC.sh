@@ -1,10 +1,10 @@
 #!/bin/bash			
 
-#SBATCH --job-name="00_QC"		# job name
+#SBATCH --job-name="01_QC"		# job name
 #SBATCH --ntasks=4                    # Run on a single CPU
 #SBATCH --mem=8G                     # Job memory request
 #SBATCH --partition=short	  # ~how long a job will take
-#SBATCH --output=00_QC.log   # Standard output and error log
+#SBATCH --output=01_QC.log   # Standard output and error log
 
 pwd; hostname; date
 

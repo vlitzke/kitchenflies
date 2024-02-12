@@ -165,7 +165,7 @@ https://docs.hpc.ufs.ac.za/training/genomics_tutorial/genomics_tutorial_8/
 
 HERE!!!!!!
 
-
+rtg vcfstats input.vcf.gz > output.stats.out
 
 ##  Annotate SNPs
 

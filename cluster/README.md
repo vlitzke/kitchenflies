@@ -82,4 +82,6 @@ scp ./file.txt cecicluster:destination/path/
 
 For longer jobs, you might want to increase the number of threads /jobs to 16 from 1, and allocate more memory (60 gb instead of 8) 
 
+Couldnt use bcftools on the cluster- had problems downloading so i downloaded miniforge3 and that already comes with mamba installed! So I created a new environment (mamba create -n bcf) and then installed bcftools
+
 

@@ -84,4 +84,6 @@ For longer jobs, you might want to increase the number of threads /jobs to 16 fr
 
 Couldnt use bcftools on the cluster- had problems downloading so i downloaded miniforge3 and that already comes with mamba installed! So I created a new environment (mamba create -n bcf) and then installed bcftools
 
+To activate it: C:\Users\vl29\AppData\Local\miniforge3\Scripts\activate
+
 

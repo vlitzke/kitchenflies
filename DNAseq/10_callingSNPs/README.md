@@ -229,8 +229,27 @@ I col n: allele counts for n-3 population
 ⇒ the sync-file provides a convenient summary of the allele counts of several populations (there
 is no upper threshold of the population number).
 
+# SPlitting up the VCF files into individual samples (to look for a batch effect with Fst)
 
+Take the vcf.gz file you made - its not in the right format (needs to be indexed) so:
 
+`bgzip -d file_name.vcf.gz`
+
+The re-zip it: `bgzip -c file_name.vcf > file_name.vcf.gz`
+
+Then index: `bcftools index file_name.vcf.gz`
+
+then you want to make sure you have your list of sample names:
+
+```
+for file in SNPs_clean-ann_6.32_bgzf.vcf.gz; do
+  for sample in `bcftools query -l $file`; do
+    bcftools view -c1 -Oz -s $sample -o ${file/.vcf*/.$sample.vcf.gz} $file
+  done
+done
+```
+
+And it will separate out each sample into its own vcf.gz file! 
 
 
 [^1]: <https://github.com/capoony/PoolSNP>

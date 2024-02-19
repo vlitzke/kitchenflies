@@ -229,7 +229,7 @@ I col n: allele counts for n-3 population
 ⇒ the sync-file provides a convenient summary of the allele counts of several populations (there
 is no upper threshold of the population number).
 
-# SPlitting up the VCF files into individual samples (to look for a batch effect with Fst)
+# Splitting up the VCF files into individual samples (to look for a batch effect with Fst) and/or merging them! 
 
 Take the vcf.gz file you made - its not in the right format (needs to be indexed) so:
 
@@ -250,6 +250,8 @@ done
 ```
 
 And it will separate out each sample into its own vcf.gz file! 
+
+To merge all vcf files they have to be in this format, then `bcftools merge file1.vcf.gz file1.vcf.gz -o combined.vcf.gz`
 
 
 [^1]: <https://github.com/capoony/PoolSNP>

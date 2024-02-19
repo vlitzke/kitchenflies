@@ -264,7 +264,18 @@ would output flies.log, flies.nosex, flies.prune.in, flies.prune.out
 
 plink --vcf $VCF --double-id --allow-extra-chr --set-missing-var-ids @:# --extract flies.prune.in --make-bed --pca --out flies
 
+awk '{$1="0";print $0}' flies.bim > flies.bim.tmp
+mv flies.bim.tmp flies.bim
 
+admixture --cv flies.bed 2 > log2.out
+
+for i in {3..5}
+do
+ admixture --cv flies.bed $i > log${i}.out
+done
+
+
+https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13684
 [^1]: <https://github.com/capoony/PoolSNP>
 [^2]: <https://samtools.github.io/bcftools/bcftools.html>
 [^3]: <https://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.54_FB2023_05/fasta/>

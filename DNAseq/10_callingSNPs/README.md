@@ -253,6 +253,17 @@ And it will separate out each sample into its own vcf.gz file!
 
 To merge all vcf files they have to be in this format, then `bcftools merge file1.vcf.gz file1.vcf.gz -o combined.vcf.gz`
 
+I merged them, then used `plink`
+
+https://speciationgenomics.github.io/pca/
+
+VCF=combinedAllYears.vcf.gz
+plink --vcf $VCF --double-id --allow-extra-chr --set-missing-var-ids @:# --indep-pairwise 50 10 0.1 --out flies
+
+would output flies.log, flies.nosex, flies.prune.in, flies.prune.out
+
+plink --vcf $VCF --double-id --allow-extra-chr --set-missing-var-ids @:# --extract flies.prune.in --make-bed --pca --out flies
+
 
 [^1]: <https://github.com/capoony/PoolSNP>
 [^2]: <https://samtools.github.io/bcftools/bcftools.html>

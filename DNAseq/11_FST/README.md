@@ -8,7 +8,7 @@ bcftools view -g ^miss inputfile.vcf.gz > outputfile.vcf.gz
 to see how many are left: 
 grep -v "^#" intput_file.vcf.gz | wc -l
 
-
+which in my case goes from 2166168 to 142647 SNPs. 
 
 
 

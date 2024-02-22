@@ -1,3 +1,31 @@
+
+
+
+
+to take out all snp positions that have missing genotypes from any of the samples 
+bcftools view -g ^miss inputfile.vcf.gz > outputfile.vcf.gz
+
+to see how many are left: 
+grep -v "^#" intput_file.vcf.gz | wc -l
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Calculation of unbiased population genetics estimators 
 Moving over from Kapun's pipeline, now I am going to start using Popoolation2[^1].
 

@@ -10,7 +10,7 @@ bcftools view -g ^miss inputfile.vcf.gz > outputfile.vcf.gz
 VCFtools has similar functionality for this purpose but it only supports bi-allelic SNPs
 
 ```sh
-vcftools --vcf <input>.vcf --recode --recode-INFO-all --max-missing-count <output>.vcf
+vcftools --vcf <input>.vcf --recode --recode-INFO-all --max-missing-count --out <output>.vcf
 ```
 
 to see how many are left: 

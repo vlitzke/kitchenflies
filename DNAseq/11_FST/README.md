@@ -3,10 +3,27 @@
 
 
 to take out all snp positions that have missing genotypes from any of the samples 
+```sh
 bcftools view -g ^miss inputfile.vcf.gz > outputfile.vcf.gz
+```
+
+VCFtools has similar functionality for this purpose but it only supports bi-allelic SNPs
+
+```sh
+vcftools --vcf <input>.vcf --recode --recode-INFO-all --max-missing-count <output>.vcf
+```
 
 to see how many are left: 
+```sh
 grep -v "^#" intput_file.vcf.gz | wc -l
+```
+> note that in above example the VCF file in uncompressed though it has .gz suffix.
+
+For compressed VCF files, the command line is:
+
+```sh
+zcat intput_file.vcf.gz | grep -v "^#" | wc -l
+```
 
 which in my case goes from 2166168 to 142647 SNPs. 
 

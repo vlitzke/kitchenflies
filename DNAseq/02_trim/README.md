@@ -97,6 +97,8 @@ M3_22|37,151,417|41,722 (0.1%)|37,109,695 (99.9%)|11,145,425,100 |18,489,981  (0
 
 Trimming actually didn't seem to improve the quality of our sequences. There is also still a bump in the "Per Sequence GC content" which could suggest possibilities of contamination (like another organism in the sample such as bacteria or parasites). Something to keep in mind for now. 
 
+Time: QC ~ 1hr 15 min.
+
 [^1]: Martin, M. (2011). Cutadapt removes adapter sequences from high-throughput sequencing reads. EMBnet. journal, 17(1), 10-12.
 [^2]: For Illumina reads, this is sufficient as their quality is high at the beginning, but degrades towards the 3’ end. 
 

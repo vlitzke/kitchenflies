@@ -50,7 +50,9 @@ cutadapt \
 | - | input file 1.fq.gz |
 | - | input file 2.fq.gz |
 
-To keep things neat, I keep the output in the same folder ("1_cutadapt_trimmed folder"). For more information about this tool, see <https://cutadapt.readthedocs.io/en/stable/>
+To keep things neat, I keep the output in the same folder ("1_cutadapt_trimmed folder"). For more information about this tool, see <https://cutadapt.readthedocs.io/en/stable/>. 
+
+Time: Using the slurm file provided, took ~2 hr, 15 min for 8 pooled samples.
 
 ## Summary statistic output (in base pairs unless otherwise stated):
 

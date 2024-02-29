@@ -28,6 +28,7 @@ gatk3 \
 | `-I` | input .bam file |
 | `-o` | output .list file of indels |
 
+Time: ~8 min
 
 Reads filtered out for failing BadMateFilter
 

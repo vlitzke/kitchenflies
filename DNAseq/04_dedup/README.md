@@ -23,4 +23,6 @@ M=./PATH/TO/4_dedup/sampleName_library-dedup.txt
 | `O=` | output library-dedup.bam file |
 | `M=` | File to write duplication metrics to |
 
+Time: ~12 min
+
 [^1]: <https://gatk.broadinstitute.org/hc/en-us/articles/360037052812-MarkDuplicates-Picard->

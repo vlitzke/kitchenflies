@@ -56,6 +56,8 @@ SO=coordinate
 | `-O` | output sorted library .bam |
 | `SO` | Sort order of output file. |
 
+Time: ~18 min 
+
 # Output Statistics 
 
 I saved the stats output in this third folder, then created a new folder for the plot-bamstats output ("bamstats").

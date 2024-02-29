@@ -79,6 +79,7 @@ You actually end up with a bunch of plots and an html file that only works if al
 https://ucdavis-bioinformatics-training.github.io/2019-March-Bioinformatics-Prerequisites/wednesday/Data_in_R/data_in_R.html
 
 Also: qualimap you can install. 
+Tme: samtools stats ~2 min, qualimap: 30s, bamstat: 30 s
 
 There's also : 
 Step #1. Calculate the depth along the genomic locus by Samtools.

@@ -35,5 +35,6 @@ VALIDATION_STRINGENCY=SILENT
 
 This results in a bunch of RG tags (possibly useful, possibly not, this step is just necessary for downstream processing) that we assigned to each BAM file. To see RG information after the step above is completed, use the following command: `samtools view -H sampleName_library-dedup_rg.bam | grep '^@RG'`.
 
+Time: ~7 min
 [^1]: <https://gatk.broadinstitute.org/hc/en-us/articles/360037226472-AddOrReplaceReadGroups-Picard->
 [^2]: <https://gatk.broadinstitute.org/hc/en-us/articles/360035890671-Read-groups>

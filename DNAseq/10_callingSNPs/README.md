@@ -65,11 +65,13 @@ rtg vcfstats evol1.freebayes.vcf.gz
 
 ## Identify sites in proximity of InDels 
 
+To use the following script, you will have to use python v2.7, so if I were you, I would create a new conda environment where you download just python version 2.7, then call that environment before you activate his script. 
+
 Identify sites that are located close to InDels with a minimum count of 20 across all samples pooled and print them if they are within a predefined distance 5 bp up- and downstream to an InDel.
 
 ```
 python scripts/DetectIndels.py \
---mpileup DrosEU.mpileup.gz \
+--mpileup fileName_mpileup.gz \
 --minimum-count 20 \
 --mask 5 \
 | gzip > InDel-positions_20.txt.gz

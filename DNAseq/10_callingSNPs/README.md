@@ -56,6 +56,8 @@ His PoolSNP.sh provides more information about the parameters.
 However, you may also choose to use bcftools[^2] but I kept getting thrown this error: ` error while loading shared libraries: libgsl.so.25: cannot open shared object file: No such file or directory`. Internet consensus is that it only works well on mamba; I have tried downloading older versions, nothing seems to fix this problem. If you choose to use this tool, this pipeline looks good: <https://speciationgenomics.github.io/variant_calling/> 
 
 
+Time: ~14 hours, 20 min
+
 Stats - using RTG 
 
 rtg vcfstats evol1.freebayes.vcf.gz

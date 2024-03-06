@@ -189,7 +189,7 @@ BDGP6.32.105 \
 -c kitchenflies/DNA/2_Process/10_vcf/snpEff/snpEff.config \
 -stats ~/SNPs_clean_6.32.html
 kitchenflies/DNA/2_Process/10_vcf/SNPs_clean.vcf.gz
-| gzip > ~/SNPs_clean-ann_6.32.vcf.gz
+| gzip > ~/SNPs_clean_ann_6.32.vcf.gz
 ```
 
 | Command      | Description |
@@ -215,8 +215,8 @@ Kapun says see Kofler et al. 2011, but they do an mpileup file to sync file form
 
 ```
 python scripts/VCF2sync.py \
---vcf SNPs_clean-ann.vcf.gz \
-| gzip > SNPs.sync.gz
+--vcf SNPs_clean_ann.vcf.gz \
+| gzip > SNPs_clean_ann.sync.gz
 ```
 
 

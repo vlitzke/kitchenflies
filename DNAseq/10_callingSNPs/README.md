@@ -117,7 +117,7 @@ Finally, you can run the program:
 ```
 conda install bioconda::repeatmasker
 
-scripts/RepeatMasker \
+RepeatMasker \
 -pa 20 \
 --lib dmel-all-transposon-r6.54_fixed-id.fasta \
 --gff \
@@ -126,14 +126,6 @@ scripts/RepeatMasker \
 --nolow \
 dmel-all-chromosome-r6.54.fasta
 ```
-
-RepeatMasker \
--pa 20 \
---lib dmel-all-transposon-r6.54_fixed-id.fasta \
---gff \
---qq \
---no_is \
-dmel-all-chromosome-r6.54.fasta
 
 | Command      | Description |
 | ----------- | ----------- |

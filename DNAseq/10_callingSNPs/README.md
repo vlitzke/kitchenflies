@@ -87,7 +87,7 @@ python scripts/DetectIndels.py \
 | `--minimum-count` | minimum count of an indel across all samples pooled |
 | `--mask` | number of basepairs masked at an InDel in either direction (up- and downstreams) |
 
-Time: ~ 1 hour
+Time: ~ 1-2 hours
 
 ## Repeatmasker
 

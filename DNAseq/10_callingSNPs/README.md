@@ -55,9 +55,9 @@ His PoolSNP.sh provides more information about the parameters.
 
 This outputs:
 - Temporary SNPs folder, which should be empty when finished (though I should check if there are hidden files)
-- SNPs-cov-0.99.txt
+- SNPs-cov-0.99.txt (max coverage percentage file) 
 - SNPs.vcf.gz (what you'll be working with)
-- SNPs_BS.txt.gz 
+- SNPs_BS.txt.gz (bad sites file)
 
 However, you may also choose to use bcftools[^2] but I kept getting thrown this error: ` error while loading shared libraries: libgsl.so.25: cannot open shared object file: No such file or directory`. Internet consensus is that it only works well on mamba; I have tried downloading older versions, nothing seems to fix this problem. If you choose to use this tool, this pipeline looks good: <https://speciationgenomics.github.io/variant_calling/> 
 

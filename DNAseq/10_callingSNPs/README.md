@@ -159,6 +159,8 @@ python2.7 scripts/FilterPosFromVCF.py \
 
 --> pipes out to a compressed folder of "clean" SNPs
 
+Time: ~1 min
+
 They were also filtered using RTF - it seems the stats from the cleaned up version only using the poolsnp pipeline is not based on quality so:
 
 rtg vcffilter -q 30 -i variants/evol1.freebayes.vcf.gz -o variants/evol1.freebayes.q30.vcf.gz
@@ -202,6 +204,8 @@ kitchenflies/DNA/2_Process/10_vcf/SNPs_clean.vcf.gz
 -> pipes out to a compressed annotated VCF file.
 
 Their documentation[^5] is very helpful.
+
+Time: ~3 min
 
 ----
 

@@ -53,21 +53,25 @@ output=SNPs
 
 His PoolSNP.sh provides more information about the parameters. 
 
+This outputs:
+- Temporary SNPs folder, which should be empty when finished (though I should check if there are hidden files)
+- SNPs-cov-0.99.txt
+- SNPs.vcf.gz (what you'll be working with)
+- SNPs_BS.txt.gz 
+
 However, you may also choose to use bcftools[^2] but I kept getting thrown this error: ` error while loading shared libraries: libgsl.so.25: cannot open shared object file: No such file or directory`. Internet consensus is that it only works well on mamba; I have tried downloading older versions, nothing seems to fix this problem. If you choose to use this tool, this pipeline looks good: <https://speciationgenomics.github.io/variant_calling/> 
 
+Time: ~12-14 hours
 
-Time: ~14 hours, 20 min
+## Stats on SNPs file 
 
-Stats - using RTG 
-
-rtg vcfstats evol1.freebayes.vcf.gz
-
+You can then use vcfstats: `rtg vcfstats fileName.vcf.gz`.
 
 ## Identify sites in proximity of InDels 
 
 To use the following script, you will have to use python v2.7, so if I were you, I would create a new conda environment where you download just python version 2.7, then call that environment before you activate his script. 
 
-Identify sites that are located close to InDels with a minimum count of 20 across all samples pooled and print them if they are within a predefined distance 5 bp up- and downstream to an InDel.
+This will identify sites that are located close to InDels with a minimum count of 20 across all samples pooled and print them if they are within a predefined distance 5 bp up- and downstream to an InDel. It outputs a txt file with all positions. 
 
 ```
 python scripts/DetectIndels.py \
@@ -83,7 +87,7 @@ python scripts/DetectIndels.py \
 | `--minimum-count` | minimum count of an indel across all samples pooled |
 | `--mask` | number of basepairs masked at an InDel in either direction (up- and downstreams) |
 
-Time: ~ 1hr
+Time: ~ 1 hour
 
 ## Repeatmasker
 
@@ -104,12 +108,11 @@ dmel-all-transposon-r6.10.fasta \
 > dmel-all-transposon-r6.10_fixed-id.fasta
 ```
 
-
 but I do not see it in any of his script folders, so another way to acommplish this is by using 
 
-sed 's, ,_,g' -i FASTA_file which edits it in place, or you can save it as a new file by removing the -i 
+`sed 's, ,_,g' -i FASTA_file` which edits it in place, or you can save it as a new file by removing the `-i`
 
-This will be used to generate a GFF file (General Feature Format) which is a tab-delimited text file and describes the locations and the attributes of gene and transcript features on the genome (chromosome or scaffolds/contigs) - in particular we want the known locations of transposable elements. 
+Finally, you can run the program:
 
 ```
 conda install bioconda::repeatmasker
@@ -142,10 +145,11 @@ dmel-all-chromosome-r6.54.fasta
 | `--nolow` | Does not mask low_complexity DNA or simple repeats |
 | `-` | input chromosome .fasta file |
 
+This generates a GFF file (General Feature Format) which is a tab-delimited text file and describes the locations and the attributes of gene and transcript features on the genome (chromosome or scaffolds/contigs) - in particular we want the known locations of transposable elements. 
 
 ##  Filter SNPs 
 
-Removes sites that are located in InDels or transposable elements from VCF input file.
+Now that you have a text file full of InDels and a .GFF file of known transposable elements, you can removes these sites from your SNPs VCF input file.
 
 ```
 python2.7 scripts/FilterPosFromVCF.py \

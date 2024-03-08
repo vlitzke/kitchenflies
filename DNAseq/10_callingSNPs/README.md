@@ -207,6 +207,18 @@ Their documentation[^5] is very helpful.
 
 Time: ~3 min
 
+## Filter for biallelic SNP sites only 
+
+First warning I found, was I couldn't use vcftools because there were polyploids! Then after running rtg-stats, I found that ~0.8% of my SNPs were polyploid. This could be for many reasons; I first thought that there are polyploid individuals in Drosophila (XXY females, some chromosomal abnormalities), despite being a diploid organism, but this percentage seems too high. Other reasons could be sequencing error and/or contamination. 
+
+Long story short, some programs (i.e. SNPRelate) have some "biallelic only" arguments, but it feels like this might be a necessary filtering step for me now. 
+
+So I used `vcftools --gzvcf fileName.vcf.gz --recode-INFO-all --max-alleles 2 --min-alleles 2 -- recode --out output`
+
+
+
+
+
 ----
 
 ## Convert VCF to SYNC

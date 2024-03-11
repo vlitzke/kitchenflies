@@ -85,14 +85,6 @@ for F3 and F5, the reads were pretty well aligned!
 
 Can use pseduobam to present piled-up reads of gene expression data – also performs well for lowly expressed transcripts (pseudoalignment method) Zheng2019 
 
---
-Weirdly enough I ran some of these files individually instead of altogether, but if you kept all the files from each step in the same directory, you could run multiqc which basically sorts out the various files and summarizes them into one html file. 
-
-Batch3  % multiqc -d . 
-
-Or just: multiqc Batch3 . 
-
-This honestly works for a whoooole range of bioinformatic outputs (remember to may use later?) 
 
 Now we have an indexed transcriptome 
 

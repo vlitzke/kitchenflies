@@ -28,3 +28,44 @@ Visualize:
 
 1. Use allele frequency data for each pool --> R packages stats V.3.6.1
 2. 
+
+Converting plink files
+```
+plink --bfile Gwas.Chr20.Phased.Output \
+      --recode vcf \
+      --out Gwas.Chr20.Phased.Output.VCF.format
+```
+
+or 
+```
+#!/bin/sh
+ 
+##-- SCRIPT PARAMETER TO MODIFY--##
+ 
+PLINKFILE=csOmni25
+ 
+REF_ALLELE_FILE=csOmni25.refAllele
+ 
+NEWPLINKFILE=csOmni25Ref
+ 
+PLINKSEQ_PROJECT=csGWAS
+ 
+## ------END SCRIPT PARAMETER------ ##
+ 
+#1. convert plink/binary to have the specify reference allele
+ 
+plink --noweb --bfile $PLINKFILE --reference-allele $REF_ALLELE_FILE --make-bed --out $NEWPLINKFILE
+ 
+#2. create plink/seq project
+ 
+pseq $PLINKSEQ_PROJECT new-project
+ 
+#3. load plink file into plink/seq
+ 
+pseq $PLINKSEQ_PROJECT load-plink --file $NEWPLINKFILE --id $NEWPLINKFILE
+ 
+#4. write out vcf file, as of today 4/6/2012  using vcftools version 0.1.8, although the documentation says that you can write out a compressed vcf format using --format BGZF option, vcftools doesn't recognize what this option is. So, I invented my own solution
+ 
+pseq $PLINKSEQ_PROJECT write-vcf | gzip > $NEWPLINKFILE.vcf.gz
+```
+      

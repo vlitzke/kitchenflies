@@ -292,6 +292,9 @@ do
  admixture --cv flies.bed $i > log${i}.out
 done
 
+Also did this with plink:
+plink --vcf SNPs_clean_ann.vcf.gz --maf 0.05 --recode --alow-extra-chr --r2 --ld-window-kb 1 --ld-window 1000 --ld-window-r2 0 --out SNPs_ld
+
 
 https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13684
 [^1]: <https://github.com/capoony/PoolSNP>

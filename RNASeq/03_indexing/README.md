@@ -8,8 +8,11 @@ You would read this as for each entry > , then a defline (definition line) trans
 
 Then we will use the program `kallisto` to build an index. This only needs to be done once for your analysis, unless the reference files have been updated.  
 
-
-kallisto index -i Drosophila_melanogaster.BDGP6.46.cdna.all.index Drosophila_melanogaster.BDGP6.46.cdna.all.fa
+```
+kallisto index \
+-i Drosophila_melanogaster.BDGP6.46.cdna.all.index \
+Drosophila_melanogaster.BDGP6.46.cdna.all.fa
+```
 
 took the file, chopped it off into 31 kmers and noticed that some poly a tails were clipped down (there are loong poly a tails) it also replace 10000000 nucleotides that weren’t the right characters and replaced them with pseudo nucleotides , then counted kmers..
 

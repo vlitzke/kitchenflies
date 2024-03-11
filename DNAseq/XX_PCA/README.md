@@ -21,3 +21,10 @@ vcftools --gzvcf SNPs_clean_ann.vcf.gz --recode-INFO-all
 
 Then to prune, you can....
 1. Do it the brute force way, using the argument `--thin` and setting it to 10 kb (kept 12,944/2,280,074 sites). This will output a vcf file. 
+
+
+
+Visualize:
+
+1. Use allele frequency data for each pool --> R packages stats V.3.6.1
+2. 

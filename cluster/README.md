@@ -87,3 +87,5 @@ Couldnt use bcftools on the cluster- had problems downloading so i downloaded mi
 To activate it: C:\Users\vl29\AppData\Local\miniforge3\Scripts\activate
 
 
+## Compressing
+To compress a directory ```tar -czvf folderName.tar.gz *```

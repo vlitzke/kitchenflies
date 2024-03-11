@@ -1,1 +1,1 @@
-Data will eventually be stored within this folder.
+Data will *eventually* be stored within this folder.

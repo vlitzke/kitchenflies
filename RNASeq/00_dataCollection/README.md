@@ -1,4 +1,4 @@
-# RNA-Sequencing 
+# RNA-Sequencing P
 
 ## Sample Collection 
 Approximately 40 fruit flies (Drosophila melanogaster) were collected from supermarket fruit over the summer each year for three consecutive years (between 2021 and 2023) in Dairsie, Scotland (56.3466° N, 2.9481° W). Flies were separated by sex into plastic vials with standard food medium and yeast in an incubator that was set at 2X°C with a 12h light-dark cycle  until they were ready to be processed. 

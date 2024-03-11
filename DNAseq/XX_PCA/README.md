@@ -65,7 +65,32 @@ pseq $PLINKSEQ_PROJECT new-project
 pseq $PLINKSEQ_PROJECT load-plink --file $NEWPLINKFILE --id $NEWPLINKFILE
  
 #4. write out vcf file, as of today 4/6/2012  using vcftools version 0.1.8, although the documentation says that you can write out a compressed vcf format using --format BGZF option, vcftools doesn't recognize what this option is. So, I invented my own solution
- 
 pseq $PLINKSEQ_PROJECT write-vcf | gzip > $NEWPLINKFILE.vcf.gz
 ```
       
+
+or
+```
+Use plink/seq (http://atgu.mgh.harvard.edu/plinkseq/)
+Note: you need the reference allele file to have plink to specify reference allele
+#!/bin/sh
+# 1. have plink binary to specify reference allele
+plink --noweb --bfile $plink_file --reference-allele $ref_Allele_file --make-bed --out $plink_file_modified
+# 2. create plinkseq project
+pseq $pseq_project new-project
+#3. load plink file into plink/seq
+pseq $pseq_project load-plink --file $plink_file_modified --id $plink_file_modified
+#4. write out vcf file
+pseq $pseq_project write-vcf | gzip > $plink_file_modified.vcf.gz
+```
+or 
+```
+plink --file your_ped_map_input --recode vcf
+```
+ 
+sometimes need a reference allele file:
+```
+# for dbSNP_BUILD_ID=144 (reference=GRCh38.p2):
+wget ftp://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606/VCF/All_20150603.vcf.gz
+zcat All_20150603.vcf.gz | grep -v "^#" | cut -f 3,4 > reference_allele_GRCh38.txt
+```

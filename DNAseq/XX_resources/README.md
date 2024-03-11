@@ -39,5 +39,6 @@ https://github.com/millanek/Dsuite
 
 ## Packages 
 SNPRelate: https://www.bioconductor.org/packages/devel/bioc/vignettes/SNPRelate/inst/doc/SNPRelate.html?fbclid=IwAR02IuopU_QxEXTDbsmZ_sPrsAj4PbJyJqSGjEEc98lmWtbDoCnwnqtJMN4
+bcftools: https://samtools.github.io/bcftools/bcftools.html#view
 
 

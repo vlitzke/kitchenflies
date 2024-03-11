@@ -8,14 +8,6 @@ You would read this as for each entry > , then a defline (definition line) trans
 
 Then we will use the program `kallisto` to build an index. This only needs to be done once for your analysis, unless the reference files have been updated.  
 
-```
-kallisto quant \
--i ./PATH/TO/Drosophila_melanogaster.BDGP6.46.cdna.all.index \
--o ./PATH/TO/DESTINATION 
-./PATH/TO/sampleName_1_trimmed.fq.gz 
-./PATH/TO/sampleName_2_trimmed.fq.gz
-```
-
 
 kallisto index -i Drosophila_melanogaster.BDGP6.46.cdna.all.index Drosophila_melanogaster.BDGP6.46.cdna.all.fa
 

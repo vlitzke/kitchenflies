@@ -22,6 +22,16 @@ F3_EKRN230053769-1A_H7MJFDSX7_L2_1.fq.gz \
 F3_EKRN230053769-1A_H7MJFDSX7_L2_2.fq.gz \
 &> test.log
 
+
+```
+kallisto quant \
+-i ./PATH/TO/Drosophila_melanogaster.BDGP6.46.cdna.all.index \
+-o ./PATH/TO/DESTINATION 
+./PATH/TO/sampleName_1_trimmed.fq.gz 
+./PATH/TO/sampleName_2_trimmed.fq.gz
+```
+
+
 This is what I ran: 
 kallisto quant -i ./4_Mapping_kallisto/Drosophila_melanogaster.BDGP6.46.cdna.all.index -o ./4_Mapping_kallisto/F5 ./3_CleanedReads_fastp/F5_EKRN230053771-1A_H7LCTDSX7_L3_1_cleaned.fq.gz ./3_CleanedReads_fastp/F5_EKRN230053771-1A_H7LCTDSX7_L3_2_cleaned.fq.gz
 

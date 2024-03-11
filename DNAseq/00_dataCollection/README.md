@@ -1,4 +1,4 @@
-# DNA-Sequencing
+# DNA-Sequencing Protocol
 
 ## Sample Collection 
 Drosophila melanogaster were harvested from supermarket fruit over the summer each year (2019 2020, 2022, 2023) in Dairsie, Scotland (56.3466° N, 2.9481° W) and stored in Eppendorf tubes containing 95% Ethanol. After being brought into the laboratory, flies were visually inspected by microscope to confirm they were the correct species, any mites were removed and then separated by sex into batches of 20 individuals. 

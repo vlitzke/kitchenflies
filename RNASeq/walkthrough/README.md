@@ -32,15 +32,6 @@ And then run fastqc on all of them, and save the output as something different
 
 
 
-Conda install fastp
-
-This cleans the read, fastp has good defaults, don’t have to change much  - shangzhe says the default it cuts off reads less than 150 bp and will automatically cut off the adapter sequences (trims 50bp off beginning and end)
-
-Fast -i file_1.fq.gz -I file_.fq.gz -o file_1_cleaned.fq.gz -O file_2_cleaned.fq.gz
-
-Now that they’re cleaned, I put them in the cleaned folder 
-
-
 RNA seq is count data -we are counting the number of reads that map to a particular transcript, so we need to consider the units we can use to quantify the expression of a gene  normalization 
 
 ---

@@ -1,5 +1,9 @@
 # Tricks and Tips 
 
+## Compressing
+Once you are all done with your data, it is probably best to compress a directory into a tarball:
+```tar -czvf folderName.tar.gz *folderName```
+
 
 ## Screens 
 Run this on a screen 

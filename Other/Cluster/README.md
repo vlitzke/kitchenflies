@@ -66,5 +66,5 @@ I then chose to print where, when and how long things took, asked the cluster to
 
 📝 For long jobs, you might want to increase the number of threads/jobs to 16 from 1, and allocate more memory (60 gb instead of 8).
 
-# File transferring
+## File transferring
 To copy a file from your local computer to your scratch folder on the cluster, open your local terminal and type in `scp /PATH/TO/filename.sh userID@cropdiversity.ac.uk:DESTINATION/TO/PATH`, it will prompt your for your key passphrase. This takes a few seconds (rsync works as well). 

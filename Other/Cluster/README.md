@@ -28,8 +28,6 @@ conda activate rnaseq
 
 If you can’t even install packages, increase your memory like such: $ srun --partition=short --cpus-per-task=8 --mem=16G --pty bash
 
-
-
 ## Cluster commands 
 sbatch
 srun
@@ -79,5 +77,4 @@ Couldnt use bcftools on the cluster- had problems downloading so i downloaded mi
 To activate it: C:\Users\vl29\AppData\Local\miniforge3\Scripts\activate
 
 
-## Compressing
-To compress a directory ```tar -czvf folderName.tar.gz *folderName```
+

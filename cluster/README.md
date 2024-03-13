@@ -88,4 +88,4 @@ To activate it: C:\Users\vl29\AppData\Local\miniforge3\Scripts\activate
 
 
 ## Compressing
-To compress a directory ```tar -czvf folderName.tar.gz *```
+To compress a directory ```tar -czvf folderName.tar.gz *folderName```

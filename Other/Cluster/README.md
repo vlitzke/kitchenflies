@@ -55,15 +55,7 @@ Create new .sh file in terminal in cluster with `touch 9_mpileup.sh`
 download vim
 to get out of vim editor use `:q` and hit enter. 
 
-## Screens 
-Run this on a screen 
-Screen -r (if there are any screens that are running)
-Type in screen 
-Paste the command 
-Control + a +d 
-Then it goes back 
-Reaccess screen – screen -r 
-Type exit to get out of it
+
 
 
 

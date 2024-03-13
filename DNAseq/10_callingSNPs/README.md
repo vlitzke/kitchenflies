@@ -284,6 +284,8 @@ plink --vcf $VCF --double-id --allow-extra-chr --set-missing-var-ids @:# --extra
 
 Then did this: plink --bfile [filename prefix] --recode vcf --out [VCF prefix]
 
+Then tried to add the argument --update-sex txtFile  and I created a random text file with Year, sample id, sex with tabs in between in notepad... did not work
+
 Another method?:Also did this with plink:
 plink --vcf SNPs_clean_ann.vcf.gz --maf 0.05 --recode --alow-extra-chr --r2 --ld-window-kb 1 --ld-window 1000 --ld-window-r2 0 --out SNPs_ld
 

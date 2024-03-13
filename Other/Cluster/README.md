@@ -31,18 +31,9 @@ To export an environment: `conda env export > envrionment.yml`
 - See your activate jobs: `squeue –-me`
 - Transferring a .txt file to unix: `dos2unix fileName.sh` or create it with `touch fileName.sh`. 
 
+## Slurm File
 
+📝 For long jobs, you might want to increase the number of threads/jobs to 16 from 1, and allocate more memory (60 gb instead of 8).
 
 # File transferring
-To copy a file from your local computer to your scratch folder on the cluster, open your local terminal and type in `scp /PATH/TO/filename.sh userID@cropdiversity.ac.uk:scratch/`, it will prompt your for your key passphrase. This takes a few seconds. (rsync works as well?) 
-
-scp ./file.txt cecicluster:destination/path/
-
-For longer jobs, you might want to increase the number of threads /jobs to 16 from 1, and allocate more memory (60 gb instead of 8) 
-
-Couldnt use bcftools on the cluster- had problems downloading so i downloaded miniforge3 and that already comes with mamba installed! So I created a new environment (mamba create -n bcf) and then installed bcftools
-
-To activate it: C:\Users\vl29\AppData\Local\miniforge3\Scripts\activate
-
-
-
+To copy a file from your local computer to your scratch folder on the cluster, open your local terminal and type in `scp /PATH/TO/filename.sh userID@cropdiversity.ac.uk:DESTINATION/TO/PATH`, it will prompt your for your key passphrase. This takes a few seconds (rsync works as well). 

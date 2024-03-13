@@ -3,67 +3,35 @@ As processing this data is extensive and intensive, you are likely going to run 
 
 Since I am a part of a consortium that includes the University of St Andrews, I following this documentation to create an account to use on the cluster, which is quite helpful: <https://help.cropdiversity.ac.uk/guest-accounts.html>
 
-Then, you're going to want to install conda if it isn't already there:
-`install-bioconda`
+# Conda Installation
+Then, you're going to want to install conda if it isn't already there:`install-bioconda`. Then test that it worked `conda –version`.
 
-You will also want to create several different environments in which to run your projects. This helps you download tools + packages unique to that environment. 
-`conda create --name <env_name>`
+You will also want to create several different environments in which to run your projects and keep the base environment relatively clear. This helps you download tools + packages unique to that environment: `conda create --name <env_name>`
 
-and then to move into that envivonment 
+To move into that envivonment: `conda activate <env_name>`
 
-`conda activate <env_name>`
+To start installing certain tools: `conda install anaconda::wget`
 
-you can then start installing certain tools:
+To export an environment: `conda env export > envrionment.yml`
 
-`conda install anaconda::wget`
+📝 Alternatively, you can download miniconda to use on your PC: https://protocols.hostmicrobe.org/conda
 
-can export environment (see the one I have in DNAseq folder) - `conda env export > envrionment.yml`
 # Daily Use
 
-Once you log into the cluster, you will want to allocate your local jobs some memory on a node: 
-`srsh -p short --mem=4G` or `srun --pty bash` 
+1. Log into the cluster (passphrase, ssh key likely necessary), allocate your local jobs some memory on a node: 
+`srsh -p short --mem=4G` or `srun --pty bash`. Sometimes installing packages might need more memory so specify when necessary (`$ srun --partition=short --cpus-per-task=8 --mem=16G --pty bash`)
 
-and then to use conda and activate my specific environment (where all my packages are downloaded)
-conda activate rnaseq 
+2. Start conda and activate specific environment (where all my packages are downloaded): `conda activate rnaseq`
 
-If you can’t even install packages, increase your memory like such: $ srun --partition=short --cpus-per-task=8 --mem=16G --pty bash
+# Slurm Commands 
 
-## Cluster commands 
-sbatch
-srun
-squeue 
-
-How you print everything 
-Squeue –-me
-
-Dos2unix for text files anytime we’re transferring a file to unix 
-
-I followed this: https://protocols.hostmicrobe.org/conda
-Downloaded miniconda to my computer
-
-scancel <jobid>
+- Run a slurm (.sh) file: `sbatch fileName.sh`
+- Cancel a job: `scancel jobID`
+- See all active jobs : `squeue`
+- See your activate jobs: `squeue –-me`
+- Transferring a .txt file to unix: `dos2unix fileName.sh` or create it with `touch fileName.sh`. 
 
 
-
-test that it works: conda –version
-and then I also downloaded all the packages to the conda on the cluster! 
-Soooo..
-
-Create new .sh file in terminal in cluster with `touch 9_mpileup.sh`
-download vim
-to get out of vim editor use `:q` and hit enter. 
-
-
-
-
-
-
-Created a bunch of small envrionments
-Keep the base environment relatively clear, rather than downloading packages to the base environment 
-
-Type in conda activate ‘program name’ 
-
- View text files in Terminal on Mac - `less <file_name>` 
 
 # File transferring
 To copy a file from your local computer to your scratch folder on the cluster, open your local terminal and type in `scp /PATH/TO/filename.sh userID@cropdiversity.ac.uk:scratch/`, it will prompt your for your key passphrase. This takes a few seconds. (rsync works as well?) 

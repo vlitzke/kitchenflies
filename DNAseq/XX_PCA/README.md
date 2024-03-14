@@ -94,3 +94,34 @@ sometimes need a reference allele file:
 wget ftp://ftp.ncbi.nlm.nih.gov/snp/organisms/human_9606/VCF/All_20150603.vcf.gz
 zcat All_20150603.vcf.gz | grep -v "^#" | cut -f 3,4 > reference_allele_GRCh38.txt
 ```
+
+
+https://speciationgenomics.github.io/pca/
+
+VCF=combinedAllYears.vcf.gz
+plink --vcf $VCF --double-id --allow-extra-chr --set-missing-var-ids @:# --indep-pairwise 50 10 0.1 --out flies
+
+would output flies.log, flies.nosex, flies.prune.in, flies.prune.out
+
+plink --vcf $VCF --double-id --allow-extra-chr --set-missing-var-ids @:# --extract flies.prune.in --make-bed --pca --out flies
+
+Then did this: plink --bfile [filename prefix] --recode vcf --out [VCF prefix]
+
+Then tried to add the argument --update-sex txtFile  and I created a random text file with Year, sample id, sex with tabs in between in notepad... did not work
+
+Another method?:Also did this with plink:
+plink --vcf SNPs_clean_ann.vcf.gz --maf 0.05 --recode --alow-extra-chr --r2 --ld-window-kb 1 --ld-window 1000 --ld-window-r2 0 --out SNPs_ld
+
+
+
+Unsure about the follwing: 
+
+awk '{$1="0";print $0}' flies.bim > flies.bim.tmp
+mv flies.bim.tmp flies.bim
+
+admixture --cv flies.bed 2 > log2.out
+
+for i in {3..5}
+do
+ admixture --cv flies.bed $i > log${i}.out
+done

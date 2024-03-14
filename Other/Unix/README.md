@@ -30,12 +30,10 @@ This can take daaaays!
 You can also use zip, unzip to compress and extract files from a zip archive. 
 
 ## Visual Text Editor
-download vim
-to get out of vim editor use `:q` and hit enter. 
+To edit any text files, you can either do it manually through notepad, and then reupload them to the cluster (straightforward, but annoying when you have a lot to edit) or you can download vim to edit your text files (which will mostly be your .sh files). To get out of the vim editor use `:q` and hit enter. 
 
- 
 ## Screens 
-Run this on a screen 
+Useful tool, basically like running another terminal, but can be done in the background. Run this on a screen 
 Screen -r (if there are any screens that are running)
 Type in screen 
 Paste the command 

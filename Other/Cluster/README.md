@@ -41,6 +41,8 @@ To export an environment: `conda env export > envrionment.yml`
 | `htop`  | display current jobs |
 | `kill`  | terminate process |
 
+📝 If you want to download things (in this case, a whole folder) from the cluster, it might ask you for your key: `scp -r -i ./PATH/TO/key username@clusterName:PATH/TO/FOLDER DESTINATION/PATH`
+
 ## Typical Slurm File
 
 You probably will not have the memory, time, CPUs etc to run jobs on your own laptop, hence why the cluster exists! So you would probably create a slurm (.sh) file, with the following content:

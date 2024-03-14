@@ -24,6 +24,9 @@ bcftools view -m2 -M2 -v snps input.vcf.gz > output.vcf.gz (I used this one)
 Then prune: 
 
 bcftools +prune -l 0.25 -w 1000 input.bcf -Ob -o output.bcf
+though it seems that the -l has been replaced by -m in the newer version..... ughhh and then do i prune every 1000 or 10000?? 
+
+
 
 but then also
 bcftools +prune -w 10000bp -n 1 -N 1st

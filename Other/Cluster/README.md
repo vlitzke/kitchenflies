@@ -3,6 +3,8 @@ As processing this data is extensive and intensive, you are likely going to run 
 
 Since I am a part of a consortium that includes the University of St Andrews, I following this documentation to create an account to use on the cluster, which is quite helpful: <https://help.cropdiversity.ac.uk/guest-accounts.html>
 
+To log on, you can either use some sort of medium (PuTTy, MobaXTerm, etc) or you can log on by typing in `ssh yourUserName` to connect to a remote server (secure shell).
+
 # Conda Installation
 Then, you're going to want to install conda if it isn't already there:`install-bioconda`. Then test that it worked `conda –version`.
 
@@ -25,20 +27,34 @@ To export an environment: `conda env export > envrionment.yml`
  
 ## Slurm Commands 
 
-- Run a slurm (.sh) file: `sbatch fileName.sh`
-- Cancel a job: `scancel jobID`
-- See all active jobs : `squeue`
-- See your activate jobs: `squeue –-me`
-- Transferring a .txt file to unix: `dos2unix fileName.sh` or create it with `touch fileName.sh`. 
- | `ssh`  |  |
-  | `scp`  |  |
-    | `curl`  |  |
- | `htop`  | display current jobs |
+| Basic Commands | Description |
+| ----------- | ----------- |
+| `sbatch fileName.sh` | run a slurm (.sh) file |
+| `scancel jobID` |  cancel a job |
+| `squeue` |  see all active jobs |
+| `squeue --me` |  see your active jobs |
+| `sinfo` |  see information about nodes |
+| `touch fileName.sh` | create a .sh file |
+| `dos2unix fileName.sh` | convert a .txt file to unix |
+| `scp /PATH/TO/filename.sh userID@cropdiversity.ac.uk:DESTINATION/TO/PATH`  | copy a file from your local computer to your scratch folder on the cluster (or vice versa), but here you open your local terminal, and once this has been typed in, it will prompt your for your key passphrase. This takes a few seconds (rsync works as well). |
+| `curl`  | transfer data to and from a server |
+| `htop`  | display current jobs |
 | `kill`  | terminate process |
 
 ## Typical Slurm File
 
 You probably will not have the memory, time, CPUs etc to run jobs on your own laptop, hence why the cluster exists! So you would probably create a slurm (.sh) file, with the following content:
+
+| Basic Commands | Description |
+| ----------- | ----------- |
+| `#SBATCH --job-name` | set job name |
+| `#SBATCH --ntasks` |  request a number of tasks (cores) |
+| `#SBATCH --nodes` |  request a number of nodes |
+| `#SBATCH --mem` |  request amount of memory |
+| `#SBATCH --partitiom` |  request the partiion or queue to submit job to |
+| `#SBATCH --output` | create an output file |
+
+There are also other things you could specify, such as an sending an email when your job has finished, setting a maximum time limit for a job, or printing out error output. Below is an example script: 
 
 ```
 #!/bin/bash
@@ -70,6 +86,3 @@ The first line is always default, telling the laptop that we are writing in bash
 I then chose to print where, when and how long things took, asked the cluster to use conda, provided the directory I have my files/scripts in, the commands you'd like the cluster to do, and then for it to print that the job has finished (if it indeed has! helpful when you have an error to know it did not finish). 
 
 📝 For long jobs, you might want to increase the number of threads/jobs to 16 from 1, and allocate more memory (60 gb instead of 8).
-
-## File transferring
-To copy a file from your local computer to your scratch folder on the cluster, open your local terminal and type in `scp /PATH/TO/filename.sh userID@cropdiversity.ac.uk:DESTINATION/TO/PATH`, it will prompt your for your key passphrase. This takes a few seconds (rsync works as well). 

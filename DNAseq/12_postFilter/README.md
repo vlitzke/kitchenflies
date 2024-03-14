@@ -42,6 +42,8 @@ where STR can be
 
   where the default was removing sites with low AF first but could then cause problems in downstream analyses because it assumed that the thin stes are an unbiased sample of the full sites. 
 
+  see https://github.com/samtools/bcftools/issues/1050
+
   
 ----
 

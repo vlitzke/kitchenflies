@@ -22,7 +22,7 @@ To export an environment: `conda env export > envrionment.yml`
 `srsh -p short --mem=4G` or `srun --pty bash`. Sometimes installing packages might need more memory so specify when necessary (`$ srun --partition=short --cpus-per-task=8 --mem=16G --pty bash`)
 
 2. Start conda and activate specific environment (where all my packages are downloaded): `conda activate rnaseq`
-
+ 
 ## Slurm Commands 
 
 - Run a slurm (.sh) file: `sbatch fileName.sh`
@@ -30,6 +30,11 @@ To export an environment: `conda env export > envrionment.yml`
 - See all active jobs : `squeue`
 - See your activate jobs: `squeue –-me`
 - Transferring a .txt file to unix: `dos2unix fileName.sh` or create it with `touch fileName.sh`. 
+ | `ssh`  |  |
+  | `scp`  |  |
+    | `curl`  |  |
+ | `htop`  | display current jobs |
+| `kill`  | terminate process |
 
 ## Typical Slurm File
 

@@ -8,8 +8,20 @@ So I used `vcftools --gzvcf fileName.vcf.gz --recode-INFO-all --max-alleles 2 --
 
 or: 
 
-bcftools view --max-alleles 2 --exclude-types indels input.vcf.gz
+Take the vcf.gz file you made - its not in the right format (needs to be indexed) so:
 
+`bgzip -d file_name.vcf.gz`
+
+The re-zip it: `bgzip -c file_name.vcf > file_name.vcf.gz`
+
+Then index: `bcftools index file_name.vcf.gz`
+
+Then filter for biallelic sites:
+bcftools view --max-alleles 2 input.vcf.gz
+or 
+bcftools view -m2 -M2 -v snps input.vcf.gz > output.vcf.gz (I used this one) 
+
+Then prune: 
 
 
 ----
@@ -42,13 +54,7 @@ is no upper threshold of the population number).
 
 # Splitting up the VCF files into individual samples (to look for a batch effect with Fst) and/or merging them! 
 
-Take the vcf.gz file you made - its not in the right format (needs to be indexed) so:
 
-`bgzip -d file_name.vcf.gz`
-
-The re-zip it: `bgzip -c file_name.vcf > file_name.vcf.gz`
-
-Then index: `bcftools index file_name.vcf.gz`
 
 then you want to make sure you have your list of sample names:
 

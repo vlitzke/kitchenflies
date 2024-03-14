@@ -23,7 +23,26 @@ bcftools view -m2 -M2 -v snps input.vcf.gz > output.vcf.gz (I used this one)
 
 Then prune: 
 
+bcftools +prune -l 0.25 -w 1000 input.bcf -Ob -o output.bcf
 
+but then also
+bcftools +prune -w 10000bp -n 1 -N 1st
+bcftools +prune -w 10000bp -n 1 -N maxAF
+bcftools +prune -w 10000bp -n 1 -N rand
+
+where
+I added a new option
+
+-N, --nsites-per-win-mode STR 
+where STR can be
+
+  maxAF .. keeps sites with biggest AF  (this is the default)
+  1st   .. keeps sites that come first
+  rand  .. picks sites randomly
+
+  where the default was removing sites with low AF first but could then cause problems in downstream analyses because it assumed that the thin stes are an unbiased sample of the full sites. 
+
+  
 ----
 
 ## Convert VCF to SYNC

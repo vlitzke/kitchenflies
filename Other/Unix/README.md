@@ -1,14 +1,19 @@
 # Tricks and Tips 
 
+
+ View text files in Terminal on Mac - `less <file_name>` 
+ 
 ## Compressing
 Once you are all done with your data, it is probably best to compress a directory into a tarball:
+
 ```tar -czvf folderName.tar.gz *folderName```
 
+This can take daaaays! 
 
+## 
 download vim
 to get out of vim editor use `:q` and hit enter. 
 
- View text files in Terminal on Mac - `less <file_name>` 
  
 ## Screens 
 Run this on a screen 

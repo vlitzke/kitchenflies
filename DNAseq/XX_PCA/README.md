@@ -112,7 +112,19 @@ Then tried to add the argument --update-sex txtFile  and I created a random text
 Another method?:Also did this with plink:
 plink --vcf SNPs_clean_ann.vcf.gz --maf 0.05 --recode --alow-extra-chr --r2 --ld-window-kb 1 --ld-window 1000 --ld-window-r2 0 --out SNPs_ld
 
+but I am unsure with what to do with this output (SNPs_ld)
 
+so with flies..
+plink --vcf 5_filter/SNPs_clean_ann.vcf.gz --double-id --allow-extra-chr \
+--set-missing-var-ids @:# \
+--indep-pairwise 10 10 0.2 --out 5_filter/plink_flies/flies
+
+and then
+plink --vcf 5_filter/SNPs_clean_ann.vcf.gz --double-id --allow-extra-chr --set-missing-var-ids @:# \
+--extract 5_filter/plink_flies/flies.prune.in \
+--make-bed --pca --out 5_filter/plink_flies/flies
+
+from speciation genomics... to make it even with the rest of my LD Pruning. (10 kb windows, R2>0.2)
 
 Unsure about the follwing: 
 

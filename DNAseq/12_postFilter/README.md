@@ -4,7 +4,17 @@ First warning I found, was I couldn't use vcftools because there were polyploids
 
 Long story short, some programs (i.e. SNPRelate) have some "biallelic only" arguments, but it feels like this might be a necessary filtering step for me now. 
 
-So I used `vcftools --gzvcf fileName.vcf.gz --recode-INFO-all --max-alleles 2 --min-alleles 2 -- recode --out output`
+Take the clean + annotated SNPs file:
+
+```
+vcftools
+--gzvcf fileName.vcf.gz
+--recode-INFO-all
+--max-alleles 2
+--min-alleles 2
+--out outputName
+--recode
+```
 
 or: 
 
@@ -21,13 +31,17 @@ bcftools view --max-alleles 2 input.vcf.gz
 or 
 bcftools view -m2 -M2 -v snps input.vcf.gz > output.vcf.gz (I used this one) 
 
+or 
+
+Has to be bi-allelic. vcftools does not like working with biallelic SNPs and apparently there are polyploids in the data (which I'm also not sure of if this is possible but my reasoning is that polyploid individuals do exist in flies and we just happened to have one in a batch?!) `SNPRelate` by definining the argument `method='biallelic'`
 
 # LD Pruning
 It seems like there is not really a solid consensus on how pruning should be done. So here are a few options:
 
 1. SNPRelate before using this tool for a PCA 
 2. Plink pruning
-3. bcftools
+3. Brute force way, using the argument `--thin` and setting it to 10 kb (kept 12,944/2,280,074 sites). This will output a vcf file. 
+4. bcftools
 - bcftools +prune -l 0.25 -w 1000 input.bcf -Ob -o output.bcf
 though it seems that the -l has been replaced by -m in the newer version..... ughhh and then do i prune every 1000 or 10000?? 
 - bcftools +prune -w 10000bp -n 1 -N 1st
@@ -41,31 +55,6 @@ where STR can be  maxAF (keeps sites with biggest AF, default), 1st (keeps sites
   where the default was removing sites with low AF first but could then cause problems in downstream analyses because it assumed that the thin stes are an unbiased sample of the full sites. 
 
   see https://github.com/samtools/bcftools/issues/1050
-
-Should do LD-pruning first. 
-
-Has to be bi-allelic. vcftools does not like working with biallelic SNPs and apparently there are polyploids in the data (which I'm also not sure of if this is possible but my reasoning is that polyploid individuals do exist in flies and we just happened to have one in a batch?!) 
-1.  Take the clean + annotated SNPs file:
-
-```
-vcftools --gzvcf SNPs_clean_ann.vcf.gz --recode-INFO-all
-	--max-alleles 2
-	--min-alleles 2
-	--out SNPs_clean_ann_biallelic
-	--recode
-```
-
-2. You can also do this in `SNPRelate` by definining the argument `method='biallelic'`
-
-Then to prune, you can....
-1. Do it the brute force way, using the argument `--thin` and setting it to 10 kb (kept 12,944/2,280,074 sites). This will output a vcf file. 
-
-
-
-Visualize:
-
-1. Use allele frequency data for each pool --> R packages stats V.3.6.1
-2. 
 
 Converting plink files
 ```
@@ -176,7 +165,6 @@ python scripts/VCF2sync.py \
 | gzip > SNPs_clean_ann.sync.gz
 ```
 
-
 THE SYNC-FILE
 1 2R 26 T 0:14:0:0:0:0 0:14:0:0:0:0
 2 2R 27 G 0:0:0:14:0:0 0:0:0:14:0:0
@@ -193,8 +181,6 @@ I col n: allele counts for n-3 population
 is no upper threshold of the population number).
 
 # Splitting up the VCF files into individual samples (to look for a batch effect with Fst) and/or merging them! 
-
-
 
 then you want to make sure you have your list of sample names:
 

@@ -5,3 +5,5 @@ These two pipelines are a synthesis from multiple sources - hardly my own code/m
 I would suggest if you want to use this as a tool/guideline, to check out the *Other* folder first to familiarize yourself with setting up/running basic commands on the cluster. Then proceeding to one of the pipelines. 
 
 Have fun! :) 
+
+cheeky nandos: https://knowyourmeme.com/photos/962627-cheeky-nandos

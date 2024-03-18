@@ -104,6 +104,9 @@ cat out.log
 Additionally, you can filter for quality (extract quality score for each site) `vcftools --gzvcf $SUBSET_VCF --site-quality --out $OUT` --> this gives me all -1, maybe a problem to sort out later, but I've already filtered for this very early on. 
 You generally filter for a minimum threshold of 30. 
 
+and finally for all individuals with no missing data at any site:
+`vcftools --gzvcf SNPsFIle.vcf.gz --max-missing-count 0 --recode --stdout | gzip -c > SNPs_filtered_nomissing.vcf.gz`
+
 ----
 # Other Useful Commands/Tools
 

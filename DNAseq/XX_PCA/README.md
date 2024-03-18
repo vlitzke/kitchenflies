@@ -94,14 +94,13 @@ zcat All_20150603.vcf.gz | grep -v "^#" | cut -f 3,4 > reference_allele_GRCh38.t
 
 https://speciationgenomics.github.io/pca/
 
-VCF=combinedAllYears.vcf.gz
-plink --vcf $VCF --double-id --allow-extra-chr --set-missing-var-ids @:# --indep-pairwise 50 10 0.1 --out flies
+plink --vcf $VCF --double-id --allow-extra-chr --set-missing-var-ids @:# --indep-pairwise 10 10 0.1 --out flies
 
 would output flies.log, flies.nosex, flies.prune.in, flies.prune.out
 
 plink --vcf $VCF --double-id --allow-extra-chr --set-missing-var-ids @:# --extract flies.prune.in --make-bed --pca --out flies
 
-Then did this: plink --bfile [filename prefix] --recode vcf --out [VCF prefix]
+Then did this: plink --bfile [filename prefix] --allow-extra-chr --recode vcf --out [VCF prefix]
 
 Then tried to add the argument --update-sex txtFile  and I created a random text file with Year, sample id, sex with tabs in between in notepad... did not work
 

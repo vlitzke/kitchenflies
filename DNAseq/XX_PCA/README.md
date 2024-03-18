@@ -11,11 +11,11 @@ It seems like there is not really a solid consensus on how pruning should be don
 2. Plink pruning
 3. Brute force way, using the argument `--thin` and setting it to 10 kb (kept 12,944/2,280,074 sites). This will output a vcf file. 
 4. bcftools
-- bcftools +prune -l 0.25 -w 1000 input.bcf -Ob -o output.bcf
+- bcftools +prune -m 0.2 -w 10000 input.vcf.gz -Oz -o output.vcf.gz
 though it seems that the -l has been replaced by -m in the newer version..... ughhh and then do i prune every 1000 or 10000?? 
-- bcftools +prune -w 10000bp -n 1 -N 1st
-- bcftools +prune -w 10000bp -n 1 -N maxAF
-- bcftools +prune -w 10000bp -n 1 -N rand
+- bcftools +prune -w 10000 -n 1 -N 1st
+- bcftools +prune -w 10000 -n 1 -N maxAF
+- bcftools +prune -w 10000 -n 1 -N rand
 
 with the options for --nsites-per-win-mode STR 
 where -N, 

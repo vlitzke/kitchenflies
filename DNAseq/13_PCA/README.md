@@ -14,30 +14,51 @@ It seems like there is not really a solid consensus on how pruning should be don
 
 Method A[^1]:
 
-so with flies..
+First, do a linkage analysis 
+
+```
 plink --gzvcf fileName.vcf.gz 
 --double-id \
 --allow-extra-chr \
 --set-missing-var-ids @:# \
---indep-pairwise 10 10 0.2 --out 5_filter/plink_flies/flies
+--indep-pairwise 10 10 0.2 \
+--out XXX
+```
+
+| Command      | Description |
+| ----------- | ----------- |
+| `gzvcf` | input vcf.gz file |
+| `--double-id` | for plink to duplicate sample ID (since plink usually expects both a family and individual ID) |
+| `--allow-extra-chr` | allows additional chromosomes beyond the set humans have (plink works with human data usually) |
+| `--set-missing-var-ids @:#` | sets a variant ID for SNPs, where the `@` ells u where the chrosome code should go and the `#` where the base-pair position belongs |
+| `--indep-pairwise` | the linkage pruning part, with 10 Kb as a window size, 10 as a window step size (move 10 bp each  time you calculate linkage) and 0.2 as an r^2 threshold (of what we want to tolerate) |
+| `--out` | the output prefix all your files will have |
+
+This will write out two files we will specifically need, `XXX.prune.in`, `XXX.prune.out`, which shoe us a list of sites which fell below the linkage threshold (the ones we want to keep) and the those that are above the threshold (the ones we want to throw away). 
+
+Next, we want to use the output to produce files that are necessary for a PCA.
+
+```
+plink --gzvcf fileName.vcf.gz \
+--double-id \
+--allow-extra-chr \
+--set-missing-var-ids @:# \
+--extract XXX.prune.in \
+--make-bed
+--pca
+--out XXX
+```
+
+| Newer Commands      | Description |
+| ----------- | ----------- |
+| `--extract` | input vcf.gz file |
+| `--make-bed` | for plink to duplicate sample ID (since plink usually expects both a family and individual ID) |
+| `--pca` | allows additional chromosomes beyond the set humans have (plink works with human data usually) |
 
 
-and then
-plink --vcf 5_filter/SNPs_clean_ann.vcf.gz --double-id --allow-extra-chr --set-missing-var-ids @:# \
---extract 5_filter/plink_flies/flies.prune.in \
---make-bed --pca --out 5_filter/plink_flies/flies
+Finally, you might want to keep the plink output as a VCF file, but see the memo below: `plink --bfile [filename prefix] --allow-extra-chr --recode vcf --out [VCF prefix]`
 
-from speciation genomics... to make it even with the rest of my LD Pruning. (10 kb windows, R2>0.2)
 
-`plink --vcf $VCF --double-id --allow-extra-chr --set-missing-var-ids @:# --indep-pairwise 10 10 0.1 --out flies`
-
-This outputs flies.log, flies.nosex, flies.prune.in, flies.prune.out
-
-`plink --vcf $VCF --double-id --allow-extra-chr --set-missing-var-ids @:# --extract flies.prune.in --make-bed --pca --out flies`
-
-Then did this: `plink --bfile [filename prefix] --allow-extra-chr --recode vcf --out [VCF prefix]`
-
-But again, you might lose some data, so I tried to add the argument `--update-sex txtFile` and I created a random text file with Year, sample id, sex with tabs in between in notepad... did not work
 
 You can also use plink like so:
 `plink --vcf SNPs_clean_ann.vcf.gz --maf 0.05 --recode --alow-extra-chr --r2 --ld-window-kb 1 --ld-window 1000 --ld-window-r2 0 --out SNPs_ld`
@@ -61,6 +82,6 @@ where STR can be  maxAF (keeps sites with biggest AF, default), 1st (keeps sites
 
  see https://github.com/samtools/bcftools/issues/1050
 
-:memo: Converting plink files does not seem to be a good idea, it kind of messes things up/lose metadata, it seems you may/may not need allele reference data input too 
+:memo: Converting plink files does not seem to be a good idea, it kind of messes things up/lose metadata, it seems you may/may not need allele reference data input too. For example, it seemed I lost the sex data, so I tried to add the argument `--update-sex txtFile` and I created a random text file with Year, sample id, sex with tabs in between in notepad... did not work. I think the formatting is off but I'm not sure why...
 
 [^1]:https://speciationgenomics.github.io/pca/

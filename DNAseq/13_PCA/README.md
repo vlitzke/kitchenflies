@@ -1,4 +1,4 @@
-## PCA
+# PCA
 
 population genetics? is it a good idea? questionable. shangzhe says take it with a grain of salt. see https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7750941/ and https://doi.org/10.1101/2021.04.11.439381
 
@@ -51,10 +51,11 @@ plink --gzvcf fileName.vcf.gz \
 
 | Newer Commands      | Description |
 | ----------- | ----------- |
-| `--extract` | input vcf.gz file |
-| `--make-bed` | for plink to duplicate sample ID (since plink usually expects both a family and individual ID) |
-| `--pca` | allows additional chromosomes beyond the set humans have (plink works with human data usually) |
+| `--extract` | input file of positions we wanted to retain before |
+| `--make-bed` | writes out additional files for another type of population structure analysis |
+| `--pca` | writes out eigenvector and eigenvalue files |
 
+Where you now end up with the eigenvector and eigenvalue files, as well as a `.bed` file is which a binary file for admixture analyes (gives us the genotypes of pruned dataset as 1s and 0s, the `.bim` file which is a map/information file of the variants and a `.fam` file which is a map file for all the individuals in the `.bed` file.
 
 Finally, you might want to keep the plink output as a VCF file, but see the memo below: `plink --bfile [filename prefix] --allow-extra-chr --recode vcf --out [VCF prefix]`
 

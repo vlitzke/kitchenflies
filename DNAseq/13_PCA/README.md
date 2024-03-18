@@ -15,9 +15,12 @@ It seems like there is not really a solid consensus on how pruning should be don
 Method A[^1]:
 
 so with flies..
-plink --vcf 5_filter/SNPs_clean_ann.vcf.gz --double-id --allow-extra-chr \
+plink --gzvcf fileName.vcf.gz 
+--double-id \
+--allow-extra-chr \
 --set-missing-var-ids @:# \
 --indep-pairwise 10 10 0.2 --out 5_filter/plink_flies/flies
+
 
 and then
 plink --vcf 5_filter/SNPs_clean_ann.vcf.gz --double-id --allow-extra-chr --set-missing-var-ids @:# \

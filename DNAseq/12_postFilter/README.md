@@ -35,7 +35,20 @@ or
 
 Has to be bi-allelic. vcftools does not like working with biallelic SNPs and apparently there are polyploids in the data (which I'm also not sure of if this is possible but my reasoning is that polyploid individuals do exist in flies and we just happened to have one in a batch?!) `SNPRelate` by definining the argument `method='biallelic'`
 
+
+I did the first method!
+
+Next, some statistics on the cleaned, annonated, biallelic vcf file of SNPS.
+
+Calculate allele frequency for each variant (--freq would return their identity): `vcftools --gzvcf $SUBSET_VCF --freq2 --out $OUT`
+Calculate mean depth coverage per individual: `vcftools --gzvcf $SUBSET_VCF --depth --out $OUT`
+Calculate mean depth coverage per site: `vcftools --gzvcf $SUBSET_VCF --site-mean-depth --out $OUT`
+Extract quality score for each site: `vcftools --gzvcf $SUBSET_VCF --site-quality --out $OUT`
+Proportion of missing data per individual: `vcftools --gzvcf $SUBSET_VCF --missing-indv --out $OUT`
+Proportion of missing data per site: `vcftools --gzvcf $SUBSET_VCF --missing-site --out $OUT`
+
 ----
+
 
 ## Convert VCF to SYNC
 

@@ -42,7 +42,7 @@ this step is soooo long...
 
 
 
-Or you can use tomahawk. 
+Or you can use tomahawk (https://www.biostars.org/p/347796/)
 
 1. Thin down your vcf.gz file to about 20,000 SNPs: `vcftools --gzvcf fileName.vcf.gz --recode --recode-INFO-all --thin 6000 --out XXX`
 2. convert vcf to bcf (you need tabix indexed, see step 12): `bcftools view fileName.vcf -O b -o fileName.bcf`

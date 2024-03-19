@@ -1,7 +1,9 @@
 # Step 13: Linkage Disequilibrium (Optional)
 
+Figuring out your optimal r^2 and doing any LD pruning seems to be a questionable thing to do, i.e. there are SO MANY arbitrary, subjective, vague (any other synonym you can think of) thresholds to choose from and to be honest some argue for it as a necessary step (towards doing a PCA), others say it is not at all important and so on. However, if you have a large dataset, this is problem a useful way to subset your data to independent SNPs if you have too much to work with. 
+
 ## Decay
-I did it on 1) all SNPs, and then on 2) biallelic SNPs only 
+To compare, I did it on 1) all SNPs, and then on 2) biallelic SNPs only 
 
 ```
 plink \
@@ -19,12 +21,12 @@ plink \
 | ----------- | ----------- |
 | `vcf` | input vcf.gz file |
 | `--allow-extra-chr` | allows additional chromosomes beyond the set humans have (plink works with human data usually) |
-| `--recode` | |
-| `--r2` |  |
-| `--ld-window-r2` |  |
-| `--ld-window` | |
-| `--ld-window-kb` |  |
-| `--out` |  |
+| `--recode` | creates a new text fileset |
+| `--r2` | reports squared correlations |
+| `--ld-window-r2` | default set to 0.2, meaning SNPs with r2 value below 0.2 are ignored, so I set this to be 0 to report all  |
+| `--ld-window` | analyse SNPs that are not more than XXX SNPs apart |
+| `--ld-window-kb` | specify a kb window |
+| `--out` | output prefix |
 
 
 ## Pruning

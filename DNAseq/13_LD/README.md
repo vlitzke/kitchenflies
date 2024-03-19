@@ -1,4 +1,4 @@
-# LD Decay
+# Step 13: LD Decay (Optional)
 
 I did it on 1) all SNPs, and then on 2) biallelic SNPs only 
 

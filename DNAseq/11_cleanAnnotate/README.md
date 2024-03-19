@@ -1,3 +1,5 @@
+# Step 11: Cleaning and Annotating SNPs
+
 ## Identify sites in proximity of InDels 
 
 To use the following script, you will have to use python v2.7, so if I were you, I would create a new conda environment where you download just python version 2.7, then call that environment before you activate his script. 

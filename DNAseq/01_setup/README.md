@@ -1,4 +1,6 @@
-# Downloading your data
+# Step 1: Setting up
+
+## Downloading your data
 
 Once you have sent off your DNA samples to the sequencer, you will likely want to download your data from the storage cloud that they are using on their website to somewhere with enough storage (probably not your personal computer!) 
 

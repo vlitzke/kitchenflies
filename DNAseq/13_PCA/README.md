@@ -4,6 +4,34 @@ population genetics? is it a good idea? questionable. shangzhe says take it with
 
 The goal of a PCA is to try to cluster samples in how ever many degrees of a "principle component" that explains X% of variation among the samples while reducing noise. It's basically a visual check (and should be used as one) to measure how each variable is assoicated with another in a covariance matrix. It transforms some correlated features in data into orthogonal components. PCA uses eigen-decomposition to breakdown a matrix where we get a diagonal matrix of eigenvalues (the dimension of the matrix, coefficients applied to eigenvectors to give length/magnitude) and a matrix formed by the eigenvectors (unit vectors that assess the directions of the spread of the data). 
 
+# LD Decay
+
+I did it on 1) all SNPs, and then on 2) biallelic SNPs only 
+
+```
+plink \
+--vcf SNPs_clean_ann.vcf.gz \
+--allow-extra-chr \
+--recode \
+--r2 \
+--ld-window-r2 0 \
+--ld-window 999999 \
+--ld-window-kb 1000 \
+--out plink_ld
+```
+
+| Command      | Description |
+| ----------- | ----------- |
+| `vcf` | input vcf.gz file |
+| `--allow-extra-chr` | allows additional chromosomes beyond the set humans have (plink works with human data usually) |
+| `--recode` | |
+| `--r2` |  |
+| `--ld-window-r2` |  |
+| `--ld-window` | |
+| `--ld-window-kb` |  |
+| `--out` |  |
+
+
 # LD Pruning
 It seems like there is not really a solid consensus on how pruning should be done. So here are a few options:
 
@@ -77,23 +105,5 @@ where STR can be  maxAF (keeps sites with biggest AF, default), 1st (keeps sites
  see https://github.com/samtools/bcftools/issues/1050
 
 :memo: Converting plink files does not seem to be a good idea, it kind of messes things up/lose metadata, it seems you may/may not need allele reference data input too. For example, it seemed I lost the sex data, so I tried to add the argument `--update-sex txtFile` and I created a random text file with Year, sample id, sex with tabs in between in notepad... did not work. I think the formatting is off but I'm not sure why...
-
-
-You can also use plink like so:
-`plink --vcf SNPs_clean_ann.vcf.gz --maf 0.05 --recode --alow-extra-chr --r2 --ld-window-kb 1 --ld-window 1000 --ld-window-r2 0 --out SNPs_ld`
-
-but I am unsure with what to do with this output (SNPs_ld)
-`plink --vcf SNPs_clean_ann.vcf.gz --allow-extra-chr --recode --r2 --ld-window-r2 0 --ld-window 999999 --ld-window-kb 1000 --out plink_ld`
-
-  --allow-extra-chr
-  --ld-window 10
-  --ld-window-kb 10
-  --ld-window-r2 0.2
-  --maf 0.01
-  --out 5_filter/plink_SNPs_ld/SNPs_ld
-  --r2
-  --recode
-  --vcf 5_filter/SNPs_clean_ann.vcf.gz
-
 
 [^1]:https://speciationgenomics.github.io/pca/

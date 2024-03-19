@@ -1,5 +1,6 @@
-# Step 13: LD Decay (Optional)
+# Step 13: Linkage Disequilibrium (Optional)
 
+## Decay
 I did it on 1) all SNPs, and then on 2) biallelic SNPs only 
 
 ```
@@ -26,7 +27,7 @@ plink \
 | `--out` |  |
 
 
-# LD Pruning
+## Pruning
 It seems like there is not really a solid consensus on how pruning should be done. So here are a few options:
 
 1. SNPRelate before using this tool for a PCA

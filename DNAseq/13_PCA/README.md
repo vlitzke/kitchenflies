@@ -59,13 +59,6 @@ Where you now end up with the eigenvector and eigenvalue files, as well as a `.b
 
 Finally, you might want to keep the plink output as a VCF file, but see the memo below: `plink --bfile [filename prefix] --allow-extra-chr --recode vcf --out [VCF prefix]`
 
-
-
-You can also use plink like so:
-`plink --vcf SNPs_clean_ann.vcf.gz --maf 0.05 --recode --alow-extra-chr --r2 --ld-window-kb 1 --ld-window 1000 --ld-window-r2 0 --out SNPs_ld`
-
-but I am unsure with what to do with this output (SNPs_ld)
-
 3. Brute force way, using the argument `--thin` and setting it to 10 kb (kept 12,944/2,280,074 sites). This will output a vcf file: `vcftools --ggzvcf fileName.vcf.gz --thin 10000 --recode --out outputPrefix`
    
 4. bcftools
@@ -84,5 +77,23 @@ where STR can be  maxAF (keeps sites with biggest AF, default), 1st (keeps sites
  see https://github.com/samtools/bcftools/issues/1050
 
 :memo: Converting plink files does not seem to be a good idea, it kind of messes things up/lose metadata, it seems you may/may not need allele reference data input too. For example, it seemed I lost the sex data, so I tried to add the argument `--update-sex txtFile` and I created a random text file with Year, sample id, sex with tabs in between in notepad... did not work. I think the formatting is off but I'm not sure why...
+
+
+You can also use plink like so:
+`plink --vcf SNPs_clean_ann.vcf.gz --maf 0.05 --recode --alow-extra-chr --r2 --ld-window-kb 1 --ld-window 1000 --ld-window-r2 0 --out SNPs_ld`
+
+but I am unsure with what to do with this output (SNPs_ld)
+`plink --vcf SNPs_clean_ann.vcf.gz --allow-extra-chr --recode --r2 --ld-window-r2 0 --ld-window 999999 --ld-window-kb 1000 --out plink_ld`
+
+  --allow-extra-chr
+  --ld-window 10
+  --ld-window-kb 10
+  --ld-window-r2 0.2
+  --maf 0.01
+  --out 5_filter/plink_SNPs_ld/SNPs_ld
+  --r2
+  --recode
+  --vcf 5_filter/SNPs_clean_ann.vcf.gz
+
 
 [^1]:https://speciationgenomics.github.io/pca/

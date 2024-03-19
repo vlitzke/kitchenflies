@@ -34,13 +34,30 @@ plink \
 This exports the file XXX.ld with all pairwise comparisons and r2 values. 
 
 
+https://www.biostars.org/p/300381/
+
+cat snp-thin.ld | sed 1,1d | awk -F " " 'function abs(v) {return v < 0 ? -v : v}BEGIN{OFS="\t"}{print abs($5-$2),$7}' | sort -k1,1n > snp-thin.ld.summary
+
+this step is soooo long...
+
+
+
 Or you can use tomahawk. 
 
 1. Thin down your vcf.gz file to about 20,000 SNPs: `vcftools --gzvcf fileName.vcf.gz --recode --recode-INFO-all --thin 6000 --out XXX`
-2. convert vcf to bcf: `bcftools view fileName.vcf -O b -o fileName.bcf`
+2. convert vcf to bcf (you need tabix indexed, see step 12): `bcftools view fileName.vcf -O b -o fileName.bcf`
 
+3.
+```
+git clone --recursive https://github.com/mklarqvist/tomahawk
+cd tomahawk
+make
+```
 
+./install.sh local
 
+4. tomahawk import -i snp.bcf -o snp -m 0.2 -h 0.001
+5. 
 
 ## Pruning
 It seems like there is not really a solid consensus on how pruning should be done. So here are a few options:

@@ -1,4 +1,4 @@
-# Post-filtering 
+# Step 12: Post-filtering 
 There are quite a few things left that we are going to have to do before we process some of the other data. 
 
 ## Biallelic SNP sites 

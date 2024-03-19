@@ -39,7 +39,9 @@ vcftools does not like working with biallelic SNPs and apparently there are poly
 
 Next, some statistics on the cleaned, annonated, biallelic vcf file of SNPS so we can get some relatively good sensible filtering thresholds. 
 
-## Depth
+## Data Exploration
+
+### Depth
 This is the number of reads that have mapped to a position (per site, for all individuals and all alleles). We should be including a minimum depth milter because these will remove false positive calls and ensure higher quality calls and a maximum depth filter because regions with very high read depths could possible by repetitive regions mapping to multiple parts of the genome (likely reflects mapping/assembly errors).
 
 Calculate mean depth coverage per individual: `vcftools --gzvcf $SUBSET_VCF --depth --out $OUT`
@@ -47,7 +49,7 @@ Calculate mean depth coverage per site: `vcftools --gzvcf $SUBSET_VCF --site-mea
 
 Per site, it looks like we have a mean_depth of any where between 11 and 3447! But generally the meadian is around 34 and it looks like it cuts off at 50. So we will set a min to 10 (though conservative is ~15x) and a max to 50. For each individual, it doesn't seem there are any outliers to be concerned about. 
 
-## Missing data
+### Missing data
 how much are you willing to lose? This looks athe proportion of missingness at each variant (no genotype at a given site) and individual. Typically any site with more than 25% missing data should be dropped. 
 Proportion of missing data per individual: `vcftools --gzvcf $SUBSET_VCF --missing-indv --out $OUT`
 Proportion of missing data per site: `vcftools --gzvcf $SUBSET_VCF --missing-site --out $OUT`
@@ -56,20 +58,22 @@ It seems like most have a call at every site, though if you look at the summary,
 
 For each individual however, it seems there are two individuals that have a lot of missing data. But for now we're going to keep them (both males) 
 
-## Minor Allele Frequency
+### Minor Allele Frequency
 Distrubtion of allele frequencies. This can inflate statistics estimates downstream + cause other problems... ideally people generally use 0.05-0.10 as a reasonable cut-off (thhough demographic inference might be biased by MAF thresholds) 
 Calculate allele frequency for each variant (--freq would return their identity): `vcftools --gzvcf $SUBSET_VCF --freq2 --out $OUT`
 
 It looks like most alleles have a high frequency (possibly because our pools are so big?), but double checking the summary, max is 0.5, which makes sense. So low MAF alleles may only occur in a handful of individuals, and these may be unreliable base calls (or a source of error). An excess of low requency alleles can also cause errors (SNPs on into one ind) which means they maybe very uninformantive and make it difficult to model population structure. So it is best practice to keep one dataset with a good MAF threshold and one without. So we will set 0.1. 
 
-## Calculate heterozygosity and inbreeding coefficient per individual
+### Calculate heterozygosity and inbreeding coefficient per individual
 Computing heterozygosity and the inbreeding coefficient (F) for each individual can quickly highlight outlier individuals that are e.g. inbred (strongly negative F), suffer from high sequencing error problems or contamination with DNA from another individual leading to inflated heterozygosity (high F), or PCR duplicates or low read depth leading to allelic dropout and thus underestimated heterozygosity (stongly negative F). However, note that here we assume Hardy-Weinberg equilibrium. If the individuals are not sampled from the same population, the expected heterozygosity will be overestimated due to the Wahlund-effect. It may still be worth to compute heterozygosities even if the samples are from more than one population to check if any of the individuals stands out which could indicate problems.
 
 vcftools --gzvcf $SUBSET_VCF --het --out $OUT
 
 Well yikes, it looks like a lot of them are exremely inbred. However, this might check out? Because they're pooled samples and not individuals? Who knows. 
 
-Then we are going over to R to check the plots.
+Then we are going over to R to check the plots....
+
+## Filtering
 
 Now we have an idea of how to set out thresholds, we will do just that.
 

@@ -7,3 +7,5 @@ I would suggest if you want to use this as a tool/guideline, to check out the *O
 Have fun! :) 
 
 cheeky nandos: https://knowyourmeme.com/photos/962627-cheeky-nandos
+
+![Dog](./screenclean.gif)

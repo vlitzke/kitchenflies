@@ -28,6 +28,9 @@ plink \
 | `--ld-window-kb` | specify a kb window |
 | `--out` | output prefix |
 
+This exports the file XXX.ld with all pairwise comparisons and r2 values. 
+
+
 
 ## Pruning
 It seems like there is not really a solid consensus on how pruning should be done. So here are a few options:

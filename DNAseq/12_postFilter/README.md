@@ -90,13 +90,18 @@ vcftools --gzvcf SNPs_clean_annotated_biallelic.vcf.gz \
 
 What have we done here?
 
---gvcf - input path – denotes a gzipped vcf file
---remove-indels - remove all indels (SNPs only)
---maf - set minor allele frequency - 0.1 here
---max-missing - set minimum non-missing data. A little counterintuitive - 0 is totally missing, 1 is none missing. Here 0.9 means we will tolerate 10% missing data.
---minQ - this is just the minimum quality score required for a site to pass our filtering threshold. Here we set it to 30.
---min-meanDP - the minimum mean depth for a site.
---max-meanDP - the maximum mean depth for a site.
+| Command      | Description |
+| ----------- | ----------- |
+| `--gvcf ` | input vcf.gz file |
+| `--maf` | m set minor allele frequency |
+| `--max-missing` | set minimum non-missing data. A little counterintuitive - 0 is totally missing, 1 is none missing. Here 0.9 means we will tolerate 10% missing data |
+| `--min-meanDP ` | minimum mean depth for a site |
+| `--max-meanDP` | maximum mean depth for a site |
+| `--maf` | m set minor allele frequency |
+| `--maf` | m set minor allele frequency |
+
+- the .
+ - the e.
 --minDP - the minimum depth allowed for a genotype - any individual failing this threshold is marked as having a missing genotype.
 --maxDP - the maximum depth allowed for a genotype - any individual failing this threshold is marked as having a missing genotype.
 --recode - recode the output - necessary to output a vcf

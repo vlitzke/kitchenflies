@@ -42,8 +42,28 @@ cat snp-thin.ld | sed 1,1d | awk -F " " 'function abs(v) {return v < 0 ? -v : v}
 
 this step is soooo long...
 
-I've done it and made a .bim file (--make-bed). 
+so I've taken the biallelic, filtered SNPs and had a go..
+First I thinned it with vcftools, --thin being 6000, keeping 19984 out of 1237687 sites 
 
+vcftools --gzvcf SNPs_clean_ann_biallelic_filtered.vcf.gz --thin 6000 --recode --stdout | gzip -c > thinned.vcf.gz
+Then I ran plink 
+
+```
+plink \
+--vcf thinned.vcf.gz \
+--allow-extra-chr \
+--recode \
+--r2 \
+--make-bed \
+--ld-window-r2 0 \
+--ld-window 999999 \
+--ld-window-kb 1000 \
+--out thinned_ld
+
+```
+then 
+
+cat thinned_ld.ld | sed 1,1d | awk -F " " 'function abs(v) {return v < 0 ? -v : v}BEGIN{OFS="\t"}{print abs($5-$2),$7}' | sort -k1,1n > thinned.ld.summary
 
 Or you can use tomahawk (https://www.biostars.org/p/347796/)
 

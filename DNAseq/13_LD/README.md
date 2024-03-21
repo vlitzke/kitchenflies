@@ -4,9 +4,11 @@ Figuring out your optimal r^2 and doing any LD pruning seems to be a questionabl
 
 ## Decay
 
-Two methods, you can either do this using plink. 
+Two methods, you can either do this using plink.....
 
 To compare, I did it on 1) all SNPs, and then on 2) biallelic SNPs only 
+
+⚠️ This uses a LOT of memory, so make sure you have requested enough on a node within an interactive job (if not using a slurm file). 
 
 ```
 plink \
@@ -40,6 +42,7 @@ cat snp-thin.ld | sed 1,1d | awk -F " " 'function abs(v) {return v < 0 ? -v : v}
 
 this step is soooo long...
 
+I've done it and made a .bim file (--make-bed). 
 
 
 Or you can use tomahawk (https://www.biostars.org/p/347796/)

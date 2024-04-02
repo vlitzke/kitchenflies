@@ -11,6 +11,8 @@ and then indexed it again with `tabix SNPs_clean_noAnn_biallelic_filtered.vcf.gz
 
 still didn't work - i looked, and possibly it has to do something with a missing genotype? so i redid it with the no missing genotypes file
 
+but shangzhe says thats not it, so we checked the DrosEU dataset and they have triploids! so I filtered the same way I did in 12_postfilter section 
+
 
 
 

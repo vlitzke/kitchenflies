@@ -11,9 +11,13 @@ and then indexed it again with `tabix SNPs_clean_noAnn_biallelic_filtered.vcf.gz
 
 still didn't work - i looked, and possibly it has to do something with a missing genotype? so i redid it with the no missing genotypes file
 
-but shangzhe says thats not it, so we checked the DrosEU dataset and they have triploids! so I filtered the same way I did in 12_postfilter section 
+but shangzhe says thats not it, so we checked the DrosEU dataset and they have triploids! so I filtered the same way I did in 12_postfilter section for biallelic sites only then creatd an index (tabix) then merged them: `bcftools merge dest_ann_biallelic.vcf.gz SNPs_clean_ann_biallelic_filtered.vcf.gz -o kitchAndDros.vcf.gz`
 
 
+
+Then I need to create an input text file of the sample names 
+
+So I got the list of names: `bcftools query -l kitchAndDros.vcf.gz > sampleNames.txt` and then you need to put a tab in between that and the population (so I rewrote the first two bits, for example AT-Mau for Austria, Mautenbach) , saved it as a new text file
 
 
 Going to start by using Dsuite.
@@ -39,3 +43,7 @@ Ind8    xxx
 ...     ...
 IndN    Species_n
 
+To execute, I used the experimental Dquartets instead of Dtrio (I could have created an outgroup of our kitchenflies, I guess...)
+`./Build/Dsuite Dquartets kitchAndDros.vcf.gz sampleNames.txt --out-prefix=kitchAndDros`
+
+77 sets (populations/species), going to calcualte D and f4-ratio values for 1353275 quartets, VCFf contains 4093821 variants, block size of 204690 variants for 20 Jackknife blocks. I could / should run this in a slurm script.... 

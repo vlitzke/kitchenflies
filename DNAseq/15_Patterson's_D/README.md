@@ -17,15 +17,7 @@ bgzip SNPs_clean_ann_biallelic_filtered.vcf
 tabix SNPs_clean_ann_biallelic_filtered.vcf.gz
 ```
 
-3. Merge them: `bcftools merge dest.PoolSeq.PoolSNP/001.50.10Nov2020.ann.vcf.gz SNPs_clean_ann_biallelic_filtered.vcf.gz -o kitchAnDros.vcf.gz`
-
-📝 Merging doesn't work - trying to combine "ADP" "AD" and "FREQ" tag definitions of different lengths and types, so I found a way to remove these annotations (maybe this is shooting myself in the foot) because it threw me an error (Incorrect nuer of FORMAT/AD values at 2R:18615523, cannot merge. The tag is defined as Number =A but found 2 values and 4 alleles"
-So I took that out `bcftools annotate -x FORMAT/AD,INFO/FORMAT,FREQ SNPs_clean_ann_biallelic_filtered.vcf.gz -o SNPs_clean_noAnn_biallelic_filtered.vcf.gz`
-and then indexed it again with `tabix SNPs_clean_noAnn_biallelic_filtered.vcf.gz`
-
-still didn't work - i looked, and possibly it has to do something with a missing genotype? so i redid it with the no missing genotypes file
-
-but shangzhe says thats not it, so we checked the DrosEU dataset and they have triploids! so I filtered the same way I did in 12_postfilter section for biallelic sites only then creatd an index (tabix) then merged them: `bcftools merge dest_ann_biallelic.vcf.gz SNPs_clean_ann_biallelic_filtered.vcf.gz -o kitchAndDros.vcf.gz`
+3. Merging. Initially, this did not work. First, I got a few warning messages "trying to combine "ADP" "AD" and "FREQ" tag definitions of different lengths and types", so I found a way to remove these annotations (maybe this is shooting myself in the foot) because it threw me an error ("Incorrect number of FORMAT/AD values at 2R:18615523, cannot merge. The tag is defined as Number =A but found 2 values and 4 alleles" by doing `bcftools annotate -x FORMAT/AD,INFO/FORMAT,FREQ SNPs_clean_ann_biallelic_filtered.vcf.gz -o SNPs_clean_noAnn_biallelic_filtered.vcf.gz`. However, Shangzhe helped me check the DrosEU dataset and apparently when they have triploids (or more), they have multiple values of allelic depth for each. Therefore, I filtered their dataset the same way I did in 12_postfilter section for biallelic sites only, then creatd an index (tabix) and merged them: `bcftools merge dest_ann_biallelic.vcf.gz SNPs_clean_ann_biallelic_filtered.vcf.gz -o kitchAndDros.vcf.gz`
 
 4. Going to start using **[Dsuite](https://github.com/millanek/Dsuite)**[^2]. Download it using:
 

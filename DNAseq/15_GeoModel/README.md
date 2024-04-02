@@ -27,38 +27,34 @@ still didn't work - i looked, and possibly it has to do something with a missing
 
 but shangzhe says thats not it, so we checked the DrosEU dataset and they have triploids! so I filtered the same way I did in 12_postfilter section for biallelic sites only then creatd an index (tabix) then merged them: `bcftools merge dest_ann_biallelic.vcf.gz SNPs_clean_ann_biallelic_filtered.vcf.gz -o kitchAndDros.vcf.gz`
 
-4. 
+4. Going to start using **[Dsuite](https://github.com/millanek/Dsuite)**. Download it using:
 
-Then I need to create an input text file of the sample names 
-
-So I got the list of names: `bcftools query -l kitchAndDros.vcf.gz > sampleNames.txt` and then you need to put a tab in between that and the population (so I rewrote the first two bits, for example AT-Mau for Austria, Mautenbach) , saved it as a new text file
-
-
-Going to start by using Dsuite.
-https://github.com/millanek/Dsuite
-
-Download:
+```
 $ git clone https://github.com/millanek/Dsuite.git
 $ cd Dsuite
 $ make
+```
 
-nput files:
-Required files:
-A VCF file, which can be compressed with gzip or bgzip. It can contain multiallelic loci and indels, but only biallelic SNPs will be used.
-Population/species map SETS.txt: a text file with one individual per row and a tab separating the individual’s name from the name of the species/population it belongs to, as shown below:
+Then I need to create an input text file of the sample names and populations, so I got the list of names and wrote it to a text file: `bcftools query -l kitchAndDros.vcf.gz > sampleNames.txt`. The Dsuite text file format requires one individual per row and a tab between the sample name and the population (so for example AT-Mau for Austria, Mautenbach): I rewrote it and saved it as a new text file.
+
 Ind1    Species1
 Ind2    Species1
-Ind3    Species2
-Ind4    Species2
-Ind5    Species3
-Ind6    Outgroup
-Ind7    Outgroup
-Ind8    xxx
 ...     ...
 IndN    Species_n
 
 To execute, I used the experimental Dquartets instead of Dtrio (I could have created an outgroup of our kitchenflies, I guess...)
-`./Build/Dsuite Dquartets kitchAndDros.vcf.gz sampleNames.txt --out-prefix=kitchAndDros`
+
+```
+./Build/Dsuite Dquartets \
+kitchAndDros.vcf.gz \
+sampleNames.txt \
+--out-prefix=kitchAndDros
+```
+
+
+A VCF file, which can be compressed with gzip or bgzip. It can contain multiallelic loci and indels, but only biallelic SNPs will be used.
+
+
 
 77 sets (populations/species), going to calcualte D and f4-ratio values for 1353275 quartets, VCFf contains 4093821 variants, block size of 204690 variants for 20 Jackknife blocks. I could / should run this in a slurm script.... 
 

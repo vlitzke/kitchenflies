@@ -51,12 +51,12 @@ sampleNames.txt \
 --out-prefix=kitchAndDros
 ```
 
-
-A VCF file, which can be compressed with gzip or bgzip. It can contain multiallelic loci and indels, but only biallelic SNPs will be used.
-
-
+| Command      | Description |
+| ----------- | ----------- |
+| `-` | input vcf.gz file (compressed with gzip or bzip), only uses biallelic SNPs |
+| `-` | input text file with samples/populations |
+| `--out-prefix=XXX` | output prefix for all your resulting files |
 
 77 sets (populations/species), going to calcualte D and f4-ratio values for 1353275 quartets, VCFf contains 4093821 variants, block size of 204690 variants for 20 Jackknife blocks. I could / should run this in a slurm script.... 
-
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.

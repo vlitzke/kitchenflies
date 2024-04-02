@@ -24,18 +24,12 @@ https://esnielsen.github.io/post/pool-seq-analyses-poolfstat-baypass/
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3567740/
 https://grunwaldlab.github.io/poppr/reference/poppr-package.html
 
-
-https://github.com/millanek/Dsuite:
-./Build/Dsuite
-
-
 https://onlinelibrary.wiley.com/doi/10.1111/1755-0998.13557
 https://bernatgel.github.io/karyoploter_tutorial//Examples/GeneExpression/GeneExpression.html
 https://cran.r-project.org/web/packages/chromoMap/vignettes/chromoMap.html
 https://rich-iannone.github.io/DiagrammeR/
 https://tskit.dev/msprime/docs/stable/demography.html#admixture
 https://pubmed.ncbi.nlm.nih.gov/34837462/
-https://github.com/millanek/Dsuite
 
 ## Packages 
 SNPRelate: 
@@ -45,7 +39,3 @@ https://amakukhov.github.io/Bio381/RPresentationCode_04_19_17.html?fbclid=IwAR3N
 bcftools: https://samtools.github.io/bcftools/bcftools.html#view
 
 Tomahawk for LD: https://www.royfrancis.com/fast-ld-computation-from-vcf-files-using-tomahawk/?fbclid=IwAR2bjx46Tszu_Btu95vHBottE--ZpdUM7x3HvirxC06_JUStYfeCL_VaqJg#:~:text=Thinning%20VCF&text=Use%20vcftools%20to%20thin%20down%20a%20VCF%20file.&text=The%20argument%20%2D%2Dthin%2050000,SNPs%20in%20the%20thinned%20file
-
-
-
-

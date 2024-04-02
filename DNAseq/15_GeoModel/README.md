@@ -27,7 +27,7 @@ still didn't work - i looked, and possibly it has to do something with a missing
 
 but shangzhe says thats not it, so we checked the DrosEU dataset and they have triploids! so I filtered the same way I did in 12_postfilter section for biallelic sites only then creatd an index (tabix) then merged them: `bcftools merge dest_ann_biallelic.vcf.gz SNPs_clean_ann_biallelic_filtered.vcf.gz -o kitchAndDros.vcf.gz`
 
-4. Going to start using **[Dsuite](https://github.com/millanek/Dsuite)**. Download it using:
+4. Going to start using **[Dsuite](https://github.com/millanek/Dsuite)**[^2]. Download it using:
 
 ```
 $ git clone https://github.com/millanek/Dsuite.git
@@ -60,3 +60,4 @@ sampleNames.txt \
 77 sets (populations/species), going to calcualte D and f4-ratio values for 1353275 quartets, VCFf contains 4093821 variants, block size of 204690 variants for 20 Jackknife blocks. I could / should run this in a slurm script.... 
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
+[^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

@@ -1,7 +1,18 @@
 # Step 15: Patterson's D/ABBA-BABA 
 
-We would like to know where our kitchen flies come from! A common way to do this is by using Patterson's D/ABBA-BABA statistic, along with the f4-ratio, to look at gene flow between populations.
+We would like to know where our kitchen flies come from! The following method/information is taken from here[^2].
 
+A common way to do this is by using Patterson's D/ABBA-BABA statistic, along with the f4-ratio (estimate of admixture fraction *f*), to look at gene flow between populations. Both statistics are based on correlations of allele frequencies across populations.
+Originally used to look at introgression between modern human and Neanerthal populations (Green et al 2010).
+Assumptions: 
+
+1. Individuals share a substantial amount of genetic variation due to ancestry and incomplete lineage sorting
+2. Recurrent and back mutations at the samesites are negligible
+3. Substitution rates are uniform accross species
+
+use of the D and f4-ratio statistics involves fitting a simple explicit phylogenetic tree model to a quartet of populations or species (Figure 1a, b) and provides a formal test for a history of admixture in that context (Patterson et al., 2012). 
+
+## Method 
 1. I downloaded the data from this paper[^1], head over *[here](https://dest.bio/)*, click on Data Files ->  SNP Tables -> scroll down to VCF files, then `Click to download a .txt file with a list of all download links`, open the link and in the terminal grab the vcf files (version 2) and their index: 
 
 ```

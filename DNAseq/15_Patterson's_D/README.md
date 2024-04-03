@@ -3,7 +3,10 @@
 We would like to know where our kitchen flies come from! The following method/information is taken from here[^2].
 
 A common way to do this is by using Patterson's D/ABBA-BABA statistic, along with the f4-ratio (estimate of admixture fraction *f*), to look at gene flow between populations. Both statistics are based on correlations of allele frequencies across populations.
-Originally used to look at introgression between modern human and Neanerthal populations (Green et al 2010).
+Originally used to look at introgression between modern human and Neanerthal populations (Green et al 2010).each calculation of D and f applies to four populations or taxa, the number of calculations/quartets grows rapidly with the size of the data set. f-branch metric tries to assign gene flow to specific internal branches 
+Patterson's D - identify introgressed loci by sliding window scans across the genome (Fontaine et al 2015)
+Only biallelic sNPs 
+
 Assumptions: 
 
 1. Individuals share a substantial amount of genetic variation due to ancestry and incomplete lineage sorting
@@ -61,6 +64,9 @@ sampleNames.txt \
 | `--out-prefix=XXX` | output prefix for all your resulting files |
 
 77 sets (populations/species), going to calcualte D and f4-ratio values for 1353275 quartets, VCFf contains 4093821 variants, block size of 204690 variants for 20 Jackknife blocks. I could / should run this in a slurm script.... 
+
+
+For DTrios though, I can specify the -p flag as a pooled population but I also don't have an Outgroup population (like what they want you to state as having the ancestral allele), in the dataset of dest.bio, there are no pooled populations from Africa, so I could download one from another paper..? They have haploid embryos, but those aren't biallelic (which is what dsuite needs) 
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

@@ -73,17 +73,25 @@ using the table https://f1000research.com/articles/4-31/v1#DS0 I went to https:/
 
 ERR706014 - Ghpool15
 ERR706015 - Ghpool32
-wget
+```
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR706/ERR706014/ERR706015_1.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR706/ERR706014/ERR706015_2.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR706/ERR706015/ERR706015_1.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR706/ERR706015/ERR706015_2.fastq.gz
+```
+Isofemale strains were selected randomly from the full population samples reported in Verspoor & Haddrill (2011). Genomic DNA for isofemale lines was prepared by snap freezing females in liquid nitrogen, then extracting DNA using a standard phenol-chloroform extraction protocol with ethanol and ammonium acetate precipitation. DNA samples were generated for each isofemale lines using 50, 25, and 25 adult females for the FR, GA and GH populations, respectively.
+
+For pooled samples, single adult females from each isofemale line were used to construct two samples for each population. The first pooled sample contains one fly from each of the same strains that were sequenced as isofemale lines (FR_pool_20, GA_pool_15, GH_pool_15). The second pooled sample contains one fly from all isofemale lines sampled for each population reported in Verspoor & Haddrill (2011) (FR_pool_39, GA_pool_30, GH_pool_32).
 
 
 
 
 
 
-(This study https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1003080#s4 has isofemale lines, mixes sexes.. I guess that doesn't matter, unsure what pool sizes they are)
+(This study https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1003080#s4 has isofemale lines, mixes sexes.. I guess that doesn't matter, unsure what pool sizes they are, these are individual flies: https://www.ncbi.nlm.nih.gov/biosample?linkname=bioproject_biosample&from_uid=329555)
 
 Now dealing with them in the same way:
-fastqc -> multiqc -> cutadapt -> 
+fastqc -> multiqc -> cutadapt -> fastqc -> 
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

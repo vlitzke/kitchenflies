@@ -68,5 +68,9 @@ sampleNames.txt \
 
 For DTrios though, I can specify the -p flag as a pooled population but I also don't have an Outgroup population (like what they want you to state as having the ancestral allele), in the dataset of dest.bio, there are no pooled populations from Africa, so I could download one from another paper..? They have haploid embryos, but those aren't biallelic (which is what dsuite needs) 
 
+So I found some pooled populations of isofemale lines from Ghana: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4331666/
+using the table https://f1000research.com/articles/4-31/v1#DS0 I went to https://www.ebi.ac.uk/ena/browser/view/PRJEB8027 to download the 4 fasta files.
+
+
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

@@ -93,5 +93,22 @@ For pooled samples, single adult females from each isofemale line were used to c
 Now dealing with them in the same way:
 fastqc -> multiqc -> cutadapt -> fastqc -> 
 
+## Processed
+1. You can first look at the _BBAA.txt file. ABBA is always more than BABA and the D statistic is always positive because Dsuite orients P1 and P2 in this way. Since these results are for coalescent simulations without gene-flow, the ABBA and BABA sites arise purely through incomplete lineage sorting and the difference between them is purely random - therefore, even though the D statistic can be quite high (e.g. up to 8% on the last line), this is not a result of gene flow.
+
+   Question 1: Can you tell why the BBAA, ABBA, and BABA numbers are not integer numbers but have decimal positions?
+
+Click here to see the answer
+Integer counts of ABBA and BABA sites would only be expected if each species would be represented only by a single haploid sequence. With diploid sequences and multiple samples per species, allele frequences are taken into account to weigh the counts of ABBA and BABA sites as described by equations 1a to 1c of the Dsuite paper.
+
+Also the _DMin.txt file: here trios are arranged so that the D statistic is minimised - providing a kind of "lower bound" on gene-flow statistics. This can be useful in cases where the true relationships between species are not clear, as illustrated for example in this paper (Fig. 2a).
+Next, let's look at the results in more detail, for example in R. We load the _BBAA.txt file and first look at the distribution of D values:
+
+D_BBAA_noGF <- read.table("species_sets_no_geneflow_BBAA.txt",as.is=T,header=T)
+plot(D_BBAA_noGF$Dstatistic, ylab="D",xlab="trio number")
+
+n fact, the D statistics for 9 trios are >0.7, which is extremely high. So how is this possible in a dataset simulated with no geneflow?
+
+
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

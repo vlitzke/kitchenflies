@@ -96,6 +96,30 @@ fastqc -> multiqc -> cutadapt -> fastqc -> bwa-mem -> picard -> gatk3
 Afterwards I've called ALL the SNPs together again (so our data, the DrosEU data from 2020 and these 2 Ghana Populations) using PoolSNP. 
 
 
+(I also wanted to try adding the DGN haploid embryos to the dataset - Alan said it would work! So I pulled out the samples listed:
+CO - Cameroon, Oku
+EA - Ethiopia, Gambella
+EB - Ethiopia, Bonga 
+ED - Ethiopia, Dodola
+EF - Ethiopia, Fiche
+EG - Egypt, Cairo
+ER - Ethiopia, Debre Birhan 
+GA - Gabon. Franceville
+GU - Guinea, Donde
+KN - Kenya, Nyahururu
+NG - Nigeria, Maiduguri
+RG - Rwanda, Gikongoro
+SB - South Africa, Barkly East
+SD - South Africa, Dullstroom
+SP - South AFrica, Phalaborwa
+UK - Uganda, Kisoro
+ZI - Zambia, Siavonga
+ZW - Zimbabwe, Victoria Falls 
+
+Got a list of samples: `bcftools query -l dest.PoolSeq.PoolSNP.001.50.10Nov2020.ann.vcf.gz > sampleList.txt`
+Then I wanted to extract only the samples from Africa: 
+
+
 
 ## Processed
 1. You can first look at the _BBAA.txt file. ABBA is always more than BABA and the D statistic is always positive because Dsuite orients P1 and P2 in this way. Since these results are for coalescent simulations without gene-flow, the ABBA and BABA sites arise purely through incomplete lineage sorting and the difference between them is purely random - therefore, even though the D statistic can be quite high (e.g. up to 8% on the last line), this is not a result of gene flow.

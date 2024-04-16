@@ -139,7 +139,9 @@ ZW - Zimbabwe, Victoria Falls
 Got a list of samples: `bcftools query -l dest.PoolSeq.PoolSNP.001.50.10Nov2020.ann.vcf.gz > sampleList.txt`
 Then I wanted to extract only the samples from Africa: 
 
+`bcftools view -S sampleList_v2_Africa.txt -o outputfile.vcf.gz inputfile.vcf.gz`
 
+I wanted to filter them in the same way as step 12 (postfilter) but i dont think this works well for haploid... so I will leave it as is. 
 
 ## Processed
 1. You can first look at the _BBAA.txt file. ABBA is always more than BABA and the D statistic is always positive because Dsuite orients P1 and P2 in this way. Since these results are for coalescent simulations without gene-flow, the ABBA and BABA sites arise purely through incomplete lineage sorting and the difference between them is purely random - therefore, even though the D statistic can be quite high (e.g. up to 8% on the last line), this is not a result of gene flow.

@@ -33,6 +33,23 @@ tabix SNPs_clean_ann_biallelic_filtered.vcf.gz
 
 3. Merging. Initially, this did not work. First, I got a few warning messages "trying to combine "ADP" "AD" and "FREQ" tag definitions of different lengths and types", so I found a way to remove these annotations (maybe this is shooting myself in the foot) because it threw me an error ("Incorrect number of FORMAT/AD values at 2R:18615523, cannot merge. The tag is defined as Number =A but found 2 values and 4 alleles" by doing `bcftools annotate -x FORMAT/AD,INFO/FORMAT,FREQ SNPs_clean_ann_biallelic_filtered.vcf.gz -o SNPs_clean_noAnn_biallelic_filtered.vcf.gz`. However, Shangzhe helped me check the DrosEU dataset and apparently when they have triploids (or more), they have multiple values of allelic depth for each. Therefore, I filtered their dataset the same way I did in 12_postfilter section for biallelic sites only, then creatd an index (tabix) and merged them: `bcftools merge dest_ann_biallelic.vcf.gz SNPs_clean_ann_biallelic_filtered.vcf.gz -o kitchAndDros.vcf.gz`
 
+Then I'm also going to pull just the African samples but these are haploid embryos in pools of 5 individuals, so I downloaded the metadata from Alan Berglands github, then used R to pull out only the African samples:
+
+```
+library(readr)
+destv2_samples <- read_csv("data/2024_04/dest_v2.samps_13Jan2023.csv")
+
+destv2_africa <- subset(destv2_samples, destv2_samples$continent == "Africa")
+
+wantedSamples <- destv2_africa$sampleId
+```
+
+Save it as a generic text file, then:
+`bcftools view -S sampleList_Africa.txt -o destv2_africanSamples.vcf.gz inputfile.vcf.gz`
+
+Then merge those once again with the filtered destv2 vcf file. 
+
+
 4. Going to start using **[Dsuite](https://github.com/millanek/Dsuite)**[^2]. Download it using:
 
 ```

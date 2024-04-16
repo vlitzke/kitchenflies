@@ -47,6 +47,9 @@ wantedSamples <- destv2_africa$sampleId
 Save it as a generic text file, then:
 `bcftools view -S sampleList_Africa.txt -o destv2_africanSamples.vcf.gz inputfile.vcf.gz`
 
+But it seems like MA_Tan_Lar_1_2021_06_07 does not exist in the header (got a warning, I am not ready to go down this rabbit hole so I'm going to ignore this) 
+
+
 Then merge those once again with the filtered destv2 vcf file. 
 
 

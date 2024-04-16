@@ -91,7 +91,11 @@ For pooled samples, single adult females from each isofemale line were used to c
 (This study https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1003080#s4 has isofemale lines, mixes sexes.. I guess that doesn't matter, unsure what pool sizes they are, these are individual flies: https://www.ncbi.nlm.nih.gov/biosample?linkname=bioproject_biosample&from_uid=329555)
 
 Now dealing with them in the same way:
-fastqc -> multiqc -> cutadapt -> fastqc -> 
+fastqc -> multiqc -> cutadapt -> fastqc -> bwa-mem -> picard -> gatk3 
+
+Afterwards I've called ALL the SNPs together again (so our data, the DrosEU data from 2020 and these 2 Ghana Populations) using PoolSNP. 
+
+
 
 ## Processed
 1. You can first look at the _BBAA.txt file. ABBA is always more than BABA and the D statistic is always positive because Dsuite orients P1 and P2 in this way. Since these results are for coalescent simulations without gene-flow, the ABBA and BABA sites arise purely through incomplete lineage sorting and the difference between them is purely random - therefore, even though the D statistic can be quite high (e.g. up to 8% on the last line), this is not a result of gene flow.

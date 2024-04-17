@@ -95,9 +95,9 @@ For pooled samples, single adult females from each isofemale line were used to c
 Now dealing with them in the same way:
 fastqc -> multiqc -> cutadapt -> fastqc -> bwa-mem -> picard -> gatk3 
 
-Afterwards I've called ALL the SNPs together again (so our data, the DrosEU data from 2023 and these 2 Ghana Populations) using PoolSNP. 
+Afterwards I've called ALL the SNPs together again (so our data and these 2 Ghana Populations) using PoolSNP. 
 
-
+As for the DrosEU data from 2023, I don't have the raw data, just the SNPs that have already been called 
 Then I'm also going to pull just the African samples but these are haploid embryos in pools of 5 individuals, Alan said it would work! so I downloaded the metadata from Alan Berglands github, then used R to pull out only the African samples:
 
 Got a list of samples: `bcftools query -l dest.PoolSeq.PoolSNP.001.50.10Nov2020.ann.vcf.gz > sampleList.txt`
@@ -122,6 +122,9 @@ I wanted to filter them in the same way as step 12 (postfilter) but i dont think
 
 Then merge those once again with the destv2 vcf file. `bcftools merge destv2_all_biallelic.vcf.gz.record.vcf.gz destv2_african_subset.vcf.gz -o destv2_allBiallelicAndAfr.vcf.gz --force-samples` (the last arguments was added because there were duplicate sample names (CM-Nor-Oku) so, I shall see what that looks like afterwards. 
 
+Then I want to merge this with the kitchen+otherAfrican sample vcf file I have.
+
+Then I create a SETS file
 
 ## Processed
 1. You can first look at the _BBAA.txt file. ABBA is always more than BABA and the D statistic is always positive because Dsuite orients P1 and P2 in this way. Since these results are for coalescent simulations without gene-flow, the ABBA and BABA sites arise purely through incomplete lineage sorting and the difference between them is purely random - therefore, even though the D statistic can be quite high (e.g. up to 8% on the last line), this is not a result of gene flow.

@@ -33,24 +33,6 @@ tabix SNPs_clean_ann_biallelic_filtered.vcf.gz
 
 3. Merging. Initially, this did not work. First, I got a few warning messages "trying to combine "ADP" "AD" and "FREQ" tag definitions of different lengths and types", so I found a way to remove these annotations (maybe this is shooting myself in the foot) because it threw me an error ("Incorrect number of FORMAT/AD values at 2R:18615523, cannot merge. The tag is defined as Number =A but found 2 values and 4 alleles" by doing `bcftools annotate -x FORMAT/AD,INFO/FORMAT,FREQ SNPs_clean_ann_biallelic_filtered.vcf.gz -o SNPs_clean_noAnn_biallelic_filtered.vcf.gz`. However, Shangzhe helped me check the DrosEU dataset and apparently when they have triploids (or more), they have multiple values of allelic depth for each. Therefore, I filtered their dataset the same way I did in 12_postfilter section for biallelic sites only, then creatd an index (tabix) and merged them: `bcftools merge dest_ann_biallelic.vcf.gz SNPs_clean_ann_biallelic_filtered.vcf.gz -o kitchAndDros.vcf.gz`
 
-Then I'm also going to pull just the African samples but these are haploid embryos in pools of 5 individuals, so I downloaded the metadata from Alan Berglands github, then used R to pull out only the African samples:
-
-```
-library(readr)
-destv2_samples <- read_csv("data/2024_04/dest_v2.samps_13Jan2023.csv")
-
-destv2_africa <- subset(destv2_samples, destv2_samples$continent == "Africa")
-
-wantedSamples <- destv2_africa$sampleId
-```
-
-Save it as a generic text file, then:
-`bcftools view -S sampleList_Africa.txt -o destv2_africanSamples.vcf.gz inputfile.vcf.gz`
-
-But it seems like MA_Tan_Lar_1_2021_06_07 does not exist in the header (got a warning, I am not ready to go down this rabbit hole so I'm going to ignore this) 
-
-
-Then merge those once again with the filtered destv2 vcf file. 
 
 
 4. Going to start using **[Dsuite](https://github.com/millanek/Dsuite)**[^2]. Download it using:
@@ -113,42 +95,39 @@ For pooled samples, single adult females from each isofemale line were used to c
 Now dealing with them in the same way:
 fastqc -> multiqc -> cutadapt -> fastqc -> bwa-mem -> picard -> gatk3 
 
-Afterwards I've called ALL the SNPs together again (so our data, the DrosEU data from 2020 and these 2 Ghana Populations) using PoolSNP. 
+Afterwards I've called ALL the SNPs together again (so our data, the DrosEU data from 2023 and these 2 Ghana Populations) using PoolSNP. 
 
 
-(I also wanted to try adding the DGN haploid embryos to the dataset - Alan said it would work! So I pulled out the samples listed:
-CO - Cameroon, Oku
-EA - Ethiopia, Gambella
-EB - Ethiopia, Bonga 
-ED - Ethiopia, Dodola
-EF - Ethiopia, Fiche
-EG - Egypt, Cairo
-ER - Ethiopia, Debre Birhan 
-GA - Gabon. Franceville
-GU - Guinea, Donde
-KN - Kenya, Nyahururu
-NG - Nigeria, Maiduguri
-RG - Rwanda, Gikongoro
-SB - South Africa, Barkly East
-SD - South Africa, Dullstroom
-SP - South AFrica, Phalaborwa
-UK - Uganda, Kisoro
-ZI - Zambia, Siavonga
-ZW - Zimbabwe, Victoria Falls 
+Then I'm also going to pull just the African samples but these are haploid embryos in pools of 5 individuals, Alan said it would work! so I downloaded the metadata from Alan Berglands github, then used R to pull out only the African samples:
 
 Got a list of samples: `bcftools query -l dest.PoolSeq.PoolSNP.001.50.10Nov2020.ann.vcf.gz > sampleList.txt`
-Then I wanted to extract only the samples from Africa: 
 
+```
+library(readr)
+destv2_samples <- read_csv("data/2024_04/dest_v2.samps_13Jan2023.csv")
+
+destv2_africa <- subset(destv2_samples, destv2_samples$continent == "Africa")
+
+wantedSamples <- destv2_africa$sampleId
+```
+
+Save it as a generic text file, then:
 `bcftools view -S sampleList_v2_Africa.txt -o outputfile.vcf.gz inputfile.vcf.gz`
 
+But it seems like MA_Tan_Lar_1_2021_06_07 does not exist in the header (got a warning, I am not ready to go down this rabbit hole so I'm going to ignore this) 
+
+
+
 I wanted to filter them in the same way as step 12 (postfilter) but i dont think this works well for haploid... so I will leave it as is. 
+
+Then merge those once again with the destv2 vcf file. `bcftools merge destv2_all_biallelic.vcf.gz.record.vcf.gz destv2_african_subset.vcf.gz -o destv2_allBiallelicAndAfr.vcf.gz --force-samples` (the last arguments was added because there were duplicate sample names (CM-Nor-Oku) so, I shall see what that looks like afterwards. 
+
 
 ## Processed
 1. You can first look at the _BBAA.txt file. ABBA is always more than BABA and the D statistic is always positive because Dsuite orients P1 and P2 in this way. Since these results are for coalescent simulations without gene-flow, the ABBA and BABA sites arise purely through incomplete lineage sorting and the difference between them is purely random - therefore, even though the D statistic can be quite high (e.g. up to 8% on the last line), this is not a result of gene flow.
 
    Question 1: Can you tell why the BBAA, ABBA, and BABA numbers are not integer numbers but have decimal positions?
 
-Click here to see the answer
 Integer counts of ABBA and BABA sites would only be expected if each species would be represented only by a single haploid sequence. With diploid sequences and multiple samples per species, allele frequences are taken into account to weigh the counts of ABBA and BABA sites as described by equations 1a to 1c of the Dsuite paper.
 
 Also the _DMin.txt file: here trios are arranged so that the D statistic is minimised - providing a kind of "lower bound" on gene-flow statistics. This can be useful in cases where the true relationships between species are not clear, as illustrated for example in this paper (Fig. 2a).

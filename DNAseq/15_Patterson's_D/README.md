@@ -116,11 +116,11 @@ Save it as a generic text file, then:
 
 But it seems like MA_Tan_Lar_1_2021_06_07 does not exist in the header (got a warning, I am not ready to go down this rabbit hole so I'm going to ignore this) 
 
-
-
 I wanted to filter them in the same way as step 12 (postfilter) but i dont think this works well for haploid... so I will leave it as is. 
 
 Then merge those once again with the destv2 vcf file. `bcftools merge destv2_all_biallelic.vcf.gz.record.vcf.gz destv2_african_subset.vcf.gz -o destv2_allBiallelicAndAfr.vcf.gz --force-samples` (the last arguments was added because there were duplicate sample names (CM-Nor-Oku) so, I shall see what that looks like afterwards. 
+
+Ok so it looks like all of the African samples are duplicates, so I'll keep them in for now because I don't see an easy way to compare them within the same merged vcf file. And continue on.... then remvove these samples at the end of necessary (2:XXXX) 
 
 Then I want to merge this with the kitchen+otherAfrican sample vcf file I have.
 

@@ -43,7 +43,7 @@ $ cd Dsuite
 $ make
 ```
 
-Then I need to create an input text file of the sample names and populations, so I got the list of names and wrote it to a text file: `bcftools query -l kitchAndDros.vcf.gz > sampleNames.txt`. The Dsuite text file format requires one individual per row and a tab between the sample name and the population (so for example AT-Mau for Austria, Mautenbach): I rewrote it and saved it as a new text file.
+Then I need to create an input text file of the sample names and populations, so I got the list of names and wrote it to a text file: `bcftools query -l kitchAndDros.vcf.gz > sampleNames.txt`. The Dsuite text file format requires one individual per row and a tab between the sample name and the population (so for example AT-Mau for Austria, Mautenbach): I rewrote it and saved it as a new text file. (You can do this by copying and pasting the sample name in Excel, then adding a new column with the population name specificed [and Outgroup for dtrio], then Save As -> Text file (Tab delimited)) 
 
 Ind1    Species1
 Ind2    Species1

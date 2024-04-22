@@ -126,6 +126,9 @@ Then I want to merge this with the kitchen+otherAfrican sample vcf file I have.
 
 Then I create a SETS file
 
+
+Okay so I combined them and they look kind of weird (the d statistics are very low, but the f4 ratios are really high) so I'm going to just merge the destv2 data + ghana + kitchen flies without the added African samples 
+
 ## Processed
 1. You can first look at the _BBAA.txt file. ABBA is always more than BABA and the D statistic is always positive because Dsuite orients P1 and P2 in this way. Since these results are for coalescent simulations without gene-flow, the ABBA and BABA sites arise purely through incomplete lineage sorting and the difference between them is purely random - therefore, even though the D statistic can be quite high (e.g. up to 8% on the last line), this is not a result of gene flow.
 
@@ -142,6 +145,8 @@ plot(D_BBAA_noGF$Dstatistic, ylab="D",xlab="trio number")
 n fact, the D statistics for 9 trios are >0.7, which is extremely high. So how is this possible in a dataset simulated with no geneflow?
 
 ruby plot_f4ratio.rb kitchAndDrosNames_DTrio_BBAA.txt plot_order.txt 0.2 kitchAndDrosNames_DTrio_BBAA_f4ratio.svg
+
+1) I ran it with kitch + dros eu + dros eu african added again + Ghana (so with the African duplicates) and it took ~17 hours, and results looked pretty weird...so I'm going to try and rerun dtrio again without the african duplicates
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

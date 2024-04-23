@@ -90,3 +90,17 @@ The first line is always default, telling the laptop that we are writing in bash
 I then chose to print where, when and how long things took, asked the cluster to use conda, provided the directory I have my files/scripts in, the commands you'd like the cluster to do, and then for it to print that the job has finished (if it indeed has! helpful when you have an error to know it did not finish). 
 
 📝 For long jobs, you might want to increase the number of threads/jobs to 16 from 1, and allocate more memory (60 gb instead of 8).
+
+# Running R-studio 
+
+First create a new conda environment with r
+conda create -n r_env
+
+Then:
+ conda install -c r r-essentials
+ conda install -c r rstudio
+
+ Then, open a new session like this: 
+ssh username@hostname -X
+
+then activate the environment, and just type in rstudio in the command line. 

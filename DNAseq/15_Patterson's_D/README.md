@@ -150,7 +150,22 @@ ruby plot_f4ratio.rb kitchAndDrosNames_DTrio_BBAA.txt plot_order.txt 0.2 kitchAn
 2) Also running it on a subset of four populations (texas, ghana, two kitchen flies from 2019)
 3) oops, it wants another population, so again with fivepop
    bcftools view -s ES_Ciu_Tom_1_2020-09-30,US_Tex_Lub_2_2013-09-15,ERR706014,F1_19,F2_19 all_merged_noAfduplicates.vcf.gz > fivepopsubset.vcf.gz
-   Then you gotta update the SETS file with the new sample IDs and populations 
+   Then you gotta update the SETS file with the new sample IDs and populations
+   4) Also not great because it doesn't run based off of sample, just instead off of population:
+  
+So I used 
+ES_Ciu_Tom_1_2017-10-04
+ES_Gra_Cor_1_2017-07-28
+ES_Ler_Gim_1_2017-07-24
+US_Cal_And_17_2013-10-15
+US_Cal_Esp_1_2013-05-07
+US_Cal_Tuo_1_2013-05-14
+ERR706014
+F1_19
+F2_19
+M1_10
+
+Then you need to set the -p flag ( in this case --pool-seq=17) 
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

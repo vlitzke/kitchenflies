@@ -104,3 +104,5 @@ Then:
 ssh username@hostname -X
 
 then activate the environment, and just type in rstudio in the command line. 
+
+** r_env has rstudio, but apparently that's not ideal (it downgrades a lot of packages) so I also create a new environment with just R and not rstudio and called it baseR**

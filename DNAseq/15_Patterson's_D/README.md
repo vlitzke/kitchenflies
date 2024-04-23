@@ -147,7 +147,10 @@ n fact, the D statistics for 9 trios are >0.7, which is extremely high. So how i
 ruby plot_f4ratio.rb kitchAndDrosNames_DTrio_BBAA.txt plot_order.txt 0.2 kitchAndDrosNames_DTrio_BBAA_f4ratio.svg
 
 1) I ran it with kitch + dros eu + dros eu african added again + Ghana (so with the African duplicates) and it took ~17 hours, and results looked pretty weird...so I'm going to try and rerun dtrio again without the african duplicates
-2) Also running it on a subset of four populations (texas, ghana, two kitchen flies from 2019) 
+2) Also running it on a subset of four populations (texas, ghana, two kitchen flies from 2019)
+3) oops, it wants another population, so again with fivepop
+   bcftools view -s ES_Ciu_Tom_1_2020-09-30,US_Tex_Lub_2_2013-09-15,ERR706014,F1_19,F2_19 all_merged_noAfduplicates.vcf.gz > fivepopsubset.vcf.gz
+   Then you gotta update the SETS file with the new sample IDs and populations 
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

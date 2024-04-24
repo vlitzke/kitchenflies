@@ -187,6 +187,8 @@ for (i in 1:nrow(AD)) {
 # No more than two characters per cell 
 ```
 
+In some of them instead of a 0, there is a dot (this was the Ghana population, so I think this means that there was no SNP at that position called, but instead of filling it in as a 0, it filled it in as a . 
+
 
 
 

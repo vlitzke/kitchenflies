@@ -167,5 +167,9 @@ M1_10
 
 Then you need to set the -p flag ( in this case --pool-seq=17) 
 
+I had an issue with this flag, it says that the AD tag is malformed (so Leeban suggested I check the format of it) and also as a sanity check make sure that the DP tag has a min depth of whatever we're listing here as the argument 
+
+`bcftools query -f '%CHROM %POS [ %DP]\n' inputFile.vcf > outputFile`
+
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

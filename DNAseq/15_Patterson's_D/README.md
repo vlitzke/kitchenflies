@@ -189,7 +189,7 @@ for (i in 1:nrow(AD)) {
 
 In some of them instead of a 0, there is a dot (this was the Ghana population, so I think this means that there was no SNP at that position called, but instead of filling it in as a 0, it filled it in as a . 
 
-
+So actually Leeban says that if I make them a 0, that will absoutely bias the results of dsuite- that because something was technically different in the way they got their samples/how they mapped/how everything was called together, he says to just remove them, even if thats like 73,000/120,000 .... that people have used dsuite with many less SNPs... so I will take out a list of these positions where the . occurs in the ghana population and subset them out of the original VCF file and try agagin.
 
 
 

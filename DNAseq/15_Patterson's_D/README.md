@@ -169,7 +169,27 @@ Then you need to set the -p flag ( in this case --pool-seq=17)
 
 I had an issue with this flag, it says that the AD tag is malformed (so Leeban suggested I check the format of it) and also as a sanity check make sure that the DP tag has a min depth of whatever we're listing here as the argument 
 
-`bcftools query -f '%CHROM %POS [ %DP]\n' inputFile.vcf > outputFile`
+`bcftools query -f '%CHROM %POS [ %DP]\n' inputFile.vcf > outputFile` --> depth seems fine, so this is ACROSS ALL INDIVIDUALS, there has to be at least 10 reads. so I filtered the nine population subset again with the postfilter (section 12) but when I do that i end up with literally 100,000 variants and its not enough to use jackknife methods, so it doesn't run. So let me try just filtering for min depth, that's fine, but still a problem with a malformed AD tag, so I removed it (bcftools annotate) bute the -p argument needs that tag , sooo then I downloaded the tsv file of AD tags  and I checked to make sure there were no other numbers in there
+
+```
+sum(is.na(AD[,])) # no NAs
+
+char_count <- 0
+
+for (i in 1:nrow(AD)) {
+  for (j in 3:ncol(AD)) {
+    if (nchar(AD[i,j]) > 2) {
+      char_count <- char_count + 1
+    }
+  }
+}
+
+# No more than two characters per cell 
+```
+
+
+
+
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

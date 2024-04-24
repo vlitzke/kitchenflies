@@ -16,7 +16,8 @@ First we have to call our SNPs, compare our sample sequences against the referen
 
 Following the DrosEU pipeline, to call SNPs we are going to use Kapun's PoolSNP[^1]. It is a heuristic SNP caller for pooled sequencing data and requires Python3 (which usually comes with the conda environment, I think?) and GNU parallel (`conda install conda-forge::parallel`). As input, it takes an MPILEUP file and a reference genome in FASTA format. It creates the following output files:
 
-- gzipped VCF file containing allele counts and frequencies for every position and library (ℹ️ The original PDF of how to read & understand a VCF file is in this folder ℹ️)
+- gzipped VCF file containing allele counts and frequencies for every position and library
+          ℹ️ The original PDF of how to read & understand a VCF file is in this folder ℹ️
 - Max-coverage file containing the maximum coverage thresholds for all chromosomal arms and libraries in the mpileup file (separated by a column)
 - (Optional) Bad-sites file (by setting the parameter BS=1), which contains a list of (variable and invariable) sites that did not pass the SNP calling criteria. This file can be used to weight windows for the calculation of population genetic estimators with PoolGEN_var
 

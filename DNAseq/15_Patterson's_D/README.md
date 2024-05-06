@@ -170,7 +170,7 @@ Then you need to set the -p flag ( in this case --pool-seq=17)
 I had an issue with this flag, it says that the AD tag is malformed (so Leeban suggested I check the format of it) and also as a sanity check make sure that the DP tag has a min depth of whatever we're listing here as the argument. the format for AD says Number=. instead of Number=1 or R, so I tried changing the header, that din't do anyhing.... 
 
 `bcftools query -f '%CHROM %POS [ %DP]\n' inputFile.vcf > outputFile` --> depth seems fine, so this is ACROSS ALL INDIVIDUALS, there has to be at least 10 reads. so I filtered the nine population subset again with the postfilter (section 12) but when I do that i end up with literally 100,000 variants and its not enough to use jackknife methods, so it doesn't run. So let me try just filtering for min depth, that's fine, but still a problem with a malformed AD tag, so I removed it (bcftools annotate) bute the -p argument needs that tag , sooo then I downloaded the tsv file of AD tags  and I checked to make sure there were no other numbers in there
-
+and then ran this in R: 
 ```
 sum(is.na(AD[,])) # no NAs
 
@@ -189,7 +189,27 @@ for (i in 1:nrow(AD)) {
 
 In some of them instead of a 0, there is a dot (this was the Ghana population, so I think this means that there was no SNP at that position called, but instead of filling it in as a 0, it filled it in as a . 
 
-So actually Leeban says that if I make them a 0, that will absoutely bias the results of dsuite- that because something was technically different in the way they got their samples/how they mapped/how everything was called together, he says to just remove them, even if thats like 73,000/120,000 .... that people have used dsuite with many less SNPs... so I will take out a list of these positions where the . occurs in the ghana population and subset them out of the original VCF file and try agagin.
+So actually Leeban says that if I make them a 0, that will absoutely bias the results of dsuite- that because something was technically different in the way they got their samples/how they mapped/how everything was called together, he says to just remove them, even if thats like 73,000/120,000 .... that people have used dsuite with many less SNPs... so I will take out a list of these positions where the . occurs in the ghana population and subset them out of the original VCF file and try again.
+
+`awk -F'\t' '$10 !~ /\./' ninepopsubset.vcf.gz  > ninepopsubset_ADfiltered.vcf.gz` hoping that its actually the 10th field 
+
+
+`awk -F'\t' '{print $10}' input.vcf > allelic_depth.txt`
+
+or I think I can do the one above:
+
+`bcftools query -f '%CHROM %POS [ %AD]\n' inputFile.vcf > allelic_depth2.tsv`
+
+
+`bcftools query -f '%CHROM %POS [ %AD]\n' ninepopsubset_ADfiltered.vcf.gz | head -3`
+
+ Does not seem like it filtered so ill try again 
+awk -F '\t' '$0 ~ /^#/ || $10=="."' ninepopsubset_ADfiltered.vcf.gz >ninepopsubset_ADfiltered2.vcf.gz
+
+This just printed out the header so I deleted the file.
+
+Quentin says its always a bad idea to touch the headers. 
+
 
 
 

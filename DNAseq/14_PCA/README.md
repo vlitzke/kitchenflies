@@ -6,3 +6,6 @@ The goal of a PCA is to try to cluster samples in how ever many degrees of a "pr
 
 To run a PCA with the sample sizes
 first get the list of samples (see section 15, with bcftools), then copy and paste to word, replace all the new paragraphs ^p with "," add an extra comma at the top and the bottom, then you have to get a list of all the pool sizes 
+
+
+so i just ran all_merged_noAfduplicates and dtrios seemed to work..? i'm not convinced though, the f4 ratio is very high

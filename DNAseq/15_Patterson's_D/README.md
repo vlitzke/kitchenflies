@@ -211,7 +211,8 @@ This just printed out the header so I deleted the file.
 Quentin says its always a bad idea to touch the headers. 
 
 
-
+I am now pullng out all the individual vcf data
+`bcftools query -f '%CHROM %POS [\t%RD]\n' inputfile.vcf.gz > output.tsv`
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

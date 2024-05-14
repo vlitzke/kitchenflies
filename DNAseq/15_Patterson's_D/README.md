@@ -216,5 +216,8 @@ I am now pullng out all the individual vcf data
 
 can't actually pull out the QUAL data - apparently it loses the QUAL tag when calling the SNPs and creating the original vcf file (from martins stuff). - and I checked their original VCF destv2 file, and there are no QUAL values either! SO now I'm tempted to recall the SNPs but using freebayes instead. 
 
+----
+For dtrio stuff, we also agreed on throwing out everything from America, Oceania etc and just keeping Europe + Africa as outgroups 
+
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

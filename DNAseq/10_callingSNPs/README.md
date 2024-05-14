@@ -1,5 +1,6 @@
 # Step 10: Calling SNPs
 
+# PoolSNP
 When sequencing samples, you will find many places in the genome where your sample differs from the reference genome ("variants"). These could be alterations such as:
 
 | Type  | Example |
@@ -67,7 +68,43 @@ Time: ~12-14 hours
 
 You can then use vcfstats: `rtg vcfstats fileName.vcf.gz`.
 
+# Freebayes
 
+`freebayes -f ./2B_callSNPs_freebayes/dmel-all-chromosome-r6.54.fasta ./1_bamfiles/${myArray[$SLURM_ARRAY_TASK_ID]} > ./2B_callSNPs_freebayes/freebayes_variants.vcf`
+
+but I definitely need to state that these are pooled samples, so I will need some more arguments 
+
+ -p --ploidy N   Sets the default ploidy for the analysis to N.  default: 2
+   -J --pooled     Assume that samples result from pooled sequencing.
+                   When using this flag, set --ploidy to the number of
+                   alleles in each sample
+                   -j --use-mapping-quality
+                   Use mapping quality of alleles when calculating data likelihoods.
+
+                   https://vcru.wisc.edu/simonlab/bioinformatics/programs/freebayes/parameters.txt
+
+If you know the pool depth, provide --pooled-discrete on the command line, and also per-sample ploidies (genome copies per pool or individual) in the --cnv-map.
+
+freebayes -f ref.fasta --min-mapping-quality 30 --min-base-quality 20 --min-alternate-count 3 --min-alternate-fraction 0.1 --mismatch-base-quality-threshold 15 --read-max-mismatch-fraction 0.05 --min-coverage 6 --pooled-discrete --cnv-map cnv-map.bed --ploidy 2 --report-monomorphic --genotype-qualities --report-genotype-likelihood-max sample01.bam sample02.bam sample03.bam sample04.bam sample05.bam sample06.bam sample07.bam sample08.bam sample09.bam sample10.bam sample11.bam sample12.bam  |vcffilter -f "QUAL > 20" |bgzip > freebayes_alltogether.vcf.gz
+
+To summarize, if you use --pooled-discrete (pooled detection where you know the counts of the samples in the pools) then you should also include --use-best-n-alleles 5 (or possibly lower, depending on the number of samples).
+
+This will resolve memory and runtime issues when using large pools.  These occur when the caller encounters a large number of alleles which pass detection thresholds, which may be frequent in some homopolymers and microsatellites.  It might also be a good idea to set the input thresholds -C and -F according to your pool sizes and depths, as this will improve runtime and/or allow detection of low-frequency variants.
+
+# assume a pooled sample with a known number of genome copies
+    freebayes -f ref.fa -p 20 --pooled-discrete aln.bam >var.vcf
+
+ GVCF Output: To obtain coverage information for non-called sites, you can use the –gvcf parameter. This is helpful when you need a comprehensive view of the data, even at sites where no variants are called.
+
+freebayes -f ref.fa aln.bam --gvcf > var.g.vcf
+
+Assume a Pooled Sample with Known Genome Copies For pooled samples with a known number of genome copies (e.g., 32 copies), specify the ploidy and use the –pooled-discrete option:
+
+freebayes -f ref.fa -p 32 --use-best-n-alleles 4 --pooled-discrete aln.bam > var.vcf
+
+
+
+Why you should do joint calling: https://bcbio.wordpress.com/2014/10/07/joint-calling/
 
 https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13684
 [^1]: <https://github.com/capoony/PoolSNP>

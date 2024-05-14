@@ -102,7 +102,7 @@ https://vcru.wisc.edu/simonlab/bioinformatics/programs/freebayes/parameters.txt
 ./1_bamfiles/M2_22_library-dedup_rg_InDel.bam
 ./1_bamfiles/M2_23_library-dedup_rg_InDel.bam |vcffilter -f "QUAL > 20" | bgzip > ./2B_callSNPs_freebayes/all_freebayes_variants.vcf`
 
- --pooled-discrete (pooled detection where you know the counts of the samples in the pools, i.e. known number of genome copies) then sources say you should also include --use-best-n-alleles 4 (or possibly lower, depending on the number of samples) and/or per-sample ploidies (genome copies per pool or individual) in the --cnv-map.
+--pooled-discrete (pooled detection where you know the counts of the samples in the pools, i.e. known number of genome copies) then sources say you should also include --use-best-n-alleles 4 (or possibly lower, depending on the number of samples) and/or per-sample ploidies (genome copies per pool or individual) in the --cnv-map.
 
 
 Why you should do joint calling: https://bcbio.wordpress.com/2014/10/07/joint-calling/

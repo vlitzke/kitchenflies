@@ -74,34 +74,35 @@ You can then use vcfstats: `rtg vcfstats fileName.vcf.gz`.
 
 but I definitely need to state that these are pooled samples, so I will need some more arguments 
 
- -p --ploidy N   Sets the default ploidy for the analysis to N.  default: 2
-   -J --pooled     Assume that samples result from pooled sequencing.
+ -p --ploidy N:   Sets the default ploidy for the analysis to N.  default: 2 (other sources say: assume a pooled sample with a known number of genome copies ` freebayes -f ref.fa -p 20 --pooled-discrete aln.bam >var.vcf`)
+ -J --pooled:     Assume that samples result from pooled sequencing.
                    When using this flag, set --ploidy to the number of
                    alleles in each sample
-                   -j --use-mapping-quality
-                   Use mapping quality of alleles when calculating data likelihoods.
+ -j --use-mapping-quality: Use mapping quality of alleles when calculating data likelihoods.
+--gvcf: To obtain coverage information for non-called sites, you can use the –gvcf parameter. This is helpful when you need a comprehensive view of the data, even at sites where no variants are called.
 
-                   https://vcru.wisc.edu/simonlab/bioinformatics/programs/freebayes/parameters.txt
+https://vcru.wisc.edu/simonlab/bioinformatics/programs/freebayes/parameters.txt
 
-If you know the pool depth, provide --pooled-discrete on the command line, and also per-sample ploidies (genome copies per pool or individual) in the --cnv-map.
+`freebayes -f ./2B_callSNPs_freebayes/dmel-all-chromosome-r6.54.fasta \
+-p 40 --pooled-discrete -j --gvcf
+./1_bamfiles/F1_19_library-dedup_rg_InDel.bam
+./1_bamfiles/F1_20_library-dedup_rg_InDel.bam
+./1_bamfiles/F1_22_library-dedup_rg_InDel.bam
+./1_bamfiles/F1_23_library-dedup_rg_InDel.bam
+./1_bamfiles/F2_19_library-dedup_rg_InDel.bam
+./1_bamfiles/F2_20_library-dedup_rg_InDel.bam
+./1_bamfiles/F2_22_library-dedup_rg_InDel.bam
+./1_bamfiles/F2_23_library-dedup_rg_InDel.bam
+./1_bamfiles/M1_19_library-dedup_rg_InDel.bam
+./1_bamfiles/M1_20_library-dedup_rg_InDel.bam
+./1_bamfiles/M1_22_library-dedup_rg_InDel.bam
+./1_bamfiles/M1_23_library-dedup_rg_InDel.bam
+./1_bamfiles/M2_19_library-dedup_rg_InDel.bam
+./1_bamfiles/M2_20_library-dedup_rg_InDel.bam
+./1_bamfiles/M2_22_library-dedup_rg_InDel.bam
+./1_bamfiles/M2_23_library-dedup_rg_InDel.bam |vcffilter -f "QUAL > 20" | bgzip > ./2B_callSNPs_freebayes/all_freebayes_variants.vcf`
 
-freebayes -f ref.fasta --min-mapping-quality 30 --min-base-quality 20 --min-alternate-count 3 --min-alternate-fraction 0.1 --mismatch-base-quality-threshold 15 --read-max-mismatch-fraction 0.05 --min-coverage 6 --pooled-discrete --cnv-map cnv-map.bed --ploidy 2 --report-monomorphic --genotype-qualities --report-genotype-likelihood-max sample01.bam sample02.bam sample03.bam sample04.bam sample05.bam sample06.bam sample07.bam sample08.bam sample09.bam sample10.bam sample11.bam sample12.bam  |vcffilter -f "QUAL > 20" |bgzip > freebayes_alltogether.vcf.gz
-
-To summarize, if you use --pooled-discrete (pooled detection where you know the counts of the samples in the pools) then you should also include --use-best-n-alleles 5 (or possibly lower, depending on the number of samples).
-
-This will resolve memory and runtime issues when using large pools.  These occur when the caller encounters a large number of alleles which pass detection thresholds, which may be frequent in some homopolymers and microsatellites.  It might also be a good idea to set the input thresholds -C and -F according to your pool sizes and depths, as this will improve runtime and/or allow detection of low-frequency variants.
-
-# assume a pooled sample with a known number of genome copies
-    freebayes -f ref.fa -p 20 --pooled-discrete aln.bam >var.vcf
-
- GVCF Output: To obtain coverage information for non-called sites, you can use the –gvcf parameter. This is helpful when you need a comprehensive view of the data, even at sites where no variants are called.
-
-freebayes -f ref.fa aln.bam --gvcf > var.g.vcf
-
-Assume a Pooled Sample with Known Genome Copies For pooled samples with a known number of genome copies (e.g., 32 copies), specify the ploidy and use the –pooled-discrete option:
-
-freebayes -f ref.fa -p 32 --use-best-n-alleles 4 --pooled-discrete aln.bam > var.vcf
-
+ --pooled-discrete (pooled detection where you know the counts of the samples in the pools, i.e. known number of genome copies) then sources say you should also include --use-best-n-alleles 4 (or possibly lower, depending on the number of samples) and/or per-sample ploidies (genome copies per pool or individual) in the --cnv-map.
 
 
 Why you should do joint calling: https://bcbio.wordpress.com/2014/10/07/joint-calling/

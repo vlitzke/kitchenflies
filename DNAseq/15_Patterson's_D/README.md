@@ -219,7 +219,19 @@ can't actually pull out the QUAL data - apparently it loses the QUAL tag when ca
 ----
 For dtrio stuff, we also agreed on throwing out everything from America, Oceania etc and just keeping Europe + Africa as outgroups 
 
-but now I've changed my mind, and I think I should include Colombia as another group (because apparently from a quick google, bananas from Tescos are often from colombia, ecuaador and costa rica? 
+but now I've changed my mind, and I think I should include Colombia and one from ecuador as another group (because apparently from a quick google, bananas from Tescos are often from colombia, ecuaador and costa rica? 
 
+1) pull out a sample list with desired samples from the destv2 data
+Got a list of samples: `bcftools query -l dest.PoolSeq.PoolSNP.001.50.10Nov2020.ann.vcf.gz > sampleList.txt`
+
+2) extract them from destv2 data: `bcftools view -S sampleList_v2_Africa.txt -o outputfile.vcf.gz inputfile.vcf.gz`
+
+3) bgzip and tabix them
+
+4) merge with kitchen flies
+
+5) create SETS text file
+
+6) run dtrios
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

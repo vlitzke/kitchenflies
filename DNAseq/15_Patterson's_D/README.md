@@ -233,5 +233,18 @@ Got a list of samples: `bcftools query -l dest.PoolSeq.PoolSNP.001.50.10Nov2020.
 5) create SETS text file
 
 6) run dtrios
+
+
+I've tried to extract out the autosomes and x in two ways 
+`bcftools view destv2_EuAfSa_kitch_merged.vcf.gz --regions 2L,2R,3L,3R,4 > destv2_EuAfSa_kitch_merged_auto.vcf.gz`
+which is HUGE as an output file, like... 3 times as big as the original with all the data?! maybe it just needed to be compressed different 
+
+and 
+
+`vcftools --chr 2L,2R,3L,3R,4 --gzvcf destv2_EuAfSa_kitch_merged.vcf.gz --recode --recode-INFO-all | gzip -c > destv2_EuAfSa_kitch_merged_auto_vcftools.vcf.gz`
+
+which did not work :D kept no data
+
+
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

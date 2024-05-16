@@ -234,9 +234,12 @@ Got a list of samples: `bcftools query -l dest.PoolSeq.PoolSNP.001.50.10Nov2020.
 
 6) run dtrios
 
+This worked !! but i forgot the -p flag so i'm tring it again
+
+
 
 I've tried to extract out the autosomes and x in two ways 
-`bcftools view destv2_EuAfSa_kitch_merged.vcf.gz --regions 2L,2R,3L,3R,4 > destv2_EuAfSa_kitch_merged_auto.vcf.gz`
+`bcftools view destv2_EuAfSa_kitch_merged.vcf.gz --regions 2L,2R,3L,3R,4 | gzip -c >  destv2_EuAfSa_kitch_merged_auto.vcf.gz`
 which is HUGE as an output file, like... 3 times as big as the original with all the data?! maybe it just needed to be compressed different 
 
 and 
@@ -245,6 +248,7 @@ and
 
 which did not work :D kept no data
 
+so i did bcftools and it works for the uatosomes and i pruned them, then i tried to do the same for the x chrom didn't work (excludes variants on non-autosomes from relationship matrix and then defaults to error: no variants remaining) so then I tried to take out the X and Y chromosome data together and ran it the same way, same error. 
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

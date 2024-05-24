@@ -216,6 +216,44 @@ I am now pullng out all the individual vcf data
 
 can't actually pull out the QUAL data - apparently it loses the QUAL tag when calling the SNPs and creating the original vcf file (from martins stuff). - and I checked their original VCF destv2 file, and there are no QUAL values either! SO now I'm tempted to recall the SNPs but using freebayes instead. 
 
+nope, leeban says thats not worth it.
+
+contacted paul - he said , replace all the "." with 4, because that will be under the min depth and counted as missing! 
+
+```
+awk 'BEGIN {OFS="\t"} {
+    if ($1 ~ /^#/) {print; next}  
+    format_fields = $9;
+    split(format_fields, fmt, ":");
+    
+    ad_index = -1;
+    for (i = 1; i <= length(fmt); i++) {
+        if (fmt[i] == "AD") {
+            ad_index = i;
+            break;
+        }
+    }
+    
+ 
+    for (j = 10; j <= NF; j++) {
+        split($j, sample_fields, ":");
+        if (ad_index != -1 && sample_fields[ad_index] == ".") {
+            sample_fields[ad_index] = "4";
+        }
+        $j = sample_fields[1];
+        for (k = 2; k <= length(sample_fields); k++) {
+            $j = $j ":" sample_fields[k];
+        }
+    }
+    print
+}' temp.vcf | bgzip > temp2.vcf.gz
+```
+
+`bcftools index temp2.vcf.gz`
+
+
+
+
 ----
 For dtrio stuff, we also agreed on throwing out everything from America, Oceania etc and just keeping Europe + Africa as outgroups 
 

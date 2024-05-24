@@ -251,8 +251,11 @@ awk 'BEGIN {OFS="\t"} {
 
 `bcftools index temp2.vcf.gz`
 
+-p, --pool-seq=MIN_DEPTH (optional) VCF contains pool-seq data; i.e., each 'individual' is a population, allele frequencies are then estimated from the AD (Allelic Depth) field, as long as there are MIN_DEPTH reads e.g MIN_DEPTH=5 may be reasonable; when there are fewer reads, the allele frequency is set to missing
 
-
+so decide what MIN_DEPTH you will set when running dsuite e.g. 5
+replace all instances of AD = "." with AD = 4
+then let dsuite treat them as missing (since AD is below the MIN_DEPTH threshold)
 
 ----
 For dtrio stuff, we also agreed on throwing out everything from America, Oceania etc and just keeping Europe + Africa as outgroups 

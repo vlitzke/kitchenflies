@@ -265,6 +265,40 @@ so  I sat down with Shangzhe and we went through the original utils.cpp, saw he 
 
 the python script changes whatever field is "." there to 0, but anyway if you set the min depth above 5, it won't read it anyway (as the average of the RD and AD in the Ad field ALONE, there must be two numbers there separated by a comma). 
 
+shangzhes script: 
+```
+#!/usr/bin/python3
+import gzip
+import sys
+
+infile = sys.argv[1]
+out = sys.stdout
+with gzip.open(infile, 'rt') as file:
+    for line in file:
+        line = line.strip()
+        if line.startswith('#'):
+            out.write(line+'\n')
+            continue
+        
+        content = line.split()
+        
+        content[8] = "GT:AD:DP:FREQ"
+
+        for i in range(9,len(content)):
+            fields = content[i].split(':')
+            if content[i].startswith('./.'):
+                new_fields = ["./.", "0,0", fields[3], fields[4]]
+            else:
+                new_fields = [fields[0], f"{fields[1]},{fields[2]}", fields[3], fields[4]]
+            content[i] = ":".join(new_fields)
+
+        outline = "\t".join(content)
+        
+        out.write(outline+"\n")
+
+```
+
+
 ----
 For dtrio stuff, we also agreed on throwing out everything from America, Oceania etc and just keeping Europe + Africa as outgroups 
 

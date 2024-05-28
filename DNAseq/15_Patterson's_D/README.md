@@ -257,7 +257,13 @@ so decide what MIN_DEPTH you will set when running dsuite e.g. 5
 replace all instances of AD = "." with AD = 4
 then let dsuite treat them as missing (since AD is below the MIN_DEPTH threshold)
 
-now rerunning dsuite!
+now rerunning dsuite! with temp2- still says that the AD tag is malformed. 
+
+https://github.com/millanek/Dsuite/issues/93#issuecomment-2019210976
+
+so  I sat down with Shangzhe and we went through the original utils.cpp, saw he needed TWO VALUES for the AD field (ugh!), general vent of why do so many people define the AD field differently?  decided to write a script to merge the RD and AD field (apparently it doesn't matter which comes first), and then reran it on a subset. Got another error in the direction of Dmin but we think its cause there were too many populations for not enough SNPs, now it seems to be working? 
+
+the python script changes whatever field is "." there to 0, but anyway if you set the min depth above 5, it won't read it anyway (as the average of the RD and AD in the Ad field ALONE, there must be two numbers there separated by a comma). 
 
 ----
 For dtrio stuff, we also agreed on throwing out everything from America, Oceania etc and just keeping Europe + Africa as outgroups 

@@ -333,5 +333,14 @@ which did not work :D kept no data
 
 so i did bcftools and it works for the uatosomes and i pruned them, then i tried to do the same for the x chrom didn't work (excludes variants on non-autosomes from relationship matrix and then defaults to error: no variants remaining) so then I tried to take out the X and Y chromosome data together and ran it the same way, same error. 
 
+So now I just ran plink without actually setting the extract flat
+
+`plink --vcf destv2_EuAfSa_kitch_merged_auto_bcftools_gzip.vcf.gz --double-id --allow-extra-chr --set-missing-var-ids @:# --make-bed --pca --out no_pruning/autosomes`
+
+and on the x chrom
+
+`plink --vcf destv2_EuAfSa_kitch_merged_x_bcftools_gzip.vcf.gz --double-id --allow-extra-chr --set-missing-var-ids @:# --make-bed --pca --out no_pruning/xchrom`
+
+
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

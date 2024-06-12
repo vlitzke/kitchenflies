@@ -355,6 +355,18 @@ bcftools view SNPs_clean_ann_biallelic_filtered_nomissing.vcf.gz --regions 2L,2R
 
 bcftools view SNPs_clean_ann_biallelic_filtered_nomissing.vcf.gz --regions X -Oz -o SNPs_clean_ann_biallelic_filtered_nomissing_xchrom.vcf.gz
 
+I then went to the dest bio dataset to see if I could pull out two samples from each main country
 
+
+Warn: subset called for sample that does not exist in header: "BR_Rio_San_1_2020-01-06"... skipping
+Warn: subset called for sample that does not exist in header: "BR_Sao_USP_1_2019-09-15"... skipping
+Warn: subset called for sample that does not exist in header: "CY_Nic_Nic_1_2014-08-10"... skipping
+Warn: subset called for sample that does not exist in header: "HU_Pes_Pil_1_2019-10-21"... skipping
+Warn: subset called for sample that does not exist in header: "PA_Pan_Pan_1_2012-01-16"... skipping
+Warn: subset called for sample that does not exist in header: "TR_Ank_Yes_1_2021-07-27"... skipping
+Warn: subset called for sample that does not exist in header: "TR_Ank_Yes_1_2021-10-16"... skipping
+
+
+those do not exist, so let's replace... turkey doesnt exist cause its considered asia and i took out the asian populations 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

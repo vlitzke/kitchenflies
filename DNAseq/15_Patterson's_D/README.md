@@ -343,5 +343,18 @@ and on the x chrom
 
 plink is not happy with non-autosomal data, so I'm going to switch to eigensoft?
 
+
+####
+
+After meeting with Mike:
+1. Ask Paul if and why he has a max depth filter (of 50 I chose)
+2. For PCA keep a complete dataset of SNPs
+
+Okay so I took the kitchen fly data and just separated it out into autosomes and xchrom
+bcftools view SNPs_clean_ann_biallelic_filtered_nomissing.vcf.gz --regions 2L,2R,3L,3R,4 -Oz -o SNPs_clean_ann_biallelic_filtered_nomissing_autosomes.vcf.gz
+
+bcftools view SNPs_clean_ann_biallelic_filtered_nomissing.vcf.gz --regions X -Oz -o SNPs_clean_ann_biallelic_filtered_nomissing_xchrom.vcf.gz
+
+
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

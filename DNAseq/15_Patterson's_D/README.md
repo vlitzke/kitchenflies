@@ -373,6 +373,12 @@ but then found some of the samples were not yet in this file (might be slightly 
 
 those do not exist, so let's replace... turkey doesnt exist cause its considered asia and i took out the asian populations 
 
+list the SNPs: 
+zcat chosenDestSamples_xchrom.vcf.gz | grep -v "^#" | wc -l
+
+filter for no missing data:
+bcftools view -e 'GT="./."' -Oz -o chosenDestSamples_xchrom_nomissing.vcf.gz chosenDestSamples_xchrom.vcf.gz
+
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

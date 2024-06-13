@@ -355,7 +355,9 @@ bcftools view SNPs_clean_ann_biallelic_filtered_nomissing.vcf.gz --regions 2L,2R
 
 bcftools view SNPs_clean_ann_biallelic_filtered_nomissing.vcf.gz --regions X -Oz -o SNPs_clean_ann_biallelic_filtered_nomissing_xchrom.vcf.gz
 
-I then went to the dest bio dataset to see if I could pull out two samples from each main country
+I then went to the dest bio dataset to see if I could pull out two samples from each main country from the most recent years (looking for number of flies to make sure they are 40 and to check for DNA quality etc) and then I made a text file 
+
+`bcftools view -S chosenSamples.txt -Oz -o chosenDestSamples.vcf.gz destv2_full_SETS/destv2_EuAfSa_kitch_merged.vcf.gz` 
 
 
 Warn: subset called for sample that does not exist in header: "BR_Rio_San_1_2020-01-06"... skipping
@@ -366,7 +368,11 @@ Warn: subset called for sample that does not exist in header: "PA_Pan_Pan_1_2012
 Warn: subset called for sample that does not exist in header: "TR_Ank_Yes_1_2021-07-27"... skipping
 Warn: subset called for sample that does not exist in header: "TR_Ank_Yes_1_2021-10-16"... skipping
 
+but then found some of the samples were not yet in this file (might be slightly outdated) so i redid the sample list to include ones I did have an reran the command again 
+
 
 those do not exist, so let's replace... turkey doesnt exist cause its considered asia and i took out the asian populations 
+
+
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

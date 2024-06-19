@@ -388,5 +388,8 @@ so this was done for various datasets!
 can count the number of missing genotypes
 bcftools query -f '[\t%GT]\n' $input_vcf | grep -o '\./\.' | wc -l
 
+but then I realized how I merged them actually changes the amount of total SNPs, so I looked at the intersection of the two ways: `bcftools isec -n  +2 merged_allNoMissing_autosomes.vcf.gz merged_autosomes_complete.vcf.gz | bgzip -c > isec_SNPs_autosomes.vcf.gz
+`  and then i checked the number with zcat. and it seems like the 60,000 and 5k for x chrom are the SNPs to use as complete (they completely intersect with the other SNPs that were merged differently). 
+
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

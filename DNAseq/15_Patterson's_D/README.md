@@ -392,5 +392,17 @@ but then I realized how I merged them actually changes the amount of total SNPs,
 `  and then i checked the number with zcat. and it seems like the 60,000 and 5k for x chrom are the SNPs to use as complete (they completely intersect with the other SNPs that were merged differently). 
 Take out samples by year - `vcftools --gzvcf merged_autosomes.vcf.gz --max-alleles 2 --remove-ind F1_20,F2_20, etc --recode --stdout | bgzip -c > merged_autosomes_F19.vcf.gz`
 
+### so for merged (with missing) + merged complete (no missing)
+plink --vcf $VCF --double-id --allow-extra-chr \
+--set-missing-var-ids @:# \
+--indep-pairwise 50 10 0.1 --out cichlids
+
+plink --vcf merged.vcf.gz --double-id --allow-extra-chr --set-missing-var-ids @:# \
+--extract merged.prune.in \
+--make-bed --out merged
+
+then have to convert it back to vcf
+plink --bfile pruned_dataset --recode vcf --out pruned_dataset_vcf
+
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

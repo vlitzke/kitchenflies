@@ -404,7 +404,7 @@ plink --vcf merged.vcf.gz --double-id --allow-extra-chr --set-missing-var-ids @:
 then have to convert it back to vcf
  plink --bfile merged --allow-extra-chr --recode vcf --out merged_pruned
 
- all in the merge_prune folder and now i copied back the final vcf files to scratch
+ all in the merge_prune folder and now i copied back the final vcf files to scratch and bgzpipped them. 
 
 now i have to separate them back out by year and sex 
 

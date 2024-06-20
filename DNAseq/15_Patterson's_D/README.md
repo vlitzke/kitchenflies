@@ -413,5 +413,8 @@ plink --vcf merged_autosomes_complete_F19.vcf.gz --double-id --allow-extra-chr -
 
 to get the eigenvalues for each...
 
+just checked though, the other IDs are still there....
+
+
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.
 [^2]: Malinsky, M., Matschiner, M., & Svardal, H. (2021). Dsuite‐Fast D‐statistics and related admixture evidence from VCF files. Molecular ecology resources, 21(2), 584-595.

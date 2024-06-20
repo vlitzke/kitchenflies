@@ -404,6 +404,8 @@ plink --vcf merged.vcf.gz --double-id --allow-extra-chr --set-missing-var-ids @:
 then have to convert it back to vcf
  plink --bfile merged --allow-extra-chr --recode vcf --out merged_pruned
 
+ all in the merge_prune folder and now i copied back the final vcf files to scratch
+
 now i have to separate them back out by year and sex 
 
 [^1]: Kapun, M., Nunez, J. C., Bogaerts-Márquez, M., Murga-Moreno, J., Paris, M., Outten, J., ... & Bergland, A. O. (2021). Drosophila evolution over space and time (DEST): a new population genomics resource. Molecular biology and evolution, 38(12), 5782-5805.

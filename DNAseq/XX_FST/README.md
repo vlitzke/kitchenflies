@@ -181,4 +181,42 @@ python scripts/PoolGen_var.py \
 --min-sites-frac 0.75 \
 --output Popgen
 ```
+
+
+
+# Getting FST by gene
+
+First I think I need to separate them out to just autotomes + X Chromosome? or not who cares. 
+Then to separate out by Batch / Year (B1_19) because I want to run FST on sexes 
+
+Then convert to a bed file
+vcf2ned 
+.....
+
+First you need to download bedops to convert vcf files to bed files (you need them)
+then you need a population file 
+
+then you need to install pixy 
+
+
+With Pixy 
+download it 
+
+vcf2bed --max-mem 2G  < <(gunzip -c SNPs_clean_ann_biallelic_filtered_nomissing_19B1.vcf.gz)  > SNPs_clean_ann_biallelic_filtered_nomissing_19B1.bed
+
+pixy --stats fst --vcf SNPs_clean_ann_biallelic_filtered_nomissing_19B1.vcf.gz --populations 19B1.txt --bed_file SNPs_clean_ann_biallelic_filtered_nomissing_19B1.bed --bypass_invariant_check yes --output_prefix 19B1
+
+for real names: less dmel-all-r6.58.gff | sed '/^#/d' | awk '$3=="gene"' | awk '{print $1, $4, $5, $9}' | cut -d'=' -f3 | cut -d';' -f1 > flybase_realgenenames.id
+
+paste dmel-gene-r6.58.tmp flybaseIDs.tmp > dmel-gene-coords-flybaseIDs.bed
+
+
+
+sed gets rid of header
+Add tab: -v FS='\t' -v OFS='\t
+
+
+less dmel-all-r6.58.gff | sed '/^#/d' | awk '$3=="gene"' | awk -v FS='\t' -v OFS='\t' '{print $1, $4, $5}' > dmel-gene-r6.58.tmp
+
+
 [^1]: https://sourceforge.net/p/popoolation2/

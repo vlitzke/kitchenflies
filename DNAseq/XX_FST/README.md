@@ -218,5 +218,14 @@ Add tab: -v FS='\t' -v OFS='\t
 
 less dmel-all-r6.58.gff | sed '/^#/d' | awk '$3=="gene"' | awk -v FS='\t' -v OFS='\t' '{print $1, $4, $5}' > dmel-gene-r6.58.tmp
 
+Okay this didn't work
+
+so we're going to use popoolation but I realized I cannot simply use the vcf2sync file from martin (I tried playing around with the python version etc, the syntax is just too different and I can't understand what is what) 
+
+So now I'm going to go back to the original bam files, convert them to mpileup by comparison
+samtools mpileup -B /mnt/shared/scratch/vlitzke/kitchenflies/DNA/2_Process/combined/1_bamfiles/F1_20_library-dedup_rg_InDel.bam  /mnt/shared/scratch/vlitzke/kitchenflies/DNA/2_Process/combined/1_bamfiles/M1_20_library-dedup_rg_InDel.bam > 20B1.mpileup
+
+then eventually go to popoolation using the sync files but I am unsure of if they are all biallelic sites or not....
+apparently theres a popoolation2helper? at least something to make sure.
 
 [^1]: https://sourceforge.net/p/popoolation2/

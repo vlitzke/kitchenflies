@@ -226,6 +226,8 @@ So now I'm going to go back to the original bam files, convert them to mpileup b
 samtools mpileup -B /mnt/shared/scratch/vlitzke/kitchenflies/DNA/2_Process/combined/1_bamfiles/F1_20_library-dedup_rg_InDel.bam  /mnt/shared/scratch/vlitzke/kitchenflies/DNA/2_Process/combined/1_bamfiles/M1_20_library-dedup_rg_InDel.bam > 20B1.mpileup
 
 then eventually go to popoolation using the sync files but I am unsure of if they are all biallelic sites or not....
-apparently theres a popoolation2helper? at least something to make sure.
+apparently theres a popoolation2helper? at least something to make sure. don't really need it I think 
+
+I get thrown an error with using 6.54 or 6.58 of the dros gtf file: "all features of a gene have to be on the same strandl Problem for FBgn0002781 at ...line 334, <$ifh> line 116254." -  found on the internet someone just deletes it, so I did the same (https://sourceforge.net/p/popoolation2/tickets/44/)
 
 [^1]: https://sourceforge.net/p/popoolation2/

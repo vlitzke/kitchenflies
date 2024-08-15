@@ -218,7 +218,7 @@ Add tab: -v FS='\t' -v OFS='\t
 
 less dmel-all-r6.58.gff | sed '/^#/d' | awk '$3=="gene"' | awk -v FS='\t' -v OFS='\t' '{print $1, $4, $5}' > dmel-gene-r6.58.tmp
 
-Okay this didn't work
+Okay this didn't work, its listed complete 0.0 down the line, so I will try with the not as conservative/filtered dataset and see what happens. 
 
 so we're going to use popoolation but I realized I cannot simply use the vcf2sync file from martin (I tried playing around with the python version etc, the syntax is just too different and I can't understand what is what) 
 

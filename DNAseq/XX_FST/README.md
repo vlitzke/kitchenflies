@@ -230,4 +230,6 @@ apparently theres a popoolation2helper? at least something to make sure. don't r
 
 I get thrown an error with using 6.54 or 6.58 of the dros gtf file: "all features of a gene have to be on the same strandl Problem for FBgn0002781 at ...line 334, <$ifh> line 116254." -  found on the internet someone just deletes it, so I did the same (https://sourceforge.net/p/popoolation2/tickets/44/)
 
+then i ran the the create syncwise file but it takes so long, so paul wrote a script so i could do it by chromosme but it gets stuck /keeps running for the 3R 
+
 [^1]: https://sourceforge.net/p/popoolation2/

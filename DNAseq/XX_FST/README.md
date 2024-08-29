@@ -232,4 +232,11 @@ I get thrown an error with using 6.54 or 6.58 of the dros gtf file: "all feature
 
 then i ran the the create syncwise file but it takes so long, so paul wrote a script so i could do it by chromosme but it gets stuck /keeps running for the 3R 
 
+he divided it up into 100 gene chunks and one of them still did't run so we're going to ignore 100 genes on the 3R chrom
+
+then I concatendated: 
+cat 2024_08_23_04_geneFST/k23B2_genes_onlyGF_2L_genewise.fst 2024_08_23_04_geneFST/k23B2_genes_onlyGF_2R_genewise.fst 2024_08_23_04_geneFST/k23B2_genes_onlyGF_3L_genewise.fst 2024_08_23_04_geneFST/k23B2_genes_onlyGF_3R_genewise.fst 2024_08_23_04_geneFST/k23B2_genes_onlyGF_4_genewise.fst > 2024_08_29_merged/k23B2_autosomes.fst
+
+and moved the x chrom over
+
 [^1]: https://sourceforge.net/p/popoolation2/

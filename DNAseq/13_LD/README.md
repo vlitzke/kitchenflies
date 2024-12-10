@@ -65,23 +65,6 @@ then
 
 cat thinned_ld.ld | sed 1,1d | awk -F " " 'function abs(v) {return v < 0 ? -v : v}BEGIN{OFS="\t"}{print abs($5-$2),$7}' | sort -k1,1n > thinned.ld.summary
 
-Or you can use tomahawk (https://www.biostars.org/p/347796/)
-
-1. Thin down your vcf.gz file to about 20,000 SNPs: `vcftools --gzvcf fileName.vcf.gz --recode --recode-INFO-all --thin 6000 --out XXX`
-2. convert vcf to bcf (you need tabix indexed, see step 12): `bcftools view fileName.vcf -O b -o fileName.bcf`
-
-3.
-```
-git clone --recursive https://github.com/mklarqvist/tomahawk
-cd tomahawk
-make
-```
-
-./install.sh local
-
-4. tomahawk import -i snp.bcf -o snp -m 0.2 -h 0.001
-5. 
-
 ## Pruning
 It seems like there is not really a solid consensus on how pruning should be done. So here are a few options:
 

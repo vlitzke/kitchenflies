@@ -36,6 +36,10 @@ SNPRelate:
 https://www.bioconductor.org/packages/devel/bioc/vignettes/SNPRelate/inst/doc/SNPRelate.html?fbclid=IwAR02IuopU_QxEXTDbsmZ_sPrsAj4PbJyJqSGjEEc98lmWtbDoCnwnqtJMN4
 https://amakukhov.github.io/Bio381/RPresentationCode_04_19_17.html?fbclid=IwAR3N9gOtslKU2CU0ctI6c0BrRxTwBUcJWeEO6D4Tkr5UllK5h4jF_bjbBnA
 
+
+GLM AF Values as response variable for(i in SNP){ AF ~ Site + Year + Batch|Year
+
+Chord diagram : R Package circlize
 bcftools: https://samtools.github.io/bcftools/bcftools.html#view
 
 Tomahawk for LD: https://www.royfrancis.com/fast-ld-computation-from-vcf-files-using-tomahawk/?fbclid=IwAR2bjx46Tszu_Btu95vHBottE--ZpdUM7x3HvirxC06_JUStYfeCL_VaqJg#:~:text=Thinning%20VCF&text=Use%20vcftools%20to%20thin%20down%20a%20VCF%20file.&text=The%20argument%20%2D%2Dthin%2050000,SNPs%20in%20the%20thinned%20file
